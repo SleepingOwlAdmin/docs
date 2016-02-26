@@ -21,6 +21,12 @@ AdminFormElement::text('title', 'Title')
 AdminFormElement::text('title', 'Title')
     ->addValidationRule('required', 'Поле обязательно для заполнения')
     ->addValidationRule('number', 'Поле должно быть числом');
+    
+// Или
+
+AdminFormElement::text('title', 'Title')
+    ->required()
+    ->addValidationMessage('required', 'Поле обязательно для заполнения');
 ```
 
 Список доступных правил можно посмотреть здесь: https://laravel.com/docs/5.0/validation#available-validation-rules
