@@ -19,5 +19,6 @@
 	- [Столбцы](columns)
 	- [Фильтры столбцов](columnfilters)
 	- [Формы](form)
+	- [HTML атрибуты](html_attributes)
 - Прочее
   - [Вопрос-ответ](faq)
