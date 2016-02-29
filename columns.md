@@ -22,9 +22,9 @@ AdminDisplay::table()
 ## Поддерживаемые типы
 
  - `AdminColumn::action($name)`
- - `AdminColumn::checkbox($name)`
+ - `AdminColumn::checkbox()`
  - `AdminColumn::count($name)`
- - `AdminColumn::custom($name)`
+ - `AdminColumn::custom()`
  - `AdminColumn::datetime($name)`
  - `AdminColumn::email($name)`
  - `AdminColumn::string($name)`
@@ -32,7 +32,7 @@ AdminDisplay::table()
  - `AdminColumn::relatedLink($name)`
  - `AdminColumn::lists($name)`
  - `AdminColumn::image($name)`
- - `AdminColumn::order($name)`
+ - `AdminColumn::order()`
  
 ## Заголовок стобца
 
