@@ -3,51 +3,63 @@
 [Команда install](command_install) публикует конфиг SleepingOwl Admin автоматически. Если вы хотите опубликовать конфиг вручную выполните эту команду:
 
 ```bash
-$ php artisan vendor:publish --provider="SleepingOwl\Admin\SleepingOwlServiceProvider" --tag="config"
+$ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwlServiceProvider" --tag="config"
 ```
 
 ## Параметры конфигурации
 
-### title
+#### `title`
 
 Строка для отображения в заголовке страницы.
 
-### title_mini
+#### `logo`
 
-Короткий заголовок при свернутой панели меню. Формат: html.
+Логотип отображаемый в верхней панели
 
-### prefix
+#### `logo_mini`
+
+Логотип отображаемый в верхней панели при минимизированной боковой панели
+
+#### `url_prefix`
 
 Префикс адреса для административного модуля.
 
 По умолчанию: `admin`
 
-### middleware
+#### `middleware`
 
 Middleware, который ограничивают административный модуль от доступа неавторизованных пользователей.
 
-По умолчанию: `['web']`
+По умолчанию: `['web', 'auth']`
 
-### bootstrapDirectory
+#### `bootstrapDirectory`
 
 Путь к директории автозапуска SleepingOwl Admin. Располагайте там ваши конфигурацию моделей, конфигурацию меню, кастомные столбцы и элементы форм. Каждый `.php` файл в этой директории будет подключен.
 
 По умолчанию: `app_path('Admin')`
 
-### imagesUploadDirectory
+#### `imagesUploadDirectory`
 
 Путь к директории изображений. Относительно вашей public директории.
 
 По умолчанию: `'images/uploads'`
 
-### template
+#### `template`
 
-Используемый шаблон.
+Класс используемого шаблона (должен быть наследован от `SleepingOwl\Admin\Contracts\TemplateInterface`)
 
 По умолчанию: `SleepingOwl\Admin\Templates\TemplateDefault::class`
 
-### datetimeFormat, dateFormat, timeFormat
+#### `datetimeFormat`, `dateFormat`, `timeFormat`
 
 Формат даты и времени для использования в столбцах и элементах формы по умолчанию
 
 По умолчанию: `'d.m.Y H:i', 'd.m.Y', 'H:i'`
+
+#### `providers`
+
+Инициализируемые сервис провайдеры. Возможность изменять основное поведение пакета.
+
+#### `aliases`
+
+Алиасы, которые инициализируются пакетом. 
