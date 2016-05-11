@@ -64,8 +64,8 @@ AdminDisplay::table()
     $link->getHeader()
         ->setTitle('Title')
         ->setOrderable(false)
-        ->setAttribute('class', 'bg-success text-center')
-        ->setAttribute('data-tooltip', 'Test tooltip');
+        ->setHtmlAttribute('class', 'bg-success text-center')
+        ->setHtmlAttribute('data-tooltip', 'Test tooltip');
 ```
 
 ## Запрет на сортировку по столбцу
