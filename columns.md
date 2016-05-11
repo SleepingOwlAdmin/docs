@@ -16,7 +16,7 @@ AdminDisplay::table()
 все столбцы, реализует интерфейсы `Illuminate\Contracts\Support\Arrayable` и 
 `Illuminate\Contracts\Support\Renderable`
 
-В классах столбцов используется трейт [HtmlAttributes](html_attributes),
+В классах столбцов используется трейт [HtmlAttributes](html_attributes.md),
 с помощью которого для всех столбцов можно настраивать HTML атрибуты.
 
 ## Поддерживаемые типы
