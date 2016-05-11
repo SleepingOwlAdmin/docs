@@ -52,22 +52,22 @@ $column = new TableColumn();
 $column->setHtmlAttribute('class', 'bg-primary');
 $column->setHtmlAttribute('class', 'text-right');
 $column->setHtmlAttribute('id', 'row-3');
-$column->setHtmlAttribute('data-valie', 'test');
+$column->setHtmlAttribute('data-value', 'test');
 
 // Or
 
 $column->setHtmlAttributes([
    'class' => ['bg-primary', 'text-right'],
    'id' => 'row-3',
-   'data-valie' => 'test'
+   'data-value' => 'test'
 ]);
 
-// return <td class="bg-primary text-right" id="row-3" data-valie="test">test</td>
+// return <td class="bg-primary text-right" id="row-3" data-value="test">test</td>
 
 // Переопределение класса
 $column->replaceHtmlAttribute('class', 'new-class');
 
-// return <td class="new-class" id="row-3" data-valie="test">test</td>
+// return <td class="new-class" id="row-3" data-value="test">test</td>
 
 // Проверка на существование класса 
 $column->hasClassProperty('new-class'); // return true
@@ -84,5 +84,5 @@ $column->clearHtmlAttributes();
 
 // Преобразование атрибутов в строку
 $column->htmlAttributesToString();
-// return "class="new-class" id="row-3" data-valie="test""
+// return "class="new-class" id="row-3" data-value="test""
 ```
