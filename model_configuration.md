@@ -208,3 +208,58 @@ protected $policies = [
 После чего раздел будет использовать этот policy для проверки прав доступа.
 
 Данный механизм позволяет очень гибко настраивать права доступа к каждому разделу.
+
+
+
+## События
+
+У вас есть возможность подписаться на события создания, редактирования, удаления и восстановления записей в разделе.
+
+```php
+AdminSection::registerModel(Company::class, function (ModelConfiguration $model) { 
+
+    // Создание записи
+    $model->creating(function(ModelConfiguration $model, Company $company) {
+        // Если вернуть false, то создание будет прервано
+    });
+    
+    $model->created(function(ModelConfiguration $model, Company $company) {
+    
+    });
+    
+    // Обновление записи
+    $model->updating(function(ModelConfiguration $model, Company $company) {
+        // Если вернуть false, то обновление будет прервано
+    });
+    
+    $model->updated(function(ModelConfiguration $model, Company $company) {
+    
+    });
+    
+    // Удаление записи
+    $model->deleting(function(ModelConfiguration $model, Company $company) {
+        // Если вернуть false, то удаление будет прервано
+    });
+    
+    $model->deleted(function(ModelConfiguration $model, Company $company) {
+    
+    });
+    
+    // Восстановление записи
+    $model->restoring(function(ModelConfiguration $model, Company $company) {
+        // Если вернуть false, то восстановление будет прервано
+    });
+    
+    $model->restored(function(ModelConfiguration $model, Company $company) {
+    
+    });
+});
+```
+
+Также чисто теоретически можно подписаться на событие следующим образом
+
+```php
+Even::listen('sleeping_owl.section.updating:'.Company::class, function(ModelConfiguration $model, Company $company) {
+
+});
+```
