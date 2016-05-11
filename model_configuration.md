@@ -32,6 +32,14 @@ AdminSection::registerModel(Company::class, function (ModelConfiguration $model)
     ->setIcon('fa fa-bank');
 ```
 
+По умолчанию раздел будет доступен по ссылке `admin/companies`, т.е. будет взяно название класса в множественной форме. Для указания собственного пути, необходимо использовать метод `setAlias`
+
+```php
+...
+$model->setAlias('subdir/companies');
+...
+```
+
 ## Всплывающие сообщения при совершении действий
 
 Вы можете изменить текст сообщений, который отображается при добавлении, редактировании и удалении записи.
@@ -209,8 +217,6 @@ protected $policies = [
 
 Данный механизм позволяет очень гибко настраивать права доступа к каждому разделу.
 
-
-
 ## События
 
 У вас есть возможность подписаться на события создания, редактирования, удаления и восстановления записей в разделе.
@@ -262,4 +268,25 @@ AdminSection::registerModel(Company::class, function (ModelConfiguration $model)
 Even::listen('sleeping_owl.section.updating:'.Company::class, function(ModelConfiguration $model, Company $company) {
 
 });
+```
+
+## Переопределение контроллера
+
+В случае если вы хотите использовать собственный контроллер используйте метод `setControllerClass`
+
+```php
+AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
+    ...
+    $model->setControllerClass(UserController::class);
+    ...
+});
+```
+
+```php
+namespace App\Http\Controllers;
+
+class UserController extends \SleepingOwl\Admin\Http\Controllers\AdminController
+{
+    ...
+}
 ```
