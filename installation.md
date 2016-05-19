@@ -15,3 +15,22 @@
 ```
 SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
 ```
+
+**Пример**
+```php
+    ...
+    /*
+     * SleepingOwl Service Provider
+     */
+      SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
+
+      /*
+     * Application Service Providers...
+     */
+    App\Providers\AppServiceProvider::class,
+    ...
+```
+
+После чего выполняем команду `php artisan sleepingowl:install`.
+
+Все, инсталляция завершена, можно переходить к [настройке](configuration).
