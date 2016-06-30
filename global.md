@@ -39,10 +39,10 @@
 
 ### Регистрируемые сервис контейнеры:
 
-- `sleeping_owl` - `SleepingOwl\Admin\Admin`
-- `sleeping_owl.template` - `SleepingOwl\Admin\Templates\TemplateDefault`
-- `sleeping_owl.navigation` - `SleepingOwl\Admin\Navigation`
-- `sleeping_owl.wysiwyg` - `SleepingOwl\Admin\Wysiwyg\Manager`
+- AdminSection - `sleeping_owl` - `SleepingOwl\Admin\Admin`
+- AdminTemplate - `sleeping_owl.template` - `SleepingOwl\Admin\Templates\TemplateDefault`
+- AdminNavigation - `sleeping_owl.navigation` - `SleepingOwl\Admin\Navigation`
+- WysiwygManager - `sleeping_owl.wysiwyg` - `SleepingOwl\Admin\Wysiwyg\Manager`
 
 Также для удобства работы с данными, классы полей, таблиц, форм и т.д. собраны в отдельные группы (https://github.com/LaravelRUS/SleepingOwlAdmin/blob/master/src/Providers/AliasesServiceProvider.php),
 доступ к данным каждой группы также осуществляется через сервис контейнер
