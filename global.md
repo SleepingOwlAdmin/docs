@@ -33,6 +33,10 @@
 - Регистрация фасадов из конфига `sleeping_owl`
 - Регистрация консольных команд
 
+Если вам необходимо заменить системный шаблон, то необходимо поместить его `resources\views\vendor\sleeping_owl\default\`, т.е. 
+если есть шаблон по пути `sleepingowl\src\resources\default\display\extensions\columns.blade.php`, то путь в системе должен быть 
+`resources\views\vendor\sleeping_owl\default\display\extensions\columns.blade.php`
+
 ### Регистрируемые сервис контейнеры:
 
 - `sleeping_owl` - `SleepingOwl\Admin\Admin`
