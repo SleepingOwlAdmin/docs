@@ -605,6 +605,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
 
 ### creating
 Событие срабатываемое в процессе создания записи (В случае если метод возвращает `false`, запись не будет создана)
+
      SleepingOwl\Admin\Model\ModelConfigurationManager::creating(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
 
 * Доступ: **public**
