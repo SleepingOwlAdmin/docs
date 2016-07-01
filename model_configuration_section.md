@@ -142,7 +142,7 @@ class Roles extends Section implements Initializable
      *
      * @return bool
      */
-    public function isDeletable(Model $model)
+    public function isDeletable(\Illuminate\Database\Eloquent\Model $model)
     {
         return false;
     }
