@@ -290,3 +290,216 @@ class UserController extends \SleepingOwl\Admin\Http\Controllers\AdminController
     ...
 }
 ```
+
+# API (Доступные методы)
+
+### setAlias
+Установка алиаса ссылки для раздела *(По умолчанию название класса модели во множественном числе)*
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setAlias(string $alias)
+
+```php
+$model->setAlias('manage/user');
+```
+
+### setTitle
+Установка заголовка для раздела *(По умолчанию название класса модели во множественном числе)*
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setTitle(string $title)
+
+
+### setCreateTitle
+Установка заголовка для страницы создания
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setCreateTitle(string $title)
+
+### setUpdateTitle
+Установка заголовка для страницы редактирования
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setUpdateTitle(string $title)
+
+### onDisplay
+Описание данных для вывода списка записей на страницы 
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onDisplay(\Closure $callback)
+
+### onCreate
+Описание формы для страницы создания записи (Форму редактирования необходимо будет описывать отдельно)
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onCreate(\Closure|null $callback)
+
+### onEdit
+Описание формы для страницы редактирования записи (Форму создания необходимо будет описывать отдельно)
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onEdit(\Closure|null $callback)
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан идентификатор записи
+
+
+### onCreateAndEdit
+Описание формы для страницы создания и редактирования записи
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onCreateAndEdit(\Closure|null $callback)
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан идентификатор записи
+
+
+### onDelete
+Код, который будет выполнен в момент удаления записи
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onDelete(\Closure|null $callback)
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан идентификатор записи
+
+
+### onDestroy
+Код, который будет выполнен в момент окончательного удаления записи (в случае если запись помечена как удаленная)
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onDestroy(\Closure|null $callback)
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан идентификатор записи
+
+### onRestore
+Код, который будет выполнен в момент восстановления записи
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onRestore(\Closure|null $callback)
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан идентификатор записи
+
+
+### disableDisplay
+Запрет страницы просмотра списка записей раздела
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::disableDisplay()
+
+
+### disableCreating
+Запрет создания записей
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::disableCreating()
+
+### disableEditing
+Запрет редактирования записей
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::disableEditing()
+
+### disableDeleting
+Запрет удаления записей
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::disableDeleting()
+
+
+### disableDestroying
+Запрет окончательного удаления записей (в случае если запись помечена как удаленная)
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::disableDestroying()
+
+### disableRestoring
+Запрет восстановления записей
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::disableRestoring()
+
+
+### enableAccessCheck
+Включение проверки прав доступа для раздела (Для проверки прав доступа используется `Gate`. По умолчанию доступ запрещен для всех)
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::enableAccessCheck()
+
+### disableAccessCheck
+Выключение проверки прав доступа
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::disableAccessCheck()
+
+### setMessageOnCreate
+Установка текста сообщения отображаемого после создания записи
+
+    mixed SleepingOwl\Admin\Model\ModelConfiguration::setMessageOnCreate(string $messageOnCreate)
+
+### setMessageOnUpdate
+Установка текста сообщения отображаемого после обновления записи
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setMessageOnUpdate(string $messageOnUpdate)
+
+### setMessageOnDelete
+Установка текста сообщения отображаемого после удаления записи
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setMessageOnDelete(string $messageOnDelete)
+
+### setMessageOnDestroy
+Установка текста сообщения отображаемого после окончательного удаления записи (в случае если запись помечена как удаленная)
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setMessageOnDestroy(string $messageOnDestroy)
+
+### setMessageOnRestore
+Установка текста сообщения отображаемого после восстановления записи
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setMessageOnRestore(string $messageOnRestore)
+
+
+### setControllerClass
+Установка названия класса, который будет использован для работы с данными раздела
+
+    \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::setControllerClass(string $controllerClass)
+
+### setIcon
+Установка иконки для раздела (Будет отображаться в меню)
+
+    \SleepingOwl\Admin\Model\ModelConfigurationManager SleepingOwl\Admin\Model\ModelConfigurationManager::setIcon(string $icon)
+
+
+### addToNavigation
+Добавление раздела в меню
+
+    \SleepingOwl\Admin\Navigation\Page SleepingOwl\Admin\Model\ModelConfigurationManager::addToNavigation(integer $priority, string|\Closure|\KodiComponents\Navigation\Contracts\BadgeInterface $badge)
+
+#### Arguments
+* $priority **integer** Приоритет вывода в списке
+* $badge **string|Closure|KodiComponents\Navigation\Contracts\BadgeInterface** Текст или класс бейджа, который отображается рядом с пунктом меню (Например кол-во записей)
+
+### creating
+Событие срабатываемое в процессе создания записи (В случае если метод возвращает false, запись не будет создана) 
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::creating(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+
+### created
+Событие срабатываемое после создания записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::created(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+### updating
+Событие срабатываемое в процессе обновления записи (В случае если метод возвращает false, запись не будет обновлена)
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::updating(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+### updated
+Событие срабатываемое после обновления записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::updated(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+### deleting
+Событие срабатываемое в процессе удаления записи (В случае если метод возвращает false, запись не будет удалена)
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::deleting(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+
+### deleted
+Событие срабатываемое после удаления записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::deleted(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+
+### restoring
+Событие срабатываемое в процессе восстановления записи (В случае если метод возвращает false, запись не будет восстановлена)
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::restoring(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+### restored
+Событие срабатываемое после восстановления записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::restored(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
