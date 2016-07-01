@@ -71,6 +71,10 @@ class Roles extends Section implements Initializable
         $this->addToNavigation($priority = 500, function() {
             return \App\Role::count();
         });
+        
+        $this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
+            ...
+        });
     }
 
     /**
@@ -606,64 +610,88 @@ class AdminSectionsServiceProvider extends ServiceProvider
 ### creating
 Событие срабатываемое в процессе создания записи (В случае если метод возвращает `false`, запись не будет создана)
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::creating(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::creating(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### created
 Событие срабатываемое после создания записи
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::created(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::created(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 
 ### updating
 Событие срабатываемое в процессе обновления записи (В случае если метод возвращает `false`, запись не будет обновлена)
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::updating(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::updating(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### updated
 Событие срабатываемое после обновления записи
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::updated(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::updated(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### deleting
 Событие срабатываемое в процессе удаления записи (В случае если метод возвращает `false`, запись не будет удалена)
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::deleting(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::deleting(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### deleted
 Событие срабатываемое после удаления записи
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::deleted(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::deleted(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restoring
 Событие срабатываемое в процессе восстановления записи (В случае если метод возвращает `false`, запись не будет восстановлена)
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::restoring(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::restoring(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restored
 Событие срабатываемое после восстановления записи
 
-     SleepingOwl\Admin\Model\ModelConfigurationManager::restored(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::restored(Closure $callback)
 
 * Доступ: **public**
 * Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+#### Arguments
+* $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
