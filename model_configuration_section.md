@@ -121,6 +121,7 @@ class Roles extends Section implements Initializable
      */
     public function onCreate()
     {
+        // Создание и редактирование записи идентичны, поэтому перенаправляем на метод редактирования
         return $this->onEdit(null);
     }
     
