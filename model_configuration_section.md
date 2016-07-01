@@ -252,7 +252,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
 SleepingOwl\Admin\Model\SectionModelConfiguration
 ==
 
-Properties
+Параметры
 ----------
 
 
@@ -291,7 +291,7 @@ Properties
 
     protected boolean $checkAccess = false
 
-Methods
+Методы
 -------
 
 ### __construct
