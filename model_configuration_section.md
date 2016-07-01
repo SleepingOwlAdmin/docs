@@ -249,9 +249,6 @@ class AdminSectionsServiceProvider extends ServiceProvider
 
 # API
 
-SleepingOwl\Admin\Model\SectionModelConfiguration
-==
-
 Параметры
 ----------
 
