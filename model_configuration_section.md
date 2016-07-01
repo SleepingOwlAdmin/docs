@@ -246,3 +246,426 @@ class AdminSectionsServiceProvider extends ServiceProvider
 ```
 
 что позволит польностью отказаться от директории `app/Admin`
+
+# API
+
+SleepingOwl\Admin\Model\SectionModelConfiguration
+==
+
+Properties
+----------
+
+
+### $class
+Название класса модели используемого разделом
+
+    protected string $class
+
+### $model
+Инстанс класса модели 
+
+    protected \Illuminate\Database\Eloquent\Model $model
+
+### $alias
+Путь в ссылке, по которому доступен раздел (**По умолчанию** название модели во множественном числе)
+
+    protected string $alias
+
+### $controllerClass
+Название класса используемого в качестве контроллера для работы с разделом
+
+    protected string $controllerClass
+
+### $title
+Название раздела
+
+    protected string $title
+
+### $icon
+Иконка раздела (Используется также при генерации пунктов меню навигации)
+
+    protected string $icon
+
+### $checkAccess
+Параметр отвечающий за проверку прав доступа к разделу, если `true`, то будет включена проверка прав
+
+    protected boolean $checkAccess = false
+
+Methods
+-------
+
+### __construct
+Конструктор класса
+
+    mixed SleepingOwl\Admin\Model\ModelConfigurationManager::__construct(string $class)
+
+* Доступ: **public**
+* This method is defined by `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### isCreatable
+Проверка на возможность создание записи в разделе (Если не существует метод `onCreate` вернет `false`)
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::isCreatable()
+
+* Доступ: **public**
+* This method is defined by `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+
+### isDisplayable
+Проверка на возможность отображение списка записей раздела (Если не существует метод `onDisplay` вернет `false`)
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::isDisplayable()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### isDeletable
+Проверка на возможность удаления записи раздела
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::isDeletable(\Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### isDestroyable
+Проверка на возможность окончательного удаления записи раздела
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::isDestroyable(\Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### isRestorable
+Проверка на возможность восстановления записи раздела
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::isRestorable(\Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### isRestorableModel
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::isRestorableModel()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### isEditable
+Проверка на возможность редактирование записи в разделе (Если не существует метод `onEdit` вернет `false`)
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::isEditable(\Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* This method is defined by `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### fireCreate
+Запуск построения формы создания записи
+
+    FormInterface|void SleepingOwl\Admin\Model\SectionModelConfiguration::fireCreate()
+
+* Доступ: **public**
+
+### fireFullEdit
+Запуск построения формы редактирования записи
+
+    \SleepingOwl\Admin\Model\SectionModelConfiguration SleepingOwl\Admin\Model\SectionModelConfiguration::fireFullEdit(integer $id)
+
+* Доступ: **public**
+
+### fireDelete
+Метод вызывается в момент удаления записи
+
+    void SleepingOwl\Admin\Model\SectionModelConfiguration::fireDelete(int $id)
+
+* Доступ: **public**
+
+### fireDestroy
+Метод вызывается в момент удаления записи (Удаление в случае если запись была помечена как удалена `SoftDelete`)
+
+    mixed SleepingOwl\Admin\Model\SectionModelConfiguration::fireDestroy(int $id)
+
+* Доступ: **public**
+
+### fireRestore
+Метод вызывается в момент восстановления записи
+
+    boolean|mixed SleepingOwl\Admin\Model\SectionModelConfiguration::fireRestore(int $id)
+
+* Доступ: **public**
+
+### getClass
+Получение названия класса модели 
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getClass()
+
+* Доступ: **public**
+* This method is defined by `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getModel
+Получение инстанса класса модели
+
+    \Illuminate\Database\Eloquent\Model SleepingOwl\Admin\Model\ModelConfigurationManager::getModel()
+
+* Доступ: **public**
+* This method is defined by `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+
+### getTitle
+Получение заголовка раздела
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getTitle()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getIcon
+Получение иконки раздела
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getIcon()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### setIcon
+Установка нового значения иконки
+
+    \SleepingOwl\Admin\Model\ModelConfigurationManager SleepingOwl\Admin\Model\ModelConfigurationManager::setIcon(string $icon)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getAlias
+Получение алиаса модели
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getAlias()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getRepository
+Получение объекта репозитория для данной модели
+
+    \SleepingOwl\Admin\Contracts\RepositoryInterface SleepingOwl\Admin\Model\ModelConfigurationManager::getRepository()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getCreateTitle
+Получение заголовка для страницы создания
+
+    string|\Symfony\Component\Translation\TranslatorInterface SleepingOwl\Admin\Model\ModelConfigurationManager::getCreateTitle()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getEditTitle
+Получение заголовка для страницы редактирования
+
+    string|\Symfony\Component\Translation\TranslatorInterface SleepingOwl\Admin\Model\ModelConfigurationManager::getEditTitle()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### can
+Метод используется для проверки прав доступа (По умолчанию для проверки прав используется `Gate`). В данном методе
+можно указать свои правила для проверки прав.
+
+    boolean SleepingOwl\Admin\Model\ModelConfigurationManager::can(string $action, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getControllerClass
+Получение название класса контроллера
+
+    null|string SleepingOwl\Admin\Model\ModelConfigurationManager::getControllerClass()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getDisplayUrl
+Получение ссылки на просмотр списка записей
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getDisplayUrl(array $parameters)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getCreateUrl
+Получение ссылки на форму создания записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getCreateUrl(array $parameters)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getStoreUrl
+Получение ссылки на страницу обработки данных и создания записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getStoreUrl()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getEditUrl
+Получение ссылки на форму редактирования записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getEditUrl(string|integer $id)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getUpdateUrl
+Получение ссылки на страницу обработки данных и обновления записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getUpdateUrl(string|integer $id)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getDeleteUrl
+Получение ссылки на страницу удаления записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getDeleteUrl(string|integer $id)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getDestroyUrl
+Получение ссылки на страницу окончательного удаления записи (в случае если запись помечена как удаленная) 
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getDestroyUrl(string|integer $id)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getRestoreUrl
+Получение ссылки на страницу восстановления записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getRestoreUrl(string|integer $id)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+
+### getMessageOnCreate
+Получение текста отображаемого после успешного создания записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getMessageOnCreate()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getMessageOnUpdate
+Получение текста отображаемого после успешного обновления записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getMessageOnUpdate()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getMessageOnDelete
+Получение текста отображаемого после успешного удаления записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getMessageOnDelete()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### getMessageOnRestore
+Получение текста отображаемого после успешного восстановления записи
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getMessageOnRestore()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+
+### getMessageOnDestroy
+Получение текста отображаемого после успешного окончательного удаления записи (в случае если запись помечена как удаленная) 
+
+    string SleepingOwl\Admin\Model\ModelConfigurationManager::getMessageOnDestroy()
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+
+### addToNavigation
+Добавление раздела в меню
+
+    \SleepingOwl\Admin\Navigation\Page SleepingOwl\Admin\Model\ModelConfigurationManager::addToNavigation(integer $priority, string|\Closure|\KodiComponents\Navigation\Contracts\BadgeInterface $badge)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+
+##### Arguments
+* $priority **integer** Приоритет вывода в списке
+* $badge **string|Closure|KodiComponents\Navigation\Contracts\BadgeInterface** Текст или класс бейджа, который отображается рядом с пунктом меню (Например кол-во записей)
+
+### creating
+Событие срабатываемое в процессе создания записи (В случае если метод возвращает `false`, запись не будет создана)
+     SleepingOwl\Admin\Model\ModelConfigurationManager::creating(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### created
+Событие срабатываемое после создания записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::created(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+
+### updating
+Событие срабатываемое в процессе обновления записи (В случае если метод возвращает `false`, запись не будет обновлена)
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::updating(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### updated
+Событие срабатываемое после обновления записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::updated(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### deleting
+Событие срабатываемое в процессе удаления записи (В случае если метод возвращает `false`, запись не будет удалена)
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::deleting(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### deleted
+Событие срабатываемое после удаления записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::deleted(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### restoring
+Событие срабатываемое в процессе восстановления записи (В случае если метод возвращает `false`, запись не будет восстановлена)
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::restoring(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
+
+### restored
+Событие срабатываемое после восстановления записи
+
+     SleepingOwl\Admin\Model\ModelConfigurationManager::restored(\SleepingOwl\Admin\Contracts\ModelConfigurationInterface $config, \Illuminate\Database\Eloquent\Model $model)
+
+* Доступ: **public**
+* Метод определен в классе `SleepingOwl\Admin\Model\ModelConfigurationManager`
