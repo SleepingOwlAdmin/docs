@@ -3,6 +3,7 @@
   - [Руководство по обновлению](upgrade)
   - [Участие в разработке](contributions)
 - C чего начать
+  - [Описание работы системы](global.md)
 	- [Установка](installation)
 	- [Конфигурация](configuration)
 	- [Конфигурация меню](menu_configuration)
