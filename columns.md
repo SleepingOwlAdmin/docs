@@ -80,6 +80,7 @@ AdminForm::panel()
 
 ### setLabel
 Установка заголовка колонки
+
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setLabel(string $title)
 
 ### setName
@@ -89,10 +90,12 @@ AdminForm::panel()
     
 ### setWidth
 Установка ширины колонки
+
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setWidth(string $width)
     
 ### setView
 Установки view
+
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setView(string|\Illuminate\View\View $view)
     
 ### append
