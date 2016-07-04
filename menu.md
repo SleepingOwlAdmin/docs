@@ -4,14 +4,14 @@
   - [Участие в разработке](contributions)
 - C чего начать
   - [Описание работы системы](global.md)
-	- [Установка](installation)
-	- [Конфигурация](configuration)
-	- [Конфигурация меню](menu_configuration)
-	- [Конфигурация модели](model_configuration)
-	- [Конфигурация роутов](routes_configuration)
-	- [Авторизация](authentication)
-	- [Локализация](localization)
-	- [Валидация](validation)
+  - [Установка](installation)
+  - [Конфигурация](configuration)
+  - [Конфигурация меню](menu_configuration)
+  - [Конфигурация модели](model_configuration)
+  - [Конфигурация роутов](routes_configuration)
+  - [Авторизация](authentication)
+  - [Локализация](localization)
+  - [Валидация](validation)
 - Команды
 	- [Установка](command_install)
 - Ключевые понятия
