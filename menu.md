@@ -18,7 +18,7 @@
 - Ключевые понятия
 	- [Типы отображения данных](displays)
 	- [Фильтры](filters)
-	- [Столбцы](columns)
+	- [Колонки таблицы](columns)
 	- [Фильтры столбцов](columnfilters)
 	- [Формы](form)
 	- [HTML атрибуты](html_attributes)

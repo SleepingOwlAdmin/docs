@@ -1,6 +1,19 @@
 # Колонки таблицы
 
-Данные классы предназначены для добавления колонок в таблицу, а также вывод информации из модели в форме редактирования
+- [Введение](#introduction)
+- [Методы доступные во всех элементах](#supported-types)
+- [Поддерживаемые типы](#supported-types)
+- [Заголовок столбца](#column-heading)
+- [Методы доступные во всех элементах](#all-methods)
+- [Action](#action)
+- [Custom](#custom)
+- [DateTime](#datetime)
+- [Link](#link)
+
+<a name="introduction"></a>
+## Введение
+
+Данные классы предназначены для добавления колонок в таблицу, а также вывод информации из модели в форме редактирования.
 
 **Пример использования**
 
@@ -19,12 +32,13 @@ AdminForm::panel()
     ])
 ```
 
-Класс `SleepingOwl\Admin\Display\TableColumn`, от которого наследуются 
-все столбцы, реализует интерфейсы `Illuminate\Contracts\Support\Arrayable`, 
-`Illuminate\Contracts\Support\Renderable` и `SleepingOwl\Admin\Contracts\Initializable`
+Класс `SleepingOwl\Admin\Display\TableColumn`, от которого наследуются
+все столбцы, реализует интерфейсы `Illuminate\Contracts\Support\Arrayable`,
+`Illuminate\Contracts\Support\Renderable` и `SleepingOwl\Admin\Contracts\Initializable`.
 
 В классах столбцов используется трейт [HtmlAttributes](html_attributes), с помощью которого для всех столбцов можно настраивать HTML атрибуты.
 
+<a name="supported-types"></a>
 ## Поддерживаемые типы
 
  - `AdminColumn::text($name, $label = null)`
@@ -43,11 +57,12 @@ AdminForm::panel()
  - `AdminColumn::filter($name, $label = null)`
  - `AdminColumn::order()`
  - `AdminColumn::treeControl()`
- 
-## Заголовок стобца
+
+<a name="column-heading"></a>
+## Заголовок столбца
 
 Каждый столбец таблицы имеет заголовок и хранится в виде отдельного класса
-`SleepingOwl\Admin\Contracts\Display\TableHeaderColumnInterface`
+`SleepingOwl\Admin\Contracts\Display\TableHeaderColumnInterface`.
 
 **Пример работы с заголовком**
 
@@ -68,7 +83,7 @@ AdminForm::panel()
         $link = AdminColumn::link('title')
         ...
     ]);
-    
+
     $link->getHeader()
         ->setTitle('Title')
         ->setOrderable(false)
@@ -76,7 +91,8 @@ AdminForm::panel()
         ->setHtmlAttribute('data-tooltip', 'Test tooltip');
 ```
 
-# Методы доступные во всех элементах
+<a name="all-methods"></a>
+## Методы доступные во всех элементах
 
 ### setLabel
 Установка заголовка колонки
@@ -87,17 +103,17 @@ AdminForm::panel()
 Установка ключа элемента
 
     \SleepingOwl\Admin\Contracts\NamedColumnInterface SleepingOwl\Admin\Contracts\NamedColumnInterface::setName(string $name)
-    
+
 ### setWidth
 Установка ширины колонки
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setWidth(string $width)
-    
+
 ### setView
 Установки view
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setView(string|\Illuminate\View\View $view)
-    
+
 ### append
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::append(\SleepingOwl\Admin\Contracts\ColumnInterface $append)
@@ -105,43 +121,44 @@ AdminForm::panel()
 ### setOrderable
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setOrderable(boolean $orderable)
-    
+
 ### setHtmlAttribute
 Установка HTML атрибута
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setHtmlAttribute(string $key, string|array $attribute)
-    
+
 ### setHtmlAttributes
 Установка HTML атрибутов в виде массива
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setHtmlAttributes(array $attributes)
-    
+
 ### replaceHtmlAttribute
 Замена установленного HTML атрибута
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::replaceHtmlAttribute(string $key, string|array $attribute)
-    
+
 ### hasClassProperty
 Проверка на существование HTML класса
 
     boolean SleepingOwl\Admin\Display\TableColumn::hasClassProperty(string $class)
-    
+
 ### hasHtmlAttribute
 Проверка на существование HTML атрибута
 
     boolean SleepingOwl\Admin\Display\TableColumn::hasHtmlAttribute(\KodiComponents\Support\srtring $key)
-    
+
 ### removeHtmlAttribute
 Удаление HTML атрибута
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::removeHtmlAttribute(string $key)
-    
+
 ### clearHtmlAttributes
 Удаление всех HTML атрибутов
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::clearHtmlAttributes()
-    
-# Action
+
+<a name="action"></a>
+## Action
 Данный элемент используется для добавления Кнопки совершения какого либо действия с данными таблицы.
 **Для работы элемента необходимо наличие поля `checkbox` в таблице**
 
@@ -154,13 +171,12 @@ $table = AdminDisplay::table()
         AdminColumn::checkbox(),
         ...
     ]);
-    
+
 // Изменить разсположение положения кнопок на странице
 $table->getActions()
     ->setPlacement('panel.buttons')
     ->setHtmlAttribute('class', 'pull-right');
 ```
-
 
 ### setTitle
 Установка названия кнопки
@@ -171,12 +187,12 @@ $table->getActions()
 Установка ссылки на которую будет отправлен запрос с выбранными элементами
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setAction(string $action)
-    
+
 ### setMethod
 Установка типа отправляемого запроса [POST, GET, ...]
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setMethod(string $method)
-    
+
 ### useGet
 Использовать GET запрос
 
@@ -186,7 +202,7 @@ $table->getActions()
 Использовать POST запрос
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::usePost()
-    
+
 
 ### usePut
 Использовать PUT запрос
@@ -197,13 +213,14 @@ $table->getActions()
 Использовать DELETE запрос
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::useDelete()
-    
+
 ### setIcon
 Установка иконки для кнопки
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setIcon(string $icon)
-    
-# Custom
+
+<a name="custom"></a>
+## Custom
 Данный элемент используется для добавления кастомного кода в качестве колонки таблицы
 
 
@@ -218,7 +235,8 @@ AdminColumn::custom(function(\Illuminate\Database\Eloquent\Model $model) {
 
     \SleepingOwl\Admin\Display\Column\Custom SleepingOwl\Admin\Display\Column\Custom::setCallback(\Closure $callback)
 
-# DateTime
+<a name="datetime"></a>
+## DateTime
 Данный элемент предназначен для вывода даты с указанием формата
 
 ```php
@@ -229,8 +247,9 @@ AdminColumn::datetime('date', 'Date')->setFormat('d.m.Y')->setWidth('150px'),
 Указание формата даты
 
     \SleepingOwl\Admin\Display\Column\DateTime SleepingOwl\Admin\Display\Column\DateTime::setFormat(string $format)
-    
-# Link
+
+<a name="link"></a>    
+## Link
 Данный элемент предназначен для вывода данных модели в виде ссылки на текущий документ
 
 ``php
