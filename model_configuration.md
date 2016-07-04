@@ -333,7 +333,7 @@ $model->setAlias('manage/user');
 
     \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onEdit(\Closure|null $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан идентификатор записи
 
 
@@ -342,7 +342,7 @@ $model->setAlias('manage/user');
 
     \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onCreateAndEdit(\Closure|null $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан идентификатор записи
 
 
@@ -351,7 +351,7 @@ $model->setAlias('manage/user');
 
     \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onDelete(\Closure|null $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан идентификатор записи
 
 
@@ -360,7 +360,7 @@ $model->setAlias('manage/user');
 
     \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onDestroy(\Closure|null $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан идентификатор записи
 
 ### onRestore
@@ -368,7 +368,7 @@ $model->setAlias('manage/user');
 
     \SleepingOwl\Admin\Model\ModelConfiguration SleepingOwl\Admin\Model\ModelConfiguration::onRestore(\Closure|null $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан идентификатор записи
 
 
@@ -457,7 +457,7 @@ $model->setAlias('manage/user');
 
     \SleepingOwl\Admin\Navigation\Page SleepingOwl\Admin\Model\ModelConfigurationManager::addToNavigation(integer $priority, string|\Closure|\KodiComponents\Navigation\Contracts\BadgeInterface $badge)
 
-#### Arguments
+##### Arguments
 * $priority **integer** Приоритет вывода в списке
 * $badge **string|Closure|KodiComponents\Navigation\Contracts\BadgeInterface** Текст или класс бейджа, который отображается рядом с пунктом меню (Например кол-во записей)
 
@@ -466,7 +466,7 @@ $model->setAlias('manage/user');
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::creating(Closure $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### created
@@ -474,7 +474,7 @@ $model->setAlias('manage/user');
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::created(Closure $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### updating
@@ -482,7 +482,7 @@ $model->setAlias('manage/user');
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::updating(Closure $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### updated
@@ -495,15 +495,15 @@ $model->setAlias('manage/user');
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::deleting(Closure $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
-* 
+
 ### deleted
 Событие срабатываемое после удаления записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::deleted(Closure $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restoring
@@ -511,7 +511,7 @@ $model->setAlias('manage/user');
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::restoringClosure $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restored
@@ -519,5 +519,5 @@ $model->setAlias('manage/user');
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::restored(Closure $callback)
 
-#### Arguments
+##### Arguments
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
