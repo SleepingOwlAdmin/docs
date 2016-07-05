@@ -192,6 +192,9 @@ class Roles extends Section implements Initializable
 **Пример:**
 
 ```php
+use SleepingOwl\Admin\Navigation\Page;
+use AdminSection;
+
 class AdminSectionsServiceProvider extends ServiceProvider
 {
     /**
