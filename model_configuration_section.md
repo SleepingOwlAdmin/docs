@@ -194,6 +194,7 @@ class Roles extends Section implements Initializable
 ```php
 use SleepingOwl\Admin\Navigation\Page;
 use AdminSection;
+use PackageManager;
 
 class AdminSectionsServiceProvider extends ServiceProvider
 {
