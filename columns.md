@@ -6,10 +6,19 @@
 - [Заголовок столбца](#column-heading)
 - [Методы доступные во всех элементах](#all-methods)
 - Типы
-    - [Action](#action)
-    - [Custom](#custom)
+    - [Text](#text)
     - [DateTime](#datetime)
     - [Link](#link)
+    - [RelatedLink](#related-link)
+    - [Url](#url)
+    - [Lists](#lists)
+    - [Count](#count)
+    - [Email](#email)
+    - [Image](#image)
+    - [Order](#order)
+    - [Custom](#custom)
+    - [Action](#action)
+    - [Checkbox](#checkbox)
 
 <a name="introduction"></a>
 ## Введение
@@ -42,22 +51,22 @@ AdminForm::panel()
 <a name="supported-types"></a>
 ## Поддерживаемые типы
 
- - `AdminColumn::text($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Text`
- - `AdminColumn::datetime($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\DateTime`
- - `AdminColumn::link($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Link`
- - `AdminColumn::relatedLink($name, $label = null, \Illuminate\Database\Eloquent\Model $model = null)` Класс `SleepingOwl\Admin\Display\Column\RelatedLink`
- - `AdminColumn::count($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Count`
- - `AdminColumn::custom($label = null, \Closure $callback = null)` Класс `SleepingOwl\Admin\Display\Column\Custom` 
- - `AdminColumn::image($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Image` 
- - `AdminColumn::email($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Email` 
- - `AdminColumn::lists($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Image` 
- - `AdminColumn::url($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Url` 
- - `AdminColumn::action($name)` Класс `SleepingOwl\Admin\Display\Column\Action` 
- - `AdminColumn::checkbox($label = null)` Класс `SleepingOwl\Admin\Display\Column\Checkbox` 
- - `AdminColumn::control($label = null)` Класс `SleepingOwl\Admin\Display\Column\Control` 
- - `AdminColumn::filter($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Filter` 
- - `AdminColumn::order()` Класс `SleepingOwl\Admin\Display\Column\Order` 
- - `AdminColumn::treeControl()` Класс `SleepingOwl\Admin\Display\Column\TreeControl` 
+ - `AdminColumn::text($name, $label = null)`
+ - `AdminColumn::datetime($name, $label = null)`
+ - `AdminColumn::link($name, $label = null)`
+ - `AdminColumn::relatedLink($name, $label = null, \Illuminate\Database\Eloquent\Model $model = null)`
+ - `AdminColumn::count($name, $label = null)`
+ - `AdminColumn::custom($label = null, \Closure $callback = null)`
+ - `AdminColumn::image($name, $label = null)`
+ - `AdminColumn::email($name, $label = null)`
+ - `AdminColumn::lists($name, $label = null)`
+ - `AdminColumn::url($name, $label = null)`
+ - `AdminColumn::action($name)`
+ - `AdminColumn::checkbox($label = null)`
+ - `AdminColumn::control($label = null)`
+ - `AdminColumn::filter($name, $label = null)`
+ - `AdminColumn::order()`
+ - `AdminColumn::treeControl()`
 
 <a name="column-heading"></a>
 ## Заголовок столбца
@@ -98,68 +107,70 @@ AdminForm::panel()
 #### setLabel
 Установка заголовка колонки
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setLabel(string $title)
+    SleepingOwl\Admin\Display\TableColumn::setLabel(string $title): return self
 
 #### setName
 Установка ключа элемента
 
-    \SleepingOwl\Admin\Contracts\NamedColumnInterface SleepingOwl\Admin\Contracts\NamedColumnInterface::setName(string $name)
+    SleepingOwl\Admin\Contracts\NamedColumnInterface::setName(string $name): return self
 
 #### setWidth
 Установка ширины колонки
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setWidth(string $width)
+    SleepingOwl\Admin\Display\TableColumn::setWidth(string $width): return self
 
 #### setView
 Установки view
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setView(string|\Illuminate\View\View $view)
+    SleepingOwl\Admin\Display\TableColumn::setView(string|\Illuminate\View\View $view): return self
 
 #### append
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::append(\SleepingOwl\Admin\Contracts\ColumnInterface $append)
+    SleepingOwl\Admin\Display\TableColumn::append(\SleepingOwl\Admin\Contracts\ColumnInterface $append): return self
 
 #### setOrderable
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setOrderable(boolean $orderable)
+    SleepingOwl\Admin\Display\TableColumn::setOrderable(boolean $orderable): return self
 
 #### setHtmlAttribute
 Установка HTML атрибута
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setHtmlAttribute(string $key, string|array $attribute)
+    SleepingOwl\Admin\Display\TableColumn::setHtmlAttribute(string $key, string|array $attribute): return self
 
 #### setHtmlAttributes
 Установка HTML атрибутов в виде массива
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setHtmlAttributes(array $attributes)
+    SleepingOwl\Admin\Display\TableColumn::setHtmlAttributes(array $attributes): return self
 
 #### replaceHtmlAttribute
 Замена установленного HTML атрибута
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::replaceHtmlAttribute(string $key, string|array $attribute)
+    SleepingOwl\Admin\Display\TableColumn::replaceHtmlAttribute(string $key, string|array $attribute): return self
 
 #### hasClassProperty
 Проверка на существование HTML класса
 
-    boolean SleepingOwl\Admin\Display\TableColumn::hasClassProperty(string $class)
+    SleepingOwl\Admin\Display\TableColumn::hasClassProperty(string $class): return boolean
 
 #### hasHtmlAttribute
 Проверка на существование HTML атрибута
 
-    boolean SleepingOwl\Admin\Display\TableColumn::hasHtmlAttribute(srtring $key)
+    SleepingOwl\Admin\Display\TableColumn::hasHtmlAttribute(srtring $key): return boolean
 
 #### removeHtmlAttribute
 Удаление HTML атрибута
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::removeHtmlAttribute(string $key)
+    SleepingOwl\Admin\Display\TableColumn::removeHtmlAttribute(string $key): return self
 
 #### clearHtmlAttributes
 Удаление всех HTML атрибутов
 
-    \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::clearHtmlAttributes()
+    SleepingOwl\Admin\Display\TableColumn::clearHtmlAttributes(): return self
 
 <a name="action"></a>
-## Action
+## Action 
+`SleepingOwl\Admin\Display\Column\Action`
+
 Данный элемент используется для добавления Кнопки совершения какого либо действия с данными таблицы.
 **Для работы элемента необходимо наличие поля `checkbox` в таблице**
 
@@ -182,46 +193,58 @@ $table->getActions()
 #### setTitle
 Установка названия кнопки
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setTitle(string $title)
+    SleepingOwl\Admin\Display\Column\Action::setTitle(string $title): return self
 
 #### setAction
 Установка ссылки на которую будет отправлен запрос с выбранными элементами
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setAction(string $action)
+    SleepingOwl\Admin\Display\Column\Action::setAction(string $action): return self
 
 #### setMethod
 Установка типа отправляемого запроса [POST, GET, ...]
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setMethod(string $method)
+    SleepingOwl\Admin\Display\Column\Action::setMethod(string $method): return self
 
 #### useGet
 Использовать GET запрос
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::useGet()
+    SleepingOwl\Admin\Display\Column\Action::useGet(): return self
 
 #### usePost
 Использовать POST запрос
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::usePost()
+    SleepingOwl\Admin\Display\Column\Action::usePost(): return self
 
 
 #### usePut
 Использовать PUT запрос
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::usePut()
+    SleepingOwl\Admin\Display\Column\Action::usePut(): return self
 
 #### useDelete
 Использовать DELETE запрос
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::useDelete()
+    SleepingOwl\Admin\Display\Column\Action::useDelete(): return self
 
 #### setIcon
 Установка иконки для кнопки
 
-    \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setIcon(string $icon)
+    SleepingOwl\Admin\Display\Column\Action::setIcon(string $icon): return self
+
+<a name="checkbox"></a>    
+## Checkbox
+`SleepingOwl\Admin\Display\Column\Checkbox`
+
+Данный элемент предназначен для вывода чекбокса в таблице для выбора значений. Подробнее https://github.com/LaravelRUS/SleepingOwlAdmin-docs/blob/master/columns.md#action
+
+```php
+AdminColumn::checkbox(),
+```
 
 <a name="custom"></a>
 ## Custom
+`SleepingOwl\Admin\Display\Column\Custom`
+
 Данный элемент используется для добавления кастомного кода в качестве колонки таблицы
 
 
@@ -234,10 +257,12 @@ AdminColumn::custom(function(\Illuminate\Database\Eloquent\Model $model) {
 #### setCallback
 Установка анонимной функции, которая будет вызвана для каждого элемента таблицы, с передачей в качестве аргумента объекта `Illuminate\Database\Eloquent\Model`
 
-    \SleepingOwl\Admin\Display\Column\Custom SleepingOwl\Admin\Display\Column\Custom::setCallback(\Closure $callback)
+    SleepingOwl\Admin\Display\Column\Custom::setCallback(\Closure $callback): return self
 
 <a name="datetime"></a>
 ## DateTime
+`SleepingOwl\Admin\Display\Column\DateTime`
+
 Данный элемент предназначен для вывода даты с указанием формата
 
 ```php
@@ -247,10 +272,12 @@ AdminColumn::datetime('date', 'Date')->setFormat('d.m.Y')->setWidth('150px'),
 #### setFormat
 Указание формата даты
 
-    \SleepingOwl\Admin\Display\Column\DateTime SleepingOwl\Admin\Display\Column\DateTime::setFormat(string $format)
+    SleepingOwl\Admin\Display\Column\DateTime::setFormat(string $format): return self
 
 <a name="link"></a>    
 ## Link
+`SleepingOwl\Admin\Display\Column\Link`
+
 Данный элемент предназначен для вывода данных модели в виде ссылки на текущий документ
 
 ```php
@@ -260,4 +287,121 @@ AdminColumn::link('title', 'Title')->setLinkAttributes(['target' => '_blank']),
 #### setLinkAttributes
 Установка атрибутов для ссылки
 
-    \SleepingOwl\Admin\Display\Column\Link SleepingOwl\Admin\Display\Column\Link::setLinkAttributes(array $linkAttributes)
+    SleepingOwl\Admin\Display\Column\Link::setLinkAttributes(array $linkAttributes): return self
+
+<a name="related-link"></a>    
+## RelatedLink
+`SleepingOwl\Admin\Display\Column\RelatedLink`
+
+Данный элемент предназначен для вывода данных модели в виде ссылки на документ связанного раздела
+
+```php
+AdminColumn::relatedLink('author.name', 'Author')
+```
+
+#### setLinkAttributes
+Установка атрибутов для ссылки
+
+    SleepingOwl\Admin\Display\Column\Link::setLinkAttributes(array $linkAttributes): return self
+
+
+<a name="url"></a>    
+## URL
+`SleepingOwl\Admin\Display\Column\Url`
+
+Данный элемент предназначен для вывода значения поля в виде ссылки
+
+```php
+AdminColumn::url('title', 'Title'),
+```
+
+#### setLinkAttributes
+Установка атрибутов для ссылки
+
+    SleepingOwl\Admin\Display\Column\Url::setLinkAttributes(array $linkAttributes): return self
+    
+<a name="text"></a>    
+## Text
+`SleepingOwl\Admin\Display\Column\Text`
+
+Данный элемент предназначен для вывода значения поля в виде обычного текста
+
+```php
+AdminColumn::text('title', 'Title'),
+```
+
+<a name="count"></a>    
+## Count
+`SleepingOwl\Admin\Display\Column\Count`
+
+Данный элемент предназначен для подсчета и вывода кол-ва элементов. Подсчет значений производится функцией `count`, т.е. передаваемое поле должно содержать массив элементов либо элемент с отношением `*Many`
+
+```php
+AdminColumn::count('list', 'Total'),
+```
+
+<a name="email"></a>    
+## Email
+`SleepingOwl\Admin\Display\Column\Email`
+
+Данный элемент предназначен для вывода полей содержащих email адрес в виде ссылкы `<a href="mailto:"></a>`
+
+```php
+AdminColumn::email('email', 'Email'),
+```
+
+<a name="image"></a>    
+## Image
+`SleepingOwl\Admin\Display\Column\Image`
+
+Данный элемент предназначен для вывода изображений
+
+```php
+AdminColumn::image('avatar', 'Avatar'),
+```
+
+#### setImageWidth
+Указание ширины изображения
+
+    SleepingOwl\Admin\Display\Image::setImageWidth(string $width): return self
+
+
+<a name="lists"></a>    
+## Lists
+`SleepingOwl\Admin\Display\Column\Lists`
+
+Данный элемент предназначен для вывода списка значений поля содержащего массив элементов, либо связь с отношением `*Many`
+
+```php
+AdminColumn::lists('roles.title', 'Roles') // Вывод списка ролей из связанной таблицы
+
+// or
+
+AdminColumn::lists('tags', 'Tags') // Вывод списка тегов из поля содержащего массив тегов
+```
+
+
+<a name="order"></a>    
+## Order
+`SleepingOwl\Admin\Display\Column\Order`
+
+Данный элемент предназначен для сортировки элементов таблицы. **Модель к которой применяется это поле должна содержать трейт `SleepingOwl\Admin\Traits\OrderableModel`**. По умолчанию, поле по которому производится сортировка - `order`. Для указания альтернативного ключа необходимо в модели добавить метод:
+
+```php
+class Users extend Model {
+    use \SleepingOwl\Admin\Traits\OrderableModel;
+    
+    ...
+
+    /**
+     * Get order field name.
+     * @return string
+     */
+    public function getOrderField()
+    {
+        return 'custom_order_field_name';
+    }
+}
+```
+
+Также для корректности отображения записей в таблице не забывайте при выводе сортировать записи по этому полю `->orderBy('order', 'asc')`
