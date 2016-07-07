@@ -94,65 +94,65 @@ AdminForm::panel()
 <a name="all-methods"></a>
 ## Методы доступные во всех элементах
 
-### setLabel
+#### setLabel
 Установка заголовка колонки
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setLabel(string $title)
 
-### setName
+#### setName
 Установка ключа элемента
 
     \SleepingOwl\Admin\Contracts\NamedColumnInterface SleepingOwl\Admin\Contracts\NamedColumnInterface::setName(string $name)
 
-### setWidth
+#### setWidth
 Установка ширины колонки
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setWidth(string $width)
 
-### setView
+#### setView
 Установки view
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setView(string|\Illuminate\View\View $view)
 
-### append
+#### append
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::append(\SleepingOwl\Admin\Contracts\ColumnInterface $append)
 
-### setOrderable
+#### setOrderable
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setOrderable(boolean $orderable)
 
-### setHtmlAttribute
+#### setHtmlAttribute
 Установка HTML атрибута
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setHtmlAttribute(string $key, string|array $attribute)
 
-### setHtmlAttributes
+#### setHtmlAttributes
 Установка HTML атрибутов в виде массива
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::setHtmlAttributes(array $attributes)
 
-### replaceHtmlAttribute
+#### replaceHtmlAttribute
 Замена установленного HTML атрибута
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::replaceHtmlAttribute(string $key, string|array $attribute)
 
-### hasClassProperty
+#### hasClassProperty
 Проверка на существование HTML класса
 
     boolean SleepingOwl\Admin\Display\TableColumn::hasClassProperty(string $class)
 
-### hasHtmlAttribute
+#### hasHtmlAttribute
 Проверка на существование HTML атрибута
 
     boolean SleepingOwl\Admin\Display\TableColumn::hasHtmlAttribute(\KodiComponents\Support\srtring $key)
 
-### removeHtmlAttribute
+#### removeHtmlAttribute
 Удаление HTML атрибута
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::removeHtmlAttribute(string $key)
 
-### clearHtmlAttributes
+#### clearHtmlAttributes
 Удаление всех HTML атрибутов
 
     \SleepingOwl\Admin\Display\TableColumn SleepingOwl\Admin\Display\TableColumn::clearHtmlAttributes()
@@ -178,43 +178,43 @@ $table->getActions()
     ->setHtmlAttribute('class', 'pull-right');
 ```
 
-### setTitle
+#### setTitle
 Установка названия кнопки
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setTitle(string $title)
 
-### setAction
+#### setAction
 Установка ссылки на которую будет отправлен запрос с выбранными элементами
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setAction(string $action)
 
-### setMethod
+#### setMethod
 Установка типа отправляемого запроса [POST, GET, ...]
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setMethod(string $method)
 
-### useGet
+#### useGet
 Использовать GET запрос
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::useGet()
 
-### usePost
+#### usePost
 Использовать POST запрос
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::usePost()
 
 
-### usePut
+#### usePut
 Использовать PUT запрос
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::usePut()
 
-### useDelete
+#### useDelete
 Использовать DELETE запрос
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::useDelete()
 
-### setIcon
+#### setIcon
 Установка иконки для кнопки
 
     \SleepingOwl\Admin\Display\Column\Action SleepingOwl\Admin\Display\Column\Action::setIcon(string $icon)
@@ -230,7 +230,7 @@ AdminColumn::custom(function(\Illuminate\Database\Eloquent\Model $model) {
 })->setWidth('150px'),
 ```
 
-### setCallback
+#### setCallback
 Установка анонимной функции, которая будет вызвана для каждого элемента таблицы, с передачей в качестве аргумента объекта `Illuminate\Database\Eloquent\Model`
 
     \SleepingOwl\Admin\Display\Column\Custom SleepingOwl\Admin\Display\Column\Custom::setCallback(\Closure $callback)
@@ -243,7 +243,7 @@ AdminColumn::custom(function(\Illuminate\Database\Eloquent\Model $model) {
 AdminColumn::datetime('date', 'Date')->setFormat('d.m.Y')->setWidth('150px'),
 ```
 
-### setFormat
+#### setFormat
 Указание формата даты
 
     \SleepingOwl\Admin\Display\Column\DateTime SleepingOwl\Admin\Display\Column\DateTime::setFormat(string $format)
@@ -252,11 +252,11 @@ AdminColumn::datetime('date', 'Date')->setFormat('d.m.Y')->setWidth('150px'),
 ## Link
 Данный элемент предназначен для вывода данных модели в виде ссылки на текущий документ
 
-``php
+```php
 AdminColumn::link('title', 'Title')->setLinkAttributes(['target' => '_blank']),
 ```
 
-### setLinkAttributes
+#### setLinkAttributes
 Установка атрибутов для ссылки
 
     \SleepingOwl\Admin\Display\Column\Link SleepingOwl\Admin\Display\Column\Link::setLinkAttributes(array $linkAttributes)
