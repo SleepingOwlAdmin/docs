@@ -42,22 +42,22 @@ AdminForm::panel()
 <a name="supported-types"></a>
 ## Поддерживаемые типы
 
- - `AdminColumn::text($name, $label = null)`
- - `AdminColumn::datetime($name, $label = null)`
- - `AdminColumn::link($name, $label = null)`
- - `AdminColumn::relatedLink($name, $label = null, \Illuminate\Database\Eloquent\Model $model = null)`
- - `AdminColumn::count($name, $label = null)`
- - `AdminColumn::custom($label = null, \Closure $callback = null)`
- - `AdminColumn::image($name, $label = null)`
- - `AdminColumn::email($name, $label = null)`
- - `AdminColumn::lists($name, $label = null)`
- - `AdminColumn::url($name, $label = null)`
- - `AdminColumn::action($name)`
- - `AdminColumn::checkbox($label = null)`
- - `AdminColumn::control($label = null)`
+ - `SleepingOwl\Admin\Display\Column\Text` `AdminColumn::text($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\DateTime` `AdminColumn::datetime($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\Link` `AdminColumn::link($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\RelatedLink` `AdminColumn::relatedLink($name, $label = null, \Illuminate\Database\Eloquent\Model $model = null)`
+ - `SleepingOwl\Admin\Display\Column\Count` `AdminColumn::count($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\Custom` `AdminColumn::custom($label = null, \Closure $callback = null)`
+ - `SleepingOwl\Admin\Display\Column\Image` `AdminColumn::image($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\Email` `AdminColumn::email($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\Image` `AdminColumn::lists($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\Url` `AdminColumn::url($name, $label = null)`
+ - `SleepingOwl\Admin\Display\Column\Action` `AdminColumn::action($name)`
+ - `SleepingOwl\Admin\Display\Column\Checkbox` `AdminColumn::checkbox($label = null)`
+ - `SleepingOwl\Admin\Display\Column\Control` `AdminColumn::control($label = null)`
  - `AdminColumn::filter($name, $label = null)`
- - `AdminColumn::order()`
- - `AdminColumn::treeControl()`
+ - `SleepingOwl\Admin\Display\Column\Order` `AdminColumn::order()`
+ - `SleepingOwl\Admin\Display\Column\TreeControl` `AdminColumn::treeControl()`
 
 <a name="column-heading"></a>
 ## Заголовок столбца
