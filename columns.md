@@ -5,10 +5,11 @@
 - [Поддерживаемые типы](#supported-types)
 - [Заголовок столбца](#column-heading)
 - [Методы доступные во всех элементах](#all-methods)
-- [Action](#action)
-- [Custom](#custom)
-- [DateTime](#datetime)
-- [Link](#link)
+- Типы
+    - [Action](#action)
+    - [Custom](#custom)
+    - [DateTime](#datetime)
+    - [Link](#link)
 
 <a name="introduction"></a>
 ## Введение
