@@ -146,7 +146,7 @@ AdminForm::panel()
 #### hasHtmlAttribute
 Проверка на существование HTML атрибута
 
-    boolean SleepingOwl\Admin\Display\TableColumn::hasHtmlAttribute(\KodiComponents\Support\srtring $key)
+    boolean SleepingOwl\Admin\Display\TableColumn::hasHtmlAttribute(srtring $key)
 
 #### removeHtmlAttribute
 Удаление HTML атрибута
