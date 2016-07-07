@@ -5,10 +5,10 @@
 Таблицы предназначения для вывода списка документов раздела.
 
 На данные момент поддерживаются следующие типы вывода данных:
- - `AdminDisplay::table()` - обычная таблица
- - `AdminDisplay::datatables()` - таблица с выводом данных используя плагин https://datatables.net/
- - `AdminDisplay::datatablesAsync()`
- - `AdminDisplay::tree()` - вывод данных в виде дерева
+ - `AdminDisplay::table()` - обычная таблица (`SleepingOwl\Admin\Display\DisplayTable`)
+ - `AdminDisplay::datatables()` - таблица с выводом данных используя плагин https://datatables.net/ (`SleepingOwl\Admin\Display\DisplayDatatables`)
+ - `AdminDisplay::datatablesAsync()` (`SleepingOwl\Admin\Display\DisplayDatatablesAsync`)
+ - `AdminDisplay::tree()` - вывод данных в виде дерева (`SleepingOwl\Admin\Display\DisplayTree`)
 
 ```php
 $model->onDisplay(function () {
@@ -35,7 +35,9 @@ $display = AdminDisplay::table();
 TODO: дописать
 
 
-### Указание столбцов
+### Указание столбцов (Расширение)
+`SleepingOwl\Admin\Display\Extension\Columns`
+
 Типы столбцов и их описание можно посмотреть [здесь](columns.md)
 
 ```php
@@ -53,7 +55,8 @@ $display->getColumns()->push(
 );
 ```
 
-### Фильтры столбцов
+### Фильтры столбцов (Расширение)
+`SleepingOwl\Admin\Display\Extension\ColumnFilters`
 
 ```php
 $display->setColumnFilters([
@@ -70,12 +73,15 @@ $display->getColumnFilters()->push(
 ```
 
 ### Eager Loading
+Позволяет оптимизировать запросы к БД в случае использования связей с другими моделями. [Подробности](https://laravel.com/docs/5.2/eloquent-relationships#eager-loading)
 
 ```php
 $display->with('country', 'companies');
 ```
 
-### Изменение запроса
+### Изменение запроса (Расширение)
+`SleepingOwl\Admin\Display\Extension\Apply`
+
 Вы можете изменять запрос по желанию
 
 ```php
@@ -100,8 +106,10 @@ $display->getApply()->push(function ($query) {
 });
 ```
 
-### Применение scope
-Вы можете применить eloquent scope к выводимым данным:
+### Применение scope (Расширение)
+`SleepingOwl\Admin\Display\Extension\Scopes`
+
+Вы можете применить [Eloquent scopes](https://laravel.com/docs/5.2/eloquent#query-scopes) к выводимым данным:
 
 ```php
 $display->setScopes('last');
@@ -113,4 +121,25 @@ $display->setScopes(['last', 'trashed']);
 // or
 
 $display->getScopes()->push('last');
+```
+
+### Действия над документами Actions (Расширение)
+`SleepingOwl\Admin\Display\Extension\Actions`
+
+Использует тип колонки таблицы [Action](columns.md#action)
+
+```php
+$table = AdminDisplay::table()
+    ->setActions([
+        AdminColumn::action('export', 'Export')->setIcon('fa fa-share')->setAction(route('news.export')),
+    ])
+    ->setColumns([
+        AdminColumn::checkbox(),
+        ...
+    ]);
+
+// Изменить разсположение положения кнопок на странице
+$table->getActions()
+    ->setPlacement('panel.buttons')
+    ->setHtmlAttribute('class', 'pull-right');
 ```
