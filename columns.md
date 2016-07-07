@@ -54,7 +54,7 @@ AdminForm::panel()
  - `AdminColumn::text($name, $label = null)`
  - `AdminColumn::datetime($name, $label = null)`
  - `AdminColumn::link($name, $label = null)`
- - `AdminColumn::relatedLink($name, $label = null, \Illuminate\Database\Eloquent\Model $model = null)`
+ - `AdminColumn::relatedLink($name, $label = null)`
  - `AdminColumn::count($name, $label = null)`
  - `AdminColumn::custom($label = null, \Closure $callback = null)`
  - `AdminColumn::image($name, $label = null)`
