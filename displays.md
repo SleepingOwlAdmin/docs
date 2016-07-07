@@ -2,6 +2,13 @@
 
 
 ## Таблица (Table)
+Таблицы предназначения для вывода списка документов раздела.
+
+На данные момент поддерживаются следующие типы вывода данных:
+ - `AdminDisplay::table()` - обычная таблица
+ - `AdminDisplay::datatables()` - таблица с выводом данных используя плагин https://datatables.net/
+ - `AdminDisplay::datatablesAsync()`
+ - `AdminDisplay::tree()` - вывод данных в виде дерева
 
 ```php
 $model->onDisplay(function () {
@@ -13,7 +20,23 @@ $model->onDisplay(function () {
 });
 ```
 
+### Расширение таблиц
+Класс `SleepingOwl\Admin\Display\Display` от которого наследуются все классы реализующие вывод данных позволяет расширять свое поведение за счет расширений. Расширения могут как влиять на вывод данных, модифицируя запрос перед получением списка записей из БД либо вывод HTML кода в шаблон.
+
+Сейчас класс для вывода таблицы работает полностью за счет расширений, а именно, вызывая метод `setColumns` или `getColumns`, `setColumnFilters` или `getColumnFilters` вы обращаетесь к классам расширений.
+
+#### Как это работает:
+
+Допустим у нас есть таблица: 
+```php
+$display = AdminDisplay::table();
+```
+
+TODO: дописать
+
+
 ### Указание столбцов
+Типы столбцов и их описание можно посмотреть [здесь](columns.md)
 
 ```php
 $display->setColumns([
@@ -82,6 +105,10 @@ $display->getApply()->push(function ($query) {
 
 ```php
 $display->setScopes('last');
+
+//or
+
+$display->setScopes(['last', 'trashed']);
 
 // or
 
