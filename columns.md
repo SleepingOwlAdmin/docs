@@ -42,22 +42,22 @@ AdminForm::panel()
 <a name="supported-types"></a>
 ## Поддерживаемые типы
 
- - `SleepingOwl\Admin\Display\Column\Text` `AdminColumn::text($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\DateTime` `AdminColumn::datetime($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\Link` `AdminColumn::link($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\RelatedLink` `AdminColumn::relatedLink($name, $label = null, \Illuminate\Database\Eloquent\Model $model = null)`
- - `SleepingOwl\Admin\Display\Column\Count` `AdminColumn::count($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\Custom` `AdminColumn::custom($label = null, \Closure $callback = null)`
- - `SleepingOwl\Admin\Display\Column\Image` `AdminColumn::image($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\Email` `AdminColumn::email($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\Image` `AdminColumn::lists($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\Url` `AdminColumn::url($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\Action` `AdminColumn::action($name)`
- - `SleepingOwl\Admin\Display\Column\Checkbox` `AdminColumn::checkbox($label = null)`
- - `SleepingOwl\Admin\Display\Column\Control` `AdminColumn::control($label = null)`
- - `AdminColumn::filter($name, $label = null)`
- - `SleepingOwl\Admin\Display\Column\Order` `AdminColumn::order()`
- - `SleepingOwl\Admin\Display\Column\TreeControl` `AdminColumn::treeControl()`
+ - `AdminColumn::text($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Text`
+ - `AdminColumn::datetime($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\DateTime`
+ - `AdminColumn::link($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Link`
+ - `AdminColumn::relatedLink($name, $label = null, \Illuminate\Database\Eloquent\Model $model = null)` Класс `SleepingOwl\Admin\Display\Column\RelatedLink`
+ - `AdminColumn::count($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Count`
+ - `AdminColumn::custom($label = null, \Closure $callback = null)` Класс `SleepingOwl\Admin\Display\Column\Custom` 
+ - `AdminColumn::image($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Image` 
+ - `AdminColumn::email($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Email` 
+ - `AdminColumn::lists($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Image` 
+ - `AdminColumn::url($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Url` 
+ - `AdminColumn::action($name)` Класс `SleepingOwl\Admin\Display\Column\Action` 
+ - `AdminColumn::checkbox($label = null)` Класс `SleepingOwl\Admin\Display\Column\Checkbox` 
+ - `AdminColumn::control($label = null)` Класс `SleepingOwl\Admin\Display\Column\Control` 
+ - `AdminColumn::filter($name, $label = null)` Класс `SleepingOwl\Admin\Display\Column\Filter` 
+ - `AdminColumn::order()` Класс `SleepingOwl\Admin\Display\Column\Order` 
+ - `AdminColumn::treeControl()` Класс `SleepingOwl\Admin\Display\Column\TreeControl` 
 
 <a name="column-heading"></a>
 ## Заголовок столбца
