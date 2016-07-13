@@ -127,4 +127,19 @@ public function setUploadImageAttribute(\Illuminate\Http\UploadedFile $file = nu
  - `$user->image_url` `http:\\site.com\storage\users\image\23n4b23hj4b.jpg`
  - 
  
+### Валидация
+Данный тип поля поддерживает валидацию загружаемых файлов 
+ - https://laravel.com/docs/5.2/validation#rule-image
+ - https://laravel.com/docs/5.2/validation#rule-mimetypes
+ - https://laravel.com/docs/5.2/validation#rule-mimes
+
+```php
+AdminFormElement::upload('image', 'Image')->addValidationRule('image')
+
+// or for file
+
+AdminFormElement::upload('pdf', 'PDF')->addValidationRule('mime:pdf'),
+```
+
+### Ограничение использования трейта
 **!!!Трейт переопределет методы `getAttribute`, `mutateAttribute`, `setAttribute`, в случае, если они переопределены у вас в модели, могут возникнуть проблемы в работе!!!**
