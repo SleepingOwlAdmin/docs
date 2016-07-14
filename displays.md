@@ -439,3 +439,36 @@ public function modifyQuery(\Illuminate\Database\Eloquent\Builder $query)
 
 Места, где можно разместить код реализованы через `@yield`
 https://github.com/LaravelRUS/SleepingOwlAdmin/blob/development/resources/views/default/display/table.blade.php
+
+# Использование таблицы в форме 
+При необходимости таблицу можно использовать в форме для вывода связанных записей.
+
+Допустим у нас есть галерея (раздел `Gallery`) и фотографии в ней (`Photo`). У каждой фотографии есть `category_id` - идентификатор категории. После создания категории, в форме редактирования нужна возможность добавлять фотографии в эту категорию.
+
+```php
+// Create And Edit
+$model->onCreateAndEdit(function($id = null) {
+
+    $form = AdminForm::panel()->addHeader(
+        AdminFormElement::text('title', 'Название галереи')->required(),
+    );
+    
+    if (!is_null($id)) { // Если галерея создана и у нее есть ID
+        $photos = AdminDisplay::table()
+            ->setModelClass(Photo::class) // Обязательно необходимо указать класс модели в которой хранятся фотографии
+            ->setApply(function($query) use($id) {
+                $query->where('category_id', $id); // Фильтруем список фотографий по ID галереи
+            })
+            ->setParameter('category_id', $id) // При нажатии на кнопку "добавить" - подставлять идентификатор галереи
+            ->setColumns(
+                AdminColumn::link('name', 'Назавние фотографии'),
+                AdminColumn::image('thumb', 'Фотгорафия')
+                    ->setHtmlAttribute('class', 'text-center')
+                    ->setWidth('100px')
+            )
+        
+        $form->addBody($photos);
+    }
+});
+```
+
