@@ -61,9 +61,7 @@ $form->setElements([
 $form->addElement(new \App\Form\Panel\CustomBlockClass([
     AdminFormElement::text('title', 'Title')
 ]));
-
-## tabbed
-
+```
 
 ### API
 
@@ -86,6 +84,20 @@ $form->addElement(new \App\Form\Panel\CustomBlockClass([
 Добавление элементов в блок `panel-footer`
 
     SleepingOwl\Admin\Form\FormPanel::addFooter(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
+
+## tabbed
+Разновидность форм, в которой элементы можно разделять на вкладки.
+
+```php
+AdminForm::tabbed()->setElements([
+    'tab1' => [
+        ....
+    ],
+    'tab2' => [
+        ....
+    ]
+]);
+```
 
 # API (методы доступные во всех классах)
 
