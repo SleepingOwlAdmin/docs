@@ -204,6 +204,38 @@ $form = AdminForm::panel()
     ]);
 ```
 
+## Columns
+Позволяет разбивать форму на несколько столбцов.
+
+```php
+$columns = AdminFormElement::columns([
+    function() {
+        return [
+            AdminFormElement::text('title', 'Title')->required()
+        ];
+    },
+    new \SleepingOwl\Admin\Form\Columns\Column([
+        AdminFormElement::date('created_at', 'Created At')->required()
+    ]),
+    ...
+]);
+
+$columns->addColumn(function() {
+    return [
+        AdminFormElement::date('created_at', 'Created At')->required()
+    ];
+});
+
+// or
+
+$columns->addColumn(new \SleepingOwl\Admin\Form\Columns\Column([
+    AdminFormElement::date('created_at', 'Created At')->required()
+]));
+
+$form = AdminForm::panel()->addBody($columns);
+```
+
+
 ## Upload
 Поле `AdminFormElement::upload('image', 'Image')` используется для загрузки файлов на сервер посредством `<input type="upload" />`.
 При добавлении поля, форма автоматически получает html атрибут `enctype="multipart/form-data"`
