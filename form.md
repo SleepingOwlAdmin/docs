@@ -1,6 +1,198 @@
 # Формы
 
-# Upload
+Используются для построения форм.
+
+На текущий момент существую следующие виды форм:
+ - `AdminForm::form()`
+ - `AdminForm::panel()` - в основе которой лежит [Bootstrap конпонент `panel`](http://getbootstrap.com/components/#panels)
+ - `AdminForm::tabbed()` - для группировки элементов формы в табы
+
+ В классах форм используется трейт [HtmlAttributes](html_attributes), с помощью которого для них можно указывать HTML атрибуты.
+
+## form
+ * Класс `\SleepingOwl\Admin\Form\FormDefault`
+ * View `resources\views\default\form\default.blade.php`
+
+Данный тип формы выводит элементы без дизайна. При желании внешний вид формы можно настроит с помощью HTML атрибутов
+
+```php
+$form = AdminForm::form()->setElements([
+    AdminFormElement::text('title', 'Title'),
+]);
+
+$form->addElement(
+    AdminFormElement::date('created_at', 'Created at')
+);
+
+$form->setHtmlAttribute('class', 'panel panel-default');
+$form->getButtons()->setHtmlAttribute('class', 'panel-footer');
+```
+
+## panel
+ * Класс `\SleepingOwl\Admin\Form\FormPanel`
+ * View `resources\views\default\form\panel.blade.php`
+
+Данный тип формы автоматически добавляет к форме html атрибут `class="panel panel-default"` и к кнопкам формы `class="panel-footer"` и позволяет размещать элементы формы в блоки `header`, `body`, `footer`
+
+```php
+$form = AdminForm::panel()
+    ->addHeader([
+        AdminFormElement::text('title', 'Title'),
+    ])
+    ->addBody(
+        AdminFormElement::wysiwyg('text', 'Text', 'ckeditor')->required()
+    )
+    ->addFooter(
+        AdminFormElement::select('type', 'Type'), ...)
+    );
+
+$form->addItem(AdminFormElement::date('created_at', 'Created at'));
+
+$form->addElement(AdminFormElement::date('created_at', 'Created at')); // Поместит элемент без блока
+
+$form->setElements([
+    AdminFormElement::date('created_at', 'Created at')
+]); // Поместит список элементов без блока
+```
+
+Блоки формы - это классы, реализующие интерфейс `SleepingOwl\Admin\Contracts\Form\PanelInterface`, при необходимости вы можете создать свой класс блока и добавлять его в форму:
+
+```php
+$form->addElement(new \App\Form\Panel\CustomBlockClass([
+    AdminFormElement::text('title', 'Title')
+]));
+
+## tabbed
+
+
+### API
+
+#### addItem
+Добавление элемента в форму. Если в форме уже есть блоки (`header`, `body`, `footer`), то элемент будет добавлен в последний добавленый блок, если блоков нет, то будет создан блок `body` и в него помещен элемент.
+
+    SleepingOwl\Admin\Form\FormDefault::addItem(mixed $item): return self
+
+#### addHeader
+Добавление элементов в блок `panel-heading`
+
+    SleepingOwl\Admin\Form\FormPanel::addHeader(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
+    
+#### addBody
+Добавление элементов в блок `panel-body`. Если предыдущий блок `body`, то между ними будет вставлен элемент `<hr />`
+
+    SleepingOwl\Admin\Form\FormPanel::addBody(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
+    
+#### addFooter
+Добавление элементов в блок `panel-footer`
+
+    SleepingOwl\Admin\Form\FormPanel::addFooter(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
+
+# API (методы доступные во всех классах)
+
+#### setButtons
+Указание класса отвечающего за вывод кнопок формы. По умолчанию `SleepingOwl\Admin\Form\FormButtons`
+
+    SleepingOwl\Admin\Form\FormDefault::setButtons(\SleepingOwl\Admin\Contracts\FormButtonsInterface $buttons): return self
+
+#### setView
+Указание view отвечающего за вывод формы
+
+    SleepingOwl\Admin\Form\FormDefault::setView(\Illuminate\View\View|string $view): return self
+    
+#### setAction
+Указание ссылки, на которую будут отправлены данные формы.
+
+    SleepingOwl\Admin\Contracts\FormInterface::setAction(string $action): return self
+    
+#### setElements
+Добавление массива элементов в форму
+
+    SleepingOwl\Admin\Contracts\Form\ElementsInterface::setElements(array $elements): return self
+    
+
+#### addElement
+Добавление элемента в форму
+
+    SleepingOwl\Admin\Form\FormElements::addElement(mixed $element): return self
+
+#### addScript
+Подключение скрипта к форме (будет загружен вместе с формой)
+
+    SleepingOwl\Admin\Form\FormElement::addScript(string $handle, string $script, array $dependency): return self
+    
+#### addStyle
+Подключение стиля к форме (будет загружен вместе с формой)
+
+    SleepingOwl\Admin\Form\FormElement::addStyle(string $handle, string $style, array $attributes): return self
+
+#### withPackage
+Подключить дополнительные пакеты вместе с формой
+
+    SleepingOwl\Admin\Form\FormElement::withPackage(string $packages): return self
+    
+# Элементы формы (Поля)
+В качестве элемента формы может выступать любой класс, которые реализует интерфейс `Illuminate\Contracts\Support\Renderable`.
+
+## AdminColumn
+в случае необходимости можно использовать колонки таблиц
+
+```php
+AdminForm::form()->setElements([
+    AdminFormElement::upload('image', 'Image'), // Элемент загрузки картинки
+    AdminColumn::image('image', 'Image') // Вывод загружененой картинки
+])
+```
+
+## Табы
+Вы можете в качестве элемента формы помещать табы. **Делайте названия табов уникальные при размещении несколько разделов со вкладками, т.к. табы могут включаться некорректно.**
+
+```php
+$tabs = AdminDisplay::tabbed();
+$tabs->setTabs(function ($id) {
+    $tabs = [];
+
+    $tabs[] = AdminDisplay::tab(new \SleepingOwl\Admin\Form\FormElements([
+        AdminFormElement::text('title', 'Title')->required(),
+    ]))->setLabel('SEO');
+
+    $tabs[] = AdminDisplay::tab(new \SleepingOwl\Admin\Form\FormElements([
+        AdminFormElement::date('created_at', 'Created at')->required()
+    ]))->setLabel('Dates');
+
+    return $tabs;
+});
+
+
+$tabs1 = AdminDisplay::tabbed();
+    
+$tabs1 = ....;
+
+
+AdminForm::form()
+    ->addElement($tabs)
+    ->setElements([
+        AdminFormElement::upload('image', 'Image'), // Элемент загрузки картинки
+        AdminColumn::image('image', 'Image') // Вывод загружененой картинки
+    ])
+    ->addElement($tabs1);
+    
+// or
+
+$form = AdminForm::panel()
+    ->addHeader([
+        $tabs
+    ]);
+    
+// or
+
+$form = AdminForm::panel()
+    ->setElements([
+        AdminFormElement::upload('image', 'Image'),
+        $tabs
+    ]);
+```
+
+## Upload
 Поле `AdminFormElement::upload('image', 'Image')` используется для загрузки файлов на сервер посредством `<input type="upload" />`.
 При добавлении поля, форма автоматически получает html атрибут `enctype="multipart/form-data"`
 
