@@ -217,7 +217,12 @@ $actions->setPlacement(...);
 
     SleepingOwl\Admin\Display\Display::setFilters(array|...SleepingOwl\Admin\Contracts\FilterInterface): return self
     
+#### setRepositoryClass
+Переопределение класса репозитория. (Класс должен реализовывать интерфейс `SleepingOwl\Admin\Contracts\RepositoryInterface`)
 
+    SleepingOwl\Admin\Display\Display::setRepositoryClass(string $repository): return self
+    
+    
 ## table()
 `SleepingOwl\Admin\Display\DisplayTable`
 
@@ -377,9 +382,14 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
     SleepingOwl\Admin\Display\DisplayTree::setReorderable(boolean $reorderable): return self
     
 #### getTree
-Получение объекта расширения
+Получение объекта расширения (На данный момент не спользуется)
 
     SleepingOwl\Admin\Display\DisplayTree::getTree(): return SleepingOwl\Admin\Display\Extension\Tree
+    
+#### setRepositoryClass
+Переопределение класса репозитория. (Класс должен реализовывать интерфейс `SleepingOwl\Admin\Contracts\TreeRepositoryInterface`)
+
+    SleepingOwl\Admin\Display\DisplayTree::setRepositoryClass(string $repository): return self
     
 # Расширение таблиц
 Класс `SleepingOwl\Admin\Display\Display` от которого наследуются все классы реализующие вывод данных позволяет расширять свое поведение за счет расширений. Расширения могут как влиять на вывод данных, модифицируя запрос перед получением списка записей из БД либо вывод HTML кода в шаблон.
