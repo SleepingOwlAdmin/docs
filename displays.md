@@ -385,8 +385,8 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
 
     SleepingOwl\Admin\Display\DisplayTree::setReorderable(boolean $reorderable): return self
     
-#### getTree
-Получение объекта расширения (На данный момент не спользуется)
+#### getTree (На данный момент не спользуется)
+Получение объекта расширения
 
     SleepingOwl\Admin\Display\DisplayTree::getTree(): return SleepingOwl\Admin\Display\Extension\Tree
     
