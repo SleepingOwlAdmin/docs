@@ -327,6 +327,21 @@ $display->setOrder([[1, 'asc']]);
     SleepingOwl\Admin\Display\DisplayDatatablesAsync::setDistinct(boolean $distinct): return self
 
 ## tree()
+Используется для вывода данных в виде дерева с поддержкой сортировки (drag & drop). Данный вид поддерживает работу с https://github.com/etrepat/baum, https://github.com/lazychaser/laravel-nestedset, а также самый простой вариант, когда дерево строится на основе `parent_id` (Также в таблице должно быть поле `order` для сортировки)
+
+Данный клаас регистрирует роут `admin.display.tree.reorder`, который отвечает за сортировку данных. При необходимости вы можете перепределить данный роут в `app/Admin/routes.php`.
+
+```php
+Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', function (ModelConfigurationInterface $model) {
+    if ($model->getClass() == 'App\Post') {
+        // ...
+    } else {
+        $model->fireDisplay()->getRepository()->reorder(
+              Request::input('data')
+        );
+   }
+}]);
+```
 
 #### setValue
 Указание заголовка для документов
