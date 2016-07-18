@@ -174,6 +174,10 @@ $tabs->setTabs(function ($id) {
     return $tabs;
 });
 
+$tabs->appendTab([
+    AdminFormElement::text('title', 'Title')->required(),
+], 'Tab 1');
+
 
 $tabs1 = AdminDisplay::tabbed();
     
@@ -205,7 +209,7 @@ $form = AdminForm::panel()
 ```
 
 ## Columns
-Позволяет разбивать форму на несколько столбцов.
+Позволяет разбивать форму на несколько столбцов. Колонки могут быть использованы в табах и наоборот.
 
 ```php
 $columns = AdminFormElement::columns([
@@ -235,6 +239,31 @@ $columns->addColumn(new \SleepingOwl\Admin\Form\Columns\Column([
 $form = AdminForm::panel()->addBody($columns);
 ```
 
+#### Пример использования колонок с табами
+```php
+
+$tabs = AdminDisplay::tabbed([
+    'Tab 1' => new FormElements([
+        AdminFormElement::text('title', 'Title')->required()
+    ]),
+    'Tab 2' => new FormElements([
+        AdminFormElement::select('type', 'Type'),
+        AdminFormElement::date('event_at', 'Event at')->setFormat('Y-m-d H:i:00')
+    ])
+]);
+
+$columns = AdminFormElement::columns();
+
+$columns->addColumn([$tabs]);
+
+$columns->addColumn([
+    AdminFormElement::date('created_at', 'Created at')
+]);
+
+// Or
+
+$tabs->appendTab(new FormElements([$columns]));
+```
 
 ## Upload
 Поле `AdminFormElement::upload('image', 'Image')` используется для загрузки файлов на сервер посредством `<input type="upload" />`.
