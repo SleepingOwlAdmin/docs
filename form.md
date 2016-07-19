@@ -163,7 +163,7 @@ $tabs = AdminDisplay::tabbed();
 $tabs->setTabs(function ($id) {
     $tabs = [];
 
-    $tabs[] = AdminDisplay::tab(new \SleepingOwl\Admin\Form\FormElements([
+    $tabs[] = AdminDisplay::tab(AdminForm::elements([
         AdminFormElement::text('title', 'Title')->required(),
     ]))->setLabel('SEO');
 
@@ -213,16 +213,26 @@ $form = AdminForm::panel()
 
 ```php
 $columns = AdminFormElement::columns([
+    [
+        AdminFormElement::text('title', 'Title')->required()
+    ],
+    // or 
     function() {
         return [
             AdminFormElement::text('title', 'Title')->required()
         ];
     },
+    // or
     new \SleepingOwl\Admin\Form\Columns\Column([
         AdminFormElement::date('created_at', 'Created At')->required()
-    ]),
-    ...
+    ])
 ]);
+
+$columns->addColumn([
+    AdminFormElement::date('created_at', 'Created At')->required()
+]);
+
+// or 
 
 $columns->addColumn(function() {
     return [
@@ -235,6 +245,16 @@ $columns->addColumn(function() {
 $columns->addColumn(new \SleepingOwl\Admin\Form\Columns\Column([
     AdminFormElement::date('created_at', 'Created At')->required()
 ]));
+
+
+
+$columns->addColumn($subColumns = AdminFormElement::columns([
+    [
+        AdminFormElement::text('description', 'Description')
+    ]
+]);
+
+$subColumns->addColumn(...)
 
 $form = AdminForm::panel()->addBody($columns);
 ```
