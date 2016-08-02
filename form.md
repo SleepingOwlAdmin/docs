@@ -287,7 +287,14 @@ $tabs->appendTab(new FormElements([$columns]));
 
 ## Upload
 Поле `AdminFormElement::upload('image', 'Image')` используется для загрузки файлов на сервер посредством `<input type="upload" />`.
-При добавлении поля, форма автоматически получает html атрибут `enctype="multipart/form-data"`
+
+При добавлении поля, форма должна автоматически получить html атрибут `enctype="multipart/form-data"`. Если этого не произошло, вы можете добавить атрибут вручную:
+
+```php
+return AdminForm::panel()
+    ....
+    ->setHtmlAttribute('enctype', 'multipart/form-data');
+```
 
 Для работы с этим полем существует специальный трейт `KodiComponents\Support\Upload`, который поможет с загрузкой прикрепленного файла и сохранением ссылки на него в БД. (При желании данный трейт можно использовать отдельно, используя composer пакет `kodicomponents/support`)
 
