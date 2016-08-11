@@ -6,7 +6,7 @@
 ```
 или добавив строчку
 ```
-"laravelrus/sleepingowl": "4.*@dev
+"laravelrus/sleepingowl": "4.*@dev"
 ```
 в `composer.json` и запустить `composer update`
 
