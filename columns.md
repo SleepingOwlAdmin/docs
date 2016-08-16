@@ -47,8 +47,6 @@ AdminForm::panel()
 все столбцы, реализует интерфейсы `Illuminate\Contracts\Support\Arrayable`,
 `Illuminate\Contracts\Support\Renderable` и `SleepingOwl\Admin\Contracts\Initializable`.
 
-В классах столбцов используется трейт [HtmlAttributes](html_attributes), с помощью которого для всех столбцов можно настраивать HTML атрибуты.
-
 <a name="supported-types"></a>
 ## Поддерживаемые типы
 
@@ -101,6 +99,8 @@ AdminForm::panel()
         ->setHtmlAttribute('class', 'bg-success text-center')
         ->setHtmlAttribute('data-tooltip', 'Test tooltip');
 ```
+
+# API
 
 <a name="all-methods"></a>
 ## Методы доступные во всех элементах
