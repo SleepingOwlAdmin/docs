@@ -14,6 +14,8 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
   {
     // Инициализация пакета для хранения ассетов
     $this->initializePackage();
+    
+    ...
   }
   
   public function initialize()
