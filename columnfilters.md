@@ -53,29 +53,29 @@ $display->setColumnFilters([
 
 #### Список доступных операторов сравнения:
 
-  - `equal` - равно
-  - `not_equal` - не равно
-  - `less` - меньше
-  - `less_or_equal` - меньше или равно
-  - `greater` - больше
-  - `greater_or_equal` - больше или равно
-  - `begins_with` - начинается с
-  - `not_begins_with`- не начинается с
-  - `contains` - содержит
-  - `not_contains` - не содержит
-  - `ends_with` - заканчивается на
-  - `not_ends_with` - не заканчивается на
-  - `between` - между (значения указываются через `,`)
-  - `not_between` - не между (значения указываются через `,`)
-  - `in` - одно из (значения указываются через `,`)
-  - `not_in` - не одно из (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\FilterInterface::EQUAL = equal` - равно
+  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_EQUAL = not_equal` - не равно
+  - `SleepingOwl\Admin\Contracts\FilterInterface::LESS = less` - меньше
+  - `SleepingOwl\Admin\Contracts\FilterInterface::LESS_OR_EQUAL = less_or_equal` - меньше или равно
+  - `SleepingOwl\Admin\Contracts\FilterInterface::GREATER = greater` - больше
+  - `SleepingOwl\Admin\Contracts\FilterInterface::GREATER_OR_EQUAL = greater_or_equal` - больше или равно
+  - `SleepingOwl\Admin\Contracts\FilterInterface::BEGINS_WITH = begins_with` - начинается с
+  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_BEGINS_WITH = not_begins_with`- не начинается с
+  - `SleepingOwl\Admin\Contracts\FilterInterface::CONTAINS = contains` - содержит
+  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_CONTAINS = not_contains` - не содержит
+  - `SleepingOwl\Admin\Contracts\FilterInterface::ENDS_WITH = ends_with` - заканчивается на
+  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_ENDS_WITH = not_ends_with` - не заканчивается на
+  - `SleepingOwl\Admin\Contracts\FilterInterface::BETWEEN = between` - между (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_BETWEEN = not_between` - не между (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\FilterInterface::IN = in` - одно из (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_IN = not_in` - не одно из (значения указываются через `,`)
 
 
 ## Text
 Фильтрация данных по строке
 
 ```php
-AdminColumnFilter::text()->setPlaceholder('Full Name')->setOperator('contains')
+AdminColumnFilter::text()->setPlaceholder('Full Name')->setOperator(\SleepingOwl\Admin\Contracts\FilterInterface::CONTAINS)
 ```
 
 ### setPlaceholder
