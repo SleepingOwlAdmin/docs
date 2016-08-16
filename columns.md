@@ -104,6 +104,7 @@ AdminForm::panel()
 
 <a name="all-methods"></a>
 ## Методы доступные во всех элементах
+В классах таблиц используется трейт [HtmlAttributes](html_attributes.md), с помощью которого для таблиц можно настраивать HTML атрибуты.
 
 #### setLabel
 Установка заголовка колонки
@@ -132,41 +133,6 @@ AdminForm::panel()
 #### setOrderable
 
     SleepingOwl\Admin\Display\TableColumn::setOrderable(boolean $orderable): return self
-
-#### setHtmlAttribute
-Установка HTML атрибута
-
-    SleepingOwl\Admin\Display\TableColumn::setHtmlAttribute(string $key, string|array $attribute): return self
-
-#### setHtmlAttributes
-Установка HTML атрибутов в виде массива
-
-    SleepingOwl\Admin\Display\TableColumn::setHtmlAttributes(array $attributes): return self
-
-#### replaceHtmlAttribute
-Замена установленного HTML атрибута
-
-    SleepingOwl\Admin\Display\TableColumn::replaceHtmlAttribute(string $key, string|array $attribute): return self
-
-#### hasClassProperty
-Проверка на существование HTML класса
-
-    SleepingOwl\Admin\Display\TableColumn::hasClassProperty(string $class): return boolean
-
-#### hasHtmlAttribute
-Проверка на существование HTML атрибута
-
-    SleepingOwl\Admin\Display\TableColumn::hasHtmlAttribute(srtring $key): return boolean
-
-#### removeHtmlAttribute
-Удаление HTML атрибута
-
-    SleepingOwl\Admin\Display\TableColumn::removeHtmlAttribute(string $key): return self
-
-#### clearHtmlAttributes
-Удаление всех HTML атрибутов
-
-    SleepingOwl\Admin\Display\TableColumn::clearHtmlAttributes(): return self
 
 <a name="action"></a>
 ## Action 
