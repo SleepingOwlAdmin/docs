@@ -7,11 +7,6 @@
  - `AdminForm::panel()` - в основе которой лежит [Bootstrap конпонент `panel`](http://getbootstrap.com/components/#panels)
  - `AdminForm::tabbed()` - для группировки элементов формы в табы
 
-
-В классах форм используется трейт:
- - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
- - [Assets](assets_trait.md), с помощью которого для них можно подключать ассеты.
-
 ## form
  * Класс `\SleepingOwl\Admin\Form\FormDefault`
  * View `resources\views\default\form\default.blade.php`
@@ -104,6 +99,10 @@ AdminForm::tabbed()->setElements([
 
 # API (методы доступные во всех классах)
 
+В классах форм используется трейт:
+ - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
+ - [Assets](assets_trait.md), с помощью которого для них можно подключать ассеты.
+
 #### setButtons
 Указание класса отвечающего за вывод кнопок формы. По умолчанию `SleepingOwl\Admin\Form\FormButtons`
 
@@ -129,21 +128,6 @@ AdminForm::tabbed()->setElements([
 Добавление элемента в форму
 
     SleepingOwl\Admin\Form\FormElements::addElement(mixed $element): return self
-
-#### addScript
-Подключение скрипта к форме (будет загружен вместе с формой)
-
-    SleepingOwl\Admin\Form\FormElement::addScript(string $handle, string $script, array $dependency): return self
-    
-#### addStyle
-Подключение стиля к форме (будет загружен вместе с формой)
-
-    SleepingOwl\Admin\Form\FormElement::addStyle(string $handle, string $style, array $attributes): return self
-
-#### withPackage
-Подключить дополнительные пакеты вместе с формой
-
-    SleepingOwl\Admin\Form\FormElement::withPackage(string $packages): return self
     
 # Элементы формы (Поля)
 В качестве элемента формы может выступать любой класс, которые реализует интерфейс `Illuminate\Contracts\Support\Renderable`.
