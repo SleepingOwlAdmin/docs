@@ -12,8 +12,9 @@ $ php artisan sleepingowl:install
 
  - Публикует конфигурацию SleepingOwl Admin.
  - Публикет ассеты из SleepingOwl Admin в `public/packages/sleepingowl/default`.
-
-   `php artisan vendor:publish --tag=assets --force`
+   ```bash
+   $ php artisan vendor:publish --tag=assets --force`
+   ```
    
  - Создает директорию автозапуска (По умолчанию `app/Admin`).
  - Создает файл конфигурации меню по умолчанию. (По умолчанию `app/Admin/navigation.php`)
