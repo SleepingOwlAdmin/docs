@@ -7,7 +7,9 @@
  - `AdminForm::panel()` - в основе которой лежит [Bootstrap конпонент `panel`](http://getbootstrap.com/components/#panels)
  - `AdminForm::tabbed()` - для группировки элементов формы в табы
 
- В классах форм используется трейт [HtmlAttributes](html_attributes), с помощью которого для них можно указывать HTML атрибуты.
+ В классах форм используется трейт:
+ - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
+ - [Assets](assets_trait.md), с помощью которого для них можно подключать ассеты.
 
 ## form
  * Класс `\SleepingOwl\Admin\Form\FormDefault`
