@@ -30,7 +30,7 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
 }
 ```
 
-При подключении трейта класс инициализирует создает новый пакет через `PackageManager` с названием текущего класса, т.е. для класса
+При подключении трейта класс инициализирует новый пакет через `PackageManager` с названием текущего класса, т.е. для класса
 выше это будет `PackageManager::add('Form\Element\Select')` и при вызове методов трейта `withPackage`, `addScript` и `addStyle` мы добавляем новые 
 ассеты в данный пакет.
 
