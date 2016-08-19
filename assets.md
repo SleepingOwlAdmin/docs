@@ -103,16 +103,39 @@ static::setFavicon(string $url, string $rel = 'shortcut icon'): return $this
 ```php
 static::addMeta(array $attributes, string $group = null): return $this
 ```
+##### Аргументы
+* `$group` **string** - Ключ элемента в группе
+
 
 ```php
 Meta::addMeta(['name' => 'description', 'content' => 'hello world']) // <meta name="description" content="hello world">
 ```
 
-#### `addToGroup`
+#### `addTagToGroup`
 
+Добавление HTML тега в группу. *По умолчанию все meta теги (`favicon`, `description`, `keywords`) создаваемые через класс `Meta` после генерации в html добавляются в группу с ключем `meta`*
 
+```php
+static::addTagToGroup(string $handle, string $content, array $params = [], string|array $dependency = null): return $this
+```
 
+##### Аргументы
+* `$handle` **string** - Ключ элемента в группе
+* `$content` **string** - HTML код `<meta name=":name" content=":description" />`
+* `$params` **array** - Параметры для замены. (`[':name' => $name, ':description' => 'My super description']`)
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
+вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
+на пакеты)
 
+```php
+Meta::addTagToGroup('favicon', '<link rel=":rel" href=":url" type=":type" />', [
+ ':url' => $url,
+ ':rel' => $rel,
+ ':type' => $type
+])
+```
+
+#### `removeFromGroup`
 
 <a id="assets"></a>
 ## Assets
