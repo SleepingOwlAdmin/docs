@@ -33,6 +33,53 @@ static::addJs(string $handle, string $src, array|string $dependency = null, bool
 на пакеты)
 * `$footer` **bool** - будет помечен для вывода в футере
 
+#### `addJsElixir`
+
+Добавление javascript файла c версионностью
+
+```php
+static::addJsElixir(string $filename = 'js/app.js', string|array $dependency = null, bool $footer = false)
+```
+
+#### `removeJs`
+
+Удаление javascript файла. *Если параметр `$handle` не передан, будут удалены все javascript*
+
+```php
+static::removeJs(string $handle = null)
+```
+
+#### `addCss`
+Добавление css файла.
+
+```php
+static::addCss(string $handle, string $src, array|string $dependency = null, array $attributes = [])
+```
+
+##### Аргументы
+* `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
+* `$src` **string** - Путь до фала (URL)
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
+вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
+на пакеты)
+* `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
+
+#### `addCssElixir`
+
+Добавление css файла c версионностью
+
+#### `removeCss`
+
+Удаление css файла. *Если параметр `$handle` не передан, будут удалены все javascript*
+
+```php
+static::removeCss(string $handle = null)
+```
+
+```php
+static::addCssElixir(string $filename = 'css/all.css', string|array $dependency = null, array $attributes = [])
+```
+
 #### `setTitle`
 Указание заголовка `<title>...</title>`
 
@@ -136,6 +183,13 @@ Meta::addTagToGroup('favicon', '<link rel=":rel" href=":url" type=":type" />', [
 ```
 
 #### `removeFromGroup`
+
+Удаление HTML тега из группы.
+
+```php
+static::removeFromGroup(string $handle): return $this
+```
+
 
 <a id="assets"></a>
 ## Assets
