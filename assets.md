@@ -6,7 +6,7 @@
 
 Для работы с ассетами через элементы форм, отображения и т.д. используется trait [assets](assets_trait.md), который работает через класс `Meta`.
 
-Пакет представлен тремя фассадами 
+Пакет представлен тремя фасадами 
  - [Meta](#meta)
  - [Assets](#assets)
  - [PackageManager](#package-manager)
@@ -17,7 +17,7 @@
 ## Meta
 `KodiCMS\Assets\Meta`
 
-Класс мета используется для генерации блока meta информации в шаблоне. Класс представляет собой сервис контейнер, который инициализирцется вместе с инициализацией всех компонентов системы и является `singleton` и позволяет добавлять стили и скрипты в шаблон в любой момент, до вывода шаблона.
+Класс мета используется для генерации блока meta информации в шаблоне. Класс представляет собой сервис контейнер, который инициализируется вместе с инициализацией всех компонентов системы и является `singleton` и позволяет добавлять стили и скрипты в шаблон в любой момент, до вывода шаблона.
 
 **Пример использования**
 ```php
@@ -52,7 +52,7 @@
 
 #### `loadPackage`
 
-Подклюение пакетов.
+Подключение пакетов.
 
 ```php
 static::loadPackage(string|array $packages): return $this
@@ -157,7 +157,7 @@ window.key = 'value';
 
 #### `removeVars`
 
-Удаление всех добавленых в стек данных
+Удаление всех добавленных в стек данных
 
 ```php
 static::removeVars(): return $this
@@ -213,7 +213,7 @@ static::setMetaData(\KodiCMS\Assets\Contracts\MetaDataInterface $data): return $
   
 #### `addSocialTags`
 
-Добавление тегов для соц сетей через класс реализующий интерфейс `KodiCMS\Assets\Contracts\SocialMediaTagsInterface`
+Добавление тегов для соц. сетей через класс, реализующий интерфейс `KodiCMS\Assets\Contracts\SocialMediaTagsInterface`
 
 ```php
 static::addSocialTags(\KodiCMS\Assets\Contracts\SocialMediaTagsInterface $socialTags): return $this
@@ -244,7 +244,7 @@ Meta::addMeta(['name' => 'description', 'content' => 'hello world']) // <meta na
 
 #### `addTagToGroup`
 
-Добавление HTML тега в группу. *По умолчанию все meta теги (`favicon`, `description`, `keywords`) создаваемые через класс `Meta` после генерации в html добавляются в группу с ключем `meta`*
+Добавление HTML тега в группу. *По умолчанию все meta теги (`favicon`, `description`, `keywords`) создаваемые через класс `Meta` после генерации в html добавляются в группу с ключом `meta`*
 
 ```php
 static::addTagToGroup(string $handle, string $content, array $params = [], string|array $dependency = null): return $this
@@ -288,7 +288,7 @@ static::removeFromGroup(string $handle): return $this
 
 Класс Assets является хранилищем списка `css`, `javascript`, `vars` и `groups`. 
 
-**Класс Meta при доавлении ассетов использует данный класс в качестве хранилища.**
+**Класс Meta при добавлении ассетов использует данный класс в качестве хранилища.**
 
 ## API
 
@@ -304,7 +304,7 @@ static::removeFromGroup(string $handle): return $this
 ## PackageManager
 `KodiCMS\Assets\PackageManager extends Collection`
 
-Менеджер пакетов. Пакет представляет из себя набор ассетов (javascript и css), которые объеденены в одну группу, доступную по имени. 
+Менеджер пакетов. Пакет представляет из себя набор ассетов (javascript и css), которые объединены в одну группу, доступную по имени. 
 
 **Пример инициализации**
 ```php
