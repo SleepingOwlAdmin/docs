@@ -1,5 +1,5 @@
 # Колонки таблицы
-Расширение [отображения данных](displays.md) 
+Расширение [отображения данных](displays) 
 
 - [Введение](#introduction)
 - [Методы доступные во всех элементах](#supported-types)
@@ -153,7 +153,7 @@ $table = AdminDisplay::table()
         ...
     ]);
 
-// Изменить разсположение положения кнопок на странице
+// Изменить расположение кнопок на странице
 $table->getActions()
     ->setPlacement('panel.buttons')
     ->setHtmlAttribute('class', 'pull-right');
@@ -165,7 +165,7 @@ $table->getActions()
     SleepingOwl\Admin\Display\Column\Action::setTitle(string $title): return self
 
 #### setAction
-Установка ссылки на которую будет отправлен запрос с выбранными элементами
+Установка ссылки, на которую будет отправлен запрос с выбранными элементами
 
     SleepingOwl\Admin\Display\Column\Action::setAction(string $action): return self
 
@@ -204,7 +204,7 @@ $table->getActions()
 ## Checkbox
 `SleepingOwl\Admin\Display\Column\Checkbox`
 
-Данный элемент предназначен для вывода чекбокса в таблице для выбора значений. Подробнее https://github.com/LaravelRUS/SleepingOwlAdmin-docs/blob/master/columns.md#action
+Данный элемент предназначен для вывода чекбокса в таблице для выбора значений. Подробнее [Action](#action)
 
 ```php
 AdminColumn::checkbox(),
