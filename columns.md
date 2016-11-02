@@ -20,6 +20,7 @@
     - [Custom](#custom)
     - [Action](#action)
     - [Checkbox](#checkbox)
+    - [Control](#control)
 
 <a name="introduction"></a>
 ## Введение
@@ -374,3 +375,56 @@ class Users extend Model {
 ```
 
 Также для корректности отображения записей в таблице не забывайте при выводе сортировать записи по этому полю `->orderBy('order', 'asc')`
+
+<a name="control"></a>    
+## Control
+`SleepingOwl\Admin\Display\Column\Control`
+
+Данный элемент используется в табличном выводе для отображения кнопок действий связанных с элементом таблицы. Данный элемент добавляется автоматически ко всем элементам таблицы и предоставляет следующие дейтсвия
+ - Редактирование элемента
+ - Удаление
+ - Восстановление
+ 
+**Получение доступа к данном элементу**
+```php
+$display = AdminDisplay::table()->...;
+ 
+$display->getColumns()->getControlColumn(); // return SleepingOwl\Admin\Display\Column\Control
+```
+При необходимости вы можете добавлять в таблицу ндополнительные действия над элементом:
+```php
+$control = $display->getColumns()->getControlColumn();
+
+$link = new \SleepingOwl\Admin\Display\ControlLink(function (\Illuminate\Database\Eloquent\Model $model) {
+   return 'http://localhost/'.$model->getKey(); // Генерация ссылки
+}, 'Button text', 50);
+
+$control->addButton($link);
+
+$button = new \SleepingOwl\Admin\Display\ControlButton(function (\Illuminate\Database\Eloquent\Model $model) {
+   return 'http://localhost/delete/'.$model->getKey(); // Генерация ссылки
+}, 'Button text', 50);
+
+// Изменение метода сабмита формы кнопки
+$button->setMethod('delete');
+
+// Скрытие текста из кнопки
+$button->hideText();
+
+// Добавление иконки
+$button->setIcon('fa fa-trash');
+
+// Дополнительные HTML атрибуты для кнопки
+$button->setHtmlAttribute('class', 'btn-danger btn-delete');
+
+// Условие видимости кнопки (не обязательно)
+$button->setCondition(function(\Illuminate\Database\Eloquent\Model $model) {
+   return auth()->user()->can('delete', $model);
+});
+
+$control->addButton($button);
+```
+**На данный момент существует два класса кнопок** 
+ - `SleepingOwl\Admin\Display\ControlButton` - кнопка внутри формы для сабмита
+ - `SleepingOwl\Admin\Display\ControlLink` - кнопка ссылка
+ 
