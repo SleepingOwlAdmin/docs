@@ -428,3 +428,4 @@ $control->addButton($button);
  - `SleepingOwl\Admin\Display\ControlButton` - кнопка внутри формы для сабмита
  - `SleepingOwl\Admin\Display\ControlLink` - кнопка ссылка
  
+ Также вы можете добавлять свои классы кнопок, реализовав инттерфейс `SleepingOwl\Admin\Contracts\Display\ControlButtonInterface`
