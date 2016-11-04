@@ -83,3 +83,12 @@ app('sleeping_owl.table.column')->field_type()->...
 - Подключение `app/Admin/navigation.php` *(При наличии файла)*
 
 !!! **После регистрации системных роутов, создание новых разделов может привести к ошибкам при использовании алиасов** !!!
+
+
+### Рабочий стол (Dashboard)
+В стандартную сборку SleepingOwlAdmin включен пустой шаблон дашборда с возможностью вставки в него виджетов https://github.com/LaravelRUS/SleepingOwlAdmin-docs/blob/master/widgets.md
+
+При желании вы можете переопределить view шаблона дэшборда для разметки блоков для виджетов, либо переопределить роут и указать контроллер который отвечает за дашборд
+```php
+Route::get('', ['as' => 'admin.dashboard', 'uses' => '\App\Http\Controllers\DashboardController@index']);
+```
