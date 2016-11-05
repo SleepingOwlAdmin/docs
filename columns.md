@@ -417,6 +417,17 @@ $button->setIcon('fa fa-trash');
 // Дополнительные HTML атрибуты для кнопки
 $button->setHtmlAttribute('class', 'btn-danger btn-delete');
 
+//Добавление атрибутов по условию
+//Атрибуты установленные в этом методе перекрывают атрибуты 
+//установленные методами setHtmlAttribute/setHtmlAttributes
+$link->setAttributeCondition(function(Model $model) {
+    if (isset($model->id)) {
+        return ['class' => "btn-id-{$model->id}"];
+    }
+    
+    return ['class' => 'btn-danger'];
+});
+
 // Условие видимости кнопки (не обязательно)
 $button->setCondition(function(\Illuminate\Database\Eloquent\Model $model) {
    return auth()->user()->can('delete', $model);
