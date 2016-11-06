@@ -6,7 +6,7 @@ note: general docs in Russian.
   - [How to update](upgrade.md)
   - [Участие в разработке](contributions.md)
 - For begining
-  - [Описание работы системы](global.md)
+  - [Описание работы системы](global-en.md)
   - [Installation](installation.md)
   - [Configuration](configuration.md)
   - [Menu configutation](menu_configuration.md)
