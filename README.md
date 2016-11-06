@@ -26,3 +26,4 @@
 	- [HTML атрибуты](html_attributes.md)
 - Прочее
   - [Вопрос-ответ](faq.md)
+  - [Docs in English (needed help to translate from Russian to English)](README-en.md)
