@@ -2,7 +2,7 @@
 note: general docs in Russian.
 
 - Introduce  
-  - [Package versions](releases.md)
+  - [Package versions](releases-en.md)
   - [How to update](upgrade.md)
   - [Участие в разработке](contributions.md)
 - For begining
@@ -27,3 +27,4 @@ note: general docs in Russian.
 	- [HTML атрибуты](html_attributes.md)
 - Others
   - [FAQ](faq.md)
+  - [Документация на русском (основная)](README.md)
