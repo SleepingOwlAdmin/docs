@@ -27,3 +27,4 @@ note: general docs in Russian.
 	- [HTML атрибуты](html_attributes.md)
 - Others
   - [FAQ](faq.md)
+  - [Docs in Russian (general version)](../README.md)
