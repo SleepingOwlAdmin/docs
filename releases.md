@@ -4,7 +4,8 @@
 
 Начиная с 4-й версии развитие пакета производится силами сообщества [LaravelRUS](https://github.com/LaravelRUS).
 
-Официальная версия документации V4: https://github.com/LaravelRUS/SleepingOwlAdmin-docs
+Официальная версия документации V4 (Russian): https://github.com/LaravelRUS/SleepingOwlAdmin-docs
+Официальная версия документации V4 (English - needed help to translate from Russian): https://github.com/LaravelRUS/SleepingOwlAdmin-docs/blob/master/eng/
 
 Эта документация в отдельном сайте: http://sleepingowl.laravel.su/ (там и другие ссылки полезные есть)
 
@@ -45,4 +46,4 @@ GitHub: https://github.com/sleeping-owl/admin
 
 
 ----------------------------------------------------
-актуально 06.11.2016
+актуально 14.11.2016
