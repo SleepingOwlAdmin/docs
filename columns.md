@@ -147,6 +147,12 @@ $display->setColumns([
     })->setOrderable(function($query, $direction) {
         $query->orderBy('last_name', $direction);
     })
+
+   // Или просто передать ключ поля
+  ->setOrderable('last_name')
+
+   // Или с помощью класса реализующего интерфейс SleepingOwl\Admin\Contracts\Display\OrderByClauseInterface
+  ->setOrderable(new CustomOrderByClause())
 ]);
 ```
 
