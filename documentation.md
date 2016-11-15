@@ -1,12 +1,14 @@
 - Введение  
-  - [Версии пакета](releases)
-  - [Руководство по обновлению](upgrade)
-  - [Участие в разработке](contributions)
+	- [Версии пакета](releases)
+	- [Руководство по обновлению](upgrade)
+	- [Участие в разработке](contributions)
 - C чего начать
+    	- [Описание работы системы](global)
 	- [Установка](installation)
 	- [Конфигурация](configuration)
 	- [Конфигурация меню](menu_configuration)
 	- [Конфигурация модели](model_configuration)
+	- [Конфигурация моделей через сервис провайдер](model_configuration_section)
 	- [Конфигурация роутов](routes_configuration)
 	- [Авторизация](authentication)
 	- [Локализация](localization)
@@ -19,6 +21,7 @@
 	- [Столбцы](columns)
 	- [Фильтры столбцов](columnfilters)
 	- [Формы](form)
+	- [Виджеты](widgets)
 	- [HTML атрибуты](html_attributes)
 - Прочее
-  - [Вопрос-ответ](faq)
+	- [Вопрос-ответ](faq)
