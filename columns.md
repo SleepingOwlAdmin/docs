@@ -145,7 +145,7 @@ $display->setColumns([
     AdminColumn::custom(function($model) 
            return $model->first_name.' '.$model->last_name;
     })->setOrderable(function($query, $direction) {
-        $query->ordeкBy('last_name', $direction);
+        $query->orderBy('last_name', $direction);
     })
 ]);
 ```
