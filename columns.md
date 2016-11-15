@@ -134,8 +134,21 @@ AdminForm::panel()
     SleepingOwl\Admin\Display\TableColumn::append(\SleepingOwl\Admin\Contracts\ColumnInterface $append): return self
 
 #### setOrderable
+Указание правила сортировки колонки таблицы. По умочалчанию все колонки сортируются `->orderBy(column, direction)`
 
-    SleepingOwl\Admin\Display\TableColumn::setOrderable(boolean $orderable): return self
+    SleepingOwl\Admin\Display\TableColumn::setOrderable(false|SleepingOwl\Admin\Contracts\Display\OrderByClauseInterface|Closure|string $orderable): return self
+
+В случае необходимости вы можете изменить правила сортировки столбца (Например для столбца с типом `custom`)
+
+```php
+$display->setColumns([
+    AdminColumn::custom(function($model) 
+           return $model->first_name.' '.$model->last_name;
+    })->setOrderable(function($query, $direction) {
+        $query->ordeкBy('last_name', $direction);
+    })
+]);
+```
 
 <a name="action"></a>
 ## Action 
