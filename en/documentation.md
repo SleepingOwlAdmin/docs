@@ -1,2 +1,4 @@
 - Introduction
     - [Releases](releases)
+- Getting Started
+    - [Installation](installation)
