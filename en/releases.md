@@ -14,7 +14,7 @@ Group in VK: https://vk.com/sleepingowladm
 
 Community website: laravel.su  
   
-&nbsp;
+---
 
 ## SleepingOwl Admin 3 (beta)
 
@@ -30,6 +30,8 @@ Docs in Russian:  http://sleeping-owl.github.io/v3/ru/Introduction.html
 
 Docs in English V3
 http://sleeping-owl.github.io/v3/en/Introduction.html
+
+---
 
 ## SleepingOwl Admin 2
 
