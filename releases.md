@@ -13,7 +13,7 @@
 
 Сайт сообщества: laravel.su  
   
-&nbsp;
+---
 
 ## SleepingOwl Admin 3 (beta)
 
@@ -29,6 +29,8 @@ GitHub: https://github.com/sleeping-owl/admin/tree/development
 
 Документация на английском
 http://sleeping-owl.github.io/v3/en/Introduction.html
+
+---
 
 ## SleepingOwl Admin 2
 
