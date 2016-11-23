@@ -132,6 +132,68 @@ AdminForm::tabbed()->setElements([
 # Элементы формы (Поля)
 В качестве элемента формы может выступать любой класс, которые реализует интерфейс `Illuminate\Contracts\Support\Renderable`.
 
+## Список полей формы
+
+### Text
+AdminFormElement::text()
+
+### Password
+AdminFormElement::password()
+
+### Hidden
+AdminFormElement::hidden()
+
+### Email
+AdminFormElement::email()
+
+### Date
+AdminFormElement::date()
+
+### Datetime
+AdminFormElement::datetime()
+
+### Timestamp
+AdminFormElement::timestamp()
+
+### Time
+AdminFormElement::time()
+
+### File
+AdminFormElement::file()
+
+### Textarea
+AdminFormElement::textarea()
+
+### Select
+AdminFormElement::select()
+
+### MultiSelect
+AdminFormElement::multiSelect()
+
+### Wysiwyg
+AdminFormElement::wysiwyg()
+
+### Ckeditor
+AdminFormElement::ckeditor()
+
+### Checkbox
+AdminFormElement::checkbox()
+
+### Radio
+AdminFormElement::radio()
+
+### Images
+AdminFormElement::images()
+
+### Image
+AdminFormElement::image()
+
+### Html
+AdminFormElement::html()
+
+### Custom
+AdminFormElement::custom()
+
 ## AdminColumn
 в случае необходимости можно использовать колонки таблиц
 
