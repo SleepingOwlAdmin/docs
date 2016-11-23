@@ -20,7 +20,7 @@ AdminSection::registerModel(Company::class, function (ModelConfiguration $model)
     });
     // Create And Edit
     $model->onCreateAndEdit(function() {
-        return $form = AdminForm::panel()->addBody(
+        $form = AdminForm::panel()->addBody(
             AdminFormElement::text('title', 'Title')->required()->unique(),
             AdminFormElement::textarea('address', 'Address')->setRows(2),
             AdminFormElement::text('phone', 'Phone')
