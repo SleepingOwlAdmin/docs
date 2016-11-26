@@ -94,6 +94,28 @@ AdminSection::registerModel(Company::class, function (ModelConfiguration $model)
 })
 ```
 
+## Переопределение редиректа при выполнении действий
+
+Бывают случаи когда необходимо назначить свою логику для редиректа - например вы хотите что бы система отправляла
+пользователя после нажатия на кнопку сохранить в таблицу, а не на страницу редактирования
+
+```php
+AdminSection::registerModel(Company::class, function (ModelConfiguration $model) { 
+    // Редирект при редактировании в таблицу
+    $model->setRedirect(['edit' => 'display']);
+    
+    // Редирект при редактировании в таблицу
+    $model->setRedirect(['create' => 'display']);
+    
+    // Оба случая вместе
+    $model->setRedirect(['create' => 'display', 'edit' => 'display']);
+    
+    //В противном случае сработает дефолтная логика
+
+})
+```
+
+
 <a name="ограничение-прав-доступа"></a>
 ## Ограничение прав доступа
 
