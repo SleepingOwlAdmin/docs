@@ -327,7 +327,7 @@ class UserController extends \SleepingOwl\Admin\Http\Controllers\AdminController
 ```
 
 <a name="api"></a>
-# API (Доступные методы)
+## API (Доступные методы)
 
 ### setAlias
 Установка алиаса ссылки для раздела *(По умолчанию название класса модели во множественном числе)*
