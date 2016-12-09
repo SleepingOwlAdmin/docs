@@ -1,10 +1,9 @@
-- Введение  
-    - [Версии пакета](releases)
-    - [Руководство по обновлению](upgrade)
+- Введение
+    - [Установка](installation)
+    - [Руководство по обновлению](update)
     - [Участие в разработке](contributions)
 - C чего начать
     - [Описание работы системы](global)
-    - [Установка](installation)
     - [Конфигурация](configuration)
     - [Конфигурация меню](menu_configuration)
     - [Конфигурация модели](model_configuration)
@@ -27,4 +26,5 @@
 - Прочее
     - [Управление ресурсами](assets)
     - [Assets trait](assets_trait)
+    - [Версии пакета](releases)
     - [Вопрос-ответ](faq)

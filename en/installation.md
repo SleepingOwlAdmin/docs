@@ -33,6 +33,6 @@
 
  3. Run this command in the terminal (if you want to know more about what exactly this command does, see [install command documentation](http://sleeping-owl.github.io/en/Commands/Install.html)):
 
-```
+```bash
 $ php artisan sleepingowl:install
 ```
