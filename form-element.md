@@ -71,7 +71,7 @@ AdminFormElement::hidden(string $key)
 ```
 
 <a name="date"></a>
-### Date
+## Date
 ```php
 AdminFormElement::date(string $key, string $label = null)
 // $key - Ключ поля
@@ -231,7 +231,7 @@ $field->setRows(int $rows); // Указание кол-ва строк
 ```
 
 <a name="select"></a>
-### Select
+## Select
 ``php
 AdminFormElement::select(string $key, string $label = null)
 // $key - Ключ поля
