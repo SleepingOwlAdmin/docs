@@ -1,8 +1,13 @@
 # Фильтры столбцов
 
+ - [API](#api)
+ - [Text](#filter-text)
+ - [Date](#filter-date)
+ - [Select](#filter-select)
+
 Фильтры столбцов используются для фильтрации списка. 
 
-В случае с `AdminDisplay::datatables()` поиск производится через API библиотеки `datatable`.
+В случае с `AdminDisplay::datatables()` поиск производится через API библиотеки `datatables`.
 
 **Пример использования:**
 
@@ -36,6 +41,7 @@ $display->setColumnFilters([
 
 **При указании столбцов необходимо, чтобы кол-во столбцов поиска соответствовало кол-ву столбцов в таблице (если поиск по определенному столбцу не нужен, то необходимо передать `null`) и была соблюдена последовательность**
 
+<a id="api"></a>
 # API
 
 В классах фильтров столбцов используется трейт:
@@ -44,6 +50,7 @@ $display->setColumnFilters([
 
 ## Методы доступные во всех фильтрах
 
+<a id="set-operator"></a>
 ### setOperator
 Указание оператора, который будет использован при фильтрации. По умолчанию `equal`
 
@@ -71,6 +78,7 @@ $display->setColumnFilters([
   - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_IN = not_in` - не одно из (значения указываются через `,`)
 
 
+<a id="filter-text"></a>
 ## Text
 Фильтрация данных по строке
 
@@ -86,6 +94,7 @@ AdminColumnFilter::text()->setPlaceholder('Full Name')->setOperator(\SleepingOwl
 ```
 
 
+<a id="filter-date"></a>
 ## Date
 Фильтрация данных по дате
 
@@ -121,6 +130,8 @@ AdminColumnFilter::date()->setPlaceholder('Date')->setFormat('d.m.Y')
   static::setWidth(int $width): return self
 ```
 
+
+<a id="filter-select"></a>
 ## Select
 Фильтрация данных по данным из выпадающего списка
 

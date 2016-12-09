@@ -1,31 +1,42 @@
 # Авторизация
 
-SleepingOwl Admin по умолчанию не использует авторизацию, т.е. доступ в админ панель никак не защищен. Настроить доступ можно используя `middleware`.
+ - [Custom Middleware](#middleware)
+
+SleepingOwl Admin по умолчанию не использует авторизацию, т.е. доступ
+в админ панель никак не защищен. Настроить доступ можно используя `middleware`.
 
 Самый простой вариант - использовать стандартный механизм, который предоставляет сам Laravel.
 
-Для этого необходимо выполнить консольную команду `php artisan make:auth` (Подробнее https://laravel.com/docs/5.2/authentication#authentication-quickstart) и в конфиге `sleeping_owl.php` добавить middleware `auth`
+Для этого необходимо выполнить консольную команду (Подробнее https://laravel.com/docs/5.2/authentication#authentication-quickstart)
+```bash
+$ php artisan make:auth
+```
+После выполнения команды необходимо в настройках `middleware` конфига `sleeping_owl.php` добавить `auth`
 
+**Пример**
 ```php
 /*
  | ...
  | see https://laravel.com/docs/5.2/authentication#authentication-quickstart
  |
  */
-    
-'middleware' => ['web', 'auth'],
+'middleware' => ['web', 'auth'], // Порядок следования важен
 ...
 ```
 
-Таким образом у вас есть возможность с помощью middleware гибко настраивать правила для доступа в админ панель.
+Таким образом у вас есть возможность гибко настраивать правила для доступа
+в админ панель путем создания собственных `middleware`.
 
 ---
 
-## Ограничение доступа в админ панель
+<a id="middleware"></a>
+## Custom Middleware
 
-Глобально ограничить доступ к админ панели можно с помощью middleware.
+Глобально ограничить доступ к админ панели можно с помощью `middleware`.
 
-Допустим у вас есть пользователи и роли и вы хотите ограничить доступ к панели только администраторам. Для этого необходимо создать новый класс, например `App\Http\Middleware\AdminAuthenticate`
+Допустим у вас есть пользователи и роли и вы хотите ограничить доступ к
+панели только администраторам.
+Для этого необходимо создать новый класс, например `App\Http\Middleware\AdminAuthenticate`
 
 ```php
 <?php
@@ -49,6 +60,7 @@ class AdminAuthenticate
     public function handle($request, Closure $next, $guard = null)
     {
         $auth = Auth::guard($guard);
+
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
@@ -56,6 +68,7 @@ class AdminAuthenticate
                 return redirect()->guest('login');
             }
         }
+
         if (! $auth->user()->isAdmin()) {
             return response('Access denied.', 401);
         }
@@ -77,7 +90,7 @@ class AdminAuthenticate
  ...
 ```
 
-И теперь можно использовать данный middleware, добавить его в конфиг `config\sleeoping_owl.php`
+И теперь можно использовать данный `middleware`, добавив его в конфиг `config\sleeoping_owl.php`
 
 ```php
 ...
@@ -85,4 +98,4 @@ class AdminAuthenticate
 ...
 ```
 
-Подробнее о работе авторизации можно посмотреть в [документации](https://laravel.com/docs/5.2/authentication)
+Подробнее о работе авторизации можно почитать в официальной в [документации](https://laravel.com/docs/5.2/authentication)

@@ -46,15 +46,19 @@ class TableColumn implements Arrayable, Renderable
 
 И теперь можно данному классу можно назначать атрибуты
 
-```php
-$column = new TableColumn();
+## API
 
+<a id="set"></a>
+#### setHtmlAttribute
+Указание HTML атрибута
+
+```php
 $column->setHtmlAttribute('class', 'bg-primary');
 $column->setHtmlAttribute('class', 'text-right');
 $column->setHtmlAttribute('id', 'row-3');
 $column->setHtmlAttribute('data-value', 'test');
 
-// Or
+// Или в виде массива
 
 $column->setHtmlAttributes([
    'class' => ['bg-primary', 'text-right'],
@@ -63,26 +67,57 @@ $column->setHtmlAttributes([
 ]);
 
 // return <td class="bg-primary text-right" id="row-3" data-value="test">test</td>
+```
 
-// Переопределение класса
+<a id="replace"></a>
+#### replaceHtmlAttribute
+Переопределение класса
+
+```php
 $column->replaceHtmlAttribute('class', 'new-class');
 
 // return <td class="new-class" id="row-3" data-value="test">test</td>
+```
 
-// Проверка на существование класса 
+<a id="has-class"></a>
+#### hasClassProperty
+Проверка на существование класса
+
+```php
+$column->setHtmlAttribute('class', 'new-class');
 $column->hasClassProperty('new-class'); // return true
+```
 
-// Проверка на существование атрибута
+<a id="has-attribute"></a>
+#### hasHtmlAttribute
+Проверка на существование атрибута
+
+```php
+$column->setHtmlAttribute('data-value', 'test');
 $column->hasHtmlAttribute('data-value'); // return true
+```
 
-// Удаление атрибута
+<a id="remove"></a>
+#### removeHtmlAttribute
+Удаление атрибута
+
+```php
 $column->removeHtmlAttribute('data-value');
+```
 
-// Удаление всех атрибутов
+<a id="clear-all"></a>
+#### clearHtmlAttributes
+Удаление всех атрибутов
+
+```php
 $column->clearHtmlAttributes();
+```
 
+<a id="to-string"></a>
+#### htmlAttributesToString
+Преобразование атрибутов в строку
 
-// Преобразование атрибутов в строку
+```php
 $column->htmlAttributesToString();
 // return "class="new-class" id="row-3" data-value="test""
 ```

@@ -1,11 +1,10 @@
 # Колонки таблицы
-Расширение [отображения данных](displays) 
+*Расширение для класса [отображения данных](displays)*
 
 - [Введение](#introduction)
-- [Методы доступные во всех элементах](#supported-types)
 - [Поддерживаемые типы](#supported-types)
-- [Заголовок столбца](#column-heading)
-- [Методы доступные во всех элементах](#all-methods)
+- [Заголовок колонки](#column-heading)
+- [API](#api)
 - Типы
     - [Text](#text)
     - [DateTime](#datetime)
@@ -21,7 +20,6 @@
     - [Action](#action)
     - [Checkbox](#checkbox)
     - [Control](#control)
-
 <a name="introduction"></a>
 ## Введение
 
@@ -101,6 +99,8 @@ AdminForm::panel()
         ->setHtmlAttribute('data-tooltip', 'Test tooltip');
 ```
 
+
+<a id="api"></a>
 # API
 
 <a name="all-methods"></a>
@@ -109,6 +109,7 @@ AdminForm::panel()
  - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
  - [Assets](assets_trait.md), с помощью которого для них можно подключать ассеты.
 
+<a name="set-label"></a>
 #### setLabel
 Установка заголовка колонки
 

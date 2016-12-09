@@ -1,19 +1,17 @@
 - Введение
     - [Установка](installation)
+    - [Конфигурация](configuration)
+    - [Описание работы системы](global)
     - [Руководство по обновлению](update)
     - [Участие в разработке](contributions)
+    - [Версии пакета](releases)
 - C чего начать
-    - [Описание работы системы](global)
-    - [Конфигурация](configuration)
     - [Конфигурация меню](menu_configuration)
     - [Конфигурация модели](model_configuration)
     - [Конфигурация моделей через сервис провайдер](model_configuration_section)
     - [Конфигурация роутов](routes_configuration)
     - [Авторизация](authentication)
     - [Локализация](localization)
-    - [Валидация](validation)
-- Команды
-    - [Установка](command_install)
 - Ключевые понятия
     - [Типы отображения данных](displays)
     - [Фильтры](filters)
@@ -22,9 +20,8 @@
     - [Формы](form)
     - [Элементы формы](form-element)
     - [Виджеты](widgets)
-    - [HTML атрибуты](html_attributes)
 - Прочее
+    - [HTML атрибуты](html_attributes)
     - [Управление ресурсами](assets)
     - [Assets trait](assets_trait)
-    - [Версии пакета](releases)
     - [Вопрос-ответ](faq)
