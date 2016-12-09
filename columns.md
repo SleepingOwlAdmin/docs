@@ -100,7 +100,7 @@ AdminForm::panel()
 ```
 
 
-<a id="api"></a>
+<a name="api"></a>
 # API
 
 <a name="all-methods"></a>

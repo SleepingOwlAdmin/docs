@@ -29,7 +29,7 @@ $ php artisan make:auth
 
 ---
 
-<a id="middleware"></a>
+<a name="middleware"></a>
 ## Custom Middleware
 
 Глобально ограничить доступ к админ панели можно с помощью `middleware`.

@@ -7,7 +7,7 @@
  - [Tabs](#tabs)
  - [Columns](#columns)
 
-<a id="form"></a>
+<a name="form"></a>
 ## form
  * Класс `\SleepingOwl\Admin\Form\FormDefault`
  * View `resources\views\default\form\default.blade.php`
@@ -27,7 +27,7 @@ $form->setHtmlAttribute('class', 'panel panel-default');
 $form->getButtons()->setHtmlAttribute('class', 'panel-footer');
 ```
 
-<a id="panel"></a>
+<a name="panel"></a>
 ## panel
 в основе которой лежит [Bootstrap конпонент `panel`](http://getbootstrap.com/components/#panels)
 
@@ -87,7 +87,7 @@ $form->addElement(new \App\Form\Panel\CustomBlockClass([
 
     SleepingOwl\Admin\Form\FormPanel::addFooter(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
 
-<a id="tabbed"></a>
+<a name="tabbed"></a>
 ## tabbed
 Разновидность форм, в которой элементы можно разделять на вкладки.
 
@@ -102,7 +102,7 @@ AdminForm::tabbed()->setElements([
 ]);
 ```
 
-<a id="api"></a>
+<a name="api"></a>
 # API (методы доступные во всех классах)
 
 В классах форм используется трейт:
@@ -145,7 +145,7 @@ AdminForm::form()->setElements([
 ])
 ```
 
-<a id="tabs"></a>
+<a name="tabs"></a>
 ## Табы
 Вы можете в качестве элемента формы помещать табы. **Делайте названия табов уникальные при размещении несколько разделов со вкладками, т.к. табы могут включаться некорректно.**
 
@@ -199,7 +199,7 @@ $form = AdminForm::panel()
     ]);
 ```
 
-<a id="columns"></a>
+<a name="columns"></a>
 ## Columns
 Позволяет разбивать форму на несколько столбцов. Колонки могут быть использованы в табах и наоборот.
 

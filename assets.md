@@ -22,7 +22,7 @@
     - [API](#package-api)
 
 
-<a id="meta"></a>
+<a name="meta"></a>
 ## Meta
 `KodiCMS\Assets\Meta`
 
@@ -60,7 +60,7 @@
 </html>
 ```
 
-<a id="meta-api"></a>
+<a name="meta-api"></a>
 ### API
 
 #### `loadPackage`
@@ -295,7 +295,7 @@ static::removeFromGroup(string $handle): return $this
 static::removeFromGroup(string $handle): return $this
 ```
 
-<a id="assets"></a>
+<a name="assets"></a>
 ## Assets
 `KodiCMS\Assets\Assets`
 
@@ -303,7 +303,7 @@ static::removeFromGroup(string $handle): return $this
 
 **Класс Meta при добавлении ассетов использует данный класс в качестве хранилища.**
 
-<a id="assets-api"></a>
+<a name="assets-api"></a>
 ## API
 
 #### `packageManager`
@@ -314,7 +314,7 @@ static::removeFromGroup(string $handle): return $this
 static::removeFromGroup(string $handle): return $this
 ```
 
-<a id="package-manager"></a>
+<a name="package-manager"></a>
 ## PackageManager
 `KodiCMS\Assets\PackageManager extends Collection`
 
@@ -339,7 +339,7 @@ public function boot()
 $ php artisan assets:packages
 ```
 
-<a id="package-manager-api"></a>
+<a name="package-manager-api"></a>
 ## API
 
 #### `add`
@@ -358,13 +358,13 @@ static::add(KodiCMS\Assets\Contracts\PackageInterface|string $package): return K
 static::load(string $name): return KodiCMS\Assets\Contracts\PackageInterface|null
 ```
 
-<a id="package"></a>
+<a name="package"></a>
 ## Package
 `KodiCMS\Assets\Package extends Collection`
 
 Пакет (контейнер) для хранения ассетов
 
-<a id="package-api"></a>
+<a name="package-api"></a>
 ## API
 
 #### `with`

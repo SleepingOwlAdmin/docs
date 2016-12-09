@@ -24,7 +24,7 @@ $display = AdminDisplay::table()
 
 В этом примере показан простейший пример применения фильтра. И если теперь в бразуере указать `?category_id=1`, то при формировании запроса для выборки данных в него будет вставлено условие `where category_id = 1` и в заголовке таблицы будет отображена строка `Category ID [1]`
 
-<a id="types"></a>
+<a name="types"></a>
 ### Типы фильтров:
  - Фильтр по полю
  - Фильтр по [eloquent scopes](https://laravel.com/docs/5.2/eloquent#query-scopes)
@@ -71,7 +71,7 @@ AdminDisplayFilter::field('category_id')->setTitle(function($value) {
 AdminDisplayFilter::field('category_id')->setValue(1);
 ```
 
-<a id="field"></a>
+<a name="field"></a>
 ## Фильтр по полю
 Данный фильтр привязан к полю модели.
 
@@ -79,7 +79,7 @@ AdminDisplayFilter::field('category_id')->setValue(1);
 AdminDisplayFilter::field('category_id');
 ```
 
-<a id="api"></a>
+<a name="api"></a>
 ### API
 
 #### setOperator
@@ -112,7 +112,7 @@ AdminDisplayFilter::field('category_id');
 AdminDisplayFilter::field('category_id')->setOperator('in'); // ?category_id[]=1&category_id[]=2&category_id[]=5
 ```
 
-<a id="scopes"></a>
+<a name="scopes"></a>
 ## Фильтр по [eloquent scopes](https://laravel.com/docs/5.2/eloquent#query-scopes)
 Этот фильтр будет применять `scope` к вашему запросу. Допустим вы выводите список новостей и хотитет иметь возможность фильтровать ваши записи по `scope`, который имеется в модели `App\Post`, с помощью которой вы формируете список.
 
@@ -154,7 +154,7 @@ $display = AdminDisplay::table()
     );
 ```
 
-<a id="custom"></a>
+<a name="custom"></a>
 ## Произвольный фильтр
 Используется в случае если вы хотите задать фильтр с произвольным запросом
 

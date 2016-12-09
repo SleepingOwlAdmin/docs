@@ -119,7 +119,7 @@ AdminNavigation::addPage(\App\Blog::class)->setPages(fuction(Page $section) {
 });
 ```
 
-<a id="access"></a>
+<a name="access"></a>
 ## Доступ
 
 Также для разделов меню можно настраивать првила видимости.

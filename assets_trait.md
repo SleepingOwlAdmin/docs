@@ -36,7 +36,7 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
 Как мы знаем метод `initialize` в классе `Form\Element\Select` будет вызван только в момент подключение элемента в форму, а 
 вместе с ним и ассеты.
 
-<a id="assets-api"></a>
+<a name="assets-api"></a>
 ## API
 
 #### addStyle

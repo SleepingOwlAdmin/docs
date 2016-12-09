@@ -18,7 +18,7 @@
  - [Tree](#tree)
  - [Использование в форме ](#render-in-forms)
 
-<a id="table"></a>
+<a name="table"></a>
 ## Таблица (Table)
 Таблицы предназначены для вывода списка документов раздела.
 
@@ -39,7 +39,7 @@ $model->onDisplay(function () {
 });
 ```
 
-<a id="extension-columns"></a>
+<a name="extension-columns"></a>
 ### Указание столбцов (Расширение)
 `SleepingOwl\Admin\Display\Extension\Columns`
 
@@ -61,7 +61,7 @@ $display->getColumns()->push(
 ```
 
 
-<a id="extension-column-filters"></a>
+<a name="extension-column-filters"></a>
 ### Фильтры столбцов (Расширение)
 `SleepingOwl\Admin\Display\Extension\ColumnFilters`
 
@@ -79,7 +79,7 @@ $display->getColumnFilters()->push(
 );
 ```
 
-<a id="extension-with"></a>
+<a name="extension-with"></a>
 ### Eager Loading
 Позволяет оптимизировать запросы к БД в случае использования связей с
 другими моделями.
@@ -89,7 +89,7 @@ $display->getColumnFilters()->push(
 $display->with('country', 'companies');
 ```
 
-<a id="extension-apply"></a>
+<a name="extension-apply"></a>
 ### Изменение запроса (Расширение)
 `SleepingOwl\Admin\Display\Extension\Apply`
 
@@ -117,7 +117,7 @@ $display->getApply()->push(function ($query) {
 });
 ```
 
-<a id="extension-scope"></a>
+<a name="extension-scope"></a>
 ### Использование scope (Расширение)
 `SleepingOwl\Admin\Display\Extension\Scopes`
 
@@ -135,7 +135,7 @@ $display->setScopes(['last', 'trashed']);
 $display->getScopes()->push('last');
 ```
 
-<a id="extension-actions"></a>
+<a name="extension-actions"></a>
 ### Действия над документами Actions (Расширение)
 `SleepingOwl\Admin\Display\Extension\Actions`
 
@@ -157,7 +157,7 @@ $table->getActions()
     ->setHtmlAttribute('class', 'pull-right');
 ```
 
-<a id="api"></a>
+<a name="api"></a>
 # Api
 
 В классах таблиц используется трейт:
@@ -332,7 +332,7 @@ $filters->setPlacement(...);
 
     SleepingOwl\Admin\Display\DisplayTable::setColumnFilters(array|...SleepingOwl\Admin\Contracts\ColumnFilterInterface): return self
     
-<a id="datatables"></a>
+<a name="datatables"></a>
 ## datatables()
 `SleepingOwl\Admin\Display\DisplayDatatables`
 
@@ -350,7 +350,7 @@ $filters->setPlacement(...);
 $display->setOrder([[1, 'asc']]);
 ```
 
-<a id="datatables-async"></a>
+<a name="datatables-async"></a>
 ## datatablesAsync()
 `SleepingOwl\Admin\Display\DisplayDatatablesAsync`
 
@@ -363,7 +363,7 @@ $display->setOrder([[1, 'asc']]);
 
     SleepingOwl\Admin\Display\DisplayDatatablesAsync::setDistinct(boolean $distinct): return self
 
-<a id="tree"></a>
+<a name="tree"></a>
 ## tree()
 `SleepingOwl\Admin\Display\DisplayTree`
 
@@ -428,7 +428,7 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
 
     SleepingOwl\Admin\Display\DisplayTree::setRepositoryClass(string $repository): return self
     
-<a id="extend"></a>
+<a name="extend"></a>
 # Расширение таблиц
 Класс `SleepingOwl\Admin\Display\Display` от которого наследуются все классы реализующие вывод данных позволяет расширять свое поведение за счет расширений. Расширения могут как влиять на вывод данных, модифицируя запрос перед получением списка записей из БД либо вывод HTML кода в шаблон.
 
@@ -482,7 +482,7 @@ $table->setCustomExtension(...)
     - При реализации интерфейса `Illuminate\Contracts\Support\Renderable` вывод будет выполнен в общем стеке расширений
     - При реализации интерфейса `SleepingOwl\Admin\Contracts\Display\Placable` вывод будет выполнен в месте указанном в методе `getPlacement`
 
-<a id="extend-query"></a>
+<a name="extend-query"></a>
 ### Модификация запроса
 По умолчанию любое расширение может модифицировать запрос, который выполняет класс Display перед выводом данных. В момент выполнения запроса происходит вызов метода `modifyQuery` во всех расширениях и передача в него объекта `\Illuminate\Database\Eloquent\Builder`.
 
@@ -494,7 +494,7 @@ public function modifyQuery(\Illuminate\Database\Eloquent\Builder $query)
 }
 ```
 
-<a id="extend-html"></a>
+<a name="extend-html"></a>
 ### Вывод HTML
 
 Если расширение реализует интерфейс `Illuminate\Contracts\Support\Renderable`, то будет произведен вывод расширения в общем стеке расширений, т.е. для всех расширений будет последовательно вызван метод `render` https://github.com/LaravelRUS/SleepingOwlAdmin/blob/development/resources/views/default/display/table.blade.php#L28
@@ -505,7 +505,7 @@ public function modifyQuery(\Illuminate\Database\Eloquent\Builder $query)
 Места, где можно разместить код реализованы через `@yield`
 https://github.com/LaravelRUS/SleepingOwlAdmin/blob/development/resources/views/default/display/table.blade.php
 
-<a id="render-in-forms"></a>
+<a name="render-in-forms"></a>
 # Использование в форме
 При необходимости таблицу можно использовать в форме для вывода связанных записей.
 

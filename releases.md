@@ -1,6 +1,6 @@
 # Описание версий
 
-<a id="version-4"></a>
+<a name="version-4"></a>
 ## SleepingOwl Admin 4
 
 Начиная с 4-й версии развитие пакета производится силами сообщества [LaravelRUS](https://github.com/LaravelRUS).
@@ -16,7 +16,7 @@
   
 ---
 
-<a id="version-3"></a>
+<a name="version-3"></a>
 ## SleepingOwl Admin 3 (beta)
 
 ВНИМАНИЕ: данная вресия более не поддерживается.
@@ -34,7 +34,7 @@ http://sleeping-owl.github.io/v3/en/Introduction.html
 
 ---
 
-<a id="version-2"></a>
+<a name="version-2"></a>
 ## SleepingOwl Admin 2
 
 ВНИМАНИЕ: данная вресия более не поддерживается.

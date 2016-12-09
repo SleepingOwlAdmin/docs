@@ -1,8 +1,5 @@
 # Элементы формы (Поля)
 
-В качестве элемента формы может выступать любой класс, которые реализует интерфейс `Illuminate\Contracts\Support\Renderable`.
-Для полноцнной работы класс поля должен реализовать интерфейс `SleepingOwl\Admin\Contracts\FormElementInterface`
-
  - [Text](#text)
  - [Number](#number)
  - [Password](#password)
@@ -27,7 +24,11 @@
  - [Upload](#upload)
  - [API](#api)
 
-<a id="text"></a>
+В качестве элемента формы может выступать любой класс, которые реализует интерфейс `Illuminate\Contracts\Support\Renderable`.
+Для полноцнной работы класс поля должен реализовать интерфейс `SleepingOwl\Admin\Contracts\FormElementInterface`
+
+
+<a name="text"></a>
 ### Text
 
 ```php
@@ -36,7 +37,7 @@ AdminFormElement::text(string $key, string $label = null)
 // $label - Заголовок
 ```
 
-<a id="number"></a>
+<a name="number"></a>
 ### Number
 
 ```php
@@ -45,7 +46,7 @@ AdminFormElement::number(string $key, string $label = null)
 // $label - Заголовок
 ```
 
-<a id="password"></a>
+<a name="password"></a>
 ### Password
 
 ```php
@@ -62,14 +63,14 @@ $field->hashWithMD5(); // Перед сохранением применить �
 $field->hashWithSHA1(); // Перед сохранением применить к паролю функцию sha1
 ```
 
-<a id="hidden"></a>
+<a name="hidden"></a>
 ### Hidden
 ```php
 AdminFormElement::hidden(string $key)
 // $key - Ключ поля
 ```
 
-<a id="date"></a>
+<a name="date"></a>
 ### Date
 ```php
 AdminFormElement::date(string $key, string $label = null)
@@ -84,7 +85,7 @@ $field->setPickerFormat(string $fieldat); // Указание формата о�
 $field->setCurrentDate(); // Установка текущей даты, если значение не указано
 ```
 
-<a id="datetime"></a>
+<a name="datetime"></a>
 ### Datetime
 ```php
 AdminFormElement::datetime(string $key, string $label = null)
@@ -98,13 +99,13 @@ $field->setCurrentDate(); // Установка текущей даты, есл�
 $field->setSeconds(bool); // Показывать секунды в поле
 ```
 
-<a id="timestamp"></a>
+<a name="timestamp"></a>
 ### Timestamp
 ```php
 AdminFormElement::timestamp()
 ```
 
-<a id="time"></a>
+<a name="time"></a>
 ### Time
 ```php
 AdminFormElement::time()
@@ -117,7 +118,7 @@ $field->setPickerFormat(string $fieldat); // Указание формата о�
 $field->setCurrentDate(); // Установка текущей даты, если значение не указано
 ```
 
-<a id="file"></a>
+<a name="file"></a>
 ### File
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 ```php
@@ -147,7 +148,7 @@ $field->minSize(int $size); // Указание минимального раз�
 ```
 
 
-<a id="image"></a>
+<a name="image"></a>
 ### Image
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 При загрузке изображений, файлы проходят валидацию `image`
@@ -193,7 +194,7 @@ $field->maxSize(int $size); // Указание максимального ра�
 $field->minSize(int $size); // Указание минимального размера загружаемого изображения
 ```
 
-<a id="images"></a>
+<a name="images"></a>
 ### Images
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 При загрузке изображений, файлы проходят валидацию `image`
@@ -215,7 +216,7 @@ $field->storeAsComaSeparatedValue(); // При сохранении преобр
 ```
 
 
-<a id="textarea"></a>
+<a name="textarea"></a>
 ### Textarea
 
 ```php
@@ -229,7 +230,7 @@ AdminFormElement::textarea(string $key, string $label = null)
 $field->setRows(int $rows); // Указание кол-ва строк
 ```
 
-<a id="select"></a>
+<a name="select"></a>
 ### Select
 ```php
 AdminFormElement::select(string $key, string $label = null)
@@ -256,7 +257,7 @@ $field->nullable() // Возможность оставлять поле пус�
 $field->exclude(array $keys) // Исключение из списика элементов
 ```
 
-<a id="multiselect"></a>
+<a name="multiselect"></a>
 ### MultiSelect
 ```php
 AdminFormElement::multiSelect(string $key, string $label = null)
@@ -272,7 +273,7 @@ $field->taggable() // Возможность указывать собствен
 $field->isDeleteRelatedItem() // Если значение было ранее выбрано и сейчас убирается из списика, удалить его. (необходимо протестировать)
 ```
 
-<a id="wysiwyg"></a>
+<a name="wysiwyg"></a>
 ### Wysiwyg
 ```php
 AdminFormElement::wysiwyg(string $key, string $label = null, string $editor = null)
@@ -292,7 +293,7 @@ $field->setHeight(int $height) // указание высоты редактор
 $field->setParameters(array $parameters) // передача дополнительных настроек в редактор (Будут преобразованы в json)
 ```
 
-<a id="ckeditor"></a>
+<a name="ckeditor"></a>
 ### Ckeditor
 Алиас для поля `wysiwyg` с подключением редактора `ckeditor`
 
@@ -302,7 +303,7 @@ AdminFormElement::ckeditor(string $key, string $label = null)
 // $label - Заголовок
 ```
 
-<a id="checkbox"></a>
+<a name="checkbox"></a>
 ### Checkbox
 ```php
 AdminFormElement::checkbox(string $key, string $label = null)
@@ -310,7 +311,7 @@ AdminFormElement::checkbox(string $key, string $label = null)
 // $label - Заголовок
 ```
 
-<a id="radio"></a>
+<a name="radio"></a>
 ### Radio
 Доступны все методы из поля `select`
 
@@ -320,7 +321,7 @@ AdminFormElement::radio(string $key, string $label = null)
 // $label - Заголовок
 ```
 
-<a id="html"></a>
+<a name="html"></a>
 ### Html
 Поле для вывода обычного HTML кода
 
@@ -328,7 +329,7 @@ AdminFormElement::radio(string $key, string $label = null)
 AdminFormElement::html(string $html)
 ```
 
-<a id="custom"></a>
+<a name="custom"></a>
 ### Custom
 Поле для вывода д
 
@@ -348,7 +349,7 @@ $field->setDisplay(function(Model $model) {
 })
 ```
 
-<a id="view"></a>
+<a name="view"></a>
 ### View
 Поле для 
 
@@ -367,7 +368,7 @@ $field->setView(string $path) // путь до шаблона
 $field->setData(array $data) // массив который будет передан в шаблон (также туда будет передана модель)
 ```
 
-<a id="upload"></a>
+<a name="upload"></a>
 ## Upload
 Поле `AdminFormElement::upload('image', 'Image')` используется для загрузки файлов на сервер посредством `<input type="upload" />`.
 
@@ -522,7 +523,7 @@ AdminFormElement::upload('pdf', 'PDF')->addValidationRule('mime:pdf'),
 ---
 
 
-<a id="api"></a>
+<a name="api"></a>
 ## API
 
 ### addValidationRule
@@ -616,7 +617,7 @@ $field->mutateValue(function($value) {
 
 ---
 
-<a id="validation-examples"></a>
+<a name="validation-examples"></a>
 ### Примеры указания правил валидации
 
 Для каждого элемента формы `AdminFormElement` можно указывать павила валидации.

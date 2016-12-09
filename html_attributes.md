@@ -48,7 +48,7 @@ class TableColumn implements Arrayable, Renderable
 
 ## API
 
-<a id="set"></a>
+<a name="set"></a>
 #### setHtmlAttribute
 Указание HTML атрибута
 
@@ -69,7 +69,7 @@ $column->setHtmlAttributes([
 // return <td class="bg-primary text-right" id="row-3" data-value="test">test</td>
 ```
 
-<a id="replace"></a>
+<a name="replace"></a>
 #### replaceHtmlAttribute
 Переопределение класса
 
@@ -79,7 +79,7 @@ $column->replaceHtmlAttribute('class', 'new-class');
 // return <td class="new-class" id="row-3" data-value="test">test</td>
 ```
 
-<a id="has-class"></a>
+<a name="has-class"></a>
 #### hasClassProperty
 Проверка на существование класса
 
@@ -88,7 +88,7 @@ $column->setHtmlAttribute('class', 'new-class');
 $column->hasClassProperty('new-class'); // return true
 ```
 
-<a id="has-attribute"></a>
+<a name="has-attribute"></a>
 #### hasHtmlAttribute
 Проверка на существование атрибута
 
@@ -97,7 +97,7 @@ $column->setHtmlAttribute('data-value', 'test');
 $column->hasHtmlAttribute('data-value'); // return true
 ```
 
-<a id="remove"></a>
+<a name="remove"></a>
 #### removeHtmlAttribute
 Удаление атрибута
 
@@ -105,7 +105,7 @@ $column->hasHtmlAttribute('data-value'); // return true
 $column->removeHtmlAttribute('data-value');
 ```
 
-<a id="clear-all"></a>
+<a name="clear-all"></a>
 #### clearHtmlAttributes
 Удаление всех атрибутов
 
@@ -113,7 +113,7 @@ $column->removeHtmlAttribute('data-value');
 $column->clearHtmlAttributes();
 ```
 
-<a id="to-string"></a>
+<a name="to-string"></a>
 #### htmlAttributesToString
 Преобразование атрибутов в строку
 
