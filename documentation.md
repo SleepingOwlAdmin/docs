@@ -21,7 +21,10 @@
     - [Столбцы](columns)
     - [Фильтры столбцов](columnfilters)
     - [Формы](form)
+    - [Элементы формы](form-element)
     - [Виджеты](widgets)
     - [HTML атрибуты](html_attributes)
 - Прочее
+    - [Управление ресурсами](assets)
+    - [Assets trait](assets_trait)
     - [Вопрос-ответ](faq)
