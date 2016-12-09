@@ -5,7 +5,7 @@
  - [Artisan](#artisan)
 
 <a name="composer"></a>
-### Composer
+## Composer
 Установить пакет можно помощью командной строки
 
 ```bash
@@ -30,7 +30,7 @@ $ composer update
 ```
 
 <a name="service-provider"></a>
-### Service Provider
+## Service Provider
 
 После установки пакета необходимо добавить сервис провайдер
 ([Service Provider](https://laravel.com/docs/5.3/providers)) `SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class`,
@@ -54,7 +54,7 @@ $ composer update
 ```
 
 <a name="artisan"></a>
-### Artisan
+## Artisan
 
 Используйте эту команду для начальной конфигурации SleepingOwl Admin. Она создаст все необходимые файлы и директории.
 
@@ -78,7 +78,7 @@ $ php artisan sleepingowl:install
  - Создает [сервис провайдер](model_configuration_section.md) `app\Providers\AdminSectionsServiceProvider`
 
 <a name="what-next"></a>
-### Следующий этап
+## Следующий этап
 
  - [Настройка](configuration)
  - [Обновление](update)

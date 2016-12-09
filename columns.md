@@ -1,5 +1,4 @@
 # Колонки таблицы
-*Расширение для класса [отображения данных](displays)*
 
 - [Введение](#introduction)
 - [Поддерживаемые типы](#supported-types)
@@ -20,6 +19,11 @@
     - [Action](#action)
     - [Checkbox](#checkbox)
     - [Control](#control)
+
+
+*Расширение для класса [отображения данных](displays)*
+
+
 <a name="introduction"></a>
 ## Введение
 

@@ -37,7 +37,7 @@
 если есть шаблон по пути `sleepingowl\src\resources\default\display\extensions\columns.blade.php`, то путь в системе должен быть
 `resources\views\vendor\sleeping_owl\default\display\extensions\columns.blade.php`
 
-### Регистрируемые сервис контейнеры:
+## Регистрируемые сервис контейнеры:
 
 - AdminSection - `sleeping_owl` - `SleepingOwl\Admin\Admin`
 - AdminTemplate - `sleeping_owl.template` - `SleepingOwl\Admin\Templates\TemplateDefault`
@@ -69,7 +69,7 @@ app('sleeping_owl.table.column')->add('field_type', \App\Fields\CustomField::cla
 app('sleeping_owl.table.column')->field_type()->...
 ```
 
-### Подключение файлов
+## Подключение файлов
 
 После регистрации всех компонентов происходит поиск файлов в директории `app/Admin` и их подключение.
 - Первым делом происходит подключение `bootstrap.php`
@@ -85,7 +85,7 @@ app('sleeping_owl.table.column')->field_type()->...
 !!! **После регистрации системных роутов, создание новых разделов может привести к ошибкам при использовании алиасов** !!!
 
 
-### Рабочий стол (Dashboard)
+## Рабочий стол (Dashboard)
 В стандартную сборку SleepingOwlAdmin включен пустой шаблон дашборда с возможностью вставки в него виджетов https://github.com/LaravelRUS/SleepingOwlAdmin-docs/blob/master/widgets.md
 
 При желании вы можете переопределить view шаблона дэшборда для разметки блоков для виджетов, либо переопределить роут и указать контроллер который отвечает за дашборд

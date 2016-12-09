@@ -29,7 +29,7 @@
 
 
 <a name="text"></a>
-### Text
+## Text
 
 ```php
 AdminFormElement::text(string $key, string $label = null)
@@ -38,7 +38,7 @@ AdminFormElement::text(string $key, string $label = null)
 ```
 
 <a name="number"></a>
-### Number
+## Number
 
 ```php
 AdminFormElement::number(string $key, string $label = null)
@@ -47,7 +47,7 @@ AdminFormElement::number(string $key, string $label = null)
 ```
 
 <a name="password"></a>
-### Password
+## Password
 
 ```php
 AdminFormElement::password(string $key, string $label = null)
@@ -64,7 +64,7 @@ $field->hashWithSHA1(); // Перед сохранением применить 
 ```
 
 <a name="hidden"></a>
-### Hidden
+## Hidden
 ```php
 AdminFormElement::hidden(string $key)
 // $key - Ключ поля
@@ -86,7 +86,7 @@ $field->setCurrentDate(); // Установка текущей даты, есл�
 ```
 
 <a name="datetime"></a>
-### Datetime
+## Datetime
 ```php
 AdminFormElement::datetime(string $key, string $label = null)
 ```
@@ -100,13 +100,13 @@ $field->setSeconds(bool); // Показывать секунды в поле
 ```
 
 <a name="timestamp"></a>
-### Timestamp
+## Timestamp
 ```php
 AdminFormElement::timestamp()
 ```
 
 <a name="time"></a>
-### Time
+## Time
 ```php
 AdminFormElement::time()
 ```
@@ -119,7 +119,7 @@ $field->setCurrentDate(); // Установка текущей даты, есл�
 ```
 
 <a name="file"></a>
-### File
+## File
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 ```php
 AdminFormElement::file(string $key, string $label = null)
@@ -149,7 +149,7 @@ $field->minSize(int $size); // Указание минимального раз�
 
 
 <a name="image"></a>
-### Image
+## Image
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 При загрузке изображений, файлы проходят валидацию `image`
 
@@ -195,7 +195,7 @@ $field->minSize(int $size); // Указание минимального раз�
 ```
 
 <a name="images"></a>
-### Images
+## Images
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 При загрузке изображений, файлы проходят валидацию `image`
 
@@ -217,7 +217,7 @@ $field->storeAsComaSeparatedValue(); // При сохранении преобр
 
 
 <a name="textarea"></a>
-### Textarea
+## Textarea
 
 ```php
 AdminFormElement::textarea(string $key, string $label = null)
@@ -232,7 +232,7 @@ $field->setRows(int $rows); // Указание кол-ва строк
 
 <a name="select"></a>
 ### Select
-```php
+``php
 AdminFormElement::select(string $key, string $label = null)
 // $key - Ключ поля
 // $label - Заголовок
@@ -258,7 +258,7 @@ $field->exclude(array $keys) // Исключение из списика эле�
 ```
 
 <a name="multiselect"></a>
-### MultiSelect
+## MultiSelect
 ```php
 AdminFormElement::multiSelect(string $key, string $label = null)
 // $key - Ключ поля
@@ -274,7 +274,7 @@ $field->isDeleteRelatedItem() // Если значение было ранее �
 ```
 
 <a name="wysiwyg"></a>
-### Wysiwyg
+## Wysiwyg
 ```php
 AdminFormElement::wysiwyg(string $key, string $label = null, string $editor = null)
 // $key - Ключ поля
@@ -294,7 +294,7 @@ $field->setParameters(array $parameters) // передача дополните�
 ```
 
 <a name="ckeditor"></a>
-### Ckeditor
+## Ckeditor
 Алиас для поля `wysiwyg` с подключением редактора `ckeditor`
 
 ```php
@@ -304,7 +304,7 @@ AdminFormElement::ckeditor(string $key, string $label = null)
 ```
 
 <a name="checkbox"></a>
-### Checkbox
+## Checkbox
 ```php
 AdminFormElement::checkbox(string $key, string $label = null)
 // $key - Ключ поля
@@ -312,7 +312,7 @@ AdminFormElement::checkbox(string $key, string $label = null)
 ```
 
 <a name="radio"></a>
-### Radio
+## Radio
 Доступны все методы из поля `select`
 
 ```php
@@ -322,7 +322,7 @@ AdminFormElement::radio(string $key, string $label = null)
 ```
 
 <a name="html"></a>
-### Html
+## Html
 Поле для вывода обычного HTML кода
 
 ```php
@@ -330,7 +330,7 @@ AdminFormElement::html(string $html)
 ```
 
 <a name="custom"></a>
-### Custom
+## Custom
 Поле для вывода д
 
 ```php
@@ -350,7 +350,7 @@ $field->setDisplay(function(Model $model) {
 ```
 
 <a name="view"></a>
-### View
+## View
 Поле для 
 
 ```php

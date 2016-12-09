@@ -3,7 +3,7 @@
 Виджеты предназначены для вставки в блоки `@yield` или `@stack` в шаблоны собственных кусков HTML кода. 
 Они могут быть полезными, например, если вам необходимо добавить в шаблон навигации по админ панели собственные пункты меню.
 
-### Как использовать
+## Как использовать
 
 Каждый виджет представляет собой класс реализующий интерфейс `SleepingOwl\Admin\Contracts\Widgets\WidgetInterface`. Для удобства существует
 абстрактный класс `SleepingOwl\Admin\Widgets\Widget`, которы реализует часть методов интерфейса и вы можете наследовать свой класс от него.
@@ -109,7 +109,7 @@ class AppServiceProvider extends ServiceProvider
 **При вставки виджетов в блоки `@yield` необходимо помнить, что ваш HTML должен содержать директиву `@parent` https://laravel.com/docs/5.3/blade#extending-a-layout**
 
 <a name="template-blocks"></a>
-### Список блоков:
+## Список блоков:
   - `\AdminTemplate::getViewPath('_layout.inner')` Основной шаблон
     - `content.top`
     - `content.bottom`

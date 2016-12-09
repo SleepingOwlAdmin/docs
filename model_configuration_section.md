@@ -43,7 +43,6 @@ protected $sections = [
 <a name="setting"></a>
 ## Работа с конфигурационным классом
 
-
 **Пример готового класса**
 ```php
 <?php
@@ -272,7 +271,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
 ```
 
 <a name="api"></a>
-# API
+## API
 
 Параметры
 ----------

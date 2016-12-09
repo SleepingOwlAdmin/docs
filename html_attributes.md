@@ -46,10 +46,10 @@ class TableColumn implements Arrayable, Renderable
 
 И теперь можно данному классу можно назначать атрибуты
 
-## API
+# API
 
 <a name="set"></a>
-#### setHtmlAttribute
+## setHtmlAttribute
 Указание HTML атрибута
 
 ```php
@@ -70,7 +70,7 @@ $column->setHtmlAttributes([
 ```
 
 <a name="replace"></a>
-#### replaceHtmlAttribute
+## replaceHtmlAttribute
 Переопределение класса
 
 ```php
@@ -80,7 +80,7 @@ $column->replaceHtmlAttribute('class', 'new-class');
 ```
 
 <a name="has-class"></a>
-#### hasClassProperty
+## hasClassProperty
 Проверка на существование класса
 
 ```php
@@ -89,7 +89,7 @@ $column->hasClassProperty('new-class'); // return true
 ```
 
 <a name="has-attribute"></a>
-#### hasHtmlAttribute
+## hasHtmlAttribute
 Проверка на существование атрибута
 
 ```php
@@ -98,7 +98,7 @@ $column->hasHtmlAttribute('data-value'); // return true
 ```
 
 <a name="remove"></a>
-#### removeHtmlAttribute
+## removeHtmlAttribute
 Удаление атрибута
 
 ```php
@@ -106,7 +106,7 @@ $column->removeHtmlAttribute('data-value');
 ```
 
 <a name="clear-all"></a>
-#### clearHtmlAttributes
+## clearHtmlAttributes
 Удаление всех атрибутов
 
 ```php
@@ -114,7 +114,7 @@ $column->clearHtmlAttributes();
 ```
 
 <a name="to-string"></a>
-#### htmlAttributesToString
+## htmlAttributesToString
 Преобразование атрибутов в строку
 
 ```php
