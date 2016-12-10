@@ -1,4 +1,10 @@
 - Introduction
+    - [Installation](installation)
+    - [Configuration](configuration)
+    - [Updating](update)
     - [Releases](releases)
 - Getting Started
-    - [Installation](installation)
+    - [Authentication](authentication)
+- Elements
+    - [Form elements](form-element)
+

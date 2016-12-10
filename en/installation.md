@@ -1,38 +1,83 @@
 # Installation
 
- 1. Require this package in your composer.json and run `composer update`:
+ - [Composer](#composer)
+ - [Service Provider](#service-provider)
+ - [Artisan](#artisan)
 
-  ```
+<a name="composer"></a>
+## Composer
+
+First, download the SleepingOwl Admin package using Composer:
+
+```bash
+$ composer require "laravelrus/sleepingowl":"4.*@dev"
+```
+
+or add packager to `composer.json`
+
+```json
+{
+  ...
   "require": {
-    "php": ">=5.5.9",
-    "laravel/framework": "5.2.*",
+     ...
+     "laravelrus/sleepingowl": "4.*@dev"
+  }
+}
+```
+and run
+
+```bash
+$ composer update
+```
+
+<a name="service-provider"></a>
+## Service Provider
+
+Add ([Service Provider](https://laravel.com/docs/5.3/providers)) `SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class` to `config/app.php` in providers section
+
+**Example**
+```php
+'providers' => [
     ...
-    "laravelrus/sleepingowl": "4.*@dev"
-  },
-  ```
+    /**
+     * SleepingOwl Service Provider
+     */
+    SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
 
-  Or `composer require laravelrus/sleepingowl:4.*@dev`
+    /**
+     * Application Service Providers...
+     */
+    App\Providers\AppServiceProvider::class,
+    ...
+]
+```
 
- 2. After composer update, insert service provider `SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,`
- before `Application Service Providers...` to the `config/app.php`
+<a name="artisan"></a>
+## Artisan
 
-  **Example**
-  ```php
-      ...
-      /*
-       * SleepingOwl Service Provider
-       */
-        SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
-
-      /*
-       * Application Service Providers...
-       */
-      App\Providers\AppServiceProvider::class,
-      ...
-  ```
-
- 3. Run this command in the terminal (if you want to know more about what exactly this command does, see [install command documentation](http://sleeping-owl.github.io/en/Commands/Install.html)):
+Run artisan command `sleepingowl:install` to install SleepingOwl Admin.
 
 ```bash
 $ php artisan sleepingowl:install
 ```
+
+#### What does this command
+
+ - Publishes config file `sleepign_owl.php`.
+ - Publishes assets from `vendor/laravelrus/sleepingowl/public` to `public/packages/sleepingowl/default`.
+   ```bash
+   $ php artisan vendor:publish --tag=assets --force`
+   ```
+
+ - Makes directory `app/Admin`.
+ - Makes configuration file for navigation `app/Admin/navigation.php`.
+ - Makes admin bootstrapper `app/Admin/bootstrap.php`.
+ - Makes admin routes file `app/Admin/routes.php`.
+ - Creates public directory for images upload `public/images/uploads`
+ - Makes [service provider](model_configuration_section.md) `app\Providers\AdminSectionsServiceProvider`
+
+<a name="what-next"></a>
+## What next
+
+ - [Configuration](configuration)
+ - [Update](update)

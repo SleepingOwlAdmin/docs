@@ -6,21 +6,21 @@
     - [Участие в разработке](contributions)
     - [Версии пакета](releases)
 - C чего начать
+    - [Авторизация](authentication)
+    - [Конфигурация роутов](routes_configuration)
     - [Конфигурация меню](menu_configuration)
     - [Конфигурация модели](model_configuration)
     - [Конфигурация моделей через сервис провайдер](model_configuration_section)
-    - [Конфигурация роутов](routes_configuration)
-    - [Авторизация](authentication)
     - [Локализация](localization)
-- Ключевые понятия
+- Основные элементы
     - [Типы отображения данных](displays)
     - [Фильтры](filters)
     - [Столбцы](columns)
     - [Фильтры столбцов](columnfilters)
     - [Формы](form)
     - [Элементы формы](form-element)
-    - [Виджеты](widgets)
 - Прочее
+    - [Виджеты](widgets)
     - [HTML атрибуты](html_attributes)
     - [Управление ресурсами](assets)
     - [Assets trait](assets_trait)
