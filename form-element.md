@@ -590,7 +590,7 @@ $field->setDefaultValue(mixed $defaultValue)
 Указание вспомогательного текста
 
 ```php
-$field->setHelpText(string $helpText)
+$field->setHelpText(string|\Illuminate\Contracts\Support\Htmlable $helpText)
 ```
 
 ### setReadonly
