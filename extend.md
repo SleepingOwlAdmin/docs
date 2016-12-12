@@ -41,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
+Регистрация всех основных элементов происходит в классе [AliasesServiceProvider](https://github.com/LaravelRUS/SleepingOwlAdmin/blob/development/src/Providers/AliasesServiceProvider.php)
+
 Особенности при регистрации контейнеров рассмотрим отдельно для каждого типа.
 
 <a name="display"></a>
