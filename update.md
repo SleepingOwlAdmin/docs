@@ -9,10 +9,16 @@ $ composer update
 После обновления, желательно выполнять команду
 
 ```bash
+$ php artisan sleepingowl:update
+```
+или 
+
+```bash
 $ php artisan vendor:publish --tag=assets --force
 ```
 
-для обновления ассетов.
+
+для обновления компонентов.
 
 При желании можно добавить команду в `composer.json` для автоматического запуска команды
 
@@ -21,7 +27,7 @@ $ php artisan vendor:publish --tag=assets --force
     "scripts": {
         "post-update-cmd": [
             ...
-            "php artisan vendor:publish --tag=assets --force"
+            "php artisan sleepingowl:update"
         ]
     },
 }
