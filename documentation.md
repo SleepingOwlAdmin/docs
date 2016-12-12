@@ -24,4 +24,5 @@
     - [HTML атрибуты](html_attributes)
     - [Управление ресурсами](assets)
     - [Assets trait](assets_trait)
+    - [Создание элементов](extend)
     - [Вопрос-ответ](faq)
