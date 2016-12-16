@@ -466,7 +466,8 @@ $control->addButton($button);
  
  Также вы можете добавлять свои классы кнопок, реализовав инттерфейс `SleepingOwl\Admin\Contracts\Display\ControlButtonInterface`
  
- <a name="relations"></a>    
+
+<a name="relations"></a>    
 ## Работа с Relation данными
 
 Большинство колонок могут использовать связи модели.
