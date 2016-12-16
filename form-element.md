@@ -175,9 +175,22 @@ $field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
     return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
 });
 
-$field->setUploadSettings(array settings); // Указание настроек для обработки загружаемого изображения. 
-// В качестве ключей массива используются названия функций http://image.intervention.io/
-// Пример
+$field->setUploadSettings(array settings); // Указание настроек для обработки загружаемого изображения. Описание работы 
+
+
+$field->maxSize(int $size); // Указание максимального размера загружаемого изображения
+$field->minSize(int $size); // Указание минимального размера загружаемого изображения
+```
+
+<a name="image-manipulation"></a>
+#### Обработка изображений
+
+Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation)
+
+После подключения пакета можно использовать фильтры пакета через метод `setUploadSettings`.
+
+**Пример**
+```php
 $field->setUploadSettings([
     'orientate' => [],
     'resize' => [1280, null, function ($constraint) {
@@ -189,9 +202,18 @@ $field->setUploadSettings([
         $constraint->aspectRatio();
     }]
 ]);
+```
 
-$field->maxSize(int $size); // Указание максимального размера загружаемого изображения
-$field->minSize(int $size); // Указание минимального размера загружаемого изображения
+Ключенм массива выступает название фильтра, например [`resize`](http://image.intervention.io/api/resize), в качестве значения массива передается массив аргументов, которые будут переданы в эту функцию. Т.е. после передачи настроек итератор пройдется по всем элементам массива и сделает вызов `call_user_func_array($key, $value)`
+
+**Наглядный пример**
+```php
+$image = \Intervention\Image\Facades\Image::make($file)
+
+call_user_func_array([$image, 'resize'], [1280, null, function ($constraint) {
+   $constraint->upsize();
+   $constraint->aspectRatio();
+}])
 ```
 
 <a name="images"></a>
