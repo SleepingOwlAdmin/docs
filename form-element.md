@@ -226,19 +226,22 @@ AdminFormElement::textarea(string $key, string $label = null)
 ```
 
 #### Доступные методы
+
 ```php
 $field->setRows(int $rows); // Указание кол-ва строк
 ```
 
 <a name="select"></a>
 ## Select
-``php
+
+```php
 AdminFormElement::select(string $key, string $label = null)
 // $key - Ключ поля
 // $label - Заголовок
 ```
 
 #### Доступные методы
+
 ```php
 $field->setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null) // Указание модели в качестве элементов списка
 $field->setDisplay(string $titleKey) // Указание поля модели, используемого в качестве заголовка
@@ -275,6 +278,7 @@ $field->isDeleteRelatedItem() // Если значение было ранее �
 
 <a name="wysiwyg"></a>
 ## Wysiwyg
+
 ```php
 AdminFormElement::wysiwyg(string $key, string $label = null, string $editor = null)
 // $key - Ключ поля
