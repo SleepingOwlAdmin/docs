@@ -165,12 +165,13 @@ $field->setUploadPath(Closure $uploadPath); // Указание пути, куд
 // Пример
 $field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
     // $file - объект загружаемого файла
+    // Путь не должен содержать название файла!
     return public_path('files');
 });
 
 $field->setUploadFileName(Closure $uploadPath); // Указание имени файла
 // Пример
-$field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
+$field->setUploadFileName(function(\Illuminate\Http\UploadedFile $file) {
     // $file - объект загружаемого файла
     return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
 });
