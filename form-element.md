@@ -13,6 +13,7 @@
  - [Images](#images)
  - [Textarea](#textarea)
  - [Select](#select)
+ - [DependentSelect](#dependentselect)
  - [Multi Select](#multiselect)
  - [Wysiwyg](#wysiwyg)
  - [Ckeditor](#ckeditor)
@@ -259,7 +260,7 @@ $field->setRows(int $rows); // Указание кол-ва строк
 ## Select
 
 ```php
-AdminFormElement::select(string $key, string $label = null)
+AdminFormElement::select(string $key, string $label = null, array|Model|string $options = [])
 // $key - Ключ поля
 // $label - Заголовок
 ```
@@ -282,6 +283,48 @@ $field->setEnum(array $options) // Указание элементов спис�
 
 $field->nullable() // Возможность оставлять поле пустым
 $field->exclude(array $keys) // Исключение из списика элементов
+```
+
+<a name="dependentselect"></a>
+## DependentSelect
+```php
+AdminFormElement::dependentselect(string $key, string $label = null, array $depends = [])
+// $key - Ключ поля
+// $label - Заголовок
+// $depends - Ключи полей, при изменении значения в которых производить обновление текущего поля
+```
+
+#### Доступные методы
+
+```php
+$field->setDataDepends(string $field); // Указание ключей полей, при изменении значения в которых производить обновление текущего поля
+
+$field->setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null) // (обязательно) Указание модели в качестве элементов списка
+
+$field->setLoadOptionsQueryPreparer(Closure $callback) // Правила фильтрации списка 
+
+// Пример
+$field->setLoadOptionsQueryPreparer(function($item, $query) {
+    // метод getDependValue используется для получения значения связанного поля 
+    // При загрузке формы метод вернет $model->getAttribute($key)
+    // При выполнении ajax запроса $request->input('depdrop_all_params.{$key}')
+    
+    return $query->where('country_id', $item->getDependValue('country_id'));
+})
+```
+
+#### Пример использования
+
+```php
+AdminFormElement::select('country_id', 'Country')
+	->setModelForOptions(Country::class, 'title'),
+	
+AdminFormElement::dependentselect('city_id', 'City')
+	->setModelForOptions(\App\Model\City::class, 'title')
+	->setDataDepends(['country_id'])
+	->setLoadOptionsQueryPreparer(function($item, $query) {
+		return $query->where('country_id', $item->getDependValue('country_id'));
+	})
 ```
 
 <a name="multiselect"></a>
