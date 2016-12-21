@@ -81,7 +81,7 @@ AdminFormElement::date(string $key, string $label = null)
 
 #### Доступные методы
 ```php
-$field->setFormat(string $fieldat); // Указание формата хранения даты в БД
+$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: Y-m-d)
 $field->setPickerFormat(string $fieldat); // Указание формата отображения даты в поле (По умолчанию значение из конфига `dateFormat`)
 $field->setCurrentDate(); // Установка текущей даты, если значение не указано
 ```
@@ -94,7 +94,7 @@ AdminFormElement::datetime(string $key, string $label = null)
 
 #### Доступные методы
 ```php
-$field->setFormat(string $fieldat); // Указание формата хранения даты в БД
+$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: Y-m-d H:i:s)
 $field->setPickerFormat(string $fieldat); // Указание формата отображения даты в поле (По умолчанию значение из конфига `datetimeFormat`)
 $field->setCurrentDate(); // Установка текущей даты, если значение не указано
 $field->setSeconds(bool); // Показывать секунды в поле
@@ -106,6 +106,11 @@ $field->setSeconds(bool); // Показывать секунды в поле
 AdminFormElement::timestamp()
 ```
 
+#### Доступные методы
+```php
+$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: Y-m-d H:i:s)
+```
+
 <a name="time"></a>
 ## Time
 ```php
@@ -114,7 +119,7 @@ AdminFormElement::time()
 
 #### Доступные методы
 ```php
-$field->setFormat(string $fieldat); // Указание формата хранения даты в БД
+$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: H:i:s)
 $field->setPickerFormat(string $fieldat); // Указание формата отображения даты в поле (По умолчанию значение из конфига `timeFormat`)
 $field->setCurrentDate(); // Установка текущей даты, если значение не указано
 ```
