@@ -6,7 +6,6 @@
  - [Hidden](#hidden)
  - [Date](#date)
  - [Datetime](#datetime)
- - [Timestamp](#timestamp)
  - [Time](#time)
  - [File](#file)
  - [Image](#image)
@@ -31,128 +30,205 @@
 
 <a name="text"></a>
 ## Text
+Обычное текстовое поле `<input type="text" />`
 
 ```php
-AdminFormElement::text(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::text(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
 <a name="number"></a>
 ## Number
+Числовое поле `<input type="number" min max step />`
 
 ```php
-AdminFormElement::number(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::number(string $key, string $label = null): static
+```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+
+### Доступные методы
+
+<a name="number-set-min"></a>
+#### `setMin(int $min): static`
+Указание минимального допустимого значения
+
+```php
+$field->setMin(10);
+```
+
+<a name="number-set-max"></a>
+#### `setMax(int $max): static`
+Указание максимального допустимого значения
+
+```php
+$field->setMax(100);
+```
+
+<a name="number-set-step"></a>
+#### `setStep(int $step): static`
+Указание шага
+
+```php
+$field->setStep(5);
 ```
 
 <a name="password"></a>
 ## Password
+Поле для ввода пароля `<input type="password" />`
 
 ```php
-AdminFormElement::password(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::password(string $key, string $label = null): static
 ```
-#### Доступные методы
-```php
-$field->allowEmptyValue(); // Если пароль указан для текущего поля, то при валидации будет игнорироваться правило `required`
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
-$field->hashWithBcrypt(); // Перед сохранением применить к паролю функцию bcrypt
-$field->hashWithMD5(); // Перед сохранением применить к паролю функцию md5
-$field->hashWithSHA1(); // Перед сохранением применить к паролю функцию sha1
-```
+### Доступные методы
+
+<a name="password-allowEmptyValue"></a>
+#### `allowEmptyValue(): static`
+Если пароль указан для текущего поля, то при валидации будет игнорироваться правило `required`
+
+<a name="password-hashWithBcrypt"></a>
+#### `hashWithBcrypt(): static`
+Перед сохранением применить к паролю функцию bcrypt
+
+<a name="password-hashWithMD5"></a>
+#### `hashWithMD5(): static`
+Перед сохранением применить к паролю функцию md5
+
+<a name="password-hashWithSHA1"></a>
+#### `hashWithSHA1(): static`
+Перед сохранением применить к паролю функцию sha1
 
 <a name="hidden"></a>
 ## Hidden
+
 ```php
-AdminFormElement::hidden(string $key)
-// $key - Ключ поля
+AdminFormElement::hidden(string $key): static
 ```
+
+ - `$key` - Ключ поля
 
 <a name="date"></a>
 ## Date
-```php
-AdminFormElement::date(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
-```
+Поле для ввода даты (использует javascript календарь http://eonasdan.github.io/bootstrap-datetimepicker/)
 
-#### Доступные методы
 ```php
-$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: Y-m-d)
-$field->setPickerFormat(string $fieldat); // Указание формата отображения даты в поле (По умолчанию значение из конфига `dateFormat`)
-$field->setCurrentDate(); // Установка текущей даты, если значение не указано
+AdminFormElement::date(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+
+### Доступные методы
+
+<a name="date-setFormat"></a>
+#### `setFormat(string $format): static`
+Указание формата хранения даты в БД (По умолчанию: `Y-m-d`)
+
+<a name="date-setPickerFormat"></a>
+#### `setPickerFormat(string $format): static`
+Указание формата отображения даты в поле (По умолчанию значение из конфига `config('sleeping_owl.dateFormat')`)
+
+<a name="date-setCurrentDate"></a>
+#### `setCurrentDate(): static`
+Установка текущей даты, если значение не указано
+
 
 <a name="datetime"></a>
 ## Datetime
-```php
-AdminFormElement::datetime(string $key, string $label = null)
-```
+Поле для ввода даты и времени (использует javascript календарь http://eonasdan.github.io/bootstrap-datetimepicker/)
 
-#### Доступные методы
 ```php
-$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: Y-m-d H:i:s)
-$field->setPickerFormat(string $fieldat); // Указание формата отображения даты в поле (По умолчанию значение из конфига `datetimeFormat`)
-$field->setCurrentDate(); // Установка текущей даты, если значение не указано
-$field->setSeconds(bool); // Показывать секунды в поле
+AdminFormElement::datetime(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
-<a name="timestamp"></a>
-## Timestamp
-```php
-AdminFormElement::timestamp()
-```
+### Доступные методы
 
-#### Доступные методы
-```php
-$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: Y-m-d H:i:s)
-```
+<a name="datetime-setFormat"></a>
+#### `setFormat(string $format): static`
+Указание формата хранения даты в БД (По умолчанию: `Y-m-d H:i:s`)
+
+<a name="datetime-setPickerFormat"></a>
+#### `setPickerFormat(string $format): static`
+Указание формата отображения даты в поле (По умолчанию значение из конфига `config('sleeping_owl.datetimeFormat')`)
+
+<a name="datetime-setCurrentDate"></a>
+#### `setCurrentDate(): static`
+Установка текущей даты, если значение не указано
+
+<a name="datetime-setSeconds"></a>
+#### `setSeconds(): static`
+Показывать секунды в поле
+
 
 <a name="time"></a>
 ## Time
-```php
-AdminFormElement::time()
-```
+Поле для ввода времени (использует javascript календарь http://eonasdan.github.io/bootstrap-datetimepicker/)
 
-#### Доступные методы
 ```php
-$field->setFormat(string $fieldat); // Указание формата хранения даты в БД (По умолчанию: H:i:s)
-$field->setPickerFormat(string $fieldat); // Указание формата отображения даты в поле (По умолчанию значение из конфига `timeFormat`)
-$field->setCurrentDate(); // Установка текущей даты, если значение не указано
+AdminFormElement::time(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+
+### Доступные методы
+
+<a name="datetime-setFormat"></a>
+#### `setFormat(string $format): static`
+Указание формата хранения даты в БД (По умолчанию: `H:i:s`)
+
+<a name="datetime-setPickerFormat"></a>
+#### `setPickerFormat(string $format): static`
+Указание формата отображения даты в поле (По умолчанию значение из конфига `config('sleeping_owl.timeFormat')`)
+
 
 <a name="file"></a>
 ## File
-Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
-```php
-AdminFormElement::file(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
-```
+Поле для загрузки файла. Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 
-#### Доступные методы
 ```php
-$field->setUploadPath(Closure $uploadPath); // Указание пути, куда будут сохраняться файлы
-// Пример
+AdminFormElement::file(string $key, string $label = null): static
+```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+
+### Доступные методы
+
+<a name="file-setUploadPath"></a>
+#### `setUploadPath(Closure $uploadPath): static`
+Указание пути сохранения файла
+** Путь должен начинаться относительно папки public и не должен содержать название файла!**
+
+В анонимную функцию будет передан объект загружаемого файла `\Illuminate\Http\UploadedFile $file`
+
+```php
 $field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
-    // $file - объект загружаемого файла
-    // Путь должен начинаться относительно папки public и не должен содержать название файла!
     return 'files'; // public/files
 });
+```
 
-$field->setUploadFileName(Closure $uploadPath); // Указание имени файла
-// Пример
+<a name="file-setUploadFileName"></a>
+#### `setUploadFileName(Closure $fileName): static`
+Указание имени файла
+В анонимную функцию будет передан объект загружаемого файла `\Illuminate\Http\UploadedFile $file`
+
+```php
 $field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
-    // $file - объект загружаемого файла
     return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
 });
-
-$field->maxSize(int $size); // Указание максимального размера загружаемого изображения
-$field->minSize(int $size); // Указание минимального размера загружаемого изображения
 ```
+
+<a name="file-maxSize"></a>
+#### `maxSize(int $size): static`
+Указание максимального размера загружаемого изображения (в байтах)
+
+<a name="file-minSize"></a>
+#### `minSize(int $size): static`
+Указание минимального размера загружаемого изображения (в байтах)
 
 
 <a name="image"></a>
@@ -161,37 +237,20 @@ $field->minSize(int $size); // Указание минимального раз�
 При загрузке изображений, файлы проходят валидацию `image`
 
 ```php
-AdminFormElement::image(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::image(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
-#### Доступные методы
-```php
-$field->setUploadPath(Closure $uploadPath); // Указание пути, куда будут сохраняться файлы
-// Пример
-$field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
-    // $file - объект загружаемого файла
-    // Путь должен начинаться относительно папки public и не должен содержать название файла!
-    return 'files'; // public/files
-});
+### Доступные методы
+Для данного поля доступны все методы поля [File](#file)
 
-$field->setUploadFileName(Closure $uploadPath); // Указание имени файла
-// Пример
-$field->setUploadFileName(function(\Illuminate\Http\UploadedFile $file) {
-    // $file - объект загружаемого файла
-    return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
-});
-
-$field->setUploadSettings(array settings); // Указание настроек для обработки загружаемого изображения. Описание работы 
-
-
-$field->maxSize(int $size); // Указание максимального размера загружаемого изображения
-$field->minSize(int $size); // Указание минимального размера загружаемого изображения
-```
+<a name="image-setUploadSettings"></a>
+#### `setUploadSettings(array settings)`
+Указание настроек для обработки загружаемого изображения.
 
 <a name="image-manipulation"></a>
-#### Обработка изображений
+##### Обработка изображений
 
 Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation)
 
@@ -212,7 +271,7 @@ $field->setUploadSettings([
 ]);
 ```
 
-Ключенм массива выступает название фильтра, например [`resize`](http://image.intervention.io/api/resize), в качестве значения массива передается массив аргументов, которые будут переданы в эту функцию. Т.е. после передачи настроек итератор пройдется по всем элементам массива и сделает вызов `call_user_func_array($key, $value)`
+Ключем массива выступает название фильтра, например [`resize`](http://image.intervention.io/api/resize), в качестве значения массива передается массив аргументов, которые будут переданы в эту функцию. Т.е. после передачи настроек итератор пройдется по всем элементам массива и сделает вызов `call_user_func_array($key, $value)`
 
 **Наглядный пример**
 ```php
@@ -229,96 +288,149 @@ call_user_func_array([$image, 'resize'], [1280, null, function ($constraint) {
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
 При загрузке изображений, файлы проходят валидацию `image`
 
-При сохранении поля в модель передается массив изображений. 
+**При сохранении поля в модель передается массив изображений.**
 
 ```php
-AdminFormElement::images(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::images(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
-#### Доступные методы
-Для данного поля доступны все методы поля `image`
+### Доступные методы
+Для данного поля доступны все методы поля [Image](#image)
 
-```php
-$field->storeAsJson(); // При сохранении преобразовать массив в json строку
-$field->storeAsComaSeparatedValue(); // При сохранении преобразовать массив в строку с разделителем ","
-```
+<a name="images-storeAsJson"></a>
+#### `storeAsJson(): static`
+При сохранении преобразовать массив в json строку
+
+<a name="images-storeAsComaSeparatedValue"></a>
+#### `storeAsComaSeparatedValue(): static`
+При сохранении преобразовать массив в строку с разделителем ","
 
 
 <a name="textarea"></a>
 ## Textarea
+Поле для ввода текста `<textarea></textarea>`
 
 ```php
-AdminFormElement::textarea(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::textarea(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
-#### Доступные методы
+### Доступные методы
 
-```php
-$field->setRows(int $rows); // Указание кол-ва строк
-```
+<a name="textarea-setRows"></a>
+#### `setRows(int $rows): static`
+Указание кол-ва видимых строк
+
 
 <a name="select"></a>
 ## Select
+Поле для выбора значения из выпадающего списка (использует javascript пакет https://select2.github.io/)
 
 ```php
-AdminFormElement::select(string $key, string $label = null, array|Model|string $options = [])
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::select(string $key, string $label = null, array|Model|string $options = []): static
+```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+ - `$options` - Данные
+    - При передаче массива, он будет использован в качестве значений
+    - При передаче объекта модели, будут использованы ее значения
+
+### Доступные методы
+
+<a name="select-setModelForOptions"></a>
+#### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
+Указание модели в качестве элементов списка
+
+ - `$titleKey` - Смотри метод [`setDisplay`](#select-setDisplay)
+
+<a name="select-setDisplay"></a>
+#### `setDisplay(string $titleKey): static`
+Указание поля модели, используемого в качестве заголовка
+
+<a name="select-setFetchColumns"></a>
+#### `setFetchColumns(...$columns): static`
+При использовании модели указание списка загружаемых полей в `select`
+
+```php
+$field->setFetchColumns('title');
+$field->setFetchColumns(['title']);
+$field->setFetchColumns(['title', 'position']);
 ```
 
-#### Доступные методы
+<a name="select-setLoadOptionsQueryPreparer"></a>
+#### `setLoadOptionsQueryPreparer(Closure $callback): static`
+При использовании модели перед загрузкой списка возможность изменения запроса
+
+В анонимную функцию будут переданы
+ - `$element` - текущий объект Select
+ - `$query` - текущий запрос на получение спсика
 
 ```php
-$field->setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null) // Указание модели в качестве элементов списка
-$field->setDisplay(string $titleKey) // Указание поля модели, используемого в качестве заголовка
-$field->setFetchColumns(...$columns) // При использовании модели указание списка загружаемых полей
-$field->setLoadOptionsQueryPreparer(Closure $callback) // При использовании модели перед загрузкой списка возможность изменения запроса
-// Пример
-$field->setLoadOptionsQueryPreparer(function($item, $query) {
-	return $query->where('column', 'value')->were('owner_id', Auth::user()->id)
+$field->setLoadOptionsQueryPreparer(function($element, $query) {
+	return $query
+	    ->where('column', 'value')
+	    ->were('owner_id', $element->getModel()->author_id)
 })
-
-$field->setOptions(array $options) // Указание элементов списка
-
-$field->setEnum(array $options) // Указание элементов списка (без ключей)
-
-$field->nullable() // Возможность оставлять поле пустым
-$field->exclude(array $keys) // Исключение из списика элементов
 ```
+
+<a name="select-setOptions"></a>
+#### `setOptions(array $options): static`
+Указание элементов списка
+
+<a name="select-setEnum"></a>
+#### `setEnum(array $options): static`
+Указание элементов списка не содержащего ключей (в качестве ключей будут использованы значения массива)
+
+<a name="select-nullable"></a>
+#### `nullable(): static`
+Возможность оставлять поле пустым
+
+
+<a name="select-exclude"></a>
+#### `exclude(array $keys): static`
+Исключение из списика элементов
+
 
 <a name="dependentselect"></a>
 ## DependentSelect
+Поле для ввода зависимых значений (использует javascript пакет http://plugins.krajee.com/dependent-dropdown)
+
 ```php
-AdminFormElement::dependentselect(string $key, string $label = null, array $depends = [])
-// $key - Ключ поля
-// $label - Заголовок
-// $depends - Ключи полей, при изменении значения в которых производить обновление текущего поля
+AdminFormElement::dependentselect(string $key, string $label = null, array $depends = []): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+ - `$depends` - (Смотри метод [setDataDepends](#dependentselect-setDataDepends))
 
-#### Доступные методы
+### Доступные методы
+
+<a name="dependentselect-setDataDepends"></a>
+#### `setDataDepends(string|array $field): static`
+Указание ключей полей, при изменении значения в которых производить обновление текущего поля
+
+<a name="dependentselect-setModelForOptions"></a>
+#### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
+Указание модели, которая будет использована в качестве элементов списка
+
+<a name="dependentselect-setLoadOptionsQueryPreparer"></a>
+#### `setLoadOptionsQueryPreparer(Closure $callback): static`
+Правила фильтрации списка
 
 ```php
-$field->setDataDepends(string $field); // Указание ключей полей, при изменении значения в которых производить обновление текущего поля
-
-$field->setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null) // (обязательно) Указание модели в качестве элементов списка
-
-$field->setLoadOptionsQueryPreparer(Closure $callback) // Правила фильтрации списка 
-
-// Пример
-$field->setLoadOptionsQueryPreparer(function($item, $query) {
+$field->setLoadOptionsQueryPreparer(function($element, $query) {
     // метод getDependValue используется для получения значения связанного поля 
     // При загрузке формы метод вернет $model->getAttribute($key)
     // При выполнении ajax запроса $request->input('depdrop_all_params.{$key}')
     
-    return $query->where('country_id', $item->getDependValue('country_id'));
+    return $query->where('country_id', $element->getDependValue('country_id'));
 })
 ```
 
-#### Пример использования
+<a name="dependentselect-use-case"></a>
+### Пример использования
 
 ```php
 AdminFormElement::select('country_id', 'Country')
@@ -335,121 +447,164 @@ AdminFormElement::dependentselect('city_id', 'City')
 <a name="multiselect"></a>
 ## MultiSelect
 ```php
-AdminFormElement::multiSelect(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::multiSelect(string $key, string $label = null, array|Model|string $options = []): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+ - `$options` - Данные
+    - При передаче массива, он будет использован в качестве значений
+    - При передаче объекта модели, будут использованы ее значения
 
-#### Доступные методы
-Доступны все методы поля `select`
+### Доступные методы
+Доступны все методы поля [Select](#select)
 
-```php
-$field->taggable() // Возможность указывать собственные варианты
-$field->isDeleteRelatedItem() // Если значение было ранее выбрано и сейчас убирается из списика, удалить его. (необходимо протестировать)
-```
+<a name="multiselect-taggable"></a>
+#### `taggable(): static`
+Возможность указывать собственные варианты значений
+
+<a name="multiselect-isDeleteRelatedItem"></a>
+#### `isDeleteRelatedItem(): static`
+Если значение было ранее выбрано и сейчас убирается из списика, удалить его из БД. (необходимо протестировать)
+
 
 <a name="wysiwyg"></a>
 ## Wysiwyg
+Добавление поля с визуальным текстовым редактором
 
 ```php
-AdminFormElement::wysiwyg(string $key, string $label = null, string $editor = null)
-// $key - Ключ поля
-// $label - Заголовок
-// $editor - ключ редактора
+AdminFormElement::wysiwyg(string $key, string $label = null, string $editor = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+ - `$editor` - Смотри метод [setEditor](#wysiwyg-setEditor)
 
-#### Доступные методы
+### Доступные методы
 
-```php
-$field->setFilteredValueToField(string $field) // Указание поля, где будет храниться преобразованный текст в HTML (Используется для редакторов типа markdown)
-$field->disableFilter() // Отключить фильтр (При использовании markdown редактора, перед сохранением значения, он его компилирует в HTML)
+<a name="wysiwyg-setFilteredValueToField"></a>
+#### `setFilteredValueToField(string $field): static`
+Указание поля, где будет храниться преобразованный текст в HTML (Используется для редакторов типа markdown)
 
-$field->setEditor(string $editor) // указание редактора текста (Доступны редакторы ckeditor, tinymce, simplemde)
-$field->setHeight(int $height) // указание высоты редактора
-$field->setParameters(array $parameters) // передача дополнительных настроек в редактор (Будут преобразованы в json)
-```
+<a name="wysiwyg-disableFilter"></a>
+#### `disableFilter(): static`
+Отключить фильтр (При использовании markdown редактора, перед сохранением значения, он его компилирует в HTML)
+
+<a name="wysiwyg-setEditor"></a>
+#### `setEditor(string $editor): static`
+указание редактора текста (Доступны редакторы `ckeditor`, `tinymce`, `simplemde`)
+
+<a name="wysiwyg-setHeight"></a>
+#### `setHeight(int $height): static`
+Указание высоты поля ввода в px
+
+<a name="wysiwyg-setParameters"></a>
+#### `setParameters(array $parameters): static`
+Передача дополнительных настроек в редактор (Будут преобразованы в json)
+
 
 <a name="ckeditor"></a>
 ## Ckeditor
-Алиас для поля `wysiwyg` с подключением редактора `ckeditor`
+Алиас для поля [`Wysiwyg`](#wysiwyg) с подключением редактора `ckeditor`
 
 ```php
-AdminFormElement::ckeditor(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::ckeditor(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
 <a name="checkbox"></a>
 ## Checkbox
 ```php
-AdminFormElement::checkbox(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::checkbox(string $key, string $label = null): static
 ```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
 
 <a name="radio"></a>
 ## Radio
-Доступны все методы из поля `select`
+Доступны все методы из поля [Select](#select)
 
 ```php
-AdminFormElement::radio(string $key, string $label = null)
-// $key - Ключ поля
-// $label - Заголовок
+AdminFormElement::radio(string $key, string $label = null, array|Model|string $options = []): static
+```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+
+<a name="custom"></a>
+## Custom
+Поле для вывода обычного HTML кода.
+
+```php
+AdminFormElement::custom(Closure $callback = null): static
+```
+ - `$callback` - функция, которая будет вызвана при сохранении поля
+
+### Доступные методы
+
+<a name="custom-setCallback"></a>
+#### `setCallback(Closure $callback): static`
+Функция, которая будет вызвана при сохранении поля
+
+<a name="custom-setDisplay"></a>
+#### `setDisplay(string|Closure|\Illuminate\Contracts\Support\Htmlable|\Illuminate\Contracts\View\View $display)`
+HTML, который будет выведен в форме
+
+ - При передаче объекта `\Illuminate\Contracts\View\View`, в него будет передан объект модели `$model`.
+ - При передаче анонимной функции, в нее будет передат первым аргументов объект модели.
+
+```php
+$field->setDisplay(function(Model $model) {
+   return (string);
+});
+
+$field->setDisplay(view('app.custom'));
 ```
 
 <a name="html"></a>
 ## Html
-Поле для вывода обычного HTML кода
+Поле для вывода обычного HTML кода.
+Данное поле алиас поля [Custom](#custom), с передачей через конструктор html в поле `setDisplay`
 
 ```php
-AdminFormElement::html(string $html)
+AdminFormElement::html(
+    string|Closure|\Illuminate\Contracts\Support\Htmlable|\Illuminate\Contracts\View\View $html,
+    Closure $callback = null
+): static
 ```
-
-<a name="custom"></a>
-## Custom
-Поле для вывода д
-
-```php
-AdminFormElement::custom(Closure $callback = null)
-// $callback - функция, которая будет вызвана при сохранении поля
-```
-
-#### Доступные методы
-
-```php
-$field->setCallback(Closure $callback) // Функция, которая будет вызвана при сохранении поля
-$field->setDisplay(Closure|string $display) // Контент, который будет выведен для поля
-// Пример
-$field->setDisplay(function(Model $model) {
-   return (string);
-})
-```
+ - `$html` - HTML, который будет выведен в форме
+ - `$callback` - Функция, которая будет вызвана в момент сохранения формы
 
 <a name="view"></a>
 ## View
-Поле для 
+Поле для вывода view шаблона в качестве элемента формы
+
+**Во view шаблон будет передан объект модели `$model`**
 
 ```php
-AdminFormElement::view(string $view, array $data = [], Closure $callback = null)
-// $view - путь до шаблона
-// $data - массив который будет передан в шаблон (также туда будет передана модель)
-// $callback - функция, которая будет вызвана при сохранении поля
+AdminFormElement::view(string $view, array $data = [], Closure $callback = null): static
 ```
+ - `$view` - путь до шаблона
+ - `$data` - массив который будет передан в шаблон (также туда будет передана модель)
+ - `$callback` - функция, которая будет вызвана при сохранении поля
 
-#### Доступные методы
+### Доступные методы
+Достны все методы поля [Custom](#custom)
 
-```php
-$field->setCallback(Closure $callback) // Функция, которая будет вызвана при сохранении поля
-$field->setView(string $path) // путь до шаблона
-$field->setData(array $data) // массив который будет передан в шаблон (также туда будет передана модель)
-```
+<a name="view-setView"></a>
+#### `setView(string $path): static`
+Путь до шаблона
+
+<a name="view-setView"></a>
+#### `setData(array $data): static`
+Массив который будет передан в шаблон
+
 
 <a name="upload"></a>
 ## Upload
-Поле `AdminFormElement::upload('image', 'Image')` используется для загрузки файлов на сервер посредством `<input type="upload" />`.
+Поле используется для загрузки файлов на сервер посредством `<input type="upload" />`.
 
-При добавлении поля, форма должна автоматически получить html атрибут `enctype="multipart/form-data"`. Если этого не произошло, вы можете добавить атрибут вручную:
+При добавлении поля, форма должна автоматически получить html атрибут `enctype="multipart/form-data"`.
 
+Если этого не произошло, вы можете добавить атрибут вручную:
 ```php
 return AdminForm::panel()
     ....
@@ -602,86 +757,90 @@ AdminFormElement::upload('pdf', 'PDF')->addValidationRule('mime:pdf'),
 <a name="api"></a>
 ## API
 
-### addValidationRule
+<a name="api-addValidationRule"></a>
+### `addValidationRule(string $rule, string $message = null): static`
 Добавление [правила валидации](https://laravel.com/docs/5.3/validation#available-validation-rules)
 
-```php
-$field->addValidationRule(string $rule, string $message = null)
-```
-
-### setValidationRules
+<a name="api-setValidationRules"></a>
+### `setValidationRules(array $rules): static`
 Добавление [правил валидации](https://laravel.com/docs/5.3/validation#available-validation-rules) в виде массива
 
-### required
+<a name="api-required"></a>
+### `required(string $message = null): static`
 Поле обязательно для заполнения
 
-```php
-$field->required(string $message = null)
-```
 
-### unique
+<a name="api-unique"></a>
+### `unique(string $message = null): static`
 Поле должно быть уникальным
 
-```php
-$field->unique(string $message = null)
-```
-
-### addValidationMessage
+<a name="api-addValidationMessage"></a>
+### `addValidationMessage(string $rule, string $message): static`
 Изменение сообщения для правила валидации
 
-```php
-$field->addValidationMessage(string $rule, string $message)
-```
 
-### setView
+<a name="api-setView"></a>
+### `setView(\Illuminate\View\View|string $view): static`
 Указания шаблона для отображения. При передачи пути до шаблона, поиск будет производиться с учетом view namespace `sleepingowl::`
 При передачи объекта `\Illuminate\View\View`, в него будут перданы данные поля и произведен вывод
 
-```php
-$field->setView(\Illuminate\View\View|string $view)
-```
-
-### setPath
+<a name="api-setPath"></a>
+### `setPath(string $path): static`
 Указание ключа поля.
 
-```php
-$field->setPath(string $path)
-```
 
-### setLabel
+<a name="api-setLabel"></a>
+### `setLabel(string $label): static`
 Указание заголовка поля.
 
-```php
-$field->setName(string $label)
-```
 
-### setDefaultValue
+<a name="api-setDefaultValue"></a>
+### `setDefaultValue(mixed $defaultValue): static`
 Указание значения по умолчанию
 
-```php
-$field->setDefaultValue(mixed $defaultValue)
-```
-
-### setHelpText
+<a name="api-setHelpText"></a>
+### `setHelpText(string|\Illuminate\Contracts\Support\Htmlable $helpText): static`
 Указание вспомогательного текста
 
+<a name="api-setReadonly"></a>
+### `setReadonly(bool|Closure $status): static`
+Установка атрибута "только для чтения".
+
+**Если поле только для чтения, то оно будет игнорироваться при валидации и сохранении.**
+
+**Пример**
 ```php
-$field->setHelpText(string|\Illuminate\Contracts\Support\Htmlable $helpText)
+$field->setReadOnly(true);
+
+$field->setReadOnly(function($model) {
+    return $model->author_id != auth()->id();
+});
+
+$field->setReadOnly(function($model) {
+    return !auth()->check();
+});
 ```
 
-### setReadonly
-Установка атрибута "только для чтения"
+<a name="api-setVisibilityCondition"></a>
+### `setVisibilityCondition(Closure $condition): static`
+Указания условия видимости поля (https://github.com/LaravelRUS/SleepingOwlAdmin/issues/377)
 
+**Если поле скрыто, то оно будет игнорироваться при валидации и сохранении.**
+
+**Пример**
 ```php
-$field->setReadonly(bool $status)
+$field->setVisibilityCondition(function($model) {
+    return auth()->user()->isAdmin();
+});
+
+$field->setVisibilityCondition(function($model) {
+    return $model->author_id == auth()->id();
+});
 ```
 
-### mutateValue
+<a name="api-mutateValue"></a>
+### `mutateValue(Closure $mutator): static`
 Изменение значения поля перед передачей в модель
-
-```php
-$field->mutateValue(Closure $mutator)
-```
 
 **Пример**
 ```php
