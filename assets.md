@@ -327,9 +327,9 @@ static::removeFromGroup(string $handle): static
 ...
 public function boot() 
 {
-  PackageManager::add('custom')
-   ->css('extend', asset('css/custom.css'))
-   ->js('extend', asset('js/custom.js'));
+    PackageManager::add('custom')
+        ->css('extend', asset('css/custom.css'))
+        ->js('extend', asset('js/custom.js'));
 }
 ```
 
@@ -461,6 +461,9 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
 
 ```php
 $element->addStyle(string $handle, string $style, array $attributes): static
+
+// Пример
+$element->addStyle('cystom-style', asset('css/style.css'));
 ```
 
 ##### Аргументы
@@ -473,6 +476,10 @@ $element->addStyle(string $handle, string $style, array $attributes): static
 
 ```php
 $element->addScript(string $handle, string $script, array $dependency): static
+
+// Пример
+$element->addScript('custom-script', asset('js/app.js'), ['jquery-2.0']);
+$element->addScript('jquery-2.0', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js');
 ```
 
 ##### Аргументы
@@ -482,9 +489,12 @@ $element->addScript(string $handle, string $script, array $dependency): static
                 вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости)
 
 #### withPackage
-Подключение пакета
+Подключение пакета [Package](#package-manager)
 
 ```php
-$element->:withPackage(string|array $packages): static
+$element->withPackage(string|array $packages): static
+
+// Пример
+$element->withPackage(['custom', 'ckeditor']);
 ```
 
