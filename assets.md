@@ -8,6 +8,9 @@
     - [API](#package-manager-api)
  - [Package](#package)
     - [API](#package-api)
+ - [Assets trait](#assets-trait)
+    - [В каких элементах используется](#assets-trait-support)
+    - [API](#assets-trait-api)
 
 В SleepingOwlAdmin реализован достаточно гибкий механизм подключения
 ассетов с помощью пакета [kodicms/laravel-assets](https://github.com/KodiCMS/laravel-assets) - позволяющий
@@ -16,7 +19,7 @@
 использовать независимо от админки)
 
 Для работы с ассетами через элементы форм, отображения и т.д.
-используется trait [assets](assets_trait.md), который работает через
+используется trait [assets](#assets-trait), который работает через
 класс `Meta`.
 
 <a name="meta"></a>
@@ -30,11 +33,11 @@
 
 **Пример использования**
 ```php
- Meta::setTitle('Test title')
- ->setMetaDescription(...)
- ->addJs('admin-default', asset('js/app.js'), ['admin-scripts'])
- ->addJs('admin-scripts', route('admin.scripts'))
- ->addCss('admin-default', asset('css/app.css'));
+Meta::setTitle('Test title')
+    ->setMetaDescription(...)
+    ->addJs('admin-default', asset('js/app.js'), ['admin-scripts'])
+    ->addJs('admin-scripts', route('admin.scripts'))
+    ->addCss('admin-default', asset('css/app.css'));
 ```
 
 ```html
@@ -65,7 +68,7 @@
 Подключение пакетов.
 
 ```php
-static::loadPackage(string|array $packages): return $this
+static::loadPackage(string|array $packages): static
 ```
 
 ```php
@@ -87,7 +90,7 @@ Meta::loadPackage(['jquery', 'ckeditor'])
 Добавление javascript файла.
 
 ```php
-static::addJs(string $handle, string $src, array|string $dependency = null, bool $footer = false): return $this
+static::addJs(string $handle, string $src, array|string $dependency = null, bool $footer = false): static
 ```
 
 ##### Аргументы
@@ -103,7 +106,7 @@ static::addJs(string $handle, string $src, array|string $dependency = null, bool
 Добавление javascript файла c версионностью
 
 ```php
-static::addJsElixir(string $filename = 'js/app.js', string|array $dependency = null, bool $footer = false): return $this
+static::addJsElixir(string $filename = 'js/app.js', string|array $dependency = null, bool $footer = false): static
 ```
 
 #### `removeJs`
@@ -111,14 +114,14 @@ static::addJsElixir(string $filename = 'js/app.js', string|array $dependency = n
 Удаление javascript файла. *Если параметр `$handle` не передан, будут удалены все javascript*
 
 ```php
-static::removeJs(string $handle = null): return $this
+static::removeJs(string $handle = null): static
 ```
 
 #### `addCss`
 Добавление css файла.
 
 ```php
-static::addCss(string $handle, string $src, array|string $dependency = null, array $attributes = []): return $this
+static::addCss(string $handle, string $src, array|string $dependency = null, array $attributes = []): static
 ```
 
 ##### Аргументы
@@ -134,7 +137,7 @@ static::addCss(string $handle, string $src, array|string $dependency = null, arr
 Добавление css файла c версионностью
 
 ```php
-static::addCssElixir(string $filename = 'css/all.css', string|array $dependency = null, array $attributes = []): return $this
+static::addCssElixir(string $filename = 'css/all.css', string|array $dependency = null, array $attributes = []): static
 ```
 
 #### `removeCss`
@@ -142,14 +145,14 @@ static::addCssElixir(string $filename = 'css/all.css', string|array $dependency 
 Удаление css файла. *Если параметр `$handle` не передан, будут удалены все javascript*
 
 ```php
-static::removeCss(string $handle = null): return $this
+static::removeCss(string $handle = null): static
 ```
 
 #### `putVars`
 Вывод в шаблон javascript переменной.
 
 ```php
-static::putVars(string|array $key, mixed $value = null): return $this
+static::putVars(string|array $key, mixed $value = null): static
 ```
 
 ```php
@@ -170,7 +173,7 @@ window.key = 'value';
 Удаление всех добавленных в стек данных
 
 ```php
-static::removeVars(): return $this
+static::removeVars(): static
 ```
 
 
@@ -178,7 +181,7 @@ static::removeVars(): return $this
 Указание заголовка `<title>...</title>`
 
 ```php
-static::setTitle(string $title): return $this
+static::setTitle(string $title): static
 ```
    
 ```php
@@ -190,7 +193,7 @@ Meta::setTitle('SleepingOwl Admin')
 Указание описание `<meta name="description" content="...">`
 
 ```php
-static::setMetaDescription(string $description): return $this
+static::setMetaDescription(string $description): static
 ```
 
 #### `setMetaKeywords`
@@ -198,7 +201,7 @@ static::setMetaDescription(string $description): return $this
 Указание ключевых слов `<meta name="keywords" content="...">`
 
 ```php
-static::setMetaKeywords(array|string $keywords): return $this
+static::setMetaKeywords(array|string $keywords): static
 ```
 
 #### `setMetaRobots`
@@ -206,7 +209,7 @@ static::setMetaKeywords(array|string $keywords): return $this
 `<meta name=“robots” content=“...”>`
 
 ```php
-static::setMetaRobots(string $robots): return $this
+static::setMetaRobots(string $robots): static
 ```
 
 #### `setMetaData`
@@ -218,7 +221,7 @@ static::setMetaRobots(string $robots): return $this
   - robots
   
 ```php
-static::setMetaData(\KodiCMS\Assets\Contracts\MetaDataInterface $data): return $this
+static::setMetaData(\KodiCMS\Assets\Contracts\MetaDataInterface $data): static
 ```
   
 #### `addSocialTags`
@@ -226,7 +229,7 @@ static::setMetaData(\KodiCMS\Assets\Contracts\MetaDataInterface $data): return $
 Добавление тегов для соц. сетей через класс, реализующий интерфейс `KodiCMS\Assets\Contracts\SocialMediaTagsInterface`
 
 ```php
-static::addSocialTags(\KodiCMS\Assets\Contracts\SocialMediaTagsInterface $socialTags): return $this
+static::addSocialTags(\KodiCMS\Assets\Contracts\SocialMediaTagsInterface $socialTags): static
 ```
 
 #### `setFavicon`
@@ -234,7 +237,7 @@ static::addSocialTags(\KodiCMS\Assets\Contracts\SocialMediaTagsInterface $social
 Указание favicon для страницы `<link rel=".." href=".." type="image/x-icon" />`
 
 ```php
-static::setFavicon(string $url, string $rel = 'shortcut icon'): return $this
+static::setFavicon(string $url, string $rel = 'shortcut icon'): static
 ```
 
 #### `addMeta`
@@ -242,7 +245,7 @@ static::setFavicon(string $url, string $rel = 'shortcut icon'): return $this
 Добавление `meta` тега 
 
 ```php
-static::addMeta(array $attributes, string $group = null): return $this
+static::addMeta(array $attributes, string $group = null): static
 ```
 ##### Аргументы
 * `$group` **string** - Ключ элемента в группе
@@ -257,7 +260,7 @@ Meta::addMeta(['name' => 'description', 'content' => 'hello world']) // <meta na
 Добавление HTML тега в группу. *По умолчанию все meta теги (`favicon`, `description`, `keywords`) создаваемые через класс `Meta` после генерации в html добавляются в группу с ключом `meta`*
 
 ```php
-static::addTagToGroup(string $handle, string $content, array $params = [], string|array $dependency = null): return $this
+static::addTagToGroup(string $handle, string $content, array $params = [], string|array $dependency = null): static
 ```
 
 ##### Аргументы
@@ -281,7 +284,7 @@ Meta::addTagToGroup('favicon', '<link rel=":rel" href=":url" type=":type" />', [
 Удаление HTML тега из группы.
 
 ```php
-static::removeFromGroup(string $handle): return $this
+static::removeFromGroup(string $handle): static
 ```
 
 #### `assets`
@@ -289,7 +292,7 @@ static::removeFromGroup(string $handle): return $this
 Получение объекта `KodiCMS\Assets\Assets`
 
 ```php
-static::removeFromGroup(string $handle): return $this
+static::removeFromGroup(string $handle): static
 ```
 
 <a name="assets"></a>
@@ -308,7 +311,7 @@ static::removeFromGroup(string $handle): return $this
 Получение объекта `KodiCMS\Assets\PackageManager`
 
 ```php
-static::removeFromGroup(string $handle): return $this
+static::removeFromGroup(string $handle): static
 ```
 
 <a name="package-manager"></a>
@@ -369,7 +372,7 @@ static::load(string $name): return KodiCMS\Assets\Contracts\PackageInterface|nul
 Добавить зависимость от других пакетов (Будут загружены автоматически при подключении пакета в шаблон)
 
 ```php
-static::with(array|...$packages): return $this
+static::with(array|...$packages): static
 ```
 
 #### `js`
@@ -377,7 +380,7 @@ static::with(array|...$packages): return $this
 Добавление javascript файла.
 
 ```php
-static::js(string $handle, string $src, array|string $dependency = null, bool $footer = false): return $this
+static::js(string $handle, string $src, array|string $dependency = null, bool $footer = false): static
 ```
 
 ##### Аргументы
@@ -392,7 +395,7 @@ static::js(string $handle, string $src, array|string $dependency = null, bool $f
 Добавление css файла.
 
 ```php
-static::css(string $handle, string $src, array|string $dependency = null, array $attributes = []): return $this
+static::css(string $handle, string $src, array|string $dependency = null, array $attributes = []): static
 ```
 
 ##### Аргументы
@@ -402,3 +405,86 @@ static::css(string $handle, string $src, array|string $dependency = null, array 
 вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
 на пакеты)
 * `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
+
+<a name="assets-trait"></a>
+# Assets trait
+
+Вспомогательный trait используется для организации работы с подключением ассетов для элементов админки.
+
+Допустим у нас есть класс `Form\Element\Select`
+
+```php
+class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
+{
+  use \SleepingOwl\Admin\Traits\Assets;
+
+  public function __construct()
+  {
+    // Инициализация пакета для хранения ассетов
+    $this->initializePackage();
+
+    ...
+  }
+
+  public function initialize()
+  {
+    // подключение ассетов в шаблон
+    $this->includePackage();
+
+    ...
+  }
+
+  ...
+}
+```
+
+При подключении трейта класс инициализирует новый пакет через `PackageManager` с названием текущего класса, т.е. для класса
+выше это будет `PackageManager::add('Form\Element\Select')` и при вызове методов трейта `withPackage`, `addScript` и `addStyle` мы добавляем новые
+ассеты в данный пакет.
+
+Как мы знаем метод `initialize` в классе `Form\Element\Select` будет вызван только в момент подключение элемента в форму, а
+вместе с ним и ассеты.
+
+<a name="assets-trait-support"></a>
+## В каких элементах используется
+ - [Display](displays.md)
+ - [DisplayColumn](columns.md)
+ - [ColumnFilter](columnfilters.md)
+ - [Form](form.md)
+ - [FormElement](form-element.md)
+
+<a name="assets-trait-api"></a>
+## API
+
+#### addStyle
+Добавленме css файла в пакет
+
+```php
+$element->addStyle(string $handle, string $style, array $attributes): static
+```
+
+##### Аргументы
+* `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
+* `$style` **string** - Путь до фала (URL)
+* `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
+
+#### addScript
+Добавленме js файла в пакет
+
+```php
+$element->addScript(string $handle, string $script, array $dependency): static
+```
+
+##### Аргументы
+* `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
+* `$script` **string** - Путь до фала (URL)
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
+                вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости)
+
+#### withPackage
+Подключение пакета
+
+```php
+$element->:withPackage(string|array $packages): static
+```
+

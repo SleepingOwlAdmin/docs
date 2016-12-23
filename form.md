@@ -107,7 +107,7 @@ AdminForm::tabbed()->setElements([
 
 В классах форм используется трейт:
  - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
- - [Assets](assets_trait.md), с помощью которого для них можно подключать ассеты.
+ - [Assets](assets.md#assets-trait), с помощью которого для них можно подключать ассеты.
 
 #### setButtons
 Указание класса отвечающего за вывод кнопок формы. По умолчанию `SleepingOwl\Admin\Form\FormButtons`

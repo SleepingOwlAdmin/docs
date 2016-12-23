@@ -20,9 +20,8 @@
     - [Формы](form)
     - [Элементы формы](form-element)
 - Прочее
-    - [Виджеты](widgets)
+    - [Управление ресурсами (Assets)](assets)
     - [HTML атрибуты](html_attributes)
-    - [Управление ресурсами](assets)
-    - [Assets trait](assets_trait)
+    - [Виджеты](widgets)
     - [Создание элементов](extend)
     - [Вопрос-ответ](faq)
