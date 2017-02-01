@@ -65,9 +65,9 @@ $ php artisan sleepingowl:install
 #### Что делает эта команда
 
  - Публикует конфигурацию SleepingOwl Admin.
- - Публикет ассеты из SleepingOwl Admin в `public/packages/sleepingowl/default`.
+ - Публикует ассеты из SleepingOwl Admin в `public/packages/sleepingowl/default`.
    ```bash
-   $ php artisan vendor:publish --tag=assets --force`
+   $ php artisan vendor:publish --tag=assets --force
    ```
 
  - Создает директорию автозапуска (По умолчанию `app/Admin`).
