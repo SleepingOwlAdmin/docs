@@ -244,7 +244,7 @@ AdminColumn::checkbox(),
 
 
 ```php
-AdminColumn::custom(function(\Illuminate\Database\Eloquent\Model $model) {
+AdminColumn::custom($title, function(\Illuminate\Database\Eloquent\Model $model) {
     return $model->id;
 })->setWidth('150px'),
 ```
