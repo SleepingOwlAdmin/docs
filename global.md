@@ -39,11 +39,30 @@
 
 ## Регистрируемые сервис контейнеры:
 
-- AdminSection - `sleeping_owl` - `SleepingOwl\Admin\Admin`
-- AdminTemplate - `sleeping_owl.template` - `SleepingOwl\Admin\Templates\TemplateDefault`
-- AdminNavigation - `sleeping_owl.navigation` - `SleepingOwl\Admin\Navigation`
-- WysiwygManager - `sleeping_owl.wysiwyg` - `SleepingOwl\Admin\Wysiwyg\Manager`
+```php
+// AdminSection
+'sleeping_owl' => ['SleepingOwl\Admin\Admin', 'SleepingOwl\Admin\Contracts\AdminInterface']
 
+// AdminTemplate
+'sleeping_owl.template' => ['SleepingOwl\Admin\Contracts\Template\TemplateInterface']
+
+'sleeping_owl.breadcrumbs' => ['SleepingOwl\Admin\Contracts\Template\Breadcrumbs']
+
+// AdminWidgets
+'sleeping_owl.widgets' => ['SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface', 'SleepingOwl\Admin\Widgets\WidgetsRegistry']
+
+// MessagesStack
+'sleeping_owl.message' => ['SleepingOwl\Admin\Widgets\Messages\MessageStack']
+
+// AdminNavigation
+'sleeping_owl.navigation' => ['SleepingOwl\Admin\Navigation', 'SleepingOwl\Admin\Contracts\Navigation\NavigationInterface']
+
+// WysiwygManager
+'sleeping_owl.wysiwyg' => ['SleepingOwl\Admin\Wysiwyg\Manager', 'SleepingOwl\Admin\Contracts\Wysiwyg\WysiwygMangerInterface']
+
+// Meta
+'sleeping_owl.meta' => ['assets.meta', 'SleepingOwl\Admin\Contracts\Template\MetaInterface', 'SleepingOwl\Admin\Templates\Meta'],
+```
 Также для удобства работы с данными, классы полей, таблиц, форм и т.д. собраны в отдельные группы (https://github.com/LaravelRUS/SleepingOwlAdmin/blob/master/src/Providers/AliasesServiceProvider.php),
 доступ к данным каждой группы также осуществляется через сервис контейнер
 
