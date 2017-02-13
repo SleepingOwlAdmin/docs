@@ -1,6 +1,6 @@
 # Javasript API
 
-- [Config](#config)
+ - [Config](#config)
  - [Сообщения](#messages)
  - [События](#events)
  - [Модули](#modules)
