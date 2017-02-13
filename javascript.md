@@ -1,4 +1,6 @@
- - [Config](#config)
+# Javasript API
+
+- [Config](#config)
  - [Сообщения](#messages)
  - [События](#events)
  - [Модули](#modules)
@@ -46,19 +48,19 @@ Admin.Config.all()
 
 ```js
 // Сообщение об ошибке
-Admin.Message.error('title', 'message')
+Admin.Messages.error('title', 'message')
 
 // Success сообщение
-Admin.Message.success('title', 'message')
+Admin.Messages.success('title', 'message')
 
 // Произвольное сообщение
-Admin.Message.message('title', 'message', 'error')
+Admin.Messages.message('title', 'message', 'error')
 
 // Сообщение с подтверждением
-Admin.Message.confirm('title', 'message').then(confirm, dismiss)
+Admin.Messages.confirm('title', 'message').then(confirm, dismiss)
 
 // Сообщение с полем ввода
-Admin.Message.prompt('title', 'message', 'placeholder').then(confirm, dismiss)
+Admin.Messages.prompt('title', 'message', 'placeholder').then(confirm, dismiss)
 ```
 
 <a name="events"></a>
