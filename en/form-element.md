@@ -600,6 +600,23 @@ Setting read only field
 $field->setReadonly(bool $status)
 ```
 
+<a name="api-setValueSkipped"></a>
+### `setValueSkipped(bool|Closure $valueSkipped)`
+Sets flag to skip saving attribute value to model. By default `false`.
+
+**If setting value must be skipped validation rules will be applied but there will be no value in model.**
+
+For instance, when creating users you want to check if `password` and `password_confirmation` fields match, 
+but you don't need `password_confirmation` to be saved in model's attributes:
+
+```php
+AdminFormElement::text('password', 'Password')->required();
+AdminFormElement::text('password_confirmation', 'Password confirmation')
+    ->setValueSkipped(true)
+    ->required()
+    ->addValidationRule('same:password', 'Passwords must match!');
+```
+
 ### mutateValue
 Mutate field value before form saving
 
