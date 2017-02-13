@@ -821,6 +821,24 @@ $field->setReadOnly(function($model) {
 });
 ```
 
+<a name="api-setValueSkipped"></a>
+### `setValueSkipped(bool|Closure $valueSkipped)`
+Установка атрибута пропуска записи значения поля в модель. По умолчанию `false`.
+
+**Если значение поля должно быть пропущено, то правила валидации будут применены, 
+но в модель значение не установится.**
+
+Например, вы хотите чтобы при создании пользователя проверялись соответствия полей `password` (пароль) 
+и `password_confirmation` (подтверждение), но вам не нужно чтобы поле `password_confirmation` записывалось в модель:
+
+```php
+AdminFormElement::text('password', 'Password')->required();
+AdminFormElement::text('password_confirmation', 'Password confirmation')
+    ->setValueSkipped(true)
+    ->required()
+    ->addValidationRule('same:password', 'Passwords must match!');
+```
+
 <a name="api-setVisibilityCondition"></a>
 ### `setVisibilityCondition(Closure $condition): static`
 Указания условия видимости поля (https://github.com/LaravelRUS/SleepingOwlAdmin/issues/377)
