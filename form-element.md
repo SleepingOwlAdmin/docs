@@ -14,6 +14,8 @@
  - [Select](#select)
  - [DependentSelect](#dependentselect)
  - [Multi Select](#multiselect)
+ - [Select Ajax](#selectajax)
+ - [Multi Select Ajax](#multiselectajax)
  - [Wysiwyg](#wysiwyg)
  - [Ckeditor](#ckeditor)
  - [Checkbox](#checkbox)
@@ -393,6 +395,92 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 #### `exclude(array $keys): static`
 Исключение из списика элементов
 
+
+<a name="selectajax"></a>
+## Select Ajax (Отдельная благодарность https://github.com/hkd213)
+Поле для выбора значения из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/)
+
+```php
+AdminFormElement::selectajax(string $key, string $label = null, array|Model|string $options = []): static
+```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+ - `$options` - Данные
+    - При передаче объекта модели, будут использованы ее значения
+
+### Доступные методы
+
+<a name="selectajax-setModelForOptions"></a>
+#### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
+Указание модели в качестве элементов списка
+ - `$titleKey` - Смотри метод [`setDisplay`](#select-setDisplay)
+
+<a name="selectajax-setDisplay"></a>
+#### `setDisplay(string $titleKey): static | required`
+Указание поля модели, используемого в качестве заголовка
+Поле одновременно играет роль поля источника для запроса 
+`->setDisplay('name')  будет искать в указанной модели по этому полю`
+
+<a name="selectajax-setSearchUrl"></a>
+#### `setSearchUrl(string $url): static`
+Указание своего собственного источника поиска данных
+При этом использованный setDisplay будет играть роль ключа в источнике
+```php
+AdminFormElement::selectajax('name')
+    ->setSearchUrl(
+        route('name.route')
+    )
+```
+- Если указан кастомный источник то поиск по модели производится не будет
+- Если указана модель то поиск будет производиться внутри SleepingOwl
+
+<a name="selectajax-exclude"></a>
+#### `exclude(array $keys): static`
+Исключение из списика элементов
+
+<a name="multiselectajax"></a>
+## MultiSelect Ajax (Отдельная благодарность https://github.com/hkd213)
+Поле для выбора множества значений из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/)
+
+```php
+AdminFormElement::multiselectajax(string $key, string $label = null, array|Model|string $options = []): static
+```
+ - `$key` - Ключ поля
+ - `$label` - Заголовок
+ - `$options` - Данные
+    - При передаче объекта модели, будут использованы ее значения
+
+### Доступные методы
+
+<a name="mutltiselectajax-setModelForOptions"></a>
+#### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
+Указание модели в качестве элементов списка
+ - `$titleKey` - Смотри метод [`setDisplay`](#select-setDisplay)
+
+<a name="multiselectajax-setDisplay"></a>
+#### `setDisplay(string $titleKey): static | required`
+Указание поля модели, используемого в качестве заголовка
+Поле одновременно играет роль поля источника для запроса 
+`->setDisplay('name')  будет искать в указанной модели по этому полю`
+
+<a name="multiselectajax-setSearchUrl"></a>
+#### `setSearchUrl(string $url): static`
+Указание своего собственного источника поиска данных
+При этом использованный setDisplay будет играть роль ключа в источнике
+```php
+AdminFormElement::selectajax('name')
+    ->setSearchUrl(
+        route('name.route')
+    )
+```
+- Если указан кастомный источник то поиск по модели производится не будет
+- Если указана модель то поиск будет производиться внутри SleepingOwl
+
+<a name="multiselectajax-exclude"></a>
+#### `exclude(array $keys): static`
+Исключение из списика элементов
+
+#### Предложения и пожелания будут рассматриваться в чате Gitter обращаться по нику @aios
 
 <a name="dependentselect"></a>
 ## DependentSelect
