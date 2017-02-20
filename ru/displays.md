@@ -139,7 +139,7 @@ $display->getScopes()->push('last');
 ### Действия над документами Actions (Расширение)
 `SleepingOwl\Admin\Display\Extension\Actions`
 
-Использует тип колонки таблицы [Action](columns.md#action)
+Использует тип колонки таблицы [Action](columns#action)
 
 ```php
 $table = AdminDisplay::table()
@@ -161,8 +161,8 @@ $table->getActions()
 # Api
 
 В классах таблиц используется трейт:
- - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
- - [Assets](assets.md#assets-trait), с помощью которого для них можно подключать ассеты.
+ - [HtmlAttributes](html_attributes), с помощью которого для них можно настраивать HTML атрибуты.
+ - [Assets](assets#assets-trait), с помощью которого для них можно подключать ассеты.
 
 ## Методы доступные во всех типах
 
