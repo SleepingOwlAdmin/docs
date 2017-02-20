@@ -111,8 +111,8 @@ AdminForm::panel()
 <a name="all-methods"></a>
 ## Методы доступные во всех элементах
 В классах колонок используется трейт 
- - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
- - [Assets](assets.md#assets-trait), с помощью которого для них можно подключать ассеты.
+ - [HtmlAttributes](html_attributes), с помощью которого для них можно настраивать HTML атрибуты.
+ - [Assets](assets#assets-trait), с помощью которого для них можно подключать ассеты.
 
 <a name="set-label"></a>
 #### setLabel
