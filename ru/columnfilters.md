@@ -45,8 +45,8 @@ $display->setColumnFilters([
 ## API
 
 В классах фильтров столбцов используется трейт:
- - [HtmlAttributes](html_attributes.md), с помощью которого для них можно настраивать HTML атрибуты.
- - [Assets](assets.md#assets-trait), с помощью которого для них можно подключать ассеты.
+ - [HtmlAttributes](html_attributes), с помощью которого для них можно настраивать HTML атрибуты.
+ - [Assets](assets#assets-trait), с помощью которого для них можно подключать ассеты.
 
 ## Методы доступные во всех фильтрах
 
