@@ -43,7 +43,7 @@ $model->onDisplay(function () {
 ### Указание столбцов (Расширение)
 `SleepingOwl\Admin\Display\Extension\Columns`
 
-Типы столбцов и их описание можно посмотреть [здесь](columns.md)
+Типы столбцов и их описание можно посмотреть [здесь](columns)
 
 ```php
 $display->setColumns([
