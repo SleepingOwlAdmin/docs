@@ -386,6 +386,11 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 #### `setEnum(array $options): static`
 Указание элементов списка не содержащего ключей (в качестве ключей будут использованы значения массива)
 
+<a name="select-setSortable"></a>
+#### `setSortable(bool $sortable)`
+Установка атрибута для сортировки элементов списка по алфавиту (по умолчанию сортировка включена)
+
+
 <a name="select-nullable"></a>
 #### `nullable(): static`
 Возможность оставлять поле пустым
@@ -417,9 +422,9 @@ AdminFormElement::selectajax(string $key, string $label = null, array|Model|stri
 
 <a name="selectajax-setDisplay"></a>
 #### `setDisplay(string $titleKey): static | required`
-Указание поля модели, используемого в качестве заголовка
-Поле одновременно играет роль поля источника для запроса 
-`->setDisplay('name')  будет искать в указанной модели по этому полю`
+Указание поля модели, используемого в качестве заголовка.  
+Поле одновременно играет роль поля источника для запроса
+`->setDisplay('name')` будет искать в указанной модели по этому полю.
 
 <a name="selectajax-setSearchUrl"></a>
 #### `setSearchUrl(string $url): static`
@@ -459,9 +464,9 @@ AdminFormElement::multiselectajax(string $key, string $label = null, array|Model
 
 <a name="multiselectajax-setDisplay"></a>
 #### `setDisplay(string $titleKey): static | required`
-Указание поля модели, используемого в качестве заголовка
-Поле одновременно играет роль поля источника для запроса 
-`->setDisplay('name')  будет искать в указанной модели по этому полю`
+Указание поля модели, используемого в качестве заголовка.  
+Поле одновременно играет роль поля источника для запроса
+`->setDisplay('name')`  будет искать в указанной модели по этому полю.
 
 <a name="multiselectajax-setSearchUrl"></a>
 #### `setSearchUrl(string $url): static`
@@ -501,7 +506,7 @@ AdminFormElement::dependentselect(string $key, string $label = null, array $depe
 
 <a name="dependentselect-setModelForOptions"></a>
 #### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
-Указание модели, которая будет использована в качестве элементов списка
+Указание модели, которая будет использована в качестве элементов списка.
 
 <a name="dependentselect-setLoadOptionsQueryPreparer"></a>
 #### `setLoadOptionsQueryPreparer(Closure $callback): static`
@@ -509,10 +514,10 @@ AdminFormElement::dependentselect(string $key, string $label = null, array $depe
 
 ```php
 $field->setLoadOptionsQueryPreparer(function($element, $query) {
-    // метод getDependValue используется для получения значения связанного поля 
+    // метод getDependValue используется для получения значения связанного поля
     // При загрузке формы метод вернет $model->getAttribute($key)
     // При выполнении ajax запроса $request->input('depdrop_all_params.{$key}')
-    
+
     return $query->where('country_id', $element->getDependValue('country_id'));
 })
 ```
@@ -523,7 +528,7 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 ```php
 AdminFormElement::select('country_id', 'Country')
 	->setModelForOptions(Country::class, 'title'),
-	
+
 AdminFormElement::dependentselect('city_id', 'City')
 	->setModelForOptions(\App\Model\City::class, 'title')
 	->setDataDepends(['country_id'])
@@ -913,11 +918,10 @@ $field->setReadOnly(function($model) {
 ### `setValueSkipped(bool|Closure $valueSkipped)`
 Установка атрибута пропуска записи значения поля в модель. По умолчанию `false`.
 
-**Если значение поля должно быть пропущено, то правила валидации будут применены, 
+**Если значение поля должно быть пропущено, то правила валидации будут применены,
 но в модель значение не установится.**
 
-Например, вы хотите чтобы при создании пользователя проверялись соответствия полей `password` (пароль) 
-и `password_confirmation` (подтверждение), но вам не нужно чтобы поле `password_confirmation` записывалось в модель:
+Например, вы хотите чтобы при создании пользователя проверялись соответствия полей `password` (пароль) и `password_confirmation` (подтверждение), но вам не нужно чтобы поле `password_confirmation` записывалось в модель:
 
 ```php
 AdminFormElement::text('password', 'Password')->required();
