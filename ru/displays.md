@@ -11,11 +11,11 @@
      - [Действия над документами Actions](#extension-actions)
 	 - API
 	     - [Модификация запроса](#extend-query)
-	     - [Вывод HTML](#extend-html)
-	     - [Вывод HTML](#extend-html)
+	     - [Вывод HTML](#extend-html)	   
  - [Datatables](#datatables)
  - [Datatables Async](#datatables-async)
  - [Tree](#tree)
+ - [Расширение таблиц ](#extend)
  - [Использование в форме ](#render-in-forms)
 
 <a name="table"></a>
@@ -374,7 +374,48 @@ $display->setOrder([[1, 'asc']]);
 
 Используется для вывода данных в виде дерева с поддержкой сортировки (drag & drop). Данный вид поддерживает работу с https://github.com/etrepat/baum, https://github.com/lazychaser/laravel-nestedset, а также самый простой вариант, когда дерево строится на основе `parent_id` (Также в таблице должно быть поле `order` для сортировки)
 
-Данный клаас регистрирует роут `admin.display.tree.reorder`, который отвечает за сортировку данных. При необходимости вы можете перепределить данный роут в `app/Admin/routes.php`.
+**Использование других библиотек работы с деревом:**
+При использовании etrepat/baum возможны проблемы с наследованием секций связанными с моделью Дерева.
+
+Для решения рассмотрим пример использования другой ветки https://github.com/gazsp/baum.
+За работу с каждым типом дерева отвечает отдельный класс https://github.com/LaravelRUS/SleepingOwlAdmin/tree/development/src/Display/Tree
+
+Для поддержки своего типа дерева необходимо добавить свой класс, для удобства его можно наследовать от SleepingOwl\Admin\Display\Tree\NestedsetType и реализовать те методы, которые он попросит. 
+
+В случае использования gazsp/baum метод получения всего дерева с сортировкой по левому индексу будет отличаться от etrepat/baum и наш класс будет выглядеть так:
+```
+<?php
+
+namespace Admin\Tree;
+
+use Illuminate\Database\Eloquent\Model;
+use SleepingOwl\Admin\Display\Tree\BaumNodeType;
+
+/**
+ * @see https://github.com/etrepat/baum
+ */
+class CustomBaumNodeType extends BaumNodeType
+{
+    /**
+     * Get tree structure.
+     *
+     * @param \Illuminate\Database\Eloquent\Collection $collection
+     *
+     * @return mixed
+     */
+    public function getTree(\Illuminate\Database\Eloquent\Collection $collection)
+    {
+        return $collection->toSortedHierarchy();
+    }
+}
+```
+А дальше при инициализации DisplayTree мы указываем этот класс
+```
+AdminDisplay::tree(\Admin\Tree\CustomBaumNodeType::class)->...
+```
+
+**Сортировка:**
+Данный класс регистрирует роут `admin.display.tree.reorder`, который отвечает за сортировку данных. При необходимости вы можете переопределить данный роут в `app/Admin/routes.php`.
 
 ```php
 Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', function (ModelConfigurationInterface $model) {
@@ -389,6 +430,10 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
 ```
 
 **При добавлении дерева в таб может некорректно работать сортировка**
+
+
+
+
 
 #### setValue
 Указание заголовка для документов
@@ -471,7 +516,7 @@ $display = AdminDisplay::table();
 $display->extend('custom_extension', new \App\Display\Extension\CustomExtension());
 ```
 
-После инициализации расширения работа с ним осуществлаяется следующим образом:
+После инициализации расширения работа с ним осуществляется следующим образом:
 
 ```php
 // Получение объекта
