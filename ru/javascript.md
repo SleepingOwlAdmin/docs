@@ -80,10 +80,13 @@ Admin.Events.fire('event:name', param1, param2, ....)
 
 #### Список событий
 
-* `wysiwyg:switchOn`
-* `wysiwyg:switchOff`
-* `wysiwyg:exec`
-
+* `wysiwyg:switchOn [editor]` - Редактор подключен в input [`editor`] - объект инициализированного редактора
+* `wysiwyg:switchOff [textareaId]` - Редактор выключен [`textareaId`] - ID инпута
+* `wysiwyg:exec [command, textareaId, data]` - Вызов команды редактора
+* `bootstrap::tab::shown [tab]` - Отображение вкладки [`tab`] - ключ активного таба
+* `bootstrap::tab::hidden [tab]` - Скрытие вкладки
+* `datatables::draw [Datatable]` - Рендер datatables [`Datatable`] - объект отрендереной таблицы
+* `display.tree::changed`
 
 <a name="modules"></a>
 ## Модули
