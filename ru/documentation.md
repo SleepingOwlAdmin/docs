@@ -20,6 +20,7 @@
     - [Формы](form)
     - [Элементы формы](form-element)
 - Прочее
+    - [Javascript API](javascript)
     - [Управление ресурсами (Assets)](assets)
     - [HTML атрибуты](html_attributes)
     - [Виджеты](widgets)
