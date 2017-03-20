@@ -26,8 +26,11 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 Демо версия готова. SleepingOwlAdmin находится в папке \Admin
+
 Роуты     \Admin\Http\routes.php
+
 Навигация \Admin\navigation.php
+
 Разделы   \Admin\Http\Sections\
 
 Кастомные Представления и Представления Виджетов в Admin\resources\ и доступны по view('admin::name')
