@@ -30,15 +30,16 @@ php artisan migrate --seed
 Навигация \Admin\navigation.php
 Разделы   \Admin\Http\Sections\
 
-Представления Admin\resources\ и доступны по view('admin::index')
+Кастомные Представления и Представления Виджетов в Admin\resources\ и доступны по view('admin::index')
 
-Для вставки своего view в основной layout SOA используйте.
+Для вставки своего view (\Admin\resources\views\index.blade.php) в основной layout SOA используйте.
 ```
 use  AdminSection;
 ...
 return AdminSection::view(view('admin::index',['variable'=>$variable]), 'Заголовок');
 ...
 ```
+
     
 <a name="crud-create"></a> 
 ## Создание простого CRUD в SOA для Чайников
