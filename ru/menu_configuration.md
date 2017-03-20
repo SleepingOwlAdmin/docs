@@ -2,6 +2,7 @@
  - [Объект Navigation](#navigation)
  - [Добавление разделов](#add-page)
  - [Добавление разделов в виде массива](#set-pages)
+ - [Добавление секции в подраздел при инициализации](#add-sub-section)
  - [Получение списка разделов](#get-pages)
  - [Получение кол-ва разделов с учетом вложенности](#count-pages)
  - [Права на видимость разделов](#access)
@@ -141,6 +142,44 @@ $page->setFromArray([
    ...
 ]);
 ```
+
+<a name="add-sub-section"></a>
+## Добавление секции в подраздел при инициализации
+**Внимание:**
+Что бы добавление работало, необходимо, чтобы инициализация классов разделов, происходила раньше, чем обработка секций. 
+```
+ // AdminSectionsServiceProvider.php
+ public function boot(\SleepingOwl\Admin\Admin $admin)
+ {
+	...
+	 $this->app->call([$this, 'registerNavigation']);
+	 parent::boot($admin);
+	 ...
+ }
+	 
+```
+Если вы хотите добавить секцию, как подраздел пункта меню, в ходе инициализации секции, то необходимо установить id этого пункта меню для последующего поиска:
+```
+[
+    'title' => 'Parent Section',
+    'id' => 'parent-section'
+],
+```
+Далее в секции производим поиск родительского раздела и добавляем свою секцию:
+```
+    /**
+     * Initialize class.
+     */
+    public function initialize()
+    {
+        $page = \AdminNavigation::getPages()->findById('parent-section');
+
+        $page->addPage(
+            $this->makePage(300)
+        );
+    }
+```
+
 
 <a name="get-pages"></a>
 ## Получение списка разделов
