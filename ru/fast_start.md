@@ -8,7 +8,7 @@
 
 ## Демо версия
 После установки пользователь получает пустую админку и не знает куда же двигаться дальше.
-Самым простым вариантом будет клонирование ([Demo](http://demo.sleepingowladmin.ru/admin)) и изучение на ней основных возможностей. 
+Самым простым вариантом будет клонирование [Demo](http://demo.sleepingowladmin.ru/admin) и изучение на ней основных возможностей. 
     
 ```
 git clone https://github.com/SleepingOwlAdmin/demo demo.soa
@@ -30,7 +30,7 @@ php artisan migrate --seed
 Навигация \Admin\navigation.php
 Разделы   \Admin\Http\Sections\
 
-Кастомные Представления и Представления Виджетов в Admin\resources\ и доступны по view('admin::index')
+Кастомные Представления и Представления Виджетов в Admin\resources\ и доступны по view('admin::name')
 
 Для вставки своего view (\Admin\resources\views\index.blade.php) в основной layout SOA используйте.
 ```
@@ -43,10 +43,9 @@ return AdminSection::view(view('admin::index',['variable'=>$variable]), 'Заг�
     
 <a name="crud-create"></a> 
 ## Создание простого CRUD в SOA для Чайников
-
-     ([Demo](http://laravel.su/articles/laravel-sleeping-owl-crud-for-dummers))
+Хорошая статья для новичков по созданию новой [секции CRUD](http://laravel.su/articles/laravel-sleeping-owl-crud-for-dummers)
     
     
 <a name="chat"></a>  
 ## Чат SleepingOwlAdmin
- Если у вас возникли вопросы можно попросить совета в ([Чате SleepingOwlAdmin](https://gitter.im/LaravelRUS/SleepingOwlAdmin))
+ Если у вас возникли вопросы можно попросить совета в [Чате SleepingOwlAdmin](https://gitter.im/LaravelRUS/SleepingOwlAdmin)
