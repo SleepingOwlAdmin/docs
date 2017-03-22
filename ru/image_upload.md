@@ -3,14 +3,10 @@
  - [Версия CKEditor](#ckeditor)
  - [Переопределение файла assets.php](#assets-php)
  - [Настройка конфигурации](#config) 
- - [Настройка кастомного контроллера](#custom-controller)
+ - [Настройка кастомного контроллера](#custom-controller) 
  
 <a href="ckeditor"></a>
 ## Скачивание ckeditor
- 
-<a href="#ckeditor"></a>
-## Скачивание ckeditor
- 
  
  Для начала вам нужно скачать версию ckeditor отсюда [CkEditor Addons](http://ckeditor.com/addons/search/plugins/image).
  
@@ -73,8 +69,8 @@
      ],
  ```
  
- <a href="custom-contoler"></a>
- ## Настройка кастомного контроллера
+<a href="custom-contoler"></a>
+## Настройка кастомного контроллера
   
   *routes.php* or *admin_routes.php*
   
