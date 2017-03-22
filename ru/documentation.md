@@ -23,7 +23,7 @@
 - Прочее
     - [Javascript API](javascript)
     - [Управление ресурсами (Assets)](assets)
-    - [Загрузка картинок (included CKEditor D&D)](image_upload)
+    - [Загрузка картинок](image_upload)
     - [HTML атрибуты](html_attributes)
     - [Виджеты](widgets)
     - [Создание элементов](extend)
