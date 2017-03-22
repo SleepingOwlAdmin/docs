@@ -2,17 +2,15 @@
  
  - [Версия CKEditor](#ckeditor)
  - [Переопределение файла assets.php](#assets-php)
- - [Настройка конфигурации](#config)
+ - [Настройка конфигурации](#config) 
  - [Настройка кастомного контроллера](#custom-controller)
  
  <a href="#ckeditor"></a>
  ## Скачивание ckeditor
  Для начала вам нужно скачать версию ckeditor отсюда [CkEditor Addons](http://ckeditor.com/addons/search/plugins/image).
  
- Плагины которые нам понадобятся называются:
- - Upload Image (uploadimage) 
- - Enchanced Image (image2)
- 
+ Плагины которые нам понадобятся называются: `Upload Image (uploadimage)` и `Enchanced Image (image2)`
+
  Далее вам потребуется добавить свою локализацию, тему и скачать оптимизированную версию CKEditor
  Разместить ее следует в директорию где у вас собираются ассеты в отдельную папку, желательно (public)
  
