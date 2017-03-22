@@ -69,7 +69,7 @@
      ],
  ```
  
-<a name="custom-contoler"></a>
+<a name="custom-controller"></a>
 ## Настройка кастомного контроллера
   
   *routes.php* or *admin_routes.php*
