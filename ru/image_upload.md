@@ -5,8 +5,8 @@
  - [Настройка конфигурации](#config) 
  - [Настройка кастомного контроллера](#custom-controller)
  
- <a href="ckeditor"></a>
- ## Скачивание ckeditor
+<a href="ckeditor"></a>
+## Скачивание ckeditor
  
 <a href="#ckeditor"></a>
 ## Скачивание ckeditor
@@ -19,8 +19,8 @@
  Далее вам потребуется добавить свою локализацию, тему и скачать оптимизированную версию CKEditor
  Разместить ее следует в директорию где у вас собираются ассеты в отдельную папку, желательно (public)
  
- <a href="assets-php"></a>
- ## Переопределение файла assets.php
+<a href="assets-php"></a>
+## Переопределение файла assets.php
  
  *AppServiceProvider.php*
  ```php
@@ -44,8 +44,8 @@
  
  ```
  
- <a href="config"></a>
- ## Настройка Конфигурации
+<a href="config"></a>
+## Настройка Конфигурации
  
  *sleeping_owl.php*
  
@@ -73,8 +73,8 @@
      ],
  ```
  
-  <a href="custom-contoler"></a>
-  ## Настройка кастомного контроллера
+ <a href="custom-contoler"></a>
+ ## Настройка кастомного контроллера
   
   *routes.php* or *admin_routes.php*
   
