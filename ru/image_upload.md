@@ -2,11 +2,12 @@
  
  - [Версия CKEditor](#ckeditor)
  - [Переопределение файла assets.php](#assets-php)
- - [Настройка конфигурации](#config) 
+ - [Настройка конфигурации](#config)
  - [Настройка кастомного контроллера](#custom-controller)
  
  <a href="#ckeditor"></a>
  ## Скачивание ckeditor
+ 
  Для начала вам нужно скачать версию ckeditor отсюда [CkEditor Addons](http://ckeditor.com/addons/search/plugins/image).
  
  Плагины которые нам понадобятся называются: `Upload Image (uploadimage)` и `Enchanced Image (image2)`
@@ -41,6 +42,7 @@
  
  <a href="#config"></a>
  ## Настройка Конфигурации
+ 
  *sleeping_owl.php*
  
  ```php
@@ -69,6 +71,7 @@
  
   <a href="#custom-contoler"></a>
   ## Настройка кастомного контроллера
+  
   *routes.php* or *admin_routes.php*
   
   ```php
@@ -137,6 +140,5 @@
   </body>
   </html>
   ```
-  
   
   ##И да прибудет с вами сила
