@@ -529,8 +529,12 @@ AdminFormElement::dependentselect(string $key, string $label = null, array $depe
 Указание ключей полей, при изменении значения в которых производить обновление текущего поля
 
 <a name="dependentselect-setModelForOptions"></a>
-#### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
+#### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model): static`
 Указание модели, которая будет использована в качестве элементов списка.
+
+<a name="dependentselect-setDisplay"></a>
+#### `setDisplay(string $titleKey): static`
+Указание поля модели, используемого в качестве заголовка
 
 <a name="dependentselect-setLoadOptionsQueryPreparer"></a>
 #### `setLoadOptionsQueryPreparer(Closure $callback): static`
