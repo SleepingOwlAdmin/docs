@@ -853,16 +853,16 @@ public function setUploadImageAttribute(\Illuminate\Http\UploadedFile $file = nu
 
 #### Валидация
 Данный тип поля поддерживает валидацию загружаемых файлов
- - https://laravel.com/docs/5.2/validation#rule-image
- - https://laravel.com/docs/5.2/validation#rule-mimetypes
- - https://laravel.com/docs/5.2/validation#rule-mimes
+ - https://laravel.com/docs/5.4/validation#rule-image
+ - https://laravel.com/docs/5.4/validation#rule-mimetypes
+ - https://laravel.com/docs/5.4/validation#rule-mimes
 
 ```php
 AdminFormElement::upload('image', 'Image')->addValidationRule('image')
 
 // or for file
 
-AdminFormElement::upload('pdf', 'PDF')->addValidationRule('mime:pdf'),
+AdminFormElement::upload('pdf', 'PDF')->addValidationRule('mimes:pdf'),
 ```
 
 #### Ограничение использования трейта
