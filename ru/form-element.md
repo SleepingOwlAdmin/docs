@@ -398,7 +398,7 @@ $field->setFetchColumns(['title', 'position']);
 $field->setLoadOptionsQueryPreparer(function($element, $query) {
 	return $query
 	    ->where('column', 'value')
-	    ->were('owner_id', $element->getModel()->author_id)
+	    ->where('owner_id', $element->getModel()->author_id)
 })
 ```
 
