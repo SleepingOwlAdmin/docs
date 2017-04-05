@@ -430,7 +430,7 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 Поле для выбора значения из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/)
 
 ```php
-AdminFormElement::selectajax(string $key, string $label = null, array|Model|string $options = []): static
+AdminFormElement::selectajax(string $key, string $label = null): static
 ```
  - `$key` - Ключ поля
  - `$label` - Заголовок
@@ -472,7 +472,7 @@ AdminFormElement::selectajax('name')
 Поле для выбора множества значений из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/)
 
 ```php
-AdminFormElement::multiselectajax(string $key, string $label = null, array|Model|string $options = []): static
+AdminFormElement::multiselectajax(string $key, string $label = null): static
 ```
  - `$key` - Ключ поля
  - `$label` - Заголовок
