@@ -278,7 +278,16 @@ AdminFormElement::image(string $key, string $label = null): static
 <a name="image-manipulation"></a>
 ##### Обработка изображений
 
-Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation)
+Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation) и добавить сервис провайдер
+Установить пакет можно помощью командной строки
+
+```bash
+$ composer require intervention/image
+```
+
+После установки пакета необходимо добавить сервис провайдер
+`Intervention\Image\ImageServiceProviderLaravel5::class`,
+в соответсвующий раздел `providers` файла `config/app.php`:
 
 После подключения пакета можно использовать фильтры пакета через метод `setUploadSettings`.
 
