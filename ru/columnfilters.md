@@ -35,7 +35,7 @@ $display->setColumnFilters([
   ),
   
   // Поиск по выпадающему списку значений
-  AdminColumnFilter::select(new Country, 'Title')->setDisplay('title')->setPlaceholder('Select country')->setColumnName('country_id')
+  AdminColumnFilter::select(new Country, 'Title')->setDisplay('title')->setPlaceholder('Select Country')->setColumnName('country_id')
 ]);
 ```
 
