@@ -18,6 +18,7 @@
     - [Custom](#custom)
     - [Action](#action)
     - [Checkbox](#checkbox)
+    - [Checkbox Inline Editable](#checkbox_editable)
     - [Control](#control)
 - [Работа с Relation данными](#relations)
 
@@ -70,6 +71,7 @@ AdminForm::panel()
  - `AdminColumn::filter($name, $label = null)`
  - `AdminColumn::order()`
  - `AdminColumn::treeControl()`
+ - `AdminColumnEditable::checkbox($name, $checkedLabel = null, $uncheckedLabel = null)`
 
 <a name="column-heading"></a>
 ## Заголовок столбца
@@ -236,12 +238,37 @@ $table->getActions()
 AdminColumn::checkbox(),
 ```
 
+<a name="checkbox_editable"></a>    
+## CheckBox Editable
+`SleepingOwl\Admin\Display\Column\Editable\Checkbox`
+Данный элемент позволяет меняеть значение столбцов типа boolean прямо в таблице.
+
+```
+AdminColumnEditable::checkbox('visible')->setLabel('Отображение'),
+//or
+AdminColumnEditable::checkbox('visible','Видно', 'Не видно')->setLabel('Отображение'),
+```
+
+#### setUrl
+Вы можете установить свой url для отправки данных и принятия их в Кастом контроллере
+
+    SleepingOwl\Admin\Display\Column\Editable\Checkbox::setUrl(string $url): return self
+    
+#### setCheckedLabel
+Функция устанавливает отображаемое значение при значении True
+
+    SleepingOwl\Admin\Display\Column\Editable\Checkbox::setCheckedLabel(string $label): return self
+    
+#### setUncheckedLabel
+Функция устанавливает отображаемое значение при значении False
+
+    SleepingOwl\Admin\Display\Column\Editable\Checkbox::setUncheckedLabel(string $label): return self
+
 <a name="custom"></a>
 ## Custom
 `SleepingOwl\Admin\Display\Column\Custom`
 
 Данный элемент используется для добавления кастомного кода в качестве колонки таблицы
-
 
 ```php
 AdminColumn::custom($title, function(\Illuminate\Database\Eloquent\Model $model) {
@@ -400,6 +427,8 @@ class Users extend Model {
 ```
 
 Также для корректности отображения записей в таблице не забывайте при выводе сортировать записи по этому полю `->orderBy('order', 'asc')`
+
+
 
 <a name="control"></a>    
 ## Control
