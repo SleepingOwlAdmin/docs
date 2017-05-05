@@ -44,7 +44,7 @@ Admin.Config.all()
 <a name="messages"></a>
 ## Сообщения
 
-Для вывода сообщений используется http://t4t5.github.io/sweetalert/
+Для вывода сообщений используется [SweetAlert2](https://limonte.github.io/sweetalert2/)
 
 ```js
 // Сообщение об ошибке
