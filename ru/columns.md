@@ -255,12 +255,12 @@ AdminColumnEditable::checkbox('visible','Видно', 'Не видно')->setLab
     SleepingOwl\Admin\Display\Column\Editable\Checkbox::setUrl(string $url): return self
     
 #### setCheckedLabel
-Функция устанавливает отображаемое значение при значении True
+Отображаемый текст в таблице при значении True
 
     SleepingOwl\Admin\Display\Column\Editable\Checkbox::setCheckedLabel(string $label): return self
     
 #### setUncheckedLabel
-Функция устанавливает отображаемое значение при значении False
+Отображаемый текст в таблице при значении False
 
     SleepingOwl\Admin\Display\Column\Editable\Checkbox::setUncheckedLabel(string $label): return self
 
