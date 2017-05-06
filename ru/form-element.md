@@ -318,6 +318,7 @@ call_user_func_array([$image, 'resize'], [1280, null, function ($constraint) {
 }])
 ```
 
+
 <a name="images"></a>
 ## Images
 Загрузка файлов происходит через ajax и возвращает строку (относительный путь до файла).
@@ -341,6 +342,19 @@ AdminFormElement::images(string $key, string $label = null): static
 <a name="images-storeAsComaSeparatedValue"></a>
 #### `storeAsComaSeparatedValue(): static`
 При сохранении преобразовать массив в строку с разделителем ","
+
+
+#### `setAfterSaveCallback()`
+Этот метод полезен когда нужно сколлектировать логику сохранения изображений и привязываний их в модель 
+**Пример**
+```
+    ->setAfterSaveCallback(function ($value, $model) {
+        if ($value) {
+            //... сюда приходит value с поля и модель после сохранения
+            //... Имейте ввиду что этот колбек вызовется только после всех валидаций и сохранения модели
+        }
+    })
+```    
 
 
 <a name="textarea"></a>
