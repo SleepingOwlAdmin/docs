@@ -577,7 +577,7 @@ AdminFormElement::dependentselect('city_id', 'City')
 <a name="multiselect"></a>
 ## MultiSelect
 ```php
-AdminFormElement::multiSelect(string $key, string $label = null, array|Model|string $options = []): static
+AdminFormElement::multiselect(string $key, string $label = null, array|Model|string $options = []): static
 ```
  - `$key` - Ключ поля
  - `$label` - Заголовок
