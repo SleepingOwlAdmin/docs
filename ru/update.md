@@ -20,6 +20,12 @@ $ php artisan vendor:publish --tag=assets --force
 
 для обновления компонентов.
 
+Также стоит сбросить кеш view
+
+```bash
+$ php artisan view:clear
+```
+
 При желании можно добавить команду в `composer.json` для автоматического запуска команды
 
 ```json
