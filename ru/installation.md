@@ -80,5 +80,5 @@ $ php artisan sleepingowl:install
 <a name="what-next"></a>
 ## Следующий этап
 
- - [Настройка](configuration)
- - [Обновление](update)
+ - [Настройка](configuration.md)
+ - [Обновление](update.md)
