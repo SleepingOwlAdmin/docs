@@ -488,7 +488,7 @@ AdminFormElement::selectajax('name')
 
 <a name="selectajax-exclude"></a>
 #### `exclude(array $keys): static`
-Исключение из списика элементов
+Исключение из списка элементов
 
 <a name="multiselectajax"></a>
 ## MultiSelect Ajax (Отдельная благодарность https://github.com/hkd213)
@@ -530,7 +530,7 @@ AdminFormElement::selectajax('name')
 
 <a name="multiselectajax-exclude"></a>
 #### `exclude(array $keys): static`
-Исключение из списика элементов
+Исключение из списка элементов
 
 #### Предложения и пожелания будут рассматриваться в чате Gitter обращаться по нику @aios
 
@@ -608,7 +608,7 @@ AdminFormElement::multiselect(string $key, string $label = null, array|Model|str
 
 <a name="multiselect-isDeleteRelatedItem"></a>
 #### `isDeleteRelatedItem(): static`
-Если значение было ранее выбрано и сейчас убирается из списика, удалить его из БД. (необходимо протестировать)
+Если значение было ранее выбрано и сейчас убирается из списка, удалить его из БД. (необходимо протестировать)
 
 
 <a name="wysiwyg"></a>
