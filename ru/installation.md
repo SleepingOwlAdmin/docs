@@ -34,7 +34,7 @@ $ composer update
 
 После установки пакета необходимо добавить сервис провайдер
 ([Service Provider](https://laravel.com/docs/5.3/providers)) `SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class`,
-в соответсвующий раздел `providers` файла `config/app.php`:
+в соответствующий раздел `providers` файла `config/app.php`:
 
 **Пример**
 ```php
