@@ -278,7 +278,7 @@ AdminFormElement::image(string $key, string $label = null): static
 <a name="image-manipulation"></a>
 ##### Обработка изображений
 
-Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation) и добавить сервис провайдер
+Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation) и добавить сервис провайдер.
 Установить пакет можно помощью командной строки
 
 ```bash
@@ -287,7 +287,7 @@ $ composer require intervention/image
 
 После установки пакета необходимо добавить сервис провайдер
 `Intervention\Image\ImageServiceProviderLaravel5::class`,
-в соответсвующий раздел `providers` файла `config/app.php`:
+в соответствующий раздел `providers` файла `config/app.php`:
 
 После подключения пакета можно использовать фильтры пакета через метод `setUploadSettings`.
 
@@ -445,7 +445,7 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 
 <a name="select-exclude"></a>
 #### `exclude(array $keys): static`
-Исключение из списика элементов
+Исключение из списка элементов
 
 
 <a name="selectajax"></a>
@@ -488,7 +488,7 @@ AdminFormElement::selectajax('name')
 
 <a name="selectajax-exclude"></a>
 #### `exclude(array $keys): static`
-Исключение из списика элементов
+Исключение из списка элементов
 
 <a name="multiselectajax"></a>
 ## MultiSelect Ajax (Отдельная благодарность https://github.com/hkd213)
@@ -530,7 +530,7 @@ AdminFormElement::selectajax('name')
 
 <a name="multiselectajax-exclude"></a>
 #### `exclude(array $keys): static`
-Исключение из списика элементов
+Исключение из списка элементов
 
 #### Предложения и пожелания будут рассматриваться в чате Gitter обращаться по нику @aios
 
@@ -608,7 +608,7 @@ AdminFormElement::multiselect(string $key, string $label = null, array|Model|str
 
 <a name="multiselect-isDeleteRelatedItem"></a>
 #### `isDeleteRelatedItem(): static`
-Если значение было ранее выбрано и сейчас убирается из списика, удалить его из БД. (необходимо протестировать)
+Если значение было ранее выбрано и сейчас убирается из списка, удалить его из БД. (необходимо протестировать)
 
 
 <a name="wysiwyg"></a>
@@ -731,7 +731,7 @@ AdminFormElement::view(string $view, array $data = [], Closure $callback = null)
  - `$callback` - функция, которая будет вызвана при сохранении поля
 
 ### Доступные методы
-Достны все методы поля [Custom](#custom)
+Доступны все методы поля [Custom](#custom)
 
 <a name="view-setView"></a>
 #### `setView(string $path): static`

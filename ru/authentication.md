@@ -78,7 +78,7 @@ class AdminAuthenticate
 }
 ```
 
-Зарегестрировать данный класс в `App\Http\Kernel`
+Зарегистрировать данный класс в `App\Http\Kernel`
 
 ```php
  ...
@@ -98,4 +98,4 @@ class AdminAuthenticate
 ...
 ```
 
-Подробнее о работе авторизации можно почитать в официальной в [документации](https://laravel.com/docs/5.2/authentication)
+Подробнее о работе авторизации можно почитать в официальной [документации](https://laravel.com/docs/5.2/authentication)

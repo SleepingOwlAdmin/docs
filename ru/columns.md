@@ -90,7 +90,7 @@ AdminForm::panel()
     ]);
 ```
 
-**Или работая напрямую с класом заголовка**
+**Или работая напрямую с классом заголовка**
 ```php
 ...
     ->setColumns([
@@ -142,7 +142,7 @@ AdminForm::panel()
     SleepingOwl\Admin\Display\TableColumn::append(\SleepingOwl\Admin\Contracts\ColumnInterface $append): return self
 
 #### setOrderable
-Указание правила сортировки колонки таблицы. По умочалчанию все колонки сортируются `->orderBy(column, direction)`
+Указание правила сортировки колонки таблицы. По умолчанию все колонки сортируются `->orderBy(column, direction)`
 
     SleepingOwl\Admin\Display\TableColumn::setOrderable(false|SleepingOwl\Admin\Contracts\Display\OrderByClauseInterface|Closure|string $orderable): return self
 
@@ -445,7 +445,7 @@ $display = AdminDisplay::table()->...;
  
 $display->getColumns()->getControlColumn(); // return SleepingOwl\Admin\Display\Column\Control
 ```
-При необходимости вы можете добавлять в таблицу ндополнительные действия над элементом:
+При необходимости вы можете добавлять в таблицу дополнительные действия над элементом:
 ```php
 $control = $display->getColumns()->getControlColumn();
 
