@@ -278,7 +278,7 @@ AdminFormElement::image(string $key, string $label = null): static
 <a name="image-manipulation"></a>
 ##### Обработка изображений
 
-Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation) и добавить сервис провайдер
+Для возможности обработки изображений при сохранении вам необходимо подключить пакет [intervention/image](http://image.intervention.io/getting_started/installation) и добавить сервис провайдер.
 Установить пакет можно помощью командной строки
 
 ```bash
