@@ -445,7 +445,7 @@ $display = AdminDisplay::table()->...;
  
 $display->getColumns()->getControlColumn(); // return SleepingOwl\Admin\Display\Column\Control
 ```
-При необходимости вы можете добавлять в таблицу ндополнительные действия над элементом:
+При необходимости вы можете добавлять в таблицу дополнительные действия над элементом:
 ```php
 $control = $display->getColumns()->getControlColumn();
 
