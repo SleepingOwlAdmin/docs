@@ -238,7 +238,7 @@ public function edit(User $user, Post $post)
 }
 ```
 
-Теперь остается зарегестрировать policy в `App\Providers\AuthServiceProvider`
+Теперь остается зарегистрировать policy в `App\Providers\AuthServiceProvider`
 
 ```php
 protected $policies = [
