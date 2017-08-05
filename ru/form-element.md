@@ -287,7 +287,7 @@ $ composer require intervention/image
 
 После установки пакета необходимо добавить сервис провайдер
 `Intervention\Image\ImageServiceProviderLaravel5::class`,
-в соответсвующий раздел `providers` файла `config/app.php`:
+в соответствующий раздел `providers` файла `config/app.php`:
 
 После подключения пакета можно использовать фильтры пакета через метод `setUploadSettings`.
 
