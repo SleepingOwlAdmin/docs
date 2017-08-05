@@ -8,7 +8,7 @@
 Официальная версия документации V4 (Russian): https://github.com/LaravelRUS/SleepingOwlAdmin-docs
 Официальная версия документации V4 (English - needed help to translate from Russian): https://github.com/LaravelRUS/SleepingOwlAdmin-docs/blob/master/eng/
 
-Эта документация в отдельном сайте: http://sleepingowl.laravel.su/ (там и другие ссылки полезные есть)
+Эта документация на отдельном сайте: http://sleepingowl.laravel.su/ (там и другие ссылки полезные есть)
 
 Группа Вконтакте: https://vk.com/sleepingowladm
 
