@@ -445,7 +445,7 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 
 <a name="select-exclude"></a>
 #### `exclude(array $keys): static`
-Исключение из списика элементов
+Исключение из списка элементов
 
 
 <a name="selectajax"></a>
