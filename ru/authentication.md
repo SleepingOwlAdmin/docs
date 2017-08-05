@@ -78,7 +78,7 @@ class AdminAuthenticate
 }
 ```
 
-Зарегестрировать данный класс в `App\Http\Kernel`
+Зарегистрировать данный класс в `App\Http\Kernel`
 
 ```php
  ...
