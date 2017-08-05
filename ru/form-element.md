@@ -731,7 +731,7 @@ AdminFormElement::view(string $view, array $data = [], Closure $callback = null)
  - `$callback` - функция, которая будет вызвана при сохранении поля
 
 ### Доступные методы
-Достны все методы поля [Custom](#custom)
+Доступны все методы поля [Custom](#custom)
 
 <a name="view-setView"></a>
 #### `setView(string $path): static`
