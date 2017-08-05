@@ -142,7 +142,7 @@ AdminForm::panel()
     SleepingOwl\Admin\Display\TableColumn::append(\SleepingOwl\Admin\Contracts\ColumnInterface $append): return self
 
 #### setOrderable
-Указание правила сортировки колонки таблицы. По умочалчанию все колонки сортируются `->orderBy(column, direction)`
+Указание правила сортировки колонки таблицы. По умолчанию все колонки сортируются `->orderBy(column, direction)`
 
     SleepingOwl\Admin\Display\TableColumn::setOrderable(false|SleepingOwl\Admin\Contracts\Display\OrderByClauseInterface|Closure|string $orderable): return self
 
