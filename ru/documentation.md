@@ -17,6 +17,7 @@
     - [Типы отображения данных](displays)
     - [Фильтры](filters)
     - [Столбцы](columns)
+    - [Столбцы Editable](columns_editable)
     - [Фильтры столбцов](columnfilters)
     - [Формы](form)
     - [Элементы формы](form-element)
