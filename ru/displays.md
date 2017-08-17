@@ -337,6 +337,40 @@ $filters->setPlacement(...);
 
     SleepingOwl\Admin\Display\DisplayTable::setColumnFilters(array|...SleepingOwl\Admin\Contracts\ColumnFilterInterface): return self
     
+#### setColumnsTotal
+Вывод строки с в таблице для агрегации результатов:
+
+    SleepingOwl\Admin\Display\DisplayTable::setColumns(array|...SleepingOwl\Admin\Contracts\ColumnInterface): return self
+    
+```php
+$table->setColumnsTotal([
+        'Total: ', 
+        '<number_total>',
+        ...
+    ],
+    $table->getColumns()->all()->count()
+);
+```
+Вторым параметром добавляем количество столбцов в таблице.
+
+Для того, чтобы применить фильтр для текущей query можно сделать следующий запрос:
+
+```php
+$totalQuery = <Model>::query();
+$table->getFilters()->initialize();
+$table->getFilters()->modifyQuery($totalQuery);
+```
+
+Из **$totalQuery** уже можно скомпоновать агрегированные данные
+
+#### getColumnsTotal
+Получение объекта расширения с выводом агрегированной строки внизу таблицы
+
+```php
+$display->getColumnsTotal()->setPlacement('table.footer')
+```
+
+
 <a name="datatables"></a>
 ## datatables()
 `SleepingOwl\Admin\Display\DisplayDatatables`
