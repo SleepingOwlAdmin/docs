@@ -331,10 +331,16 @@ AdminColumn::relatedLink('author.name', 'Author')
 ## URL
 `SleepingOwl\Admin\Display\Column\Url`
 
-Данный элемент предназначен для вывода значения поля в виде ссылки
+Данный элемент предназначен для вывода значения поля в виде ссылки. Может содержать сноску (не обязательно) третьим параметром.
 
 ```php
 AdminColumn::url('title', 'Title'),
+```
+
+со сноской (название рубрики, алиаса даты создания и прочее)
+
+```php
+AdminColumn::url('title', 'Title', 'news.category'),
 ```
 
 #### setLinkAttributes
@@ -346,10 +352,16 @@ AdminColumn::url('title', 'Title'),
 ## Text
 `SleepingOwl\Admin\Display\Column\Text`
 
-Данный элемент предназначен для вывода значения поля в виде обычного текста
+Данный элемент предназначен для вывода значения поля в виде обычного текста. Может содержать сноску (не обязательно) третьим параметром.
 
 ```php
 AdminColumn::text('title', 'Title'),
+```
+
+со сноской с любыми связаными полями из БД
+
+```php
+AdminColumn::text('title', 'Title', 'created_at'),
 ```
 
 <a name="count"></a>    
