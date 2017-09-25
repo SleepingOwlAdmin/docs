@@ -300,10 +300,16 @@ AdminColumn::datetime('date', 'Date')->setFormat('d.m.Y')->setWidth('150px'),
 ## Link
 `SleepingOwl\Admin\Display\Column\Link`
 
-Данный элемент предназначен для вывода данных модели в виде ссылки на текущий документ
+Данный элемент предназначен для вывода данных модели в виде ссылки на текущий документ. Может содержать третий параметр (сноска будет не ссылкой).
 
 ```php
 AdminColumn::link('title', 'Title')->setLinkAttributes(['target' => '_blank']),
+```
+
+со сноской (название рубрики, алиаса, даты создания и прочее)
+
+```php
+AdminColumn::url('title', 'Title', 'news.category'),
 ```
 
 #### setLinkAttributes
@@ -315,10 +321,16 @@ AdminColumn::link('title', 'Title')->setLinkAttributes(['target' => '_blank']),
 ## RelatedLink
 `SleepingOwl\Admin\Display\Column\RelatedLink`
 
-Данный элемент предназначен для вывода данных модели в виде ссылки на документ связанного раздела
+Данный элемент предназначен для вывода данных модели в виде ссылки на документ связанного раздела. Может содержать сноску третим параметром (сноска не будет ссылкой).
 
 ```php
 AdminColumn::relatedLink('author.name', 'Author')
+```
+
+со сноской (название рубрики, алиаса, даты создания и прочее)
+
+```php
+AdminColumn::relatedLink('title', 'Title', 'news.category'),
 ```
 
 #### setLinkAttributes
@@ -331,7 +343,7 @@ AdminColumn::relatedLink('author.name', 'Author')
 ## URL
 `SleepingOwl\Admin\Display\Column\Url`
 
-Данный элемент предназначен для вывода значения поля в виде ссылки
+Данный элемент предназначен для вывода значения поля в виде ссылки.
 
 ```php
 AdminColumn::url('title', 'Title'),
@@ -346,10 +358,16 @@ AdminColumn::url('title', 'Title'),
 ## Text
 `SleepingOwl\Admin\Display\Column\Text`
 
-Данный элемент предназначен для вывода значения поля в виде обычного текста
+Данный элемент предназначен для вывода значения поля в виде обычного текста. Может содержать сноску (не обязательно) третьим параметром.
 
 ```php
 AdminColumn::text('title', 'Title'),
+```
+
+со сноской с любыми связаными полями из БД
+
+```php
+AdminColumn::text('title', 'Title', 'created_at'),
 ```
 
 <a name="count"></a>    
