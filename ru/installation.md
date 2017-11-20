@@ -75,10 +75,10 @@ $ php artisan sleepingowl:install
  - Создает файл автозапуска по умолчанию. (По умолчанию `app/Admin/bootstrap.php`)
  - Создает файл роутов по умолчанию. (По умолчанию `app/Admin/routes.php`)
  - Создает структуру директории public (*создает директорию `images/uploads`*)
- - Создает [сервис провайдер](model_configuration_section.md) `app\Providers\AdminSectionsServiceProvider`
+ - Создает [сервис провайдер](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
 
 <a name="what-next"></a>
 ## Следующий этап
 
- - [Настройка](configuration.md)
- - [Обновление](update.md)
+ - [Настройка](configuration)
+ - [Обновление](update)
