@@ -1,6 +1,6 @@
 # Конфигурация
 
-Команда [php artisan sleepingowl:install](installation.md#artisan),
+Команда [php artisan sleepingowl:install](installation#artisan),
 запускаемая во время установки публикует конфиг `sleeping_owl.php` автоматически.
 
 Если вы хотите опубликовать конфиг вручную выполните эту команду:
