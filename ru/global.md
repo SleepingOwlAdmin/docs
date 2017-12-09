@@ -105,7 +105,7 @@ app('sleeping_owl.table.column')->field_type()->...
 
 
 ## Рабочий стол (Dashboard)
-В стандартную сборку SleepingOwlAdmin включен пустой шаблон дашборда с возможностью вставки в него виджетов https://github.com/LaravelRUS/SleepingOwlAdmin-docs/blob/master/widgets.md
+В стандартную сборку SleepingOwlAdmin включен пустой шаблон дашборда с возможностью вставки в него виджетов https://github.com/SleepingOwlAdmin/docs/blob/master/ru/widgets.md
 
 При желании вы можете переопределить view шаблона дэшборда для разметки блоков для виджетов, либо переопределить роут и указать контроллер который отвечает за дашборд
 ```php
