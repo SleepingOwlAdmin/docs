@@ -447,11 +447,11 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
 
 <a name="assets-trait-support"></a>
 ## В каких элементах используется
- - [Display](displays.md)
- - [DisplayColumn](columns.md)
- - [ColumnFilter](columnfilters.md)
- - [Form](form.md)
- - [FormElement](form-element.md)
+ - [Display](displays)
+ - [DisplayColumn](columns)
+ - [ColumnFilter](columnfilters)
+ - [Form](form)
+ - [FormElement](form-element)
 
 <a name="assets-trait-api"></a>
 ## API
