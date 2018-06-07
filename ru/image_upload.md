@@ -102,7 +102,12 @@
         {
             //Your upload logic
     
-            $result = ['url' => $url_image, 'value' => $path_to_image];
+            $result = [
+                'url' => $url_image, 
+                'value' => $path_to_image,
+                'uploaded' => 1,
+                'fileName' => pathinfo($path_to_image, PATHINFO_FILENAME)
+            ];
             
             if ($request->CKEditorFuncNum && $request->CKEditor && $request->langCode) {
                 //that handler to upload image CKEditor from Dialog
@@ -110,6 +115,7 @@
                 $CKEditor = $request->CKEditor;
                 $langCode = $request->langCode;
                 $token = $request->ckCsrfToken;
+                
                 return view('helper.ckeditor.upload_file', compact('result', 'funcNum', 'CKEditor', 'langCode', 'token'));
             }
             
