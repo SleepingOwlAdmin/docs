@@ -120,6 +120,7 @@ class AppServiceProvider extends ServiceProvider
     - `sidebar.botto`
   - `\AdminTemplate::getViewPath('_partials.header')` Верхнее меню
     - `navbar`
+    - `navbar.left`
     - `navbar.right`
  
   - `\AdminTemplate::getViewPath('dashboard')` Дашборд
