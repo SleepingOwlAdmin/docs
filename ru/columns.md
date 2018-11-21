@@ -507,6 +507,16 @@ $button->setCondition(function(\Illuminate\Database\Eloquent\Model $model) {
 
 $control->addButton($button);
 ```
+
+ Также в ControlLink в качестве второго параметра (отвечает за текст на кнопке) можно передавать функцию-замыкание, по аналогии с первым параметром (отвечает за url-адрес ссылки). Это дает возможность генерировать динамические заголовки на кнопке для каждой строки в таблице, например, выводить туда название каждой конкретной модели и/или кол-во записей из какой-либо связи этой модели:
+```php
+$link = new \SleepingOwl\Admin\Display\ControlLink(function (\Illuminate\Database\Eloquent\Model $model) {
+   return 'http://localhost/'.$model->getKey(); // Генерация ссылки
+}, function (\Illuminate\Database\Eloquent\Model $model) {
+   return $model->title . ' (' . $model->images_count . ')'; // Генерация текста на кнопке
+}, 50);
+```
+ 
 **На данный момент существует два класса кнопок** 
  - `SleepingOwl\Admin\Display\ControlButton` - кнопка внутри формы для сабмита
  - `SleepingOwl\Admin\Display\ControlLink` - кнопка ссылка
