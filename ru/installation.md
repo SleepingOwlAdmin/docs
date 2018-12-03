@@ -3,6 +3,7 @@
  - [Composer](#composer)
  - [Добавление сервис провайдера](#service-provider)
  - [Artisan](#artisan)
+ - [Следующий этап](#what-next)
 
 <a name="composer"></a>
 ## Composer
@@ -77,7 +78,7 @@ $ php artisan sleepingowl:install
  - Создает структуру директории public (*создает директорию `images/uploads`*)
  - Создает [сервис провайдер](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
 
-<a name="what-next"></a>
+<a id="what-next"></a>
 ## Следующий этап
 
  - [Настройка](configuration)
