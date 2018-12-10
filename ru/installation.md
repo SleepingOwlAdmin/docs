@@ -1,7 +1,6 @@
 # Установка
 
  - [Composer](#composer)
- - [Добавление сервис провайдера](#service-provider)
  - [Artisan](#artisan)
  - [Следующий этап](#what-next)
 
@@ -10,7 +9,7 @@
 Установить пакет можно помощью командной строки
 
 ```bash
-$ composer require "laravelrus/sleepingowl":"4.*@dev"
+$ composer require laravelrus/sleepingowl:5.6.*
 ```
 
 или вручную добавив пакет в `composer.json`
@@ -20,7 +19,7 @@ $ composer require "laravelrus/sleepingowl":"4.*@dev"
   ...
   "require": {
      ...
-     "laravelrus/sleepingowl": "4.*@dev"
+     "laravelrus/sleepingowl": "5.6.*"
   }
 }
 ```
@@ -29,31 +28,6 @@ $ composer require "laravelrus/sleepingowl":"4.*@dev"
 ```bash
 $ composer update
 ```
-
-<a name="service-provider"></a>
-## Service Provider
-
-После установки пакета необходимо добавить сервис провайдер
-([Service Provider](https://laravel.com/docs/5.3/providers)) `SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class`,
-в соответствующий раздел `providers` файла `config/app.php`:
-
-**Пример**
-```php
-'providers' => [
-    ...
-    /**
-     * SleepingOwl Service Provider
-     */
-    SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
-
-    /**
-     * Application Service Providers...
-     */
-    App\Providers\AppServiceProvider::class,
-    ...
-]
-```
-
 <a name="artisan"></a>
 ## Artisan
 
@@ -77,6 +51,20 @@ $ php artisan sleepingowl:install
  - Создает файл роутов по умолчанию. (По умолчанию `app/Admin/routes.php`)
  - Создает структуру директории public (*создает директорию `images/uploads`*)
  - Создает [сервис провайдер](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
+
+**Примечание**
+
+Если вы используете пакет  `laravel-ide-helper` допишите `sleepingowl:update` после комманд:
+
+
+```php
+"post-update-cmd": [
+        "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+        "php artisan ide-helper:generate",
+        "php artisan ide-helper:meta",
+        "php artisan sleepingowl:update"
+]
+```
 
 <a id="what-next"></a>
 ## Следующий этап
