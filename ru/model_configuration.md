@@ -9,7 +9,7 @@
     - [Переопределение контроллера](#переопределение-контроллера)
     - [API (Доступные методы)](#api)
 
-Конфигурация моделей SleepingOwl Admin должны быть расположены в директории, которая указывается в конфиге `sleeping_owl.bootstrapDirectory` (*по умолчанию: `app/admin`*).
+Конфигурация моделей SleepingOwl Admin должна быть расположена в директории, которая указывается в конфиге `sleeping_owl.bootstrapDirectory` (*по умолчанию: `app/admin`*).
 
 Вы можете хранить конфигурацию моделей в одном файле или разделить на несколько по желанию.
 
@@ -500,7 +500,7 @@ $model->setAlias('manage/user');
 * $badge **string|Closure|KodiComponents\Navigation\Contracts\BadgeInterface** Текст или класс бейджа, который отображается рядом с пунктом меню (Например кол-во записей)
 
 ### creating
-Событие срабатываемое в процессе создания записи (В случае если метод возвращает false, запись не будет создана) 
+Событие срабатывающее в процессе создания записи (В случае если метод возвращает false, запись не будет создана) 
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::creating(Closure $callback)
 
@@ -508,7 +508,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### created
-Событие срабатываемое после создания записи
+Событие срабатывающее после создания записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::created(Closure $callback)
 
@@ -516,7 +516,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### updating
-Событие срабатываемое в процессе обновления записи (В случае если метод возвращает false, запись не будет обновлена)
+Событие срабатывающее в процессе обновления записи (В случае если метод возвращает false, запись не будет обновлена)
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::updating(Closure $callback)
 
@@ -524,12 +524,12 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### updated
-Событие срабатываемое после обновления записи
+Событие срабатывающее после обновления записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::updated(Closure $callback)
 
 ### deleting
-Событие срабатываемое в процессе удаления записи (В случае если метод возвращает false, запись не будет удалена)
+Событие срабатывающее в процессе удаления записи (В случае если метод возвращает false, запись не будет удалена)
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::deleting(Closure $callback)
 
@@ -537,7 +537,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### deleted
-Событие срабатываемое после удаления записи
+Событие срабатывающее после удаления записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::deleted(Closure $callback)
 
@@ -545,7 +545,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restoring
-Событие срабатываемое в процессе восстановления записи (В случае если метод возвращает false, запись не будет восстановлена)
+Событие срабатывающее в процессе восстановления записи (В случае если метод возвращает false, запись не будет восстановлена)
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::restoringClosure $callback)
 
@@ -553,7 +553,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restored
-Событие срабатываемое после восстановления записи
+Событие срабатывающее после восстановления записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::restored(Closure $callback)
 

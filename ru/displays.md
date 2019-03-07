@@ -22,7 +22,7 @@
 ## Таблица (Table)
 Таблицы предназначены для вывода списка документов раздела.
 
-На данные момент поддерживаются следующие типы вывода данных:
+На данный момент поддерживаются следующие типы вывода данных:
  - `AdminDisplay::table()` - обычная таблица (`SleepingOwl\Admin\Display\DisplayTable`)
  - `AdminDisplay::datatables()` - таблица с выводом данных используя плагин https://datatables.net/ (`SleepingOwl\Admin\Display\DisplayDatatables`)
  - `AdminDisplay::datatablesAsync()` (`SleepingOwl\Admin\Display\DisplayDatatablesAsync`)
@@ -338,7 +338,7 @@ $filters->setPlacement(...);
     SleepingOwl\Admin\Display\DisplayTable::setColumnFilters(array|...SleepingOwl\Admin\Contracts\ColumnFilterInterface): return self
     
 #### setColumnsTotal
-Вывод строки с в таблице для агрегации результатов:
+Вывод строки в таблице для агрегации результатов:
 
     SleepingOwl\Admin\Display\DisplayTable::setColumns(array|...SleepingOwl\Admin\Contracts\ColumnInterface): return self
     

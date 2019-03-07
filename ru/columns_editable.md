@@ -5,11 +5,11 @@
 - [Заголовок колонки](#column-heading)
 - [API](#api)
 - Типы
+    - [Checkbox](#checkbox_editable)
     - [Text](#text_editable)
     - [Textarea](#textarea_editable)
-    - [Checkbox](#checkbox_editable)
-    - [DateTime](#datetime_editable)   
-    - [Select](#datetime_editable)   
+    - DateTime  
+    - Select   
 
 
 *Расширение для класса [отображения данных](displays)*
@@ -122,7 +122,7 @@ AdminDisplay::table()
 <a name="checkbox_editable"></a>    
 ## CheckBox Editable
 `SleepingOwl\Admin\Display\Column\Editable\Checkbox`
-Данный элемент позволяет меняеть значение столбцов типа boolean прямо в таблице.
+Данный элемент позволяет менять значение столбцов типа boolean прямо в таблице.
 
 ```
 AdminColumnEditable::checkbox('visible')->setLabel('Отображение'),
