@@ -21,6 +21,7 @@
     - [Фильтры столбцов](ru/columnfilters.md)
     - [Формы](ru/form.md)
     - [Элементы формы](ru/form-element.md)
+    - [Вложенные формы отношений](ru/related-forms.md)
 - Прочее
     - [Виджеты](ru/widgets.md)
     - [HTML атрибуты](ru/html_attributes.md)
