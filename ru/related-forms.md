@@ -83,8 +83,6 @@ AdminFormElement::manyToMany('properties', [
 
 ### Доступные методы
 
-Отключает возможность добавления новых отношений в форме.
-
 <a name="mtm-unique"></a>
 #### `unique(array $fields): static`
 
