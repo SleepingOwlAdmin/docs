@@ -457,7 +457,7 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
 ## API
 
 #### addStyle
-Добавленме css файла в пакет
+Добавление css файла в пакет
 
 ```php
 $element->addStyle(string $handle, string $style, array $attributes): static
@@ -472,7 +472,7 @@ $element->addStyle('cystom-style', asset('css/style.css'));
 * `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
 
 #### addScript
-Добавленме js файла в пакет
+Добавление js файла в пакет
 
 ```php
 $element->addScript(string $handle, string $script, array $dependency): static

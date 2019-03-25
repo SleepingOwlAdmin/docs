@@ -27,7 +27,7 @@
  - [API](#api)
 
 В качестве элемента формы может выступать любой класс, которые реализует интерфейс `Illuminate\Contracts\Support\Renderable`.
-Для полноцнной работы класс поля должен реализовать интерфейс `SleepingOwl\Admin\Contracts\FormElementInterface`
+Для полноценной работы класс поля должен реализовать интерфейс `SleepingOwl\Admin\Contracts\FormElementInterface`
 
 
 <a name="text"></a>
@@ -871,7 +871,7 @@ public function setUploadImageAttribute(\Illuminate\Http\UploadedFile $file = nu
 
 И в форме указываем `AdminFormElement::upload('upload_image', 'Image')`, т.е. прикрепленный файл через поле с ключем `upload_image` будет передан в модель в созданный нами мутатор `setUploadImageAttribute`, где файл будет передан в нужные нам поля и сохранен согласно их правилам.
 
-Также для загруженного файла доступны ссылка на файл и абсолюьтный путь. Например рассмотрим поле с ключем `image`:
+Также для загруженного файла доступны ссылка на файл и абсолютный путь. Например рассмотрим поле с ключем `image`:
 
  - `$user->image` `public\storage\users\image\23n4b23hj4b.jpg`
  - `$user->image_path` `\var\www\site.com\public\storage\users\image\23n4b23hj4b.jpg`
@@ -893,7 +893,7 @@ AdminFormElement::upload('pdf', 'PDF')->addValidationRule('mimes:pdf'),
 ```
 
 #### Ограничение использования трейта
-**!!!Трейт переопределет методы `getAttribute`, `mutateAttribute`, `setAttribute`, в случае, если они переопределены у вас в модели, могут возникнуть проблемы в работе!!!**
+**!!!Трейт переопределяет методы `getAttribute`, `mutateAttribute`, `setAttribute`, в случае, если они переопределены у вас в модели, могут возникнуть проблемы в работе!!!**
 
 ---
 
@@ -925,8 +925,8 @@ AdminFormElement::upload('pdf', 'PDF')->addValidationRule('mimes:pdf'),
 
 <a name="api-setView"></a>
 ### `setView(\Illuminate\View\View|string $view): static`
-Указания шаблона для отображения. При передачи пути до шаблона, поиск будет производиться с учетом view namespace `sleepingowl::`
-При передачи объекта `\Illuminate\View\View`, в него будут перданы данные поля и произведен вывод
+Указания шаблона для отображения. При передаче пути до шаблона, поиск будет производиться с учетом view namespace `sleepingowl::`
+При передаче объекта `\Illuminate\View\View`, в него будут переданы данные поля и произведен вывод
 
 <a name="api-setPath"></a>
 ### `setPath(string $path): static`
@@ -1016,7 +1016,7 @@ $field->mutateValue(function($value) {
 <a name="validation-examples"></a>
 ### Примеры указания правил валидации
 
-Для каждого элемента формы `AdminFormElement` можно указывать павила валидации.
+Для каждого элемента формы `AdminFormElement` можно указывать правила валидации.
 
 **Пример**
 ```php
@@ -1025,7 +1025,7 @@ AdminFormElement::text('title', 'Title')
     ->unique();
 ```
 
-Если вы хотите переопределить стандартное сообщение для правила, вы можете воспользоваться одним из сопособов:
+Если вы хотите переопределить стандартное сообщение для правила, вы можете воспользоваться одним из способов:
 
 ```php
 AdminFormElement::text('title', 'Title')
