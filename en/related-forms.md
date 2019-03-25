@@ -90,6 +90,12 @@ models. If method is called, you'll have to explicitly pass `foreign_key` of rel
 
 **`foreign_key` of target model will always be prepended to array of unique fields!**
 
+<a name="mtm-related-element"></a>
+#### `getRelatedElement(): SleepingOwl\Admin\Form\Element\Select`
+
+Returns form element, responsible for value of related model. Can be used to manage view representation of form element.
+Setting placeholder, label, etc.
+
 <a name="belongsto"></a>
 ## BelongsTo
 

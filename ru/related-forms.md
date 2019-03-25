@@ -92,6 +92,12 @@ AdminFormElement::manyToMany('properties', [
 
 **`foreign_key` целевой модели будет всегда добавлен в массив уникальных полей.**
 
+<a name="mtm-related-element"></a>
+#### `getRelatedElement(): SleepingOwl\Admin\Form\Element\Select`
+
+Возвращает элемент, управляющий значением связанной модели. Может быть использован для управления внешним видом 
+элемента формы.
+
 <a name="belongsto"></a>
 ## BelongsTo
 
@@ -112,7 +118,7 @@ AdminFormElement::belongsTo(string $relation, array $elements): static
 ## API
 
 <a name="api-modify-query"></a>
-### `modifyQuery(callable $callback): static`
+#### `modifyQuery(callable $callback): static`
 
 - `$callable` - функция, которая будет вызвана с обектом отношения для изменения запроса.
 
@@ -123,12 +129,12 @@ AdminFormElement::belongsTo(string $relation, array $elements): static
 связанных сущностей. Используйте с осторожностью.**
 
 <a name="api-set-label"></a>
-### `setLabel(string $label): static`
+#### `setLabel(string $label): static`
 
 Устанавливает заголовок формы связанных отношений.
 
 <a name="api-set-group-label"></a>
-### `setGroupLabel(string $label): static`
+#### `setGroupLabel(string $label): static`
 
 Устанавливает заголовок для каждой "группы" форм. Группа - блок единицы создаваемого/редактируемого отношения с 
 собственными полями.
