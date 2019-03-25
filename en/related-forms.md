@@ -115,7 +115,7 @@ related model entity.
 ## API
 
 <a name="api-modify-query"></a>
-### `modifyQuery(callable $callback): static`
+#### `modifyQuery(callable $callback): static`
 
 - `$callable` - callback, which is called to modify relation query. Instance of relation will be passed as the only argument.
 
@@ -126,12 +126,12 @@ inside form view.
 Use with caution.**
 
 <a name="api-set-label"></a>
-### `setLabel(string $label): static`
+#### `setLabel(string $label): static`
 
 Sets label of the form with relations.
 
 <a name="api-set-group-label"></a>
-### `setGroupLabel(string $label): static`
+#### `setGroupLabel(string $label): static`
 
 Sets label for each "group" of form. Group - is the block of single related entity being created/edited.
 
