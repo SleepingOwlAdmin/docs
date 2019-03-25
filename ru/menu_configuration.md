@@ -46,7 +46,7 @@ addPage(string|array|PageInterface $page): PageInterface
 При передаче параметров раздела в виде массива, будет произведен обход каждого ключа массива и вызван метод `set + $key` и передано в качестве аргумента значение, т.е.
 
 ```php
-AdminNavigation::addPage(['title' => 'test', 'priority' => 100, 'bage' => function() {
+AdminNavigation::addPage(['title' => 'test', 'priority' => 100, 'badge' => function() {
    return 100
 }]);
 
@@ -364,7 +364,7 @@ $page->addBadge(function() {
 
 <a name="find-by-id"></a>
 ### `findById(string $id): PageInterface|null`
-Поиск станицы по ID
+Поиск страницы по ID
 
 ```php
 AdminNavigation::getPages()->findById('unique_string'): PageInterface|null
@@ -372,7 +372,7 @@ AdminNavigation::getPages()->findById('unique_string'): PageInterface|null
 
 <a name="find-by-path"></a>
 ### `findByPath(string $path, string $separator = '/'): PageInterface|null`
-Поиск станицы по [пути вложенности](#page-path)
+Поиск страницы по [пути вложенности](#page-path)
 
 ```php
 // с разделителем `Title 1/Title 2/Title 3`
