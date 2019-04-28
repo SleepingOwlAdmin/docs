@@ -10,7 +10,7 @@
 First, download the SleepingOwl Admin package using Composer:
 
 ```bash
-$ composer require "laravelrus/sleepingowl":"4.*@dev"
+$ composer require "laravelrus/sleepingowl":"dev-development"
 ```
 
 or add packager to `composer.json`
@@ -20,7 +20,7 @@ or add packager to `composer.json`
   ...
   "require": {
      ...
-     "laravelrus/sleepingowl": "4.*@dev"
+     "laravelrus/sleepingowl": "dev-development"
   }
 }
 ```
