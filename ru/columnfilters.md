@@ -4,6 +4,7 @@
  - [Text](#filter-text)
  - [Date](#filter-date)
  - [Select](#filter-select)
+ - [Range](#filter-range) 
 
 Фильтры столбцов используются для фильтрации списка. 
 
@@ -136,6 +137,7 @@ AdminColumnFilter::date()->setPlaceholder('Date')->setFormat('d.m.Y')
 Фильтрация данных по данным из выпадающего списка
 
 
+<a name="filter-range"></a>
 ## Range
 Фильтрация данных по диазону.
 

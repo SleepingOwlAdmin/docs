@@ -4,8 +4,8 @@
     - [Конфигурация](configuration)
     - [Описание работы системы](global)
     - [Руководство по обновлению](update)
-    - [Участие в разработке](contributions)
-    - [Версии пакета](releases)
+<!-- - [Участие в разработке](contributions) -->
+<!-- - [Версии пакета](releases) -->
 - C чего начать
     - [Авторизация](authentication)
     - [Конфигурация роутов](routes_configuration)
@@ -15,7 +15,7 @@
     - [Локализация](localization)
 - Основные элементы
     - [Типы отображения данных](displays)
-    - [Фильтры](filters)
+    - [Фильтры данных](filters)
     - [Столбцы](columns)
     - [Столбцы Editable](columns_editable)
     - [Фильтры столбцов](columnfilters)
@@ -28,4 +28,6 @@
     - [HTML атрибуты](html_attributes)
     - [Виджеты](widgets)
     - [Создание элементов](extend)
-    - [Вопрос-ответ](faq)
+<!--    - [Вопрос-ответ](faq)-->
+    - &nbsp;
+    - &nbsp;

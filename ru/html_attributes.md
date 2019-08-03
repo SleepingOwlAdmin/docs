@@ -46,7 +46,7 @@ class TableColumn implements Arrayable, Renderable
 
 И теперь можно данному классу можно назначать атрибуты
 
-# API
+## API
 
 <a name="set"></a>
 ## setHtmlAttribute

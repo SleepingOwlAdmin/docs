@@ -1,13 +1,12 @@
 # Авторизация
 
- - [Custom Middleware](#middleware)
-
+ 
 SleepingOwl Admin по умолчанию не использует авторизацию, т.е. доступ
 в админ панель никак не защищен. Настроить доступ можно используя `middleware`.
 
 Самый простой вариант - использовать стандартный механизм, который предоставляет сам Laravel.
 
-Для этого необходимо выполнить консольную команду (Подробнее https://laravel.com/docs/5.2/authentication#authentication-quickstart)
+Для этого необходимо выполнить консольную команду (Подробнее https://laravel.com/docs/authentication#authentication-quickstart)
 ```bash
 $ php artisan make:auth
 ```
@@ -17,7 +16,7 @@ $ php artisan make:auth
 ```php
 /*
  | ...
- | see https://laravel.com/docs/5.2/authentication#authentication-quickstart
+ | see https://laravel.com/docs/authentication#authentication-quickstart
  |
  */
 'middleware' => ['web', 'auth'], // Порядок следования важен
@@ -98,4 +97,4 @@ class AdminAuthenticate
 ...
 ```
 
-Подробнее о работе авторизации можно почитать в официальной [документации](https://laravel.com/docs/5.2/authentication)
+Подробнее о работе авторизации можно почитать в официальной [документации](https://laravel.com/docs/authentication).

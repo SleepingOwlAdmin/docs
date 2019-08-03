@@ -1,16 +1,16 @@
 # Управление ресурсами (Assets Management)
 
  - [Meta](#meta)
-    - [API](#meta-api)
+    - [API](#api)
  - [Assets](#assets)
-    - [API](#assets-api)
+    - [API](#api-1)
  - [PackageManager](#package-manager)
-    - [API](#package-manager-api)
+    - [API](#api-2)
  - [Package](#package)
-    - [API](#package-api)
+    - [API](#api-3)
  - [Assets trait](#assets-trait)
-    - [В каких элементах используется](#assets-trait-support)
-    - [API](#assets-trait-api)
+    - [В каких элементах используется](#В-каких-элементах-используется)
+    - [API](#api-4)
 
 В SleepingOwlAdmin реализован достаточно гибкий механизм подключения
 ассетов с помощью пакета [kodicms/laravel-assets](https://github.com/KodiCMS/laravel-assets) - позволяющий
@@ -22,7 +22,7 @@
 используется trait [assets](#assets-trait), который работает через
 класс `Meta`.
 
-<a name="meta"></a>
+
 ## Meta
 `KodiCMS\Assets\Meta`
 
@@ -60,8 +60,8 @@ Meta::setTitle('Test title')
 </html>
 ```
 
-<a name="meta-api"></a>
-## API
+
+### API
 
 #### `loadPackage`
 
@@ -295,7 +295,7 @@ static::removeFromGroup(string $handle): static
 static::removeFromGroup(string $handle): static
 ```
 
-<a name="assets"></a>
+
 ## Assets
 `KodiCMS\Assets\Assets`
 
@@ -303,8 +303,8 @@ static::removeFromGroup(string $handle): static
 
 **Класс Meta при добавлении ассетов использует данный класс в качестве хранилища.**
 
-<a name="assets-api"></a>
-## API
+
+### API
 
 #### `packageManager`
 
@@ -314,7 +314,7 @@ static::removeFromGroup(string $handle): static
 static::removeFromGroup(string $handle): static
 ```
 
-<a name="package-manager"></a>
+
 ## PackageManager
 `KodiCMS\Assets\PackageManager extends Collection`
 
@@ -339,8 +339,8 @@ public function boot()
 $ php artisan assets:packages
 ```
 
-<a name="package-manager-api"></a>
-## API
+
+### API
 
 #### `add`
 
@@ -358,14 +358,13 @@ static::add(KodiCMS\Assets\Contracts\PackageInterface|string $package): return K
 static::load(string $name): return KodiCMS\Assets\Contracts\PackageInterface|null
 ```
 
-<a name="package"></a>
+<
 ## Package
 `KodiCMS\Assets\Package extends Collection`
 
 Пакет (контейнер) для хранения ассетов
 
-<a name="package-api"></a>
-## API
+### API
 
 #### `with`
 
@@ -406,8 +405,8 @@ static::css(string $handle, string $src, array|string $dependency = null, array 
 на пакеты)
 * `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
 
-<a name="assets-trait"></a>
-# Assets trait
+
+## Assets trait
 
 Вспомогательный trait используется для организации работы с подключением ассетов для элементов админки.
 
@@ -445,19 +444,19 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
 Как мы знаем метод `initialize` в классе `Form\Element\Select` будет вызван только в момент подключение элемента в форму, а
 вместе с ним и ассеты.
 
-<a name="assets-trait-support"></a>
-## В каких элементах используется
+
+### В каких элементах используется
  - [Display](displays)
  - [DisplayColumn](columns)
  - [ColumnFilter](columnfilters)
  - [Form](form)
  - [FormElement](form-element)
 
-<a name="assets-trait-api"></a>
-## API
+
+### API
 
 #### addStyle
-Добавленме css файла в пакет
+Добавление css файла в пакет
 
 ```php
 $element->addStyle(string $handle, string $style, array $attributes): static
@@ -472,7 +471,7 @@ $element->addStyle('cystom-style', asset('css/style.css'));
 * `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
 
 #### addScript
-Добавленме js файла в пакет
+Добавление js файла в пакет
 
 ```php
 $element->addScript(string $handle, string $script, array $dependency): static
@@ -497,4 +496,3 @@ $element->withPackage(string|array $packages): static
 // Пример
 $element->withPackage(['custom', 'ckeditor']);
 ```
-

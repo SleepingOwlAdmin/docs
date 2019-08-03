@@ -1,13 +1,13 @@
 # Формы
 
- - [Default](#form)
+ - [Form](#form)
  - [Panel](#panel)
  - [Tabbed](#tabbed)
  - [API](#api)
  - [Tabs](#tabs)
  - [Columns](#columns)
 
-<a name="form"></a>
+
 ## form
  * Класс `\SleepingOwl\Admin\Form\FormDefault`
  * View `resources\views\default\form\default.blade.php`
@@ -27,9 +27,9 @@ $form->setHtmlAttribute('class', 'panel panel-default');
 $form->getButtons()->setHtmlAttribute('class', 'panel-footer');
 ```
 
-<a name="panel"></a>
+
 ## panel
-в основе которой лежит [Bootstrap конпонент `panel`](http://getbootstrap.com/components/#panels)
+в основе которой лежит [Bootstrap конпонент panel](https://getbootstrap.com/docs/3.4/components/#panels)
 
  * Класс `\SleepingOwl\Admin\Form\FormPanel`
  * View `resources\views\default\form\panel.blade.php`
@@ -87,7 +87,7 @@ $form->addElement(new \App\Form\Panel\CustomBlockClass([
 
     SleepingOwl\Admin\Form\FormPanel::addFooter(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
 
-<a name="tabbed"></a>
+
 ## tabbed
 Разновидность форм, в которой элементы можно разделять на вкладки.
 
@@ -102,8 +102,8 @@ AdminForm::tabbed()->setElements([
 ]);
 ```
 
-<a name="api"></a>
-# API (методы доступные во всех классах)
+
+## API (методы доступные во всех классах)
 
 В классах форм используется трейт:
  - [HtmlAttributes](html_attributes), с помощью которого для них можно настраивать HTML атрибуты.
@@ -145,9 +145,9 @@ AdminForm::form()->setElements([
 ])
 ```
 
-<a name="tabs"></a>
-## Табы
-Вы можете в качестве элемента формы помещать табы. **Делайте названия табов уникальные при размещении несколько разделов со вкладками, т.к. табы могут включаться некорректно.**
+
+## Tabs
+Вы можете в качестве элемента формы помещать табы. **Делайте названия табов уникальными при размещении нескольких разделов со вкладками, т.к. табы могут включаться некорректно.**
 
 ```php
 $tabs = AdminDisplay::tabbed();
@@ -199,7 +199,7 @@ $form = AdminForm::panel()
     ]);
 ```
 
-<a name="columns"></a>
+
 ## Columns
 Позволяет разбивать форму на несколько столбцов. Колонки могут быть использованы в табах и наоборот.
 
@@ -249,6 +249,61 @@ $columns->addColumn($subColumns = AdminFormElement::columns([
 $subColumns->addColumn(...)
 
 $form = AdminForm::panel()->addBody($columns);
+```
+
+#### Ширина колонок
+
+Вы можете задавать ширину каждой из колонок с соответствии с синтаксисом Bootstrap, для разной ширины экрана пользователя: XS, SM, MD и LG. Для этого в метод addColumn() в качестве второго аргумента необходимо передать значение ширины. Сделать это можно несколькими способами:
+
+```php
+// Передать число:
+// каждая колонка будет иметь class="col-md-6"
+AdminFormElement::columns()
+    ->addColumn([
+        #...
+    ], 6)
+    ->addColumn([
+        #...
+    ], 6)
+,
+
+// Передать строку: 
+// каждая колонка будет иметь class="col-xs-12 col-sm-6 col-md-6 col-lg-6"
+AdminFormElement::columns()
+    ->addColumn([
+        #...
+    ], 'col-xs-12 col-sm-6 col-md-6 col-lg-6')
+    ->addColumn([
+        #...
+    ], 'col-xs-12 col-sm-6 col-md-6 col-lg-6')
+,
+
+// Передать массив строк: вариация предыдущего метода, 
+// каждая колонка будет иметь class="col-xs-12 col-sm-6 col-md-6 col-lg-6"
+AdminFormElement::columns()
+    ->addColumn([
+        #...
+    ], ['col-xs-12', 'col-sm-6', 'col-md-6', 'col-lg-6'])
+    ->addColumn([
+        #...
+    ], ['col-xs-12', 'col-sm-6', 'col-md-6', 'col-lg-6'])
+,
+
+// Не передавать второй аргумент:
+// все колонки будут иметь одинаковую ширину, в зависимости от их количества.
+// Класс, отвечающий за ширину, будет вычислен автоматически.
+// Так, при передаче трех колонок, каждая из них будет иметь class="col-md-4"
+AdminFormElement::columns()
+    ->addColumn([
+        #...
+    ])
+    ->addColumn([
+        #...
+    ])
+    ->addColumn([
+        #...
+    ])
+,
 ```
 
 #### Пример использования колонок с табами

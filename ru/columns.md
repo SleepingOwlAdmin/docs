@@ -1,35 +1,36 @@
-# Колонки таблицы
+# Столбцы
 
-- [Введение](#introduction)
-- [Поддерживаемые типы](#supported-types)
-- [Заголовок колонки](#column-heading)
+- [Введение](#Введение)
+- [Поддерживаемые типы](#Поддерживаемые-типы-types)
+- [Заголовок столбца](#Заголовок-столбца)
 - [API](#api)
-- Типы
-    - [Text](#text)
-    - [DateTime](#datetime)
+- [Типы](#Типы)
+    - [Action](#action)
+    - [Checkbox](#checkbox) 
+    - [Checkbox Inline Editable](#checkbox-editable)    
+    - [Count](#count)
+    - [Custom](#custom)
+    - [DateTime](#datetime)    
     - [Link](#link)
     - [RelatedLink](#related-link)
     - [Url](#url)
-    - [Lists](#lists)
+    - [Text](#text)
     - [Count](#count)
     - [Email](#email)
     - [Image](#image)
+    - [Lists](#lists)
     - [Order](#order)
-    - [Custom](#custom)
-    - [Action](#action)
-    - [Checkbox](#checkbox)
-    - [Checkbox Inline Editable](#checkbox_editable)
     - [Control](#control)
-- [Работа с Relation данными](#relations)
+- [Работа с Relation данными](#Работа-с-relation-данными)
 
 
 *Расширение для класса [отображения данных](displays)*
 
 
-<a name="introduction"></a>
+
 ## Введение
 
-Данные классы предназначены для добавления колонок в таблицу, а также вывод информации из модели в форме редактирования.
+Данные классы предназначены для добавления колонок в таблицу, а также вывода информации из модели в форме редактирования.
 
 **Пример использования**
 
@@ -108,9 +109,9 @@ AdminForm::panel()
 
 
 <a name="api"></a>
-# API
+## API
 
-<a name="all-methods"></a>
+
 ## Методы доступные во всех элементах
 В классах колонок используется трейт 
  - [HtmlAttributes](html_attributes), с помощью которого для них можно настраивать HTML атрибуты.
@@ -164,12 +165,14 @@ $display->setColumns([
 ]);
 ```
 
-<a name="action"></a>
-## Action 
+## Типы
+
+### Action 
 `SleepingOwl\Admin\Display\Column\Action`
 
 Данный элемент используется для добавления Кнопки совершения какого либо действия с данными таблицы.
-**Для работы элемента необходимо наличие поля `checkbox` в таблице**
+
+!> Для работы элемента необходимо наличие поля `checkbox` в таблице**
 
 ```php
 $table = AdminDisplay::table()
@@ -228,8 +231,8 @@ $table->getActions()
 
     SleepingOwl\Admin\Display\Column\Action::setIcon(string $icon): return self
 
-<a name="checkbox"></a>    
-## Checkbox
+  
+### Checkbox
 `SleepingOwl\Admin\Display\Column\Checkbox`
 
 Данный элемент предназначен для вывода чекбокса в таблице для выбора значений. Подробнее [Action](#action)
@@ -238,12 +241,12 @@ $table->getActions()
 AdminColumn::checkbox(),
 ```
 
-<a name="checkbox_editable"></a>    
-## CheckBox Editable
+ 
+### CheckBox Editable
 `SleepingOwl\Admin\Display\Column\Editable\Checkbox`
-Данный элемент позволяет меняеть значение столбцов типа boolean прямо в таблице.
+Данный элемент позволяет менять значение столбцов типа boolean прямо в таблице.
 
-```
+```php
 AdminColumnEditable::checkbox('visible')->setLabel('Отображение'),
 //or
 AdminColumnEditable::checkbox('visible','Видно', 'Не видно')->setLabel('Отображение'),
@@ -264,8 +267,8 @@ AdminColumnEditable::checkbox('visible','Видно', 'Не видно')->setLab
 
     SleepingOwl\Admin\Display\Column\Editable\Checkbox::setUncheckedLabel(string $label): return self
 
-<a name="custom"></a>
-## Custom
+
+### Custom
 `SleepingOwl\Admin\Display\Column\Custom`
 
 Данный элемент используется для добавления кастомного кода в качестве колонки таблицы
@@ -281,8 +284,8 @@ AdminColumn::custom($title, function(\Illuminate\Database\Eloquent\Model $model)
 
     SleepingOwl\Admin\Display\Column\Custom::setCallback(\Closure $callback): return self
 
-<a name="datetime"></a>
-## DateTime
+
+### DateTime
 `SleepingOwl\Admin\Display\Column\DateTime`
 
 Данный элемент предназначен для вывода даты с указанием формата
@@ -296,8 +299,8 @@ AdminColumn::datetime('date', 'Date')->setFormat('d.m.Y')->setWidth('150px'),
 
     SleepingOwl\Admin\Display\Column\DateTime::setFormat(string $format): return self
 
-<a name="link"></a>    
-## Link
+
+### Link
 `SleepingOwl\Admin\Display\Column\Link`
 
 Данный элемент предназначен для вывода данных модели в виде ссылки на текущий документ. Может содержать третий параметр (сноска будет не ссылкой).
@@ -317,8 +320,8 @@ AdminColumn::url('title', 'Title', 'news.category'),
 
     SleepingOwl\Admin\Display\Column\Link::setLinkAttributes(array $linkAttributes): return self
 
-<a name="related-link"></a>    
-## RelatedLink
+
+### RelatedLink
 `SleepingOwl\Admin\Display\Column\RelatedLink`
 
 Данный элемент предназначен для вывода данных модели в виде ссылки на документ связанного раздела. Может содержать сноску третим параметром (сноска не будет ссылкой).
@@ -339,8 +342,8 @@ AdminColumn::relatedLink('title', 'Title', 'news.category'),
     SleepingOwl\Admin\Display\Column\Link::setLinkAttributes(array $linkAttributes): return self
 
 
-<a name="url"></a>    
-## URL
+
+### URL
 `SleepingOwl\Admin\Display\Column\Url`
 
 Данный элемент предназначен для вывода значения поля в виде ссылки.
@@ -354,8 +357,8 @@ AdminColumn::url('title', 'Title'),
 
     SleepingOwl\Admin\Display\Column\Url::setLinkAttributes(array $linkAttributes): return self
     
-<a name="text"></a>    
-## Text
+
+### Text
 `SleepingOwl\Admin\Display\Column\Text`
 
 Данный элемент предназначен для вывода значения поля в виде обычного текста. Может содержать сноску (не обязательно) третьим параметром.
@@ -370,8 +373,8 @@ AdminColumn::text('title', 'Title'),
 AdminColumn::text('title', 'Title', 'created_at'),
 ```
 
-<a name="count"></a>    
-## Count
+
+### Count
 `SleepingOwl\Admin\Display\Column\Count`
 
 Данный элемент предназначен для подсчета и вывода кол-ва элементов. Подсчет значений производится функцией `count`, т.е. передаваемое поле должно содержать массив элементов либо элемент с отношением `*Many`
@@ -380,18 +383,18 @@ AdminColumn::text('title', 'Title', 'created_at'),
 AdminColumn::count('list', 'Total'),
 ```
 
-<a name="email"></a>    
-## Email
+
+### Email
 `SleepingOwl\Admin\Display\Column\Email`
 
-Данный элемент предназначен для вывода полей содержащих email адрес в виде ссылкы `<a href="mailto:"></a>`
+Данный элемент предназначен для вывода полей содержащих email адрес в виде ссылки `<a href="mailto:"></a>`
 
 ```php
 AdminColumn::email('email', 'Email'),
 ```
 
-<a name="image"></a>    
-## Image
+
+### Image
 `SleepingOwl\Admin\Display\Column\Image`
 
 Данный элемент предназначен для вывода изображений
@@ -406,8 +409,8 @@ AdminColumn::image('avatar', 'Avatar'),
     SleepingOwl\Admin\Display\Image::setImageWidth(string $width): return self
 
 
-<a name="lists"></a>    
-## Lists
+
+### Lists
 `SleepingOwl\Admin\Display\Column\Lists`
 
 Данный элемент предназначен для вывода списка значений поля содержащего массив элементов, либо связь с отношением `*Many`
@@ -421,8 +424,8 @@ AdminColumn::lists('tags', 'Tags') // Вывод списка тегов из п
 ```
 
 
-<a name="order"></a>    
-## Order
+
+### Order
 `SleepingOwl\Admin\Display\Column\Order`
 
 Данный элемент предназначен для сортировки элементов таблицы. **Модель к которой применяется это поле должна содержать трейт `SleepingOwl\Admin\Traits\OrderableModel`**. По умолчанию, поле по которому производится сортировка - `order`. Для указания альтернативного ключа необходимо в модели добавить метод:
@@ -448,22 +451,24 @@ class Users extend Model {
 
 
 
-<a name="control"></a>    
-## Control
+
+### Control
 `SleepingOwl\Admin\Display\Column\Control`
 
-Данный элемент используется в табличном выводе для отображения кнопок действий связанных с элементом таблицы. Данный элемент добавляется автоматически ко всем элементам таблицы и предоставляет следующие дейтсвия
+Данный элемент используется в табличном выводе для отображения кнопок действий связанных с элементом таблицы. Данный элемент добавляется автоматически ко всем элементам таблицы и предоставляет следующие действия
  - Редактирование элемента
  - Удаление
  - Восстановление
  
-**Получение доступа к данном элементу**
+**Получение доступа к данному элементу**
 ```php
 $display = AdminDisplay::table()->...;
  
 $display->getColumns()->getControlColumn(); // return SleepingOwl\Admin\Display\Column\Control
 ```
+
 При необходимости вы можете добавлять в таблицу дополнительные действия над элементом:
+
 ```php
 $control = $display->getColumns()->getControlColumn();
 
@@ -509,6 +514,7 @@ $control->addButton($button);
 ```
 
  Также в ControlLink в качестве второго параметра (отвечает за текст на кнопке) можно передавать функцию-замыкание, по аналогии с первым параметром (отвечает за url-адрес ссылки). Это дает возможность генерировать динамические заголовки на кнопке для каждой строки в таблице, например, выводить туда название каждой конкретной модели и/или кол-во записей из какой-либо связи этой модели:
+
 ```php
 $link = new \SleepingOwl\Admin\Display\ControlLink(function (\Illuminate\Database\Eloquent\Model $model) {
    return 'http://localhost/'.$model->getKey(); // Генерация ссылки
@@ -521,7 +527,7 @@ $link = new \SleepingOwl\Admin\Display\ControlLink(function (\Illuminate\Databas
  - `SleepingOwl\Admin\Display\ControlButton` - кнопка внутри формы для сабмита
  - `SleepingOwl\Admin\Display\ControlLink` - кнопка ссылка
  
- Также вы можете добавлять свои классы кнопок, реализовав инттерфейс `SleepingOwl\Admin\Contracts\Display\ControlButtonInterface`
+ Также вы можете добавлять свои классы кнопок, реализовав интерфейс `SleepingOwl\Admin\Contracts\Display\ControlButtonInterface`
  
 
 <a name="relations"></a>    
@@ -529,11 +535,11 @@ $link = new \SleepingOwl\Admin\Display\ControlLink(function (\Illuminate\Databas
 
 Большинство колонок могут использовать связи модели.
 
-Допустим у вас есть модель `App\User` и у данной модели есть связь многие ко многим `App\Role` и свять один к одному `App\Department`, т.е. пользователь может иметь несколько ролей и принадлежать отделу.
+Допустим у вас есть модель `App\User` и у данной модели есть связь многие ко многим `App\Role` и связь один к одному `App\Department`, т.е. пользователь может иметь несколько ролей и принадлежать отделу.
 
-**Прежде всего для моделей необходимо [настроить связи](https://laravel.com/docs/5.3/eloquent-relationships)**
+**Прежде всего для моделей необходимо [настроить связи](https://laravel.com/docs/eloquent-relationships)**
 
-Для получения списка названия ролей нам необходимо выполнить что-то вроде `$user->roles->pluck('title')`, что равноценно для получения данных в колонке (`roles.title`), т.е. когда класс попытается получить значение по данному ключу, он разобъет данный ключ на массив по знаку `.` и сделает следующее:
+Для получения списка названий ролей нам необходимо выполнить что-то вроде `$user->roles->pluck('title')`, что равноценно получению данных в колонке (`roles.title`), т.е. когда класс попытается получить значение по данному ключу, он разобьет данный ключ на массив по знаку `.` и сделает следующее:
 
 ```php
 // Попытается получить данные по первому сегменту
@@ -541,7 +547,7 @@ $roles = $user->getAttribute('roles'); // Вернет список ролей (
 $value = $roles->pluck('title');
 ```
 
-Для получения названия департамента нам необходимо выполнить что-то `$user->department->title`, что равноценно получению данных в колонке (`department.title`), т.е. когда класс попытается получить значение по данному ключу, он разобъет данный ключ на массив по знаку `.` и сделает следующее:
+Для получения названия департамента нам необходимо выполнить что-то вроде `$user->department->title`, что равноценно получению данных в колонке (`department.title`), т.е. когда класс попытается получить значение по данному ключу, он разобьет данный ключ на массив по знаку `.` и сделает следующее:
 
 ```php
 // Попытается получить данные по первому сегменту

@@ -1,9 +1,9 @@
 # Фильтры данных
 
- - [Типы фильтров](#types)
-     - [Фильтр по полю](#field)
-     - [Фильтр по [eloquent scopes]](#scopes)
-     - [Произвольный фильтр](#custom)
+ - [Типы фильтров](#Типы-фильтров)
+     - [Фильтр по полю](#Фильтр-по-полю)
+     - [Фильтр по eloquent scopes](#Фильтр-по-eloquent-scopes)
+     - [Произвольный фильтр](#Произвольный-фильтр)
 
 *Расширение для класса [отображения данных](displays)*
 
@@ -28,7 +28,7 @@ $display = AdminDisplay::table()
 <a name="types"></a>
 ### Типы фильтров:
  - Фильтр по полю
- - Фильтр по [eloquent scopes](https://laravel.com/docs/5.2/eloquent#query-scopes)
+ - Фильтр по [eloquent scopes](https://laravel.com/docs/eloquent#query-scopes)
  - Произвольный фильтр
 
 ## API (Методы доступные во всех фильтрах)
@@ -48,7 +48,7 @@ AdminDisplayFilter::field('category_id')->setAlias('category'); // ?category=1
 ```
 
 #### setTitle
-Указание заголовка в случае применении этого фильтра. Т.е. как только для фильтр сработает, над списком результатов будет выведен заголовок для фильтра, если сработало несколько фильтров, то заголовки будут разделены знаком ` | `
+Указание заголовка в случае применения этого фильтра. Т.е. как только фильтр сработает, над списком результатов будет выведен заголовок для фильтра, если сработало несколько фильтров, то заголовки будут разделены знаком ` | `
 
     SleepingOwl\Admin\Display\Filter\FilterBase::setTitle(\Closure|string $title): return self
     
@@ -80,7 +80,7 @@ AdminDisplayFilter::field('category_id')->setValue(1);
 AdminDisplayFilter::field('category_id');
 ```
 
-<a name="api"></a>
+
 ### API
 
 #### setOperator
@@ -113,9 +113,9 @@ AdminDisplayFilter::field('category_id');
 AdminDisplayFilter::field('category_id')->setOperator('in'); // ?category_id[]=1&category_id[]=2&category_id[]=5
 ```
 
-<a name="scopes"></a>
-## Фильтр по [eloquent scopes](https://laravel.com/docs/5.2/eloquent#query-scopes)
-Этот фильтр будет применять `scope` к вашему запросу. Допустим вы выводите список новостей и хотитет иметь возможность фильтровать ваши записи по `scope`, который имеется в модели `App\Post`, с помощью которой вы формируете список.
+
+## Фильтр по eloquent scopes
+Этот фильтр будет применять `scope` ([eloquent scopes](https://laravel.com/docs/eloquent#query-scopes)) к вашему запросу. Допустим вы выводите список новостей и хотите иметь возможность фильтровать ваши записи по `scope`, который имеется в модели `App\Post`, с помощью которой вы формируете список.
 
 ```php
 <?php
@@ -164,4 +164,3 @@ AdminDisplayFilter::custom('custom_filter')->setCallback(function($query, $value
     $query->where('myField', $value);
 }); // ?custom_filter=test
 ```
-

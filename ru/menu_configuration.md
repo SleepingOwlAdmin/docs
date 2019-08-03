@@ -7,7 +7,7 @@
  - [Получение кол-ва разделов с учетом вложенности](#count-pages)
  - [Права на видимость разделов](#access)
  - [Пример меню](#menu-example)
- - [Объект раздела](#page)
+ - [Объект страницы](#page)
  	- [API](#page-api)
  - [Badges](#page-badge)
  - [Page Collection](#page-collection)
@@ -16,7 +16,7 @@
 Конфигурация меню SleepingOwl Admin по умолчанию располагается в `app/Admin/navigation.php`. Если файл
 возвращает массив, то этот массив будет также использоваться для построения меню.
 
-<a name="navigation"></a>
+<a id="navigation"></a>
 ## Объект Navigation
 
 Navigation представлен классом `SleepingOwl\Admin\Navigation` (Реализует интерфейс `KodiComponents\Navigation\Contracts\NavigationInterface`), который инициализируется через Service Container - `sleeping_owl.navigation` и доступен с помощью:
@@ -31,7 +31,7 @@ $navigation = app('sleeping_owl.navigation');
 
 Данный объект содержит в себе массив всех элементов меню для административного интерфейса.
 
-<a name="add-page"></a>
+<a id="add-page"></a>
 ## Добавление разделов
 
 В меню можно добавлять любые объекты реализующие интерфейс `KodiComponents\Navigation\Contracts\PageInterface`
@@ -46,7 +46,7 @@ addPage(string|array|PageInterface $page): PageInterface
 При передаче параметров раздела в виде массива, будет произведен обход каждого ключа массива и вызван метод `set + $key` и передано в качестве аргумента значение, т.е.
 
 ```php
-AdminNavigation::addPage(['title' => 'test', 'priority' => 100, 'bage' => function() {
+AdminNavigation::addPage(['title' => 'test', 'priority' => 100, 'badge' => function() {
    return 100
 }]);
 
@@ -105,7 +105,7 @@ AdminNavigation::addPage('Blog')
 AdminSection::addMenuPage(\App\User::class);
 ```
 
-<a name="set-pages"></a>
+<a id="set-pages"></a>
 ## Добавление разделов в виде массива
 
 Для более удобной генерации меню можно передавать список разделов в виде массива, тогда при обходе массива меню, для каждого раздела будет вызван метод `addPage`
@@ -143,11 +143,12 @@ $page->setFromArray([
 ]);
 ```
 
-<a name="add-sub-section"></a>
+<a id="add-sub-section"></a>
 ## Добавление секции в подраздел при инициализации
 **Внимание:**
 Что бы добавление работало, необходимо, чтобы инициализация классов разделов, происходила раньше, чем обработка секций. 
-```
+
+```php
  // AdminSectionsServiceProvider.php
  public function boot(\SleepingOwl\Admin\Admin $admin)
  {
@@ -158,15 +159,16 @@ $page->setFromArray([
  }
 	 
 ```
+
 Если вы хотите добавить секцию, как подраздел пункта меню, в ходе инициализации секции, то необходимо установить id этого пункта меню для последующего поиска:
-```
+```php
 [
     'title' => 'Parent Section',
     'id' => 'parent-section'
 ],
 ```
 Далее в секции производим поиск родительского раздела и добавляем свою секцию:
-```
+```php
     /**
      * Initialize class.
      */
@@ -181,7 +183,7 @@ $page->setFromArray([
 ```
 
 
-<a name="get-pages"></a>
+<a id="get-pages"></a>
 ## Получение списка разделов
 
 ```php
@@ -191,7 +193,7 @@ $page = AdminNavigation::getPages()->first(): KodiComponents\Navigation\Contract
 $page->getPages(): KodiComponents\Navigation\PageCollection
 ```
 
-<a name="count-pages"></a>
+<a id="count-pages"></a>
 ## Получение кол-ва разделов с учетом вложенности
 
 ```php
@@ -200,7 +202,7 @@ AdminNavigation::countPages(): int;
 AdminNavigation::getPages()->first()->countPages(); // Подсчет кол-во детей для конкретного раздела
 ```
 
-<a name="access"></a>
+<a id="access"></a>
 ## Права на видимость разделов
 
 Также для разделов меню можно настраивать правила видимости.
@@ -231,11 +233,11 @@ AdminNavigation::setAccessLogic(function(Page $page) {
  распространится на все внутренние страницы не имеющие своего правила
 
 
-<a name="menu-example"></a>
+<a id="menu-example"></a>
 ## Пример меню 
 Вот простой пример как может выглядеть конфигурация меню:
 
-```
+```php
 return [
     [
         'title' => 'Permissions',
@@ -252,8 +254,8 @@ return [
 ];
 ```
 
-<a name="page"></a>
-# Объект страницы
+<a id="page"></a>
+## Объект страницы
 
 Каждый раздел меню (страница) - объект `SleepingOwl\Admin\Navigation\Page`, реализующий 
 интерфейс `KodiComponents\Navigation\Contracts\PageInterface` и наследует
@@ -285,7 +287,7 @@ new SleepingOwl\Admin\Navigation\Page(
 )
 ```
 
-<a name="page-api"></a>
+<a id="page-api"></a>
 ## API
 
 ### `addAlias(array|string $aliases)`
@@ -323,7 +325,7 @@ AdminNavigation::addPage(['title' => '...', 'id' => 'unique_string']);
 ### `setPriority(int $priority)`
 Указание приоритета вывода
 
-<a name="page-path"></a>
+<a id="page-path"></a>
 ### `getPath(int $priority)`
 Получение массива заголовков для текущего раздела с учетом родительских разделов
 
@@ -339,8 +341,9 @@ $page3->getPath() // ['Title 1', 'Title 2', 'Title 3']
 Получение массива (цепочки) от текущей страницы для корневой для построения хлебных крошек
 
 
-<a name="page-badge"></a>
-# Badges
+<a id="page-badge"></a>
+## Badges
+
 Каждая страница может содержать неограниченное кол-во бейджев. При вызове метода `setBadge` или `addBadge` 
 происходит передача текущего бейджа в стек. При выводе страницы будут выведены все бейджы из стека.
 
@@ -356,23 +359,23 @@ $page->addBadge(function() {
 }, ['class' => 'label-danger'])
 ```
 
-<a name="page-collection"></a>
-# Page Collection
+<a id="page-collection"></a>
+## Page Collection
 
 Объект `KodiComponents\Navigation\PageCollection` наследуется от `Illuminate\Support\Collection` и содержит массив
 дочерних страниц для разделов и объекта навигации.
 
-<a name="find-by-id"></a>
+<a id="find-by-id"></a>
 ### `findById(string $id): PageInterface|null`
-Поиск станицы по ID
+Поиск страницы по ID
 
 ```php
 AdminNavigation::getPages()->findById('unique_string'): PageInterface|null
 ```
 
-<a name="find-by-path"></a>
+<a id="find-by-path"></a>
 ### `findByPath(string $path, string $separator = '/'): PageInterface|null`
-Поиск станицы по [пути вложенности](#page-path)
+Поиск страницы по [пути вложенности](#page-path)
 
 ```php
 // с разделителем `Title 1/Title 2/Title 3`

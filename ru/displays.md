@@ -1,28 +1,25 @@
 # Типы отображения данных
 
-- [Таблица (Table)](#Таблица-table)
-    - [API](#api)
-- [Расширения](#extend)
-    - [Столбцы](#extension-columns)
-    - [Фильтры столбцов](#extension-column-filters)
-    - [Relations (Eager Loading)](#extension-with)
-    - [Изменение запроса](#Изменение-запроса-Расширение)
-    - [Использование scope](#extension-scope)
-    - [Действия над документами Actions](#extension-actions)
-    - [API]
-        - [Модификация запроса](#extend-query)
-        - [Вывод HTML](#extend-html)	   
-- [Datatables](#datatables)
-- [Datatables Async](#datatables-async)
-- [Tree](#tree)
-- [Расширение таблиц ](#extend)
-- [Использование в форме ](#render-in-forms)
+ - [Таблица (Table)](#Таблица-table)     
+ - [Расширения](#extend)
+     - [Указание столбцов](#Указание-столбцов-Расширение)
+     - [Фильтры столбцов](#Фильтры-столбцов-Расширение)
+     - [Relations (Eager Loading)](#extension-with)
+     - [Изменение запроса](#Изменение-запроса-Расширение)
+     - [Использование scope](#Изменение-запроса-Расширение)
+     - [Действия над документами Actions](#Действия-над-документами-actions-Расширение)
+	 - [API](#api)	   
+ - [Datatables](#datatables)
+ - [Datatables Async](#datatablesasync)
+ - [Tree](#tree)
+ - [Расширение таблиц ](#Расширение-таблиц)
+ - [Использование в форме ](#Использование-в-форме)
 
-<a name="table"></a>
+
 ## Таблица (Table)
 Таблицы предназначены для вывода списка документов раздела.
 
-На данные момент поддерживаются следующие типы вывода данных:
+На данный момент поддерживаются следующие типы вывода данных:
  - `AdminDisplay::table()` - обычная таблица (`SleepingOwl\Admin\Display\DisplayTable`)
  - `AdminDisplay::datatables()` - таблица с выводом данных используя плагин https://datatables.net/ (`SleepingOwl\Admin\Display\DisplayDatatables`)
  - `AdminDisplay::datatablesAsync()` (`SleepingOwl\Admin\Display\DisplayDatatablesAsync`)
@@ -39,7 +36,7 @@ $model->onDisplay(function () {
 });
 ```
 
-<a name="extension-columns"></a>
+
 ### Указание столбцов (Расширение)
 `SleepingOwl\Admin\Display\Extension\Columns`
 
@@ -121,7 +118,7 @@ $display->getApply()->push(function ($query) {
 ### Использование scope (Расширение)
 `SleepingOwl\Admin\Display\Extension\Scopes`
 
-Вы можете применить [Eloquent scopes](https://laravel.com/docs/5.2/eloquent#query-scopes) к выводимым данным:
+Вы можете применить [Eloquent scopes](https://laravel.com/docs/eloquent#query-scopes) к выводимым данным:
 
 ```php
 $display->setScopes('last');
@@ -157,14 +154,14 @@ $table->getActions()
     ->setHtmlAttribute('class', 'pull-right');
 ```
 
-<a name="api"></a>
-# Api
+
+## Api
 
 В классах таблиц используется трейт:
  - [HtmlAttributes](html_attributes), с помощью которого для них можно настраивать HTML атрибуты.
  - [Assets](assets#assets-trait), с помощью которого для них можно подключать ассеты.
 
-## Методы доступные во всех типах
+### Методы доступные во всех типах
 
 #### extend
 Добавление нового расширения к виду
@@ -338,7 +335,7 @@ $filters->setPlacement(...);
     SleepingOwl\Admin\Display\DisplayTable::setColumnFilters(array|...SleepingOwl\Admin\Contracts\ColumnFilterInterface): return self
     
 #### setColumnsTotal
-Вывод строки с в таблице для агрегации результатов:
+Вывод строки в таблице для агрегации результатов:
 
     SleepingOwl\Admin\Display\DisplayTable::setColumns(array|...SleepingOwl\Admin\Contracts\ColumnInterface): return self
     
@@ -371,7 +368,7 @@ $display->getColumnsTotal()->setPlacement('table.footer')
 ```
 
 
-<a name="datatables"></a>
+
 ## datatables()
 `SleepingOwl\Admin\Display\DisplayDatatables`
 
@@ -402,7 +399,7 @@ $display->setOrder([[1, 'asc']]);
 
     SleepingOwl\Admin\Display\DisplayDatatablesAsync::setDistinct(boolean $distinct): return self
 
-<a name="tree"></a>
+
 ## tree()
 `SleepingOwl\Admin\Display\DisplayTree`
 
@@ -417,7 +414,8 @@ $display->setOrder([[1, 'asc']]);
 Для поддержки своего типа дерева необходимо добавить свой класс, для удобства его можно наследовать от SleepingOwl\Admin\Display\Tree\NestedsetType и реализовать те методы, которые он попросит. 
 
 В случае использования gazsp/baum метод получения всего дерева с сортировкой по левому индексу будет отличаться от etrepat/baum и наш класс будет выглядеть так:
-```
+
+```php
 <?php
 
 namespace Admin\Tree;
@@ -513,7 +511,7 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
     SleepingOwl\Admin\Display\DisplayTree::setRepositoryClass(string $repository): return self
     
 <a name="extend"></a>
-# Расширение таблиц
+## Расширение таблиц
 Класс `SleepingOwl\Admin\Display\Display` от которого наследуются все классы реализующие вывод данных позволяет расширять свое поведение. Расширения могут как влиять на вывод данных, модифицируя запрос перед получением списка записей из БД либо вывод HTML кода в шаблон.
 
 Сейчас класс для вывода таблицы работает полностью за счет расширений, а именно, вызывая метод `setColumns` или `getColumns`, `setColumnFilters` или `getColumnFilters` вы обращаетесь к классам расширений.
@@ -578,7 +576,7 @@ public function modifyQuery(\Illuminate\Database\Eloquent\Builder $query)
 }
 ```
 
-<a name="extend-html"></a>
+
 ### Вывод HTML
 
 Если расширение реализует интерфейс `Illuminate\Contracts\Support\Renderable`, то будет произведен вывод расширения в общем стеке расширений, т.е. для всех расширений будет последовательно вызван метод `render` https://github.com/LaravelRUS/SleepingOwlAdmin/blob/development/resources/views/default/display/table.blade.php#L28
@@ -589,8 +587,8 @@ public function modifyQuery(\Illuminate\Database\Eloquent\Builder $query)
 Места, где можно разместить код реализованы через `@yield`
 https://github.com/LaravelRUS/SleepingOwlAdmin/blob/development/resources/views/default/display/table.blade.php
 
-<a name="render-in-forms"></a>
-# Использование в форме
+
+## Использование в форме
 При необходимости таблицу можно использовать в форме для вывода связанных записей.
 
 Допустим у нас есть галерея (раздел `Gallery`) и фотографии в ней (`Photo`). У каждой фотографии есть `category_id` - идентификатор категории. После создания категории, в форме редактирования нужна возможность добавлять фотографии в эту категорию.
@@ -621,4 +619,3 @@ $model->onCreateAndEdit(function($id = null) {
     }
 });
 ```
-

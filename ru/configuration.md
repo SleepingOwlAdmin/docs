@@ -30,7 +30,7 @@ Middleware, который ограничивают административн
 По умолчанию: `['web', 'auth']`
 
 #### `auth_provider`
-Провайдер отвечающий за авторизацию пользователей. Подробнее https://laravel.com/docs/5.2/authentication#adding-custom-user-providers
+Провайдер отвечающий за авторизацию пользователей. Подробнее https://laravel.com/docs/authentication#adding-custom-user-providers
 
 По умолчанию: `users`
 

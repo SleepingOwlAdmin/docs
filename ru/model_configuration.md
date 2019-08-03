@@ -1,15 +1,17 @@
 # Конфигурация модели
 
-- **Конфигурация модели**
-    - [Всплывающие сообщения при совершении действий](#всплывающие-сообщения)
-    - [Запрет на выполнение действий](#запрет-на-выполнение-действий)
-    - [Переопределение редиректа при выполнении действий](#переопределение-редиректа)
-    - [Ограничение прав доступа](#ограничение-прав-доступа)
-    - [События](#события)
-    - [Переопределение контроллера](#переопределение-контроллера)
-    - [API (Доступные методы)](#api)
+!> Это старый способ и лучше его не использовать. Сразу переходите [сюда](model_configuration_section)
 
-Конфигурация моделей SleepingOwl Admin должны быть расположены в директории, которая указывается в конфиге `sleeping_owl.bootstrapDirectory` (*по умолчанию: `app/admin`*).
+- [Конфигурация модели](#Конфигурация-модели)
+    - [Всплывающие сообщения при совершении действий](#Всплывающие-сообщения-при-совершении-действий)
+    - [Запрет на выполнение действий](#Запрет-на-выполнение-действий)
+    - [Переопределение редиректа при выполнении действий](#Переопределение-редиректа-при-выполнении-действий)
+    - [Ограничение прав доступа](#Ограничение-прав-доступа)
+    - [События](#События)
+    - [Переопределение контроллера](#Переопределение-контроллера)
+    - [API (Доступные методы)](#api-Доступные-методы)
+
+Конфигурация моделей SleepingOwl Admin должна быть расположена в директории, которая указывается в конфиге `sleeping_owl.bootstrapDirectory` (*по умолчанию: `app/admin`*).
 
 Вы можете хранить конфигурацию моделей в одном файле или разделить на несколько по желанию.
 
@@ -224,8 +226,9 @@ class UserPolicy
 Данный класс содержит методы вызываемые в момент проверки прав доступа к определенным операциям, в первую очередь вызывается метод `before`, в котором производится глобальная проверка прав, если он возвращает true, то дальнейшая проверка не проводится, если ничего не возвращает, то дальше происходит вызов метода, отвечающего за конкретное действие и передается два параметра:
   - Объект текущего пользователя
   - Объект для которого нужно проверить права доступа
-  - 
+
 Например если мы хотим чтобы пользователь мог создавать записи и редактировать только свои записи в блоге:
+
 ```php
 public function create(User $user, Post $post)
 {
@@ -500,7 +503,7 @@ $model->setAlias('manage/user');
 * $badge **string|Closure|KodiComponents\Navigation\Contracts\BadgeInterface** Текст или класс бейджа, который отображается рядом с пунктом меню (Например кол-во записей)
 
 ### creating
-Событие срабатываемое в процессе создания записи (В случае если метод возвращает false, запись не будет создана) 
+Событие срабатывающее в процессе создания записи (В случае если метод возвращает false, запись не будет создана) 
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::creating(Closure $callback)
 
@@ -508,7 +511,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### created
-Событие срабатываемое после создания записи
+Событие срабатывающее после создания записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::created(Closure $callback)
 
@@ -516,7 +519,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### updating
-Событие срабатываемое в процессе обновления записи (В случае если метод возвращает false, запись не будет обновлена)
+Событие срабатывающее в процессе обновления записи (В случае если метод возвращает false, запись не будет обновлена)
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::updating(Closure $callback)
 
@@ -524,12 +527,12 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### updated
-Событие срабатываемое после обновления записи
+Событие срабатывающее после обновления записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::updated(Closure $callback)
 
 ### deleting
-Событие срабатываемое в процессе удаления записи (В случае если метод возвращает false, запись не будет удалена)
+Событие срабатывающее в процессе удаления записи (В случае если метод возвращает false, запись не будет удалена)
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::deleting(Closure $callback)
 
@@ -537,7 +540,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### deleted
-Событие срабатываемое после удаления записи
+Событие срабатывающее после удаления записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::deleted(Closure $callback)
 
@@ -545,7 +548,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restoring
-Событие срабатываемое в процессе восстановления записи (В случае если метод возвращает false, запись не будет восстановлена)
+Событие срабатывающее в процессе восстановления записи (В случае если метод возвращает false, запись не будет восстановлена)
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::restoringClosure $callback)
 
@@ -553,7 +556,7 @@ $model->setAlias('manage/user');
 * $callback **Closure|null** В функцию будет передан `ModelConfigurationInterface $config` и `\Illuminate\Database\Eloquent\Model $model`
 
 ### restored
-Событие срабатываемое после восстановления записи
+Событие срабатывающее после восстановления записи
 
      SleepingOwl\Admin\Model\ModelConfigurationManager::restored(Closure $callback)
 
