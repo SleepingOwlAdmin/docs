@@ -1,3 +1,5 @@
+- [CHANGELOG](changelog.md)
+
 - Введение
     - [Установка](installation)
     - [Быстрый старт](fast_start)
