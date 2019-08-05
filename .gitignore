@@ -67,3 +67,4 @@ fabric.properties
 /.idea/modules.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
+deploy/
