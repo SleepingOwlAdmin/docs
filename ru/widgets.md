@@ -106,9 +106,9 @@ class AppServiceProvider extends ServiceProvider
 
 ```
 
-**При вставки виджетов в блоки `@yield` необходимо помнить, что ваш HTML должен содержать директиву `@parent` https://laravel.com/docs/5.3/blade#extending-a-layout**
+**При вставки виджетов в блоки `@yield` необходимо помнить, что ваш HTML должен содержать директиву `@parent` https://laravel.com/docs/blade#extending-a-layout**
 
-<a name="template-blocks"></a>
+
 ## Список блоков:
   - `\AdminTemplate::getViewPath('_layout.inner')` Основной шаблон
     - `content.top`
