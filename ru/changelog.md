@@ -6,15 +6,14 @@
 
 ### [Added]
 
-- Добавлен новый элемент `AdminColumnEditable::multidependselect()` - он подобен элементу `AdminFormElement::dependentselect` но позволяет выбрать несколько опций.
+- 2019.08.22 // Элементам формы `AdminFormElement::selectajax()` и `AdminFormElement::multiselectajax` добавлена возможность использовать метод `setLoadOptionsQueryPreparer`, доработан метод `setDisplay` для возможности использовать функцию-замыкание. Код этих элементов был оптимизирован, общие методы вынесены в Trait SelectAjaxFunctions. @sngrl
 
+- Добавлен новый элемент `AdminColumnEditable::multidependselect()` - он подобен элементу `AdminFormElement::dependentselect` но позволяет выбрать несколько опций.
 
 - Добавлена возможность передавать $payload в методы секции fireCreate() и fire Edit(), по аналогии с fireDisplay(). Это позволяет передавать дополнительные параметры в секцию для указанных методов.
 
-
 - Добавлен новый тип столбца `AdminColumn::boolean('active', 'Published'),` (алиас `text`) который просто рисует галочку при `true` и минус при `false`. C равнением по центру.
-    
-    
+        
 Замена коду:
 
 ```php
