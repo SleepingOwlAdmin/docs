@@ -550,9 +550,10 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 
 <a name="selectajax"></a>
 
-## Select Ajax (Отдельная благодарность https://github.com/hkd213)
+## Select Ajax 
+**Отдельная благодарность https://github.com/hkd213**
 
-Поле для выбора значения из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/)
+Поле для выбора значения из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/). Рекомендуется использовать в том случае, если кол-во элементов списка слишком велико для обычного select, и сильно увеличивает время загрузки страницы.
 
 ```php
 AdminFormElement::selectajax(string $key, string $label = null): static
@@ -560,8 +561,6 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 
 - `$key` - Ключ поля
 - `$label` - Заголовок
-- `$options` - Данные
-  - При передаче объекта модели, будут использованы ее значения
 
 ### Доступные методы
 
@@ -573,13 +572,52 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 
 - `$titleKey` - Смотри метод [`setDisplay`](#select-setDisplay)
 
+<a name="selectajax-setSearch"></a>
+
+#### `setSearch(string $search): static`
+
+Указание поля таблицы базы данных, по которой будет происходить поиск подходящих значений.
+
+Использование необязательно, если в `->setDisplay()` передается строка (см. ниже).
+
 <a name="selectajax-setDisplay"></a>
 
-#### `setDisplay(string $titleKey): static | required`
+#### `setDisplay(string|\Closure $display): static | required`
 
-Указание поля модели, используемого в качестве заголовка.  
-Поле одновременно играет роль поля источника для запроса
-`->setDisplay('name')` будет искать в указанной модели по этому полю.
+Данный метод позволяет задать содержимое и внешний вид каждого элемента выпадающего списка.  
+
+В качестве значения можно передать строку - в этом случае в качестве содержимого каждого элемента списка будет браться значение одноименного столбца каждой записи из БД. В случае передачи строки использовать метод setSearch() не обязательно - поле одновременно будет играть роль поля источника для запроса: `->setDisplay('name')` будет искать в указанной модели по этому полю.
+
+Также в качестве значения можно передать функцию-замыкание. В этом случае обязательно нужно указать поле таблицы БД, по которому будет производиться поиск (через `->setSearch()`:
+
+```php
+AdminFormElement::selectajax('user_id', 'Пользователь')
+    ->setModelForOptions(\App\User::class)
+    ->setSearch('name')
+    ->setDisplay(function ($model) {
+        return $model->name . ' (id=' . $model->id . ')';
+    })
+```
+
+Данный код будет осуществлять поиск в таблице БД по полю `name` (`->where('name', 'LIKE', "%{$request->q}%")`). При этом при формировании списка элементов (option) для выпадающего списка (select) будет использоваться переданная функция-замыкание, в которую будет передаваться Eloquent-модель каждой подходящей записи из БД. В данном случае к имени пользователя будет добавляться его id: `Иван Петров (id=77)`
+
+<a name="selectajax-setLoadOptionsQueryPreparer"></a>
+
+#### `setLoadOptionsQueryPreparer(\Closure $callback): static`
+
+Данный метод позволяет использовать функцию-замыкание, через которую при необходимости можно дополнительно модифицировать запрос к БД, например - указать сортировку:
+
+```php
+AdminFormElement::selectajax('user_id', 'Пользователь')
+    ->setModelForOptions(\App\User::class)
+    ->setSearch('name')
+    ->setDisplay(function ($model) {
+        return $model->name . ' (id=' . $model->id . ')';
+    })
+    ->setLoadOptionsQueryPreparer(function ($element, $query) {
+        return $query->orderBy('id', 'DESC');
+    })
+```
 
 <a name="selectajax-setSearchUrl"></a>
 
@@ -606,7 +644,8 @@ AdminFormElement::selectajax('name')
 
 <a name="multiselectajax"></a>
 
-## MultiSelect Ajax (Отдельная благодарность https://github.com/hkd213)
+## MultiSelect Ajax 
+**Отдельная благодарность https://github.com/hkd213**
 
 Поле для выбора множества значений из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/)
 
@@ -616,51 +655,13 @@ AdminFormElement::multiselectajax(string $key, string $label = null): static
 
 - `$key` - Ключ поля
 - `$label` - Заголовок
-- `$options` - Данные
-  - При передаче объекта модели, будут использованы ее значения
 
 ### Доступные методы
 
-<a name="mutltiselectajax-setModelForOptions"></a>
-
-#### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
-
-Указание модели в качестве элементов списка
-
-- `$titleKey` - Смотри метод [`setDisplay`](#select-setDisplay)
-
-<a name="multiselectajax-setDisplay"></a>
-
-#### `setDisplay(string $titleKey): static | required`
-
-Указание поля модели, используемого в качестве заголовка.  
-Поле одновременно играет роль поля источника для запроса
-`->setDisplay('name')` будет искать в указанной модели по этому полю.
-
-<a name="multiselectajax-setSearchUrl"></a>
-
-#### `setSearchUrl(string $url): static`
-
-Указание своего собственного источника поиска данных
-При этом использованный setDisplay будет играть роль ключа в источнике
-
-```php
-AdminFormElement::selectajax('name')
-    ->setSearchUrl(
-        route('name.route')
-    )
-```
-
-- Если указан кастомный источник то поиск по модели производится не будет
-- Если указана модель то поиск будет производиться внутри SleepingOwl
-
-<a name="multiselectajax-exclude"></a>
-
-#### `exclude(array $keys): static`
-
-Исключение из списка элементов
+Для данного поля доступны все методы поля [selectajax](#selectajax)
 
 #### Предложения и пожелания будут рассматриваться в чате Gitter обращаться по нику @aios
+##### Также можно обратиться к @sngrl в чате Telegram
 
 <a name="dependentselect"></a>
 
