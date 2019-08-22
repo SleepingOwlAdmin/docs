@@ -30,6 +30,7 @@ AdminColumn::custom('Published', function ($instance) {
 AdminColumn::boolean('active', 'Published'),
 ```
 
+
 - Subdomain routes for admin. Вы должны добавить в `sleeping_owl.php` ключ `'domain' => 'admin.example.com'` где example.com и будет ваш домен.
 
  
