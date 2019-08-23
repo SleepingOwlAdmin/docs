@@ -640,7 +640,30 @@ AdminFormElement::selectajax('name')
 
 #### `exclude(array $keys): static`
 
-Исключение из списка элементов
+Исключение записей из списка элементов по id. В качестве аргумента передается массив идентификаторов, которые будут исключены при поиске подходящих значений:
+
+```php
+AdminFormElement::selectajax('user_id', 'Пользователь')
+    ->setModelForOptions(\App\User::class)
+    ->setDisplay('name')
+    ->exclude([1, 2, 3])
+```
+
+Однако иногда кол-во записей, которые нужно исключить из выборки, может быть достаточно большим. В этом случае рекомендуется не передавать конкретные значения (если это позволяет сделать логика приложения), а модифицировать запрос к БД, используя `join` совместно с методом `setLoadOptionsQueryPreparer`:
+
+```php
+AdminFormElement::selectajax('user_id', 'Пользователь')
+    ->setModelForOptions(\App\User::class)
+    ->setDisplay('name')
+    ->setLoadOptionsQueryPreparer(function ($element, $query) {
+        return $query
+            ->leftJoin('banned_users', 'banned_users.user_id', '=', 'users.id')
+            ->where('banned_users.user_id', null)
+            ->selectRaw('users.*, banned_users.user_id')
+        ;
+    })
+```
+
 
 <a name="multiselectajax"></a>
 
