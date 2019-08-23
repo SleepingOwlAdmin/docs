@@ -14,8 +14,8 @@
 - [Select](#select)
 - [DependentSelect](#dependentselect)
 - [Multi Select](#multiselect)
-- [Select Ajax](#selectajax)
-- [Multi Select Ajax](#multiselectajax)
+- [Select Ajax](#select-ajax)
+- [Multi Select Ajax](#multiselect-ajax)
 - [Wysiwyg](#wysiwyg)
 - [Ckeditor](#ckeditor)
 - [Checkbox](#checkbox)
@@ -548,7 +548,7 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 
 Исключение из списка элементов
 
-<a name="selectajax"></a>
+<a name="select-ajax"></a>
 
 ## Select Ajax 
 **Отдельная благодарность https://github.com/hkd213**
@@ -564,7 +564,7 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 
 ### Доступные методы
 
-<a name="selectajax-setModelForOptions"></a>
+<a name="select-ajax-setModelForOptions"></a>
 
 #### `setModelForOptions(string|\Illuminate\Database\Eloquent\Model $model, string $titleKey = null): static`
 
@@ -572,7 +572,7 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 
 - `$titleKey` - Смотри метод [`setDisplay`](#select-setDisplay)
 
-<a name="selectajax-setSearch"></a>
+<a name="select-ajax-setSearch"></a>
 
 #### `setSearch(string $search): static`
 
@@ -580,7 +580,7 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 
 Использование необязательно, если в `->setDisplay()` передается строка (см. ниже).
 
-<a name="selectajax-setDisplay"></a>
+<a name="select-ajax-setDisplay"></a>
 
 #### `setDisplay(string|\Closure $display): static | required`
 
@@ -601,7 +601,7 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
 
 Данный код будет осуществлять поиск в таблице БД по полю `name` (`->where('name', 'LIKE', "%{$request->q}%")`). При этом при формировании списка элементов (option) для выпадающего списка (select) будет использоваться переданная функция-замыкание, в которую будет передаваться Eloquent-модель каждой подходящей записи из БД. В данном случае к имени пользователя будет добавляться его id: `Иван Петров (id=77)`
 
-<a name="selectajax-setLoadOptionsQueryPreparer"></a>
+<a name="select-ajax-setLoadOptionsQueryPreparer"></a>
 
 #### `setLoadOptionsQueryPreparer(\Closure $callback): static`
 
@@ -619,7 +619,7 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
     })
 ```
 
-<a name="selectajax-setSearchUrl"></a>
+<a name="select-ajax-setSearchUrl"></a>
 
 #### `setSearchUrl(string $url): static`
 
@@ -636,7 +636,7 @@ AdminFormElement::selectajax('name')
 - Если указан кастомный источник то поиск по модели производится не будет
 - Если указана модель то поиск будет производиться внутри SleepingOwl
 
-<a name="selectajax-exclude"></a>
+<a name="select-ajax-exclude"></a>
 
 #### `exclude(array $keys): static`
 
@@ -665,7 +665,7 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
 ```
 
 
-<a name="multiselectajax"></a>
+<a name="multiselect-ajax"></a>
 
 ## MultiSelect Ajax 
 **Отдельная благодарность https://github.com/hkd213**
