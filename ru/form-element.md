@@ -690,7 +690,7 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
 ```php
     ->setLoadOptionsQueryPreparer(function($element, $query) {
         if ($element->getDependValue('user.role') == 'admin') {
-            $query = $query->orderBy('id', 'DESC);
+            $query = $query->orderBy('id', 'DESC');
         } else {
             $query = $query->orderBy('name', 'ASC');
         }
