@@ -7,6 +7,8 @@
 ### [Added]
 
 
+- 2019.08.26 // Реализован механизм формирования корректного id для всех именованных элементов формы. Элементам `AdminFormElement::selectajax()` и `AdminFormElement::multiselectajax` добавлена возможность работы со связанными полями (dependent-функционал), по аналогии с `AdminFormElement::dependentSelect()`. Доработан и расширен функционал методов `setSearch`, `setModelForOptionsCallback`, `setLoadOptionsQueryPreparer`. Актуализирована документация для этих элементов. @sngrl
+
 - 2019.08.22 // Элементам формы `AdminFormElement::selectajax()` и `AdminFormElement::multiselectajax` добавлена возможность использовать метод `setLoadOptionsQueryPreparer`, доработан метод `setDisplay` для возможности использовать функцию-замыкание. Код этих элементов был оптимизирован, общие методы вынесены в Trait SelectAjaxFunctions. @sngrl
 
 

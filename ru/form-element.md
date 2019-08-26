@@ -574,11 +574,77 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 
 <a name="select-ajax-setSearch"></a>
 
-#### `setSearch(string $search): static`
+#### `setSearch(string|array $search): static`
 
-Указание поля таблицы базы данных, по которой будет происходить поиск подходящих значений.
+Указание поля/полей таблицы базы данных, по которым будет происходить поиск подходящих значений.
 
-Использование необязательно, если в `->setDisplay()` передается строка (см. ниже).
+В случае, если в качестве аргумента передана строка, поиск будет производиться по одноименному полю в таблице БД:
+
+```php
+    ->setSearch('title')
+```
+Результат:
+```php
+    SELECT * FROM `table` WHERE (`title` LIKE '%query%')
+```
+
+Если передать массив значений, то поиск будет производиться по каждому из этих полей, с условием ИЛИ:
+
+```php
+    ->setSearch(['name', 'surname'])
+```
+Результат:
+```php
+    SELECT * FROM `table` WHERE (
+        `name` LIKE '%query%' 
+        OR `surname` LIKE '%query%'
+    )
+```
+
+Также есть возможность указать правила поиска для каждого из передаваемых полей. Всего есть 4 вида правил (обращайте внимание на расположения знака процента в SQL LIKE запросе ): 
+ - `equal` -  четкое соответствие: `WHERE a LIKE 'query'` (идентично `WHERE a = 'query'`)
+ - `begins_with` - значение поля начинается как введенный запрос: `WHERE a LIKE 'query%'`
+ - `ends_with` - значение поля заканчивается как введенный запрос: `WHERE a LIKE '%query'`
+ - `contains` - значение поля содержит введенный запрос: `WHERE a LIKE '%query%'`. Данное правило используется по-умолчанию
+
+Примеры работы с правилами поиска:
+
+```php
+    ->setSearch([
+        'id' => 'equal',
+        'name' => 'contains', 
+        'first_name' => 'begins_with',
+        'last_name' => 'ends_with',
+    ])
+```
+Результат:
+```php
+    SELECT * FROM `table` WHERE (
+        `id` LIKE 'query' 
+        OR `name` LIKE '%query%' 
+        OR `first_name` LIKE 'query%' 
+        OR `last_name` LIKE '%query'
+    )
+```
+
+Доступно использование значений из связанных полей через функцию замыкание (dependent-функционал, см. ниже):
+
+```php
+    ->setSearch(function($element) {
+        if ($element->getDependValue('user.role') == 'admin') {
+            // Если в связанном поле выбрано значение 'admin',
+            // то выполняем расширенный поиск: по name или жестко по id:
+            return [
+                'id' => 'equal',
+                'name' 
+            ];
+        } else {
+            // Иначе - будем искать только по полю name:
+            return 'name';        
+        }
+    })
+```
+
 
 <a name="select-ajax-setDisplay"></a>
 
@@ -616,6 +682,19 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
     })
     ->setLoadOptionsQueryPreparer(function ($element, $query) {
         return $query->orderBy('id', 'DESC');
+    })
+```
+
+Доступно использование значений из связанных полей через функцию замыкание (dependent-функционал, см. ниже):
+
+```php
+    ->setLoadOptionsQueryPreparer(function($element, $query) {
+        if ($element->getDependValue('user.role') == 'admin') {
+            $query = $query->orderBy('id', 'DESC);
+        } else {
+            $query = $query->orderBy('name', 'ASC');
+        }
+        return $query;
     })
 ```
 
@@ -662,6 +741,105 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
             ->selectRaw('users.*, banned_users.user_id')
         ;
     })
+```
+
+<a name="select-ajax-setMinSymbols"></a>
+
+#### `setMinSymbols(integer $min): static`
+
+Указания минимального кол-ва введенных символов, после которого будет совершаться ajax-запрос с поиском. Значение по-умолчанию: 3.
+
+<a name="select-ajax-dependent"></a>
+
+### Dependent-функционал
+
+При использовании элемента selectAjax доступны расширенные возможности элемента dependentSelect.
+
+<a name="select-ajax-setDataDepends"></a>
+
+#### `setDataDepends(array $depends): static`
+
+Указание ключей полей, при изменении значения в которых производить обновление текущего поля.
+
+<a name="select-ajax-setModelForOptionsCallback"></a>
+
+#### `setModelForOptionsCallback(Closure $callback): static`
+
+Указание функции-замыкания для определения модели, которая будет использована в качестве элементов списка. Схожа принципом работы с методом `setModelForOptions`.
+
+В функции-замыкания, установленные через методы `setModelForOptionsCallback`, `setSearch`, `setLoadOptionsQueryPreparer`, передается объект `$element` с доступным методом `getDependValue()`, который позволяет получить значение из связанного поля:
+
+
+```php
+    ->setModelForOptionsCallback(function ($element) {
+        // В зависимости от выбранного значения в связанном поле будем
+        // использовать разные модели данных для поиска и отображения:
+        $role = $element->getDependValue('user.role');
+        $array = [
+            'admin' => \App\Admin::class,
+            'user' => \App\User::class
+        ];
+        if (
+            $role 
+            && isset($array[$role]) 
+            && null !== ($class_name = $array[$role]) 
+            && class_exists($class_name)
+        ) {
+            return new $class_name;
+        }
+        return null;
+    })
+```
+
+Комплексный пример работы с dependent-функционалом поля selectAjax - управление записями [с полиморфной связью](https://laravel.com/docs/5.8/eloquent-relationships#polymorphic-relationships):
+
+```php
+    AdminFormElement::select('entity_type', 'Сущность')
+        ->setOptions([
+            'admin' => 'Администраторы',
+            'user' => 'Пользователи'
+        ])
+        ->setSortable(false)
+        ->setDefaultValue('admin')
+        ->required()
+    ,
+    AdminFormElement::selectajax('entity_id', 'ID сущности')
+        ->setMinSymbols(2)
+        ->setDataDepends(['entity_type'])
+        ->setModelForOptionsCallback(function ($element) {
+            $entity_type = $element->getDependValue('entity_type');
+            $entity_classes = [
+                'admin' => \App\Admin::class,
+                'user' => \App\User::class,
+            ];
+            if (
+                $entity_type 
+                && isset($entity_classes[$entity_type]) 
+                && null !== ($class_name = $entity_classes[$entity_type]) 
+                && class_exists($class_name)
+            ) {
+                return new $class_name;
+            }
+            return null;
+        })
+        ->setSearch(function ($element) {
+            return [
+                'id' => 'equal',
+                'name',
+            ];
+        })
+        ->setDisplay(function ($model, $element = null) {
+            return $model->name . ' ' . $model->surname . ' (id=' . $model->id . ')';
+        })
+        ->setLoadOptionsQueryPreparer(function($element, $query) {
+            if ($element->getDependValue('entity_type') == 'admin') {
+                $query = $query->where('admin_status', 1);
+            }
+            $query = $query->orderBy('name', 'ASC');
+            return $query;
+        })
+        ->required()
+    ,
 ```
 
 
