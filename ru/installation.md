@@ -9,7 +9,7 @@
 Установить пакет можно помощью командной строки
 
 ```bash
-$ composer require "laravelrus/sleepingowl":"dev-development"
+composer require "laravelrus/sleepingowl":"dev-development"
 ```
 
 или вручную добавив пакет в `composer.json`
