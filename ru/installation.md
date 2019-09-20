@@ -1,11 +1,5 @@
 # Установка
 
-{% capture nameOfVariableToCapture %}any markdown here...{% endcapture %}
-Content before variable.
-{{ nameOfVariableToCapture }}
-Content after variable.
-
-
  - [Support](#support)
  - [Composer](#composer)
  - [Добавление сервис провайдера](#service-provider)
