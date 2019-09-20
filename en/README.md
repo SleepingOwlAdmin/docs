@@ -1,1 +1,1 @@
-# SleepingOwl Admin Dicumentation
+# SleepingOwl Admin Documentation

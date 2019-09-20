@@ -7,5 +7,5 @@
   - [Демо bs4](https://github.com/SleepingOwlAdmin/demo/tree/bs4)
   - [Документация](https://github.com/SleepingOwlAdmin/docs/tree/new)
 - Translations
-  - [:ru: Русский](/ru)
+  - [:ru: Русский](/ru/)
   - [:uk: English](/en/)

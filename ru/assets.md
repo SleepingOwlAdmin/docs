@@ -37,7 +37,8 @@ Meta::setTitle('Test title')
     ->setMetaDescription(...)
     ->addJs('admin-default', asset('js/app.js'), ['admin-scripts'])
     ->addJs('admin-scripts', route('admin.scripts'))
-    ->addCss('admin-default', asset('css/app.css'));
+    ->addCss('admin-default', asset('css/app.css'))
+    ->setFavicon(asset('favicon.ico'));
 ```
 
 ```html
@@ -76,11 +77,11 @@ static::loadPackage(string|array $packages): static
 
 PackageManager::add('jquery')
   ->js('jquery.js', 'https://code.jquery.com/jquery-3.1.0.min.js');
-  
+
 PackageManager::add('ckeditor')
   ->css('ckeditor.css', asset('css/ckeditor.css'))
   ->js('ckeditor.js', asset('js/ckeditor.js'));
-  
+
 // Template
 Meta::loadPackage(['jquery', 'ckeditor'])
 ```
@@ -96,8 +97,8 @@ static::addJs(string $handle, string $src, array|string $dependency = null, bool
 ##### Аргументы
 * `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
 * `$src` **string** - Путь до фала (URL)
-* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
-вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и
+вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется
 на пакеты)
 * `$footer` **bool** - будет помечен для вывода в футере
 
@@ -127,8 +128,8 @@ static::addCss(string $handle, string $src, array|string $dependency = null, arr
 ##### Аргументы
 * `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
 * `$src` **string** - Путь до фала (URL)
-* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
-вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и
+вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется
 на пакеты)
 * `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
 
@@ -183,7 +184,7 @@ static::removeVars(): static
 ```php
 static::setTitle(string $title): static
 ```
-   
+
 ```php
 Meta::setTitle('SleepingOwl Admin')
 ```
@@ -219,11 +220,11 @@ static::setMetaRobots(string $robots): static
   - description
   - keywords
   - robots
-  
+
 ```php
 static::setMetaData(\KodiCMS\Assets\Contracts\MetaDataInterface $data): static
 ```
-  
+
 #### `addSocialTags`
 
 Добавление тегов для соц. сетей через класс, реализующий интерфейс `KodiCMS\Assets\Contracts\SocialMediaTagsInterface`
@@ -242,7 +243,7 @@ static::setFavicon(string $url, string $rel = 'shortcut icon'): static
 
 #### `addMeta`
 
-Добавление `meta` тега 
+Добавление `meta` тега
 
 ```php
 static::addMeta(array $attributes, string $group = null): static
@@ -267,8 +268,8 @@ static::addTagToGroup(string $handle, string $content, array $params = [], strin
 * `$handle` **string** - Ключ элемента в группе
 * `$content` **string** - HTML код `<meta name=":name" content=":description" />`
 * `$params` **array** - Параметры для замены. (`[':name' => $name, ':description' => 'My super description']`)
-* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
-вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и
+вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется
 на пакеты)
 
 ```php
@@ -299,7 +300,7 @@ static::removeFromGroup(string $handle): static
 ## Assets
 `KodiCMS\Assets\Assets`
 
-Класс Assets является хранилищем списка `css`, `javascript`, `vars` и `groups`. 
+Класс Assets является хранилищем списка `css`, `javascript`, `vars` и `groups`.
 
 **Класс Meta при добавлении ассетов использует данный класс в качестве хранилища.**
 
@@ -318,14 +319,14 @@ static::removeFromGroup(string $handle): static
 ## PackageManager
 `KodiCMS\Assets\PackageManager extends Collection`
 
-Менеджер пакетов. Пакет представляет из себя набор ассетов (javascript и css), которые объединены в одну группу, доступную по имени. 
+Менеджер пакетов. Пакет представляет из себя набор ассетов (javascript и css), которые объединены в одну группу, доступную по имени.
 
 **Пример инициализации**
 ```php
 // app\Providers\AppServiceProvider.php
 
 ...
-public function boot() 
+public function boot()
 {
     PackageManager::add('custom')
         ->css('extend', asset('css/custom.css'))
@@ -352,7 +353,7 @@ static::add(KodiCMS\Assets\Contracts\PackageInterface|string $package): return K
 
 #### `load`
 
-Загрузка объекта пакета 
+Загрузка объекта пакета
 
 ```php
 static::load(string $name): return KodiCMS\Assets\Contracts\PackageInterface|null
@@ -385,8 +386,8 @@ static::js(string $handle, string $src, array|string $dependency = null, bool $f
 ##### Аргументы
 * `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
 * `$src` **string** - Путь до фала (URL)
-* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
-вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и
+вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется
 на пакеты)
 * `$footer` **bool** - будет помечен для вывода в футере
 
@@ -400,8 +401,8 @@ static::css(string $handle, string $src, array|string $dependency = null, array 
 ##### Аргументы
 * `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
 * `$src` **string** - Путь до фала (URL)
-* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
-вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется 
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и
+вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости, это же правило распространяется
 на пакеты)
 * `$attributes` **array** - Дополнительные атрибуты (`['rel' => 'stylesheet', 'media' => 'all']`)
 
@@ -484,7 +485,7 @@ $element->addScript('jquery-2.0', 'https://ajax.googleapis.com/ajax/libs/jquery/
 ##### Аргументы
 * `$handle` **string** - Ключ ассета (При указании существующего ключа, будет заменен существующий ассет)
 * `$script` **string** - Путь до фала (URL)
-* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и 
+* `$dependency` **array|string** - Зависимости (Зависимости определяются по ключу в `$handle`. Т.е. если у вас подключен `jquery` и
                 вам необходимо подключить свой скрипт только после него, то вы указываете его в качестве зависимости)
 
 #### withPackage

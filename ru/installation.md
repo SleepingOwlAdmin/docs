@@ -1,16 +1,34 @@
 # Установка
 
+{% capture nameOfVariableToCapture %}any markdown here...{% endcapture %}
+Content before variable.
+{{ nameOfVariableToCapture }}
+Content after variable.
+
+
+ - [Support](#support)
  - [Composer](#composer)
  - [Добавление сервис провайдера](#service-provider)
  - [Artisan](#artisan)
+
+<a name="support"></a>
+## Support
+- Laravel ~5.5 || ~6.*
+- PHP 7.1.3+
+
 
 <a name="composer"></a>
 ## Composer
 Установить пакет можно помощью командной строки
 
 ```bash
+$ composer require laravelrus/sleepingowl
+
+//or branch
 $ composer require "laravelrus/sleepingowl":"dev-development"
+$ composer require "laravelrus/sleepingowl":"dev-bs4"
 ```
+
 
 или вручную добавив пакет в `composer.json`
 
@@ -31,13 +49,9 @@ $ composer update
 
 <a name="service-provider"></a>
 ## Service Provider
-!> Для Laravel 5.5+ данный пункт можно пропустить, пакет подключится автоматически.
+!> Для Laravel 5.5+ пакет подключится автоматически либо можно указать вручную:
 
-После установки пакета необходимо добавить сервис провайдер
-([Service Provider](https://laravel.com/docs/providers)) `SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class`,
-в соответствующий раздел `providers` файла `config/app.php`:
-
-**Пример**
+**config/app.php**
 ```php
 'providers' => [
     ...
@@ -72,12 +86,12 @@ $ php artisan sleepingowl:install
    ```
 
 
- - Создает директорию автозапуска (По умолчанию `app/Admin`)
- - Создает файл конфигурации меню по умолчанию. (По умолчанию `app/Admin/navigation.php`)
- - Создает файл автозапуска по умолчанию. (По умолчанию `app/Admin/bootstrap.php`)
- - Создает файл роутов по умолчанию. (По умолчанию `app/Admin/routes.php`)
- - Создает структуру директории public (*создает директорию `images/uploads`*)
- - Создает [сервис провайдер](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
+ - Создает директорию автозапуска (`app/Admin`)
+ - Создает файл конфигурации меню по умолчанию (`app/Admin/navigation.php`)
+ - Создает файл автозапуска по умолчанию (`app/Admin/bootstrap.php`)
+ - Создает файл роутов по умолчанию (`app/Admin/routes.php`)
+ - Создает структуру директории public (`images/uploads`)
+ - Создает [Service Provider](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
 
 <a name="what-next"></a>
 ## Следующий этап

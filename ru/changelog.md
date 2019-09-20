@@ -19,7 +19,7 @@
 
 
 - Добавлен новый тип столбца `AdminColumn::boolean('active', 'Published'),` (алиас `text`) который просто рисует галочку при `true` и минус при `false`. C равнением по центру.
-        
+
 Замена коду:
 
 ```php
@@ -35,13 +35,13 @@ AdminColumn::boolean('active', 'Published'),
 
 - Subdomain routes for admin. Вы должны добавить в `sleeping_owl.php` ключ `'domain' => 'admin.example.com'` где example.com и будет ваш домен.
 
- 
+
 
 
 
 
 #### [Feature] Добавлен ENV-редактор
- 
+
 Для тех кто уже с нами:
 
 ```php
@@ -74,7 +74,7 @@ AdminColumn::boolean('active', 'Published'),
 
 
  * [Feature]
- 
+
  * [Feature] Добавлено поведение для коламнов `text`, `link` и `relatedLink`. Может быть пропущен.
     Добавлен третий параметр, для сноски под текстом / ссылкой `AdminColumn::text('name', 'Name', 'user.created_at')` или `AdminColumn::link('name', 'Name', 'user.created_at')`
     ЗЫ: упрощайте свои кастомы
