@@ -2,7 +2,7 @@
 
  - [Support](#support)
  - [Composer](#composer)
- - [Adding a Service Provider](#service-provider)
+ - [{{SERVICE-PROVIDER}}](#service-provider)
  - [Artisan](#artisan)
 
 
@@ -14,7 +14,7 @@
 
 <a name="composer"></a>
 ## Composer
-You can install the package using the command line
+{{COMPOSER1}}
 
 ```bash
 $ composer require laravelrus/sleepingowl
@@ -25,7 +25,7 @@ $ composer require "laravelrus/sleepingowl":"dev-bs4"
 ```
 
 
-or manually adding a package to `composer.json`
+{{COMPOSER2}} `composer.json`
 
 ```json
 {
@@ -38,7 +38,7 @@ or manually adding a package to `composer.json`
   }
 }
 ```
-and execute the command
+{{COMPOSER3}}
 
 ```bash
 $ composer update
@@ -46,7 +46,7 @@ $ composer update
 
 <a name="service-provider"></a>
 ## Service Provider
-!> In Laravel 5.5+ the package will register automatically or you can specify it manually:
+!> {{SERVICE-PROVIDER1}}
 
 **config/app.php**
 ```php
@@ -68,27 +68,27 @@ $ composer update
 <a name="artisan"></a>
 ## Artisan
 
-Run artisan command to install SleepingOwl Admin
+{{ARTISAN1}}
 
 ```bash
 $ php artisan sleepingowl:install
 ```
 
-#### What does this command
-- Publishes SleepingOwl Admin configuration `config/sleepign_owl.php`
-- Publish SleepingOwl Admin Assets in `public/packages/sleepingowl/default`.
+#### {{ARTISAN2}}
+- {{ARTISAN3}} `config/sleepign_owl.php`
+- {{ARTISAN4}} `public/packages/sleepingowl/default`.
   ```bash
   $ php artisan vendor:publish --tag=assets --force
   ```
-- Creates Autorun directory (`app/Admin`)
-- Creates a default menu configuration file (`app/Admin/navigation.php`)
-- Creates a default startup file (`app/Admin/bootstrap.php`)
-- Creates a default route file (`app/Admin/routes.php`)
-- Creates a directory structure in 'public' (`images/uploads`)
-- Make [Service Provider](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
+- {{ARTISAN5}} (`app/Admin`)
+- {{ARTISAN6}} (`app/Admin/navigation.php`)
+- {{ARTISAN7}} (`app/Admin/bootstrap.php`)
+- {{ARTISAN8}} (`app/Admin/routes.php`)
+- {{ARTISAN9}} (`images/uploads`)
+- {{ARTISAN10}}(model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
 
 <a name="what-next"></a>
-## Next step
+## {{NEXT}}
 
 - [Configuration](configuration)
 - [Update](update)

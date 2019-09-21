@@ -29,5 +29,3 @@
     - [HTML атрибуты](html_attributes)
     - [Виджеты](widgets)
     - [Создание элементов](extend)
-    - &nbsp;
-    - &nbsp;

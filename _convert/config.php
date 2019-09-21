@@ -10,13 +10,13 @@
   $langs = [
     'en',
     'ru',
-    'zh_CN',
+    // 'zh_CN',
   ];
 
   //File name list without .md (_sidebar.md --> _sidebar)
   $filenames = [
     '_sidebar',
-    // 'installation',
+    'installation',
   ]
 
 

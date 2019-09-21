@@ -1,0 +1,23 @@
+{
+  "service-provider": "Adding a Service Provider",
+
+  "composer1": "You can install the package using the command line",
+  "composer2": "or manually adding a package to",
+  "composer3": "and execute the command",
+
+  "service-provider1": "In Laravel 5.5+ the package will register automatically or you can specify it manually:",
+
+  "artisan1": "Run artisan command to install SleepingOwl Admin",
+  "artisan2": "What does this command",
+  "artisan3": "Publishes SleepingOwl Admin configuration",
+  "artisan4": "Publish SleepingOwl Admin Assets in",
+  "artisan5": "Creates Autorun directory",
+  "artisan6": "Creates a default menu configuration file",
+  "artisan7": "Creates a default startup file",
+  "artisan8": "Creates a default route file",
+  "artisan9": "Creates a directory structure in 'public'",
+  "artisan10": "Make [Service Provider]",
+
+  "next": "Next step"
+
+}
