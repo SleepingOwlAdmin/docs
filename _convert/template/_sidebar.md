@@ -29,5 +29,3 @@
     - [{{HTML_ATTRIBUTES}}](html_attributes)
     - [{{WIDGETS}}](widgets)
     - [{{EXTEND}}](extend)
-    - &nbsp;
-    - &nbsp;

@@ -29,5 +29,3 @@
     - [HTML Attributes](html_attributes)
     - [Widgets](widgets)
     - [Create new elements](extend)
-    - &nbsp;
-    - &nbsp;
