@@ -1,0 +1,34 @@
+{
+  "title1": "Введение",
+  "title2": "C чего начать",
+  "title3": "Основные элементы",
+  "title4": "Прочее",
+
+  "installation": "Установка",
+  "fast_start": "Быстрый старт",
+  "configuration": "Конфигурация",
+  "global": "Описание работы системы",
+  "update": "Руководство по обновлению",
+
+  "authentication": "Авторизация",
+  "routes_configuration": "Конфигурация роутов",
+  "menu_configuration": "Конфигурация меню",
+  "model_configuration": "Конфигурация модели",
+  "model_configuration_section": "Конфигурация моделей через сервис провайдер",
+  "localization": "Локализация",
+
+  "displays": "Типы отображения данных",
+  "filters": "Фильтры данных",
+  "columns": "Столбцы",
+  "columns_editable": "Столбцы Editable",
+  "columnfilters": "Фильтры столбцов",
+  "form": "Формы",
+  "form-element": "Элементы формы",
+
+  "javascript": "Javascript API",
+  "assets": "Управление ресурсами (Assets)",
+  "image_upload": "Загрузка картинок",
+  "html_attributes": "HTML атрибуты",
+  "widgets": "Виджеты",
+  "extend": "Создание элементов"
+}

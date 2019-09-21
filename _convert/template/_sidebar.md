@@ -1,0 +1,33 @@
+- [CHANGELOG](changelog.md)
+
+- {{TITLE1}}
+    - [{{INSTALLATION}}](installation)
+    - [{{FAST_START}}](fast_start)
+    - [{{CONFIGURATION}}](configuration)
+    - [{{GLOBAL}}](global)
+    - [{{UPDATE}}](update)
+<!-- - [Версии пакета](releases) -->
+- {{TITLE2}}
+    - [{{AUTHENTICATION}}](authentication)
+    - [{{ROUTES_CONFIGURATION}}](routes_configuration)
+    - [{{MENU_CONFIGURATION}}](menu_configuration)
+    - [{{MODEL_CONFIGURATION}}](model_configuration)
+    - [{{MODEL_CONFIGURATION_SECTION}}](model_configuration_section)
+    - [{{LOCALIZATION}}](localization)
+- {{TITLE3}}
+    - [{{DISPLAYS}}](displays)
+    - [{{FILTERS}}](filters)
+    - [{{COLUMNS}}](columns)
+    - [{{COLUMNS_EDITABLE}}](columns_editable)
+    - [{{COLUMNFILTERS}}](columnfilters)
+    - [{{FORM}}](form)
+    - [{{FORM-ELEMENT}}](form-element)
+- {{TITLE4}}
+    - [{{JAVASCRIPT}}](javascript)
+    - [{{ASSETS}}](assets)
+    - [{{IMAGE_UPLOAD}}](image_upload)
+    - [{{HTML_ATTRIBUTES}}](html_attributes)
+    - [{{WIDGETS}}](widgets)
+    - [{{EXTEND}}](extend)
+    - &nbsp;
+    - &nbsp;

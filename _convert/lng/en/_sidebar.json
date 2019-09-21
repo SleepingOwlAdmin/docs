@@ -1,0 +1,34 @@
+{
+  "title1": "Information",
+  "title2": "Where to start",
+  "title3": "Main elements",
+  "title4": "Other",
+
+  "installation": "Install",
+  "fast_start": "Fast start",
+  "configuration": "Configuration",
+  "global": "System Description",
+  "update": "Update guide",
+
+  "authentication": "Authentication",
+  "routes_configuration": "Routes Configuration",
+  "menu_configuration": "Menu Configuration",
+  "model_configuration": "Model Configuration",
+  "model_configuration_section": "Configuration of models through a Service Provider",
+  "localization": "Localization",
+
+  "displays": "Data Display Types",
+  "filters": "Filters",
+  "columns": "Columns",
+  "columns_editable": "Columns Editable",
+  "columnfilters": "Columns filter",
+  "form": "Forms",
+  "form-element": "Forms Element",
+
+  "javascript": "Javascript API",
+  "assets": "Resource management (Assets)",
+  "image_upload": "Umage Upload",
+  "html_attributes": "HTML Attributes",
+  "widgets": "Widgets",
+  "extend": "Create new elements"
+}
