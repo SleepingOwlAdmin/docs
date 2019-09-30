@@ -17,6 +17,7 @@
   $filenames = [
     '_sidebar',
     'installation',
+    'configuration',
   ]
 
 

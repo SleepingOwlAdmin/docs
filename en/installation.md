@@ -20,8 +20,7 @@ You can install the package using the command line
 $ composer require laravelrus/sleepingowl
 
 //or branch
-$ composer require "laravelrus/sleepingowl":"dev-development"
-$ composer require "laravelrus/sleepingowl":"dev-bs4"
+$ composer require laravelrus/sleepingowl:dev-development
 ```
 
 
@@ -33,8 +32,6 @@ or manually adding a package to `composer.json`
   "require": {
     ...
     "laravelrus/sleepingowl": "dev-development",
-    //or
-    "laravelrus/sleepingowl": "dev-bs4",
   }
 }
 ```
@@ -87,8 +84,7 @@ $ php artisan sleepingowl:install
 - Creates a directory structure in 'public' (`images/uploads`)
 - Make [Service Provider](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
 
-<a name="what-next"></a>
-## Next step
 
+## Next step
 - [Configuration](configuration)
-- [Update](update)
+- [Update guide](update)

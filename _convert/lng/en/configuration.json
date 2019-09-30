@@ -1,0 +1,32 @@
+{
+  "conf01": "during installation automatically publishes a config",
+  "conf02": "If you want to update config file, then just run artisan command",
+  "conf03": "Config file parapmeters",
+
+  "conf_title": "String to display in page title",
+  "conf_logo": "Logo displayed in the upper panel",
+  "conf_logo_mini": "Admin mini logo for small display or minimized sidebar",
+  "conf_url_prefix": "Admin url preffix",
+  "conf_domain": "Enable/disable admin on subdomain",
+  "conf_middleware": "Middleware that restrict the administrative module from unauthorized users",
+  "conf_enable_editor": "Enabling and adding editing ENV settings",
+  "conf_env_editor_url": "Slug for editing env settings file",
+  "conf_env_editor_policy": "Adding a Policy",
+  "conf_env_editor_excluded_keys": "An array of keys or key masks to hide in the settings ENV-editor",
+  "conf_env_editor_middlewares": "Adding an middleware for editing settings",
+  "conf_auth_provider": "Auth Provider",
+  "conf_bootstrapdirectory": "The path to the autoload",
+  "conf_imagesuploaddirectory": "Image upload directory. Relative path from `public` directory",
+  "conf_filesuploaddirectory": "File upload directory. Relative path from `public` directory",
+  "conf_template": "Template class. Must implement interface",
+  "conf_datetimeformat": "Date and time formats for form and display elements",
+  "conf_wysiwyg": "Default settings for Wysiwyg editors",
+  "conf_datatables": "Default datatables settings",
+  "conf_dt_autoupdate": "Enable/disable auto-update datatables",
+  "conf_dt_autoupdate_interval": "Datatables auto-update time in minutes",
+  "conf_dt_autoupdate_class": "Auto-update class. If not specified, all datatables will be auto-updated",
+  "conf_dt_autoupdate_color": "Datatables auto-update progress bar color",
+  "conf_breadcrumbs": "Enable/disable breadcrumbs",
+  "conf_aliases": "Package aliases"
+
+}

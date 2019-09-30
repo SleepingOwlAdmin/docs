@@ -10,14 +10,11 @@
   "artisan1": "Запустите artisan команду для установки SleepingOwl Admin",
   "artisan2": "Что делает эта команда",
   "artisan3": "Публикует конфигурацию SleepingOwl Admin",
-  "artisan4": "Публикует ассеты из SleepingOwl Admin в",
+  "artisan4": "Публикует ресурсы из SleepingOwl Admin в",
   "artisan5": "Создает директорию автозапуска",
   "artisan6": "Создает файл конфигурации меню по умолчанию",
   "artisan7": "Создает файл автозапуска по умолчанию",
   "artisan8": "Создает файл роутов по умолчанию",
-  "artisan9": "Создает структуру директории public",
-  "artisan10": "Создает [Service Provider]",
-
-  "next": "Следующий этап"
-
+  "artisan9": "Создает структуру директории 'public'",
+  "artisan10": "Создает [Service Provider]"
 }

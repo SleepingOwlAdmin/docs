@@ -1,7 +1,6 @@
 # Конфигурация
 
-Команда [php artisan sleepingowl:install](installation#artisan),
-запускаемая во время установки публикует конфиг `sleeping_owl.php` автоматически.
+[php artisan sleepingowl:install](installation#artisan) во время установки автоматически публикует конфиг `sleeping_owl.php`.
 
 Если вы хотите опубликовать конфиг вручную выполните эту команду:
 ```bash
@@ -11,63 +10,88 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 ## Параметры конфигурации
 
 #### `title`
-Строка для отображения в заголовке страницы.
+Строка для отображения в заголовке страницы
 
 #### `logo`
-Логотип отображаемый в верхней панели.
+Логотип отображаемый в верхней панеле
 
-#### `logo_mini`
-Логотип отображаемый в верхней панели при минимизированной боковой панели.
+#### `logo_mini` (@deprecated in ver. 6+)
+Логотип отображаемый в верхней панели при минимизированной боковой панели
 
-#### `url_prefix`
-Префикс адреса для административного модуля.
+#### `url_prefix` (default: `'admin'`)
+Префикс адреса для административного модуля
 
-По умолчанию: `admin`
+#### `domain` (default: `false`)
+Включение/отключение поддержки субдомена для админки
 
-#### `middleware`
-Middleware, который ограничивают административный модуль от доступа неавторизованных пользователей.
+#### `middleware` (default: `['web', 'auth']`)
+Посредник, который ограничивают административный модуль от доступа неавторизованных пользователей
 
-По умолчанию: `['web', 'auth']`
+#### `enable_editor` (default: `false`)
+Включение и добавление редактирования настроек
 
-#### `auth_provider`
-Провайдер отвечающий за авторизацию пользователей. Подробнее https://laravel.com/docs/authentication#adding-custom-user-providers
+#### `env_editor_url` (default: `'env/editor'`)
+URL, для редактирования env файла настроек
 
-По умолчанию: `users`
+#### `env_editor_policy` (default: `null`)
+Добавление политики
 
-#### `bootstrapDirectory`
-Путь к директории автозапуска SleepingOwl Admin. Располагайте там
-ваши конфигурацию моделей, конфигурацию меню, кастомные столбцы и элементы форм. Каждый `.php` файл в этой директории будет подключен.
+#### `env_editor_excluded_keys`
+Массив ключей или масок ключей для скрытия в редакторе файла настроек
+```php
+'env_editor_excluded_keys' => [
+    'APP_KEY', 'DB_*',
+],
+```
 
-По умолчанию: `app_path('Admin')`
+#### `env_editor_middlewares` (default: `[]`)
+Добавление посредника для редактирование настроек
 
-#### `imagesUploadDirectory`
-Путь к директории изображений. Относительно вашей public директории.
+#### `auth_provider` (default: `'users'`)
+Провайдер авторизации пользователей. [Custom User Providers](https://laravel.com/docs/authentication#adding-custom-user-providers)
 
-По умолчанию: `'images/uploads'`
+#### `bootstrapDirectory` (default: `app_path('Admin')`)
+Путь к директории автозапуска SleepingOwl Admin
 
-#### `filesUploadDirectory`
-Путь к директории файлов. Относительно вашей public директории.
+#### `imagesUploadDirectory` (default: `'images/uploads'`)
+Путь к директории изображений относительно `public`
 
-По умолчанию: `'files/uploads'`
+#### `filesUploadDirectory` (default: `'files/uploads'`)
+Путь к директории файлов относительно `public`
 
-#### `template`
-Класс используемого шаблона (должен быть наследован от `SleepingOwl\Admin\Contracts\TemplateInterface`)
+#### `template` (default: `SleepingOwl\Admin\Templates\TemplateDefault::class`)
+Класс используемого шаблона, должен быть унаследован от `SleepingOwl\Admin\Contracts\TemplateInterface`
 
-По умолчанию: `SleepingOwl\Admin\Templates\TemplateDefault::class`
-
-#### `datetimeFormat`, `dateFormat`, `timeFormat`
+#### `datetimeFormat` (default: `'d.m.Y H:i'`)
+#### `dateFormat` (default: `'d.m.Y'`)
+#### `timeFormat` (default: `'H:i'`)
 Формат даты и времени для использования в столбцах и элементах формы по умолчанию
 
-По умолчанию: `'d.m.Y H:i', 'd.m.Y', 'H:i'`
-
 #### `wysiwyg`
-Настройки для редакторов текста по умолчанию.
+Настройки для Wysiwyg редакторов текста по умолчанию
 
-#### `datatables`
-Настройки datatables по умолчанию.
+#### `datatables` (default: `[]`)
+Настройки datatables по умолчанию
 
-#### `breadcrumbs`
-Включение/отключение хлебных крошек.
+#### `dt_autoupdate` (default: `false`)
+Включение/отключение автообновления datatables
+
+#### `dt_autoupdate_interval` (default: `5`)
+Время обновления datatables в минутах
+
+#### `dt_autoupdate_class` (default: `''`)
+Класс автообновления. Если не задано все datatables будут с автообновлением
+
+#### `dt_autoupdate_color` (default: `'#dc3545'`)
+Цвет прогрессбара автообновления таблиц
+
+#### `breadcrumbs` (default: `true`)
+Включение/отключение хлебных крошек
 
 #### `aliases`
-Алиасы, которые инициализируются пакетом.
+Алиасы, которые инициализируются пакетом
+
+
+## Следующий шаг
+- [Описание работы системы](global)
+- [Авторизация](authentication)

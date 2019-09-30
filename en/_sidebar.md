@@ -12,7 +12,7 @@
     - [Routes Configuration](routes_configuration)
     - [Menu Configuration](menu_configuration)
     - [Model Configuration](model_configuration)
-    - [Configuration of models through a Service Provider](model_configuration_section)
+    - [Configuration via Service Provider](model_configuration_section)
     - [Localization](localization)
 - Main elements
     - [Data Display Types](displays)
@@ -25,7 +25,7 @@
 - Other
     - [Javascript API](javascript)
     - [Resource management (Assets)](assets)
-    - [Umage Upload](image_upload)
+    - [Image Upload](image_upload)
     - [HTML Attributes](html_attributes)
     - [Widgets](widgets)
     - [Create new elements](extend)

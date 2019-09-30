@@ -14,7 +14,7 @@
   "routes_configuration": "Routes Configuration",
   "menu_configuration": "Menu Configuration",
   "model_configuration": "Model Configuration",
-  "model_configuration_section": "Configuration of models through a Service Provider",
+  "model_configuration_section": "Configuration via Service Provider",
   "localization": "Localization",
 
   "displays": "Data Display Types",
@@ -27,8 +27,10 @@
 
   "javascript": "Javascript API",
   "assets": "Resource management (Assets)",
-  "image_upload": "Umage Upload",
+  "image_upload": "Image Upload",
   "html_attributes": "HTML Attributes",
   "widgets": "Widgets",
-  "extend": "Create new elements"
+  "extend": "Create new elements",
+
+  "next": "Next step"
 }

@@ -20,8 +20,7 @@
 $ composer require laravelrus/sleepingowl
 
 //or branch
-$ composer require "laravelrus/sleepingowl":"dev-development"
-$ composer require "laravelrus/sleepingowl":"dev-bs4"
+$ composer require laravelrus/sleepingowl:dev-development
 ```
 
 
@@ -33,8 +32,6 @@ $ composer require "laravelrus/sleepingowl":"dev-bs4"
   "require": {
     ...
     "laravelrus/sleepingowl": "dev-development",
-    //or
-    "laravelrus/sleepingowl": "dev-bs4",
   }
 }
 ```
@@ -87,8 +84,7 @@ $ php artisan sleepingowl:install
 - {{ARTISAN9}} (`images/uploads`)
 - {{ARTISAN10}}(model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
 
-<a name="what-next"></a>
-## {{NEXT}}
 
-- [Configuration](configuration)
-- [Update](update)
+## {{NEXT}}
+- [{{CONFIGURATION}}](configuration)
+- [{{UPDATE}}](update)

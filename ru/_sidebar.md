@@ -25,7 +25,7 @@
 - Прочее
     - [Javascript API](javascript)
     - [Управление ресурсами (Assets)](assets)
-    - [Загрузка картинок](image_upload)
+    - [Загрузка изображений](image_upload)
     - [HTML атрибуты](html_attributes)
     - [Виджеты](widgets)
     - [Создание элементов](extend)

@@ -11,6 +11,8 @@ require 'config.php';
 
 require 'preg_matcher.php';
 
+$addition_variable = [];
+
 //Check config
 if (!isset($langs)
   || empty($langs)
@@ -53,7 +55,14 @@ foreach ($filenames as $key => $filename) {
       echo('File ' . $new_file_name . ' is <span style="color:red;">NOT</span> updated!!! (For updated need deleted this file)');
     } else {
       //variable replace
+      //add main variable (_sidebar)
       $variables = json_decode(file_get_contents($l), true);
+      if ($lang !== '_sidebar') {
+        $add_v = $lng_path . '/' . $lang . '/_sidebar.json';
+        $addition_variable = json_decode(file_get_contents($add_v), true);
+        $variables = array_merge($variables, $addition_variable);
+      }
+
       $text = file_get_contents($f);
       $new_text = replaceStr($text, $variables);
 

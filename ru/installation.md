@@ -20,8 +20,7 @@
 $ composer require laravelrus/sleepingowl
 
 //or branch
-$ composer require "laravelrus/sleepingowl":"dev-development"
-$ composer require "laravelrus/sleepingowl":"dev-bs4"
+$ composer require laravelrus/sleepingowl:dev-development
 ```
 
 
@@ -33,8 +32,6 @@ $ composer require "laravelrus/sleepingowl":"dev-bs4"
   "require": {
     ...
     "laravelrus/sleepingowl": "dev-development",
-    //or
-    "laravelrus/sleepingowl": "dev-bs4",
   }
 }
 ```
@@ -76,7 +73,7 @@ $ php artisan sleepingowl:install
 
 #### Что делает эта команда
 - Публикует конфигурацию SleepingOwl Admin `config/sleepign_owl.php`
-- Публикует ассеты из SleepingOwl Admin в `public/packages/sleepingowl/default`.
+- Публикует ресурсы из SleepingOwl Admin в `public/packages/sleepingowl/default`.
   ```bash
   $ php artisan vendor:publish --tag=assets --force
   ```
@@ -84,11 +81,10 @@ $ php artisan sleepingowl:install
 - Создает файл конфигурации меню по умолчанию (`app/Admin/navigation.php`)
 - Создает файл автозапуска по умолчанию (`app/Admin/bootstrap.php`)
 - Создает файл роутов по умолчанию (`app/Admin/routes.php`)
-- Создает структуру директории public (`images/uploads`)
+- Создает структуру директории 'public' (`images/uploads`)
 - Создает [Service Provider](model_configuration_section) `app\Providers\AdminSectionsServiceProvider`
 
-<a name="what-next"></a>
-## Следующий этап
 
-- [Configuration](configuration)
-- [Update](update)
+## Следующий шаг
+- [Конфигурация](configuration)
+- [Руководство по обновлению](update)

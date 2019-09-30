@@ -16,8 +16,5 @@
   "artisan7": "Creates a default startup file",
   "artisan8": "Creates a default route file",
   "artisan9": "Creates a directory structure in 'public'",
-  "artisan10": "Make [Service Provider]",
-
-  "next": "Next step"
-
+  "artisan10": "Make [Service Provider]"
 }

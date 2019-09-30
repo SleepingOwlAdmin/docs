@@ -27,8 +27,10 @@
 
   "javascript": "Javascript API",
   "assets": "Управление ресурсами (Assets)",
-  "image_upload": "Загрузка картинок",
+  "image_upload": "Загрузка изображений",
   "html_attributes": "HTML атрибуты",
   "widgets": "Виджеты",
-  "extend": "Создание элементов"
+  "extend": "Создание элементов",
+
+  "next": "Следующий шаг"
 }

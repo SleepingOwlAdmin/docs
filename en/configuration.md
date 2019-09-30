@@ -1,5 +1,7 @@
 # Configuration
 
+[php artisan sleepingowl:install](installation#artisan) during installation automatically publishes a config `sleeping_owl.php`.
+
 If you want to update config file, then just run artisan command:
 ```bash
 $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwlServiceProvider" --tag="config"
@@ -8,62 +10,88 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 ## Config file parapmeters
 
 #### `title`
-Admin title
+String to display in page title
 
 #### `logo`
-Admin full logo
+Logo displayed in the upper panel
 
-#### `logo_mini`
+#### `logo_mini` (@deprecated in ver. 6+)
 Admin mini logo for small display or minimized sidebar
 
-#### `url_prefix`
+#### `url_prefix` (default: `'admin'`)
 Admin url preffix
 
-**Default**: `admin`
+#### `domain` (default: `false`)
+Enable/disable admin on subdomain
 
-#### `middleware`
-Middleware, который ограничивают административный модуль от доступа неавторизованных пользователей.
+#### `middleware` (default: `['web', 'auth']`)
+Middleware that restrict the administrative module from unauthorized users
 
-**Default**: `['web', 'auth']`
+#### `enable_editor` (default: `false`)
+Enabling and adding editing ENV settings
 
-#### `auth_provider`
-Auth provider. See [Laravel user providers](https://laravel.com/docs/5.2/authentication#adding-custom-user-providers)
+#### `env_editor_url` (default: `'env/editor'`)
+Slug for editing env settings file
 
-**Default**: `users`
+#### `env_editor_policy` (default: `null`)
+Adding a Policy
 
-#### `bootstrapDirectory`
-Path to auto loading admin sections. Place in this path your section configuration. Each  `.php` file will be included.
+#### `env_editor_excluded_keys`
+An array of keys or key masks to hide in the settings ENV-editor
+```php
+'env_editor_excluded_keys' => [
+    'APP_KEY', 'DB_*',
+],
+```
 
-**Default**: `app_path('Admin')`
+#### `env_editor_middlewares` (default: `[]`)
+Adding an middleware for editing settings
 
-#### `imagesUploadDirectory`
-Image upload directory. Relative path from public directory
+#### `auth_provider` (default: `'users'`)
+Auth Provider. [Custom User Providers](https://laravel.com/docs/authentication#adding-custom-user-providers)
 
-**Default**: `'images/uploads'`
+#### `bootstrapDirectory` (default: `app_path('Admin')`)
+The path to the autoload SleepingOwl Admin
 
-#### `filesUploadDirectory`
-File upload directory. Relative path from public directory
+#### `imagesUploadDirectory` (default: `'images/uploads'`)
+Image upload directory. Relative path from `public` directory
 
-**Default**: `'files/uploads'`
+#### `filesUploadDirectory` (default: `'files/uploads'`)
+File upload directory. Relative path from `public` directory
 
-#### `template`
-Template class (Must implement interface `SleepingOwl\Admin\Contracts\TemplateInterface`)
+#### `template` (default: `SleepingOwl\Admin\Templates\TemplateDefault::class`)
+Template class. Must implement interface `SleepingOwl\Admin\Contracts\TemplateInterface`
 
-**Default**: `SleepingOwl\Admin\Templates\TemplateDefault::class`
-
-#### `datetimeFormat`, `dateFormat`, `timeFormat`
+#### `datetimeFormat` (default: `'d.m.Y H:i'`)
+#### `dateFormat` (default: `'d.m.Y'`)
+#### `timeFormat` (default: `'H:i'`)
 Date and time formats for form and display elements
-
-**Default**: `'d.m.Y H:i', 'd.m.Y', 'H:i'`
 
 #### `wysiwyg`
 Default settings for Wysiwyg editors
 
-#### `datatables`
-Default settings for Datatables
+#### `datatables` (default: `[]`)
+Default datatables settings
 
-#### `breadcrumbs`
-Enable\Disable breadcrumbs
+#### `dt_autoupdate` (default: `false`)
+Enable/disable auto-update datatables
+
+#### `dt_autoupdate_interval` (default: `5`)
+Datatables auto-update time in minutes
+
+#### `dt_autoupdate_class` (default: `''`)
+Auto-update class. If not specified, all datatables will be auto-updated
+
+#### `dt_autoupdate_color` (default: `'#dc3545'`)
+Datatables auto-update progress bar color
+
+#### `breadcrumbs` (default: `true`)
+Enable/disable breadcrumbs
 
 #### `aliases`
 Package aliases
+
+
+## Next step
+- [System Description](global)
+- [Authentication](authentication)
