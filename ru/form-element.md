@@ -1101,9 +1101,9 @@ $morphToMany = AdminForm::form()->addElement(
 ```
 
 ```php
-        $tabs = AdminDisplay::tabbed([]);
-        $tabs->appendTab($manyToMany, 'Много ко многим');
-        $tabs->appendTab($morphToMany, 'Один ко многим через модель');
+$tabs = AdminDisplay::tabbed([]);
+$tabs->appendTab($manyToMany, 'Много ко многим');
+$tabs->appendTab($morphToMany, 'Один ко многим через модель');
 ```
 
 <a name="custom"></a>
