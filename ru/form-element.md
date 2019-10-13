@@ -20,7 +20,9 @@
 - [Ckeditor](#ckeditor)
 - [Checkbox](#checkbox)
 - [Radio](#radio)
-- [Many To Many](#manytomany)
+- [Has Many](#has-many)
+- [Belong To](#belong-to)
+- [Many To Many](#many-to-many)
 - [Html](#html)
 - [Custom](#custom)
 - [View](#view)
@@ -1044,26 +1046,76 @@ AdminFormElement::radio(string $key, string $label = null, array|Model|string $o
 - `$key` - Ключ поля
 - `$label` - Заголовок
 
-<a name="manytomany"></a>
+<a name="belong-to"></a>
+
+## Belong To
+
+belongTo создаёт форму в которой ты можешь динамически добавлять/удалять связанные отношения. Удобно испозовать, если из одной формы мы можем создавать модель связной модели один ко дному.
+
+```php
+AdminFormElement::belongsTo(string $relationName, array $elements): static
+```
+
+- `$relationName` - Название метода в котором реализуется связь belongsTo
+- `$elements` - Элементы формы для связанной модели
+
+<a name="belong-to-use-case"></a>
+
+### Пример использования
+
+```php
+AdminFormElement::belongsTo('item', [
+    AdminFormElement::text('name', 'Тип')
+    AdminFormElement::select('armor_id', 'Броня', Armor::class)->setDisplay('value'),
+])
+```
+
+<a name="has-many"></a>
+
+## Has Many
+
+hasMany создаёт форму в которой ты можешь динамически добавлять/удалять связанные отношения. Чтобы не создавать отдельную страницу для отношения, можно создать ее в форме редактирования с помощью этого элемента. Например, если у пользователя есть адреса(улица, город, дом) ты можешь создать таб на странице редактирования пользователя, вызвать там hasMany и добавлять адреса как отдельные сущности. После сохранения все адреса создадутся отдельными записями и будут выводиться в форме редактирования пользователя.
+
+```php
+AdminFormElement::hasMany(string $relationName, array $elements): static
+```
+
+- `$relationName` - Название метода в котором реализуется связь hasMany
+- `$elements` - Элементы формы для связанной модели
+
+<a name="has-many-use-case"></a>
+
+### Пример использования
+Можно создать много сущеностей по типу улица, город, дом. Которые будут создаваться в форме одной строчкой.
+
+```php
+AdminFormElement::hasMany('addresses', [
+    AdminFormElement::text('field_address', 'Название сущности адреса')
+])
+```
+
+<a name="many-to-many"></a>
 
 ## Many To Many
 
 Элемент создан для удобного редактирования pivot полей без необходимости создавать дополнительную модель. Первым параметром идет название отношения модели, вторым - массив с элементами для наполнения отношения. По умолчанию добавляется `AdminFormElement::select()`, который выводит список данных второй связанной модели и два `action` добавить/удалить. Таким образом, если у тебя есть `Model User` и `Model Role`, связанные `belongsToMany/morphToMany` `select` с ролями(`Model Role`) уже будет добавлен автоматом.
 
 ```php
-AdminFormElement::manytomany(string $relationName, array $elements): static
+AdminFormElement::manyToMany(string $relationName, array $elements): static
 ```
 
 - `$relationName` - Название метода в котором реализуется связь belongsToMany или morphToMany
 - `$elements` - Элементы формы для связующей таблицы(pivot)
 
-<a name="manytomany-setRelatedElementDisplayName"></a>
+<a name="many-to-many-setRelatedElementDisplayName"></a>
+
+### Доступные методы
 
 #### `setRelatedElementDisplayName(String|Closure $callback): static`
 
 Устанавливает поле для вывода связной модели в select
 
-<a name="manytomany-use-case"></a>
+<a name="many-to-many-use-case"></a>
 
 ### Пример использования
 
@@ -1072,6 +1124,7 @@ AdminFormElement::manytomany(string $relationName, array $elements): static
 
 В нашей модели `Role` реализуем методы `users` связь `belongsToMany` и  `features` связь `morphToMany`.
 В секции Roles:
+
 ```php
 $manyToMany = AdminForm::form()->addElement(
     new FormElements(
