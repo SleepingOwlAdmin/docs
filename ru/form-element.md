@@ -1061,14 +1061,13 @@ AdminFormElement::manytomany(string $relationName, array $elements): static
 
 #### `setRelatedElementDisplayName(String|Closure $callback): static`
 
-Устанавливает поле для вывода связных значений в select
+Устанавливает поле для вывода связной модели в select
 
 <a name="manytomany-use-case"></a>
 
 ### Пример использования
 
 Удобно использовать этот элемент с tabs.
-Устанавливает значение выводимое в select связной модели.
 У нас есть промежуточная таблица user_color с pivot полями (`user_id`, `role_id` ,`name`, `color_id`, `images`, `is_done`, `date`), и feature_entity c pivot полями (`feature_id` , `entity_id` , `entity_type`, `equip`, `date`).
 
 В нашей модели `Role` реализуем методы `users` связь `belongsToMany` и  `features` связь `morphToMany`.
