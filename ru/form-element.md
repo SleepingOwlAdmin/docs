@@ -20,6 +20,9 @@
 - [Ckeditor](#ckeditor)
 - [Checkbox](#checkbox)
 - [Radio](#radio)
+- [Belong To](#belong-to)
+- [Has Many](#has-many)
+- [Many To Many](#many-to-many)
 - [Html](#html)
 - [Custom](#custom)
 - [View](#view)
@@ -550,7 +553,7 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 
 <a name="select-ajax"></a>
 
-## Select Ajax 
+## Select Ajax
 **Отдельная благодарность https://github.com/hkd213**
 
 Поле для выбора значения из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/). Рекомендуется использовать в том случае, если кол-во элементов списка слишком велико для обычного select, и сильно увеличивает время загрузки страницы.
@@ -596,12 +599,12 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 Результат:
 ```php
     SELECT * FROM `table` WHERE (
-        `name` LIKE '%query%' 
+        `name` LIKE '%query%'
         OR `surname` LIKE '%query%'
     )
 ```
 
-Также есть возможность указать правила поиска для каждого из передаваемых полей. Всего есть 4 вида правил (обращайте внимание на расположения знака процента в SQL LIKE запросе ): 
+Также есть возможность указать правила поиска для каждого из передаваемых полей. Всего есть 4 вида правил (обращайте внимание на расположения знака процента в SQL LIKE запросе ):
  - `equal` -  четкое соответствие: `WHERE a LIKE 'query'` (идентично `WHERE a = 'query'`)
  - `begins_with` - значение поля начинается как введенный запрос: `WHERE a LIKE 'query%'`
  - `ends_with` - значение поля заканчивается как введенный запрос: `WHERE a LIKE '%query'`
@@ -612,7 +615,7 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 ```php
     ->setSearch([
         'id' => 'equal',
-        'name' => 'contains', 
+        'name' => 'contains',
         'first_name' => 'begins_with',
         'last_name' => 'ends_with',
     ])
@@ -620,9 +623,9 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 Результат:
 ```php
     SELECT * FROM `table` WHERE (
-        `id` LIKE 'query' 
-        OR `name` LIKE '%query%' 
-        OR `first_name` LIKE 'query%' 
+        `id` LIKE 'query'
+        OR `name` LIKE '%query%'
+        OR `first_name` LIKE 'query%'
         OR `last_name` LIKE '%query'
     )
 ```
@@ -636,11 +639,11 @@ AdminFormElement::selectajax(string $key, string $label = null): static
             // то выполняем расширенный поиск: по name или жестко по id:
             return [
                 'id' => 'equal',
-                'name' 
+                'name'
             ];
         } else {
             // Иначе - будем искать только по полю name:
-            return 'name';        
+            return 'name';
         }
     })
 ```
@@ -650,7 +653,7 @@ AdminFormElement::selectajax(string $key, string $label = null): static
 
 #### `setDisplay(string|\Closure $display): static | required`
 
-Данный метод позволяет задать содержимое и внешний вид каждого элемента выпадающего списка.  
+Данный метод позволяет задать содержимое и внешний вид каждого элемента выпадающего списка.
 
 В качестве значения можно передать строку - в этом случае в качестве содержимого каждого элемента списка будет браться значение одноименного столбца каждой записи из БД. В случае передачи строки использовать метод setSearch() не обязательно - поле одновременно будет играть роль поля источника для запроса: `->setDisplay('name')` будет искать в указанной модели по этому полю.
 
@@ -780,9 +783,9 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
             'user' => \App\User::class
         ];
         if (
-            $role 
-            && isset($array[$role]) 
-            && null !== ($class_name = $array[$role]) 
+            $role
+            && isset($array[$role])
+            && null !== ($class_name = $array[$role])
             && class_exists($class_name)
         ) {
             return new $class_name;
@@ -813,9 +816,9 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
                 'user' => \App\User::class,
             ];
             if (
-                $entity_type 
-                && isset($entity_classes[$entity_type]) 
-                && null !== ($class_name = $entity_classes[$entity_type]) 
+                $entity_type
+                && isset($entity_classes[$entity_type])
+                && null !== ($class_name = $entity_classes[$entity_type])
                 && class_exists($class_name)
             ) {
                 return new $class_name;
@@ -845,7 +848,7 @@ AdminFormElement::selectajax('user_id', 'Пользователь')
 
 <a name="multiselect-ajax"></a>
 
-## MultiSelect Ajax 
+## MultiSelect Ajax
 **Отдельная благодарность https://github.com/hkd213**
 
 Поле для выбора множества значений из выпадающего списка с помощью технологии ajax (использует javascript пакет https://select2.github.io/)
@@ -1042,6 +1045,120 @@ AdminFormElement::radio(string $key, string $label = null, array|Model|string $o
 
 - `$key` - Ключ поля
 - `$label` - Заголовок
+
+<a name="belong-to"></a>
+
+## Belong To
+
+belongTo создаёт форму в которой можно динамически добавлять/удалять связанные отношения. Удобно использовать, если из одной формы мы можем создавать модель связной модели один к одному.
+
+```php
+AdminFormElement::belongsTo(string $relationName, array $elements): static
+```
+
+- `$relationName` - Название метода в котором реализуется связь belongsTo
+- `$elements` - Элементы формы для связанной модели
+
+<a name="belong-to-use-case"></a>
+
+### Пример использования
+
+```php
+AdminFormElement::belongsTo('item', [
+    AdminFormElement::text('name', 'Тип')
+    AdminFormElement::select('armor_id', 'Броня', Armor::class)->setDisplay('value'),
+])
+```
+
+<a name="has-many"></a>
+
+## Has Many
+
+hasMany создаёт форму в которой можно динамически добавлять/удалять связанные отношения. Чтобы не создавать отдельную страницу для отношения, можно создать ее в форме редактирования с помощью этого элемента. Например, если у пользователя есть адреса(улица, город, дом), удобно создать таб на странице редактирования пользователя, вызвать там hasMany и добавить адреса как отдельные сущности. После сохранения все адреса создадутся отдельными записями и будут выводиться в форме редактирования пользователя.
+
+```php
+AdminFormElement::hasMany(string $relationName, array $elements): static
+```
+
+- `$relationName` - Название метода в котором реализуется связь hasMany
+- `$elements` - Элементы формы для связанной модели
+
+<a name="has-many-use-case"></a>
+
+### Пример использования
+
+Можно создать много сущностей по типу улица, город, дом. Это всё делается в форме одной строчкой.
+
+```php
+AdminFormElement::hasMany('addresses', [
+    AdminFormElement::text('field_address', 'Название сущности адреса')
+])
+```
+
+<a name="many-to-many"></a>
+
+## Many To Many
+
+Элемент создан для удобного редактирования pivot полей без необходимости создавать дополнительную модель. Первым параметром идет название отношения модели, вторым - массив с элементами для наполнения отношения. По умолчанию добавляется `AdminFormElement::select()`, который выводит список данных второй связанной модели и два `action` добавить/удалить. Таким образом, если у тебя есть `Model User` и `Model Role`, связанные `belongsToMany/morphToMany` `select` с ролями(`Model Role`) уже будет добавлен автоматом.
+
+```php
+AdminFormElement::manyToMany(string $relationName, array $elements): static
+```
+
+- `$relationName` - Название метода в котором реализуется связь belongsToMany или morphToMany
+- `$elements` - Элементы формы для связующей таблицы(pivot)
+
+<a name="many-to-many-setRelatedElementDisplayName"></a>
+
+### Доступные методы
+
+#### `setRelatedElementDisplayName(String|Closure $callback): static`
+
+Устанавливает поле для вывода связной модели в select
+
+<a name="many-to-many-use-case"></a>
+
+### Пример использования
+
+Удобно использовать этот элемент с tabs.
+У нас есть промежуточная таблица user_color с pivot полями (`user_id`, `role_id` ,`name`, `color_id`, `images`, `is_done`, `date`), и feature_entity c pivot полями (`feature_id` , `entity_id` , `entity_type`, `equip`, `date`).
+
+В нашей модели `Role` реализуем методы `users` связь `belongsToMany` и  `features` связь `morphToMany`.
+В секции Roles:
+
+```php
+$manyToMany = AdminForm::form()->addElement(
+    new FormElements(
+        [
+            AdminFormElement::manyToMany('users', [
+                AdminFormElement::text('name', 'Название'),
+                AdminFormElement::select('color_id', 'Цвет', Colot::class)->setDisplay('name_color'),
+                AdminFormElement::images('images', 'Фото'),
+                AdminFormElement::checkbox('is_done', 'Готово?'),
+                AdminFormElement::datetime('date', 'Дата оплаты'),
+            ])->setRelatedElementDisplayName(function ($model){
+                return $model->full_name;
+            })
+        ])
+);
+```
+```php
+$morphToMany = AdminForm::form()->addElement(
+    new FormElements(
+        [
+            AdminFormElement::manyToMany('features', [
+                AdminFormElement::text('equip', 'Экипирован'),
+                AdminFormElement::datetime('date', 'Время'),
+            ])->setRelatedElementDisplayName('title')
+        ])
+);
+```
+
+```php
+$tabs = AdminDisplay::tabbed([]);
+$tabs->appendTab($manyToMany, 'Много ко многим');
+$tabs->appendTab($morphToMany, 'Один ко многим через модель');
+```
 
 <a name="custom"></a>
 
