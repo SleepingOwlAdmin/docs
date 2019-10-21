@@ -70,5 +70,5 @@ If you want to add a language pack for the administrative panel or for documenta
 - sk - 0%
 - es - 0%
 - tr - 0%
-- uk - 67.2%
-- zh_CN - 67.2%
+- uk - 55.56%
+- zh_CN - 55.56%

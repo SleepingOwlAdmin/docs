@@ -15,8 +15,11 @@ String to display in page title
 #### `logo`
 Logo displayed in the upper panel
 
-#### `logo_mini` (@deprecated in ver. 6+)
+#### `logo_mini`
 Admin mini logo for small display or minimized sidebar
+
+#### `menu_top` (only @dev-development branch)
+Text displayed above the menu
 
 #### `url_prefix` (default: `'admin'`)
 Admin url preffix

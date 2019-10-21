@@ -15,8 +15,11 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 #### `logo`
 Логотип отображаемый в верхней панеле
 
-#### `logo_mini` (@deprecated in ver. 6+)
+#### `logo_mini`
 Логотип отображаемый в верхней панели при минимизированной боковой панели
+
+#### `menu_top` (только в @dev-development ветке)
+Текст отображаемый над меню
 
 #### `url_prefix` (default: `'admin'`)
 Префикс адреса для административного модуля
