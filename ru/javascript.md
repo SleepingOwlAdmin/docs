@@ -39,7 +39,23 @@ Admin.Config.set(key, value)
 Admin.Config.has(key)
 Admin.Config.merge(config)
 Admin.Config.all()
-``` 
+```
+
+Из этих настроек можно получить:
+- `Admin.Config.get('debug')` - состояние `debug` приложения
+- `Admin.Config.get('env')` - состояние `env` приложения
+- `Admin.Config.get('locale')` - локаль приложения
+- `Admin.Config.get('url')` - URL приложения
+- `Admin.Config.get('url_path')` - относительный путь (только в @dev-development ветке)
+- `Admin.Config.get('lang')` - текущие ключи и значения локализации
+- `Admin.Config.get('wysiwyg')` - WYSIWYG настройки из файла конфигурации
+- `Admin.Config.get('template')` - информация о шаблоне по умолчанию
+- `Admin.Config.get('user_id')` - идентификатор активного пользователя
+- `Admin.Config.get('datetime_format')` - текущий формат даты и времени
+- `Admin.Config.get('date_format')` - текущий формат даты
+- `Admin.Config.get('state_tabs')` - сохранение активности табов
+- `Admin.Config.get('state_filters')` - сохранение значений фильтров datatables
+
 
 <a name="messages"></a>
 ## Сообщения
@@ -224,6 +240,7 @@ Admin.Url.app('users/1') // http://site.com/users/1
 ```js
 Admin.Url.url // ссылка на front
 Admin.Url.url_prefix // получение значения url prefix админ панели
+Admin.Url.url_path // получение относительного пути (только в @dev-development ветке)
 Admin.Url.asset_dir// относительный путь до хранения ассетов для текущей темы
 ```
 
@@ -263,7 +280,7 @@ Admin.Asset.js(string url): Promise
 ```
 
 #### Подключение Image файлов
-Возвращает объект `Promise`. 
+Возвращает объект `Promise`.
 https://habrahabr.ru/company/zerotech/blog/317256/
 
 ```js

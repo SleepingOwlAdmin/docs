@@ -21,6 +21,15 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 #### `menu_top` (только в @dev-development ветке)
 Текст отображаемый над меню
 
+#### `state_datatables` (только в @dev-development ветке) (default: `true`)
+Сохранение состояния DataTables в localStorage
+
+#### `state_tabs` (только в @dev-development ветке) (default: `false`)
+Сохранение активности табов
+
+#### `state_filters` (только в @dev-development ветке) (default: `false`)
+Сохранение значений фильтров в datatables
+
 #### `url_prefix` (default: `'admin'`)
 Префикс адреса для административного модуля
 

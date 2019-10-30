@@ -18,8 +18,17 @@ Logo displayed in the upper panel
 #### `logo_mini`
 Admin mini logo for small display or minimized sidebar
 
-#### `menu_top` (only @dev-development branch)
+#### `menu_top` (only in @dev-development branch)
 Text displayed above the menu
+
+#### `state_datatables` (only in @dev-development ветке) (default: `true`)
+DataTables state saving in localStorage
+
+#### `state_tabs` (only in @dev-development ветке) (default: `false`)
+Keep tabs active
+
+#### `state_filters` (only in @dev-development ветке) (default: `false`)
+Saving datatables filter values
 
 #### `url_prefix` (default: `'admin'`)
 Admin url preffix
