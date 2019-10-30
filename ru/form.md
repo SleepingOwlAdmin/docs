@@ -1,7 +1,7 @@
 # Формы
 
  - [Form](#form)
- - [Panel](#panel)
+ - [Card](#card) (panel)
  - [Tabbed](#tabbed)
  - [API](#api)
  - [Tabs](#tabs)
@@ -23,21 +23,21 @@ $form->addElement(
     AdminFormElement::date('created_at', 'Created at')
 );
 
-$form->setHtmlAttribute('class', 'panel panel-default');
-$form->getButtons()->setHtmlAttribute('class', 'panel-footer');
+$form->setHtmlAttribute('class', 'card');
+$form->getButtons()->setHtmlAttribute('class', 'card-footer');
 ```
 
 
-## panel
-в основе которой лежит [Bootstrap конпонент panel](https://getbootstrap.com/docs/3.4/components/#panels)
+## card
+в основе которой лежит [Bootstrap конпонент card](https://bootstrap-4.ru/docs/4.0/components/card/)
 
- * Класс `\SleepingOwl\Admin\Form\FormPanel`
- * View `resources\views\default\form\panel.blade.php`
+ * Класс `\SleepingOwl\Admin\Form\FormCard`
+ * View `resources\views\default\form\card.blade.php`
 
-Данный тип формы автоматически добавляет к форме html атрибут `class="panel panel-default"` и к кнопкам формы `class="panel-footer"` и позволяет размещать элементы формы в блоки `header`, `body`, `footer`
+Данный тип формы автоматически добавляет к форме html атрибут `class="card"` и к кнопкам формы `class="card-footer"` и позволяет размещать элементы формы в блоки `header`, `body`, `footer`
 
 ```php
-$form = AdminForm::panel()
+$form = AdminForm::card()
     ->addHeader([
         AdminFormElement::text('title', 'Title'),
     ])
@@ -57,10 +57,10 @@ $form->setElements([
 ]); // Поместит список элементов без блока
 ```
 
-Блоки формы - это классы, реализующие интерфейс `SleepingOwl\Admin\Contracts\Form\PanelInterface`, при необходимости вы можете создать свой класс блока и добавлять его в форму:
+Блоки формы - это классы, реализующие интерфейс `SleepingOwl\Admin\Contracts\Form\CardInterface`, при необходимости вы можете создать свой класс блока и добавлять его в форму:
 
 ```php
-$form->addElement(new \App\Form\Panel\CustomBlockClass([
+$form->addElement(new \App\Form\Card\CustomBlockClass([
     AdminFormElement::text('title', 'Title')
 ]));
 ```
@@ -73,19 +73,19 @@ $form->addElement(new \App\Form\Panel\CustomBlockClass([
     SleepingOwl\Admin\Form\FormDefault::addItem(mixed $item): return self
 
 #### addHeader
-Добавление элементов в блок `panel-heading`
+Добавление элементов в блок `card-heading`
 
-    SleepingOwl\Admin\Form\FormPanel::addHeader(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
-    
+    SleepingOwl\Admin\Form\FormCard::addHeader(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
+
 #### addBody
-Добавление элементов в блок `panel-body`. Если предыдущий блок `body`, то между ними будет вставлен элемент `<hr />`
+Добавление элементов в блок `card-body`. Если предыдущий блок `body`, то между ними будет вставлен элемент `<hr />`
 
-    SleepingOwl\Admin\Form\FormPanel::addBody(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
-    
+    SleepingOwl\Admin\Form\FormCard::addBody(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
+
 #### addFooter
-Добавление элементов в блок `panel-footer`
+Добавление элементов в блок `card-footer`
 
-    SleepingOwl\Admin\Form\FormPanel::addFooter(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
+    SleepingOwl\Admin\Form\FormCard::addFooter(array|\SleepingOwl\Admin\Contracts\FormElementInterface $items): return self
 
 
 ## tabbed
@@ -118,17 +118,17 @@ AdminForm::tabbed()->setElements([
 Указание view отвечающего за вывод формы
 
     SleepingOwl\Admin\Form\FormDefault::setView(\Illuminate\View\View|string $view): return self
-    
+
 #### setAction
 Указание ссылки, на которую будут отправлены данные формы.
 
     SleepingOwl\Admin\Contracts\FormInterface::setAction(string $action): return self
-    
+
 #### setElements
 Добавление массива элементов в форму
 
     SleepingOwl\Admin\Contracts\Form\ElementsInterface::setElements(array $elements): return self
-    
+
 
 #### addElement
 Добавление элемента в форму
@@ -171,7 +171,7 @@ $tabs->appendTab([
 
 
 $tabs1 = AdminDisplay::tabbed();
-    
+
 $tabs1 = ....;
 
 
@@ -182,17 +182,17 @@ AdminForm::form()
         AdminColumn::image('image', 'Image') // Вывод загружененой картинки
     ])
     ->addElement($tabs1);
-    
+
 // or
 
-$form = AdminForm::panel()
+$form = AdminForm::card()
     ->addHeader([
         $tabs
     ]);
-    
+
 // or
 
-$form = AdminForm::panel()
+$form = AdminForm::card()
     ->setElements([
         AdminFormElement::upload('image', 'Image'),
         $tabs
@@ -208,7 +208,7 @@ $columns = AdminFormElement::columns([
     [
         AdminFormElement::text('title', 'Title')->required()
     ],
-    // or 
+    // or
     function() {
         return [
             AdminFormElement::text('title', 'Title')->required()
@@ -224,7 +224,7 @@ $columns->addColumn([
     AdminFormElement::date('created_at', 'Created At')->required()
 ]);
 
-// or 
+// or
 
 $columns->addColumn(function() {
     return [
@@ -248,7 +248,7 @@ $columns->addColumn($subColumns = AdminFormElement::columns([
 
 $subColumns->addColumn(...)
 
-$form = AdminForm::panel()->addBody($columns);
+$form = AdminForm::card()->addBody($columns);
 ```
 
 #### Ширина колонок
@@ -267,7 +267,7 @@ AdminFormElement::columns()
     ], 6)
 ,
 
-// Передать строку: 
+// Передать строку:
 // каждая колонка будет иметь class="col-xs-12 col-sm-6 col-md-6 col-lg-6"
 AdminFormElement::columns()
     ->addColumn([
@@ -278,7 +278,7 @@ AdminFormElement::columns()
     ], 'col-xs-12 col-sm-6 col-md-6 col-lg-6')
 ,
 
-// Передать массив строк: вариация предыдущего метода, 
+// Передать массив строк: вариация предыдущего метода,
 // каждая колонка будет иметь class="col-xs-12 col-sm-6 col-md-6 col-lg-6"
 AdminFormElement::columns()
     ->addColumn([
