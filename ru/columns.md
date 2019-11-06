@@ -6,7 +6,7 @@
 - [API](#api)
 - [Типы](#Типы)
     - [Action](#action)
-    - [Checkbox](#checkbox) 
+    - [Checkbox](#checkbox)
     - [Checkbox Inline Editable](#checkbox-editable)    
     - [Count](#count)
     - [Custom](#custom)
@@ -113,7 +113,7 @@ AdminForm::panel()
 
 
 ## Методы доступные во всех элементах
-В классах колонок используется трейт 
+В классах колонок используется трейт
  - [HtmlAttributes](html_attributes), с помощью которого для них можно настраивать HTML атрибуты.
  - [Assets](assets#assets-trait), с помощью которого для них можно подключать ассеты.
 
@@ -151,7 +151,7 @@ AdminForm::panel()
 
 ```php
 $display->setColumns([
-    AdminColumn::custom(function($model) 
+    AdminColumn::custom(function($model)
            return $model->first_name.' '.$model->last_name;
     })->setOrderable(function($query, $direction) {
         $query->orderBy('last_name', $direction);
@@ -167,7 +167,7 @@ $display->setColumns([
 
 ## Типы
 
-### Action 
+### Action
 `SleepingOwl\Admin\Display\Column\Action`
 
 Данный элемент используется для добавления Кнопки совершения какого либо действия с данными таблицы.
@@ -231,7 +231,7 @@ $table->getActions()
 
     SleepingOwl\Admin\Display\Column\Action::setIcon(string $icon): return self
 
-  
+
 ### Checkbox
 `SleepingOwl\Admin\Display\Column\Checkbox`
 
@@ -241,7 +241,7 @@ $table->getActions()
 AdminColumn::checkbox(),
 ```
 
- 
+
 ### CheckBox Editable
 `SleepingOwl\Admin\Display\Column\Editable\Checkbox`
 Данный элемент позволяет менять значение столбцов типа boolean прямо в таблице.
@@ -256,12 +256,12 @@ AdminColumnEditable::checkbox('visible','Видно', 'Не видно')->setLab
 Вы можете установить свой url для отправки данных и принятия их в Кастом контроллере
 
     SleepingOwl\Admin\Display\Column\Editable\Checkbox::setUrl(string $url): return self
-    
+
 #### setCheckedLabel
 Отображаемый текст в таблице при значении True
 
     SleepingOwl\Admin\Display\Column\Editable\Checkbox::setCheckedLabel(string $label): return self
-    
+
 #### setUncheckedLabel
 Отображаемый текст в таблице при значении False
 
@@ -356,7 +356,7 @@ AdminColumn::url('title', 'Title'),
 Установка атрибутов для ссылки
 
     SleepingOwl\Admin\Display\Column\Url::setLinkAttributes(array $linkAttributes): return self
-    
+
 
 ### Text
 `SleepingOwl\Admin\Display\Column\Text`
@@ -433,7 +433,7 @@ AdminColumn::lists('tags', 'Tags') // Вывод списка тегов из п
 ```php
 class Users extend Model {
     use \SleepingOwl\Admin\Traits\OrderableModel;
-    
+
     ...
 
     /**
@@ -459,11 +459,11 @@ class Users extend Model {
  - Редактирование элемента
  - Удаление
  - Восстановление
- 
+
 **Получение доступа к данному элементу**
 ```php
 $display = AdminDisplay::table()->...;
- 
+
 $display->getColumns()->getControlColumn(); // return SleepingOwl\Admin\Display\Column\Control
 ```
 
@@ -491,17 +491,20 @@ $button->hideText();
 // Добавление иконки
 $button->setIcon('fa fa-trash');
 
+// Добавление изображения
+$button->setImage('/images/foo.png');
+
 // Дополнительные HTML атрибуты для кнопки
 $button->setHtmlAttribute('class', 'btn-danger btn-delete');
 
 //Добавление атрибутов по условию
-//Атрибуты установленные в этом методе перекрывают атрибуты 
+//Атрибуты установленные в этом методе перекрывают атрибуты
 //установленные методами setHtmlAttribute/setHtmlAttributes
 $link->setAttributeCondition(function(Model $model) {
     if (isset($model->id)) {
         return ['class' => "btn-id-{$model->id}"];
     }
-    
+
     return ['class' => 'btn-danger'];
 });
 
@@ -522,13 +525,13 @@ $link = new \SleepingOwl\Admin\Display\ControlLink(function (\Illuminate\Databas
    return $model->title . ' (' . $model->images_count . ')'; // Генерация текста на кнопке
 }, 50);
 ```
- 
-**На данный момент существует два класса кнопок** 
+
+**На данный момент существует два класса кнопок**
  - `SleepingOwl\Admin\Display\ControlButton` - кнопка внутри формы для сабмита
  - `SleepingOwl\Admin\Display\ControlLink` - кнопка ссылка
- 
+
  Также вы можете добавлять свои классы кнопок, реализовав интерфейс `SleepingOwl\Admin\Contracts\Display\ControlButtonInterface`
- 
+
 
 <a name="relations"></a>    
 ## Работа с Relation данными
