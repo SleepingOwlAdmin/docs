@@ -410,6 +410,7 @@ AdminColumn::image('avatar', 'Avatar'),
 
 
 
+<a id="lists"></a>
 ### Lists
 `SleepingOwl\Admin\Display\Column\Lists`
 
@@ -422,6 +423,9 @@ AdminColumn::lists('roles.title', 'Roles') // Вывод списка ролей
 
 AdminColumn::lists('tags', 'Tags') // Вывод списка тегов из поля содержащего массив тегов
 ```
+
+#### setSortable (true)
+Принудительная сортировка списка по значению
 
 
 
