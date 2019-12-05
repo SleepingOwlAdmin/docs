@@ -489,6 +489,7 @@ AdminFormElement::select(string $key, string $label = null, array|Model|string $
 #### `setDisplay(string $titleKey): static`
 
 Указание поля модели, используемого в качестве заголовка
+*Примечание.* Обратите внимание, чтобы название ключа не совпадало с названием функций. К примеру, `value`
 
 <a name="select-setFetchColumns"></a>
 
