@@ -553,6 +553,17 @@ $field->setLoadOptionsQueryPreparer(function($element, $query) {
 
 <a name="select-ajax"></a>
 
+#### `setUsageKey($key)`
+
+Изменение ключа сохранения
+
+```php
+AdminFormElement::select('role_id', 'Роль', Role::class)
+  ->setUsageKey('new_id'),
+```
+
+<a name="select-usage-key"></a>
+
 ## Select Ajax
 **Отдельная благодарность https://github.com/hkd213**
 
