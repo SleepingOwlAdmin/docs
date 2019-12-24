@@ -29,9 +29,9 @@
 ```php
 $model->onDisplay(function () {
     $display = AdminDisplay::table();
-    
+
     ...
-    
+
     return $display;
 });
 ```
@@ -50,7 +50,7 @@ $display->setColumns([
   ...
 ]);
 
-// or 
+// or
 
 $display->getColumns()->push(
   AdminColumn::text('title')
@@ -69,7 +69,7 @@ $display->setColumnFilters([
   ...
 ]);
 
-// or 
+// or
 
 $display->getColumnFilters()->push(
   AdminColumnFilter::text()->setPlaceholder('Full Name')
@@ -97,7 +97,7 @@ $display->setApply(function ($query) {
     $query->orderBy('title', 'asc');
 });
 
-// or 
+// or
 
 $display->setApply([
   ...
@@ -172,17 +172,17 @@ $table->getActions()
 Получение списка всех расширений
 
     SleepingOwl\Admin\Display\Display::getExtensions() return \Illuminate\Support\Collection|array<mixed,\SleepingOwl\Admin\Contracts\Display\DisplayExtensionInterface>
-    
+
 #### with
 [Eager loading](https://laravel.com/docs/5.2/eloquent-relationships#eager-loading)
 
     SleepingOwl\Admin\Display\Display::with(array|array<mixed,string> $relations): return self
-    
+
 #### setTitle
 Указание заголовка для таблиц
 
     SleepingOwl\Admin\Display\Display::setTitle(string $title): return self
-    
+
 #### setNewEntryButtonText
 Указание заголовка кнопки добавления записи
 
@@ -192,7 +192,7 @@ $table->getActions()
 Изменения шаблона вывода данных
 
     SleepingOwl\Admin\Display\Display::setView(string|\Illuminate\View\View $view): return self
-    
+
 ```php
 $table->setView(view('display.custom.table.view'));
 
@@ -225,17 +225,17 @@ $actions->setPlacement(...);
 Получение объекта расширения
 
     SleepingOwl\Admin\Display\Display::getApply(): return SleepingOwl\Admin\Display\Extension\Apply
-    
+
 #### setApply
 
     SleepingOwl\Admin\Display\Display::setApply(array|...\Closure): return self
-    
+
 
 #### getScopes
 Получение объекта расширения
 
     SleepingOwl\Admin\Display\Display::getScopes(): return SleepingOwl\Admin\Display\Extension\Scopes
-    
+
 #### setScopes
 
     SleepingOwl\Admin\Display\Display::setScopes(array|...(string|array)): return self
@@ -244,17 +244,17 @@ $actions->setPlacement(...);
 Получение объекта расширения
 
     SleepingOwl\Admin\Display\Display::getFilters(): return SleepingOwl\Admin\Display\Extension\Filters
-    
+
 #### setFilters
 
     SleepingOwl\Admin\Display\Display::setFilters(array|...SleepingOwl\Admin\Contracts\FilterInterface): return self
-    
+
 #### setRepositoryClass
 Переопределение класса репозитория. (Класс должен реализовывать интерфейс `SleepingOwl\Admin\Contracts\RepositoryInterface`)
 
     SleepingOwl\Admin\Display\Display::setRepositoryClass(string $repository): return self
-    
-    
+
+
 ## table()
 `SleepingOwl\Admin\Display\DisplayTable`
 
@@ -262,21 +262,21 @@ $actions->setPlacement(...);
 Передача в URL кнопки создания новой записи дополнительных параметров
 
     SleepingOwl\Admin\Display\DisplayTable::setParameters(array $parameters): return self
-    
+
 #### setParameter
 Передача в URL кнопки создания новой записи дополнительного параметра
 
     SleepingOwl\Admin\Display\DisplayTable::setParameter(string $key, mixed $value): return self
-    
+
 #### paginate
 Вывод данных с постраничной навигацией
 
     SleepingOwl\Admin\Display\DisplayTable::paginate(integer $perPage, string $pageName): return self
-    
+
 ```php
 $table->paginate(20, 'custom_page');
 ```
-    
+
 #### disablePagination
 Отключение постраничной навигации
 
@@ -286,7 +286,7 @@ $table->paginate(20, 'custom_page');
 Проверка на использование постраничной навигации
 
     SleepingOwl\Admin\Display\DisplayTable::usePagination(): return boolean
-    
+
 #### getColumns
 Получение объекта расширения
 
@@ -301,27 +301,27 @@ $columns->setControlColumn(new \App\Display\Columns\CustomControlColumn());
 
 $columns->setView(...);
 ```
-    
+
 #### setColumns
 Указание списка столбцов для выводимой таблицы. В качестве аргумента можно передать как массив колонок так и объект `SleepingOwl\Admin\Contracts\ColumnInterface`
 
     SleepingOwl\Admin\Display\DisplayTable::setColumns(array|...SleepingOwl\Admin\Contracts\ColumnInterface): return self
-    
+
 ```php
 $table->setColumns(AdminColumn::text(...), AdminColumn::datetime(..));
 
 
 $table->setColumns([
-    AdminColumn::text(), 
+    AdminColumn::text(),
     AdminColumn::datetime(..)
 ]);
 ```
-    
+
 #### getColumnFilters
 Получение объекта расширения
 
     SleepingOwl\Admin\Display\DisplayTable::getColumnFilters(): return SleepingOwl\Admin\Display\Extension\ColumnFilters
-    
+
 ```php
 $filters = $table->geColumnFilters();
 
@@ -333,15 +333,15 @@ $filters->setPlacement(...);
 #### setColumnFilters
 
     SleepingOwl\Admin\Display\DisplayTable::setColumnFilters(array|...SleepingOwl\Admin\Contracts\ColumnFilterInterface): return self
-    
+
 #### setColumnsTotal
 Вывод строки в таблице для агрегации результатов:
 
     SleepingOwl\Admin\Display\DisplayTable::setColumns(array|...SleepingOwl\Admin\Contracts\ColumnInterface): return self
-    
+
 ```php
 $table->setColumnsTotal([
-        'Total: ', 
+        'Total: ',
         '<number_total>',
         ...
     ],
@@ -376,14 +376,24 @@ $display->getColumnsTotal()->setPlacement('table.footer')
 Указание параметров для таблицы
 
     SleepingOwl\Admin\Display\DisplayDatatables::setDatatableAttributes(array $datatableAttributes): return self
-    
+
 #### setOrder
 Указание правила сортировки данных. https://datatables.net/examples/basic_init/table_sorting.html
 
     SleepingOwl\Admin\Display\DisplayDatatables::setOrder(array $order): return self
-    
+
 ```php
 $display->setOrder([[1, 'asc']]);
+```
+
+#### setRowClassCallback
+Калбэк на добавление класса для строки дататейбл.
+
+```php
+$display->setRowClassCallback(function($model) {
+    $classes = ['active', 'success', 'info', 'warning', 'danger'];
+    return $classes[array_rand($classes)];
+})
 ```
 
 <a name="datatables-async"></a>
@@ -394,7 +404,7 @@ $display->setOrder([[1, 'asc']]);
 #### setName
 
     SleepingOwl\Admin\Display\DisplayDatatablesAsync::setName(string $name): return self
-    
+
 #### setDistinct
 
     SleepingOwl\Admin\Display\DisplayDatatablesAsync::setDistinct(boolean $distinct): return self
@@ -411,7 +421,7 @@ $display->setOrder([[1, 'asc']]);
 Для решения рассмотрим пример использования другой ветки https://github.com/gazsp/baum.
 За работу с каждым типом дерева отвечает отдельный класс https://github.com/LaravelRUS/SleepingOwlAdmin/tree/development/src/Display/Tree
 
-Для поддержки своего типа дерева необходимо добавить свой класс, для удобства его можно наследовать от SleepingOwl\Admin\Display\Tree\NestedsetType и реализовать те методы, которые он попросит. 
+Для поддержки своего типа дерева необходимо добавить свой класс, для удобства его можно наследовать от SleepingOwl\Admin\Display\Tree\NestedsetType и реализовать те методы, которые он попросит.
 
 В случае использования gazsp/baum метод получения всего дерева с сортировкой по левому индексу будет отличаться от etrepat/baum и наш класс будет выглядеть так:
 
@@ -471,12 +481,12 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
 Указание заголовка для документов
 
     SleepingOwl\Admin\Display\DisplayTree::setValue(string $value): return self
-    
+
 #### setParentField
 Указание ключа поля
 
     SleepingOwl\Admin\Display\DisplayTree::setParentField(string $parentField): return self
-    
+
 #### setOrderField
 Указание ключа поля
 
@@ -485,31 +495,31 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
 #### setRootParentId
 
     SleepingOwl\Admin\Display\DisplayTree::setRootParentId(null|string $rootParentId): return self
-    
+
 #### setParameters
 Передача в URL кнопки создания новой записи дополнительных параметров
 
     SleepingOwl\Admin\Display\DisplayTree::setParameters(array $parameters): return self
-    
+
 #### setParameter
 Передача в URL кнопки создания новой записи дополнительного параметра
 
     SleepingOwl\Admin\Display\DisplayTree::setParameter(string $key, mixed $value): return self
-    
+
 #### setReorderable
 
     SleepingOwl\Admin\Display\DisplayTree::setReorderable(boolean $reorderable): return self
-    
+
 #### getTree
 Получение объекта расширения (На данный момент не используется)
 
     SleepingOwl\Admin\Display\DisplayTree::getTree(): return SleepingOwl\Admin\Display\Extension\Tree
-    
+
 #### setRepositoryClass
 Переопределение класса репозитория. (Класс должен реализовывать интерфейс `SleepingOwl\Admin\Contracts\TreeRepositoryInterface`)
 
     SleepingOwl\Admin\Display\DisplayTree::setRepositoryClass(string $repository): return self
-    
+
 <a name="extend"></a>
 ## Расширение таблиц
 Класс `SleepingOwl\Admin\Display\Display` от которого наследуются все классы реализующие вывод данных позволяет расширять свое поведение. Расширения могут как влиять на вывод данных, модифицируя запрос перед получением списка записей из БД либо вывод HTML кода в шаблон.
@@ -527,7 +537,7 @@ Route::post('{adminModel}/reorder', ['as' => 'admin.display.tree.reorder', funct
 // Новый класс
 namespace App\Display;
 
-class CustomDisplay extends \SleepingOwl\Admin\Display\Display 
+class CustomDisplay extends \SleepingOwl\Admin\Display\Display
 {
     /**
      * Display constructor.
@@ -559,7 +569,7 @@ $table->setCustomExtension(...)
 ```
 
 Расширения делятся на два типа:
- - Модификация запроса 
+ - Модификация запроса
  - Вывод HTML кода в шаблон Display
     - При реализации интерфейса `Illuminate\Contracts\Support\Renderable` вывод будет выполнен в общем стеке расширений
     - При реализации интерфейса `SleepingOwl\Admin\Contracts\Display\Placable` вывод будет выполнен в месте указанном в методе `getPlacement`
@@ -600,7 +610,7 @@ $model->onCreateAndEdit(function($id = null) {
     $form = AdminForm::panel()->addHeader(
         AdminFormElement::text('title', 'Название галереи')->required(),
     );
-    
+
     if (!is_null($id)) { // Если галерея создана и у нее есть ID
         $photos = AdminDisplay::table()
             ->setModelClass(Photo::class) // Обязательно необходимо указать класс модели в которой хранятся фотографии
@@ -614,7 +624,7 @@ $model->onCreateAndEdit(function($id = null) {
                     ->setHtmlAttribute('class', 'text-center')
                     ->setWidth('100px')
             )
-        
+
         $form->addBody($photos);
     }
 });
