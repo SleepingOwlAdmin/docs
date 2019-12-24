@@ -100,6 +100,9 @@ Datatables auto-update progress bar color
 #### `breadcrumbs` (default: `true`)
 Enable/disable breadcrumbs
 
+#### `scroll_to_top` (default: `true`)
+Enable/disable scroll to top button
+
 #### `aliases`
 Package aliases
 
