@@ -304,7 +304,7 @@ AdminFormElement::images('some_images', "Some Label")->setSaveCallback(function 
 В анонимную функцию будет передан объект загружаемого файла `\Illuminate\Http\UploadedFile $file`
 
 ```php
-$field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
+$field->setUploadFileName(function(\Illuminate\Http\UploadedFile $file) {
     return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
 });
 ```
