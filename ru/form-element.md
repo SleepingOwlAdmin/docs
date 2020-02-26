@@ -417,6 +417,10 @@ AdminFormElement::images(string $key, string $label = null): static
 
 При сохранении преобразовать массив в json строку
 
+#### `draggable(boolean)` (по умолчанию `true`)
+
+Принудительное отключение сортировки изображений
+
 <a name="images-storeAsComaSeparatedValue"></a>
 
 #### `storeAsComaSeparatedValue(): static`
