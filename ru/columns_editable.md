@@ -196,7 +196,7 @@ AdminColumnEditable::date('date')->setLabel('Дата'),
 
 
 <a name="datetime-editable"></a>
-### Date Editable
+### DateTime Editable
 `SleepingOwl\Admin\Display\Column\Editable\Datetime`
 Данный элемент позволяет менять текстовое значение прямо в таблице. В форме редактирования появится datepicker с выбором дня и времени.
 
@@ -206,7 +206,7 @@ AdminColumnEditable::datetime('updated_at')->setLabel('Изменено'),
 
 
 <a name="select-editable"></a>
-### Date Editable
+### Select Editable
 `SleepingOwl\Admin\Display\Column\Editable\Select`
 Данный элемент позволяет менять текстовое значение прямо в таблице. В форме редактирования появится datepicker с выбором дня и времени.
 
