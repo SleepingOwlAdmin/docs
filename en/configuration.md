@@ -8,7 +8,14 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 ```
 
 ## Config file parapmeters
+- [Main](#main)
+- [Datatables](#datatables)
+- [Other](#other)
+- [ENV-settings](#env-settings)
+- [Autoupdate Datatables](#autoupdate)
 
+
+<a name="env-settings"></a>
 #### `title`
 String to display in page title
 
@@ -21,6 +28,7 @@ Admin mini logo for small display or minimized sidebar
 #### `menu_top` (only in @dev-development branch)
 Text displayed above the menu
 
+<a name="datatables"></a>
 #### `state_datatables` (only in @dev-development ветке) (default: `true`)
 DataTables state saving in localStorage
 
@@ -30,6 +38,7 @@ Keep tabs active
 #### `state_filters` (only in @dev-development ветке) (default: `false`)
 Saving datatables filter values
 
+<a name="other"></a>
 #### `url_prefix` (default: `'admin'`)
 Admin url preffix
 
@@ -39,8 +48,18 @@ Enable/disable admin on subdomain
 #### `middleware` (default: `['web', 'auth']`)
 Middleware that restrict the administrative module from unauthorized users
 
+<a name="env-settings"></a>
 #### `enable_editor` (default: `false`)
 Enabling and adding editing ENV settings
+
+#### `env_keys_readonly` (default: `false`)
+Makes the view-only key field
+
+#### `env_can_delete` (default: `true`)
+Allows/denies key/value deletion
+
+#### `env_can_add` (default: `true`)
+Allows/denies adding a key/value (if `env_keys_readonly == false`)
 
 #### `env_editor_url` (default: `'env/editor'`)
 Slug for editing env settings file
@@ -85,6 +104,7 @@ Default settings for Wysiwyg editors
 #### `datatables` (default: `[]`)
 Default datatables settings
 
+<a name="autoupdate"></a>
 #### `dt_autoupdate` (default: `false`)
 Enable/disable auto-update datatables
 

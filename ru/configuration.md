@@ -8,7 +8,14 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 ```
 
 ## Параметры конфигурации
+- [Главные](#main)
+- [Datatables](#datatables)
+- [Другие](#other)
+- [ENV-настройки](#env-settings)
+- [Автообновление Datatables](#autoupdate)
 
+
+<a name="env-settings"></a>
 #### `title`
 Строка для отображения в заголовке страницы
 
@@ -18,18 +25,20 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 #### `logo_mini`
 Логотип отображаемый в верхней панели при минимизированной боковой панели
 
-#### `menu_top` (только в @dev-development ветке)
+#### `menu_top` (только в v.6+)
 Текст отображаемый над меню
 
-#### `state_datatables` (только в @dev-development ветке) (default: `true`)
+<a name="datatables"></a>
+#### `state_datatables` (только в v.6+) (default: `true`)
 Сохранение состояния DataTables в localStorage
 
-#### `state_tabs` (только в @dev-development ветке) (default: `false`)
+#### `state_tabs` (только в v.6+) (default: `false`)
 Сохранение активности табов
 
-#### `state_filters` (только в @dev-development ветке) (default: `false`)
+#### `state_filters` (только в v.6+) (default: `false`)
 Сохранение значений фильтров в datatables
 
+<a name="other"></a>
 #### `url_prefix` (default: `'admin'`)
 Префикс адреса для административного модуля
 
@@ -39,8 +48,18 @@ $ php artisan vendor:publish --provider="SleepingOwl\Admin\Providers\SleepingOwl
 #### `middleware` (default: `['web', 'auth']`)
 Посредник, который ограничивают административный модуль от доступа неавторизованных пользователей
 
+<a name="env-settings"></a>
 #### `enable_editor` (default: `false`)
 Включение и добавление редактирования настроек
+
+#### `env_keys_readonly` (default: `false`)
+Делает поле ключей только для просмотра
+
+#### `env_can_delete` (default: `true`)
+Разрешает/запрещает удалять ключ/значение
+
+#### `env_can_add` (default: `true`)
+Разрешает/запрещает добавлять ключ/значение (при условии что `env_keys_readonly == false`)
 
 #### `env_editor_url` (default: `'env/editor'`)
 URL, для редактирования env файла настроек
@@ -85,6 +104,7 @@ URL, для редактирования env файла настроек
 #### `datatables` (default: `[]`)
 Настройки datatables по умолчанию
 
+<a name="autoupdate"></a>
 #### `dt_autoupdate` (default: `false`)
 Включение/отключение автообновления datatables
 
