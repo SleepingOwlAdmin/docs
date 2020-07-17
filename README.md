@@ -72,3 +72,13 @@ If you want to add a language pack for the administrative panel or for documenta
 - tr - 0%
 - uk - 55.56%
 - zh_CN - 55.56%
+
+
+## Need ADD
+
+- textaddon
+```php
+AdminFormElement::textaddon('price', 'Price')
+  ->setPlacement('after') //before
+  ->setAddon('<i class="fas fa-ruble-sign"></i>'),
+```

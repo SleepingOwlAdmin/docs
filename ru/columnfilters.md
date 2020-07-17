@@ -4,9 +4,9 @@
  - [Text](#filter-text)
  - [Date](#filter-date)
  - [Select](#filter-select)
- - [Range](#filter-range) 
+ - [Range](#filter-range)
 
-Фильтры столбцов используются для фильтрации списка. 
+Фильтры столбцов используются для фильтрации списка.
 
 В случае с `AdminDisplay::datatables()` поиск производится через API библиотеки `datatables`.
 
@@ -17,24 +17,24 @@ $display = AdminDisplay::datatables();
 
 $display->setColumnFilters([
   null, // Не ищем по первому столбцу
-  
+
   // Поиск текста
   AdminColumnFilter::text()->setPlaceholder('Full Name'),
-  
-  // Поиск по диапазону 
+
+  // Поиск по диапазону
   AdminColumnFilter::range()->setFrom(
       AdminColumnFilter::text()->setPlaceholder('From')
   )->setTo(
       AdminColumnFilter::text()->setPlaceholder('To')
   ),
-  
+
   // Поиск по диапазону дат
   AdminColumnFilter::range()->setFrom(
       AdminColumnFilter::date()->setPlaceholder('From Date')->setFormat('d.m.Y')
   )->setTo(
       AdminColumnFilter::date()->setPlaceholder('To Date')->setFormat('d.m.Y')
   ),
-  
+
   // Поиск по выпадающему списку значений
   AdminColumnFilter::select(new Country, 'Title')->setDisplay('title')->setPlaceholder('Select Country')->setColumnName('country_id')
 ]);
@@ -124,7 +124,7 @@ AdminColumnFilter::date()->setPlaceholder('Date')->setFormat('d.m.Y')
   static::setSearchFormat(string $searchFormat): return self
 ```
 
-### setWidth
+### setWidth (пока не доступно в v6+)
 Ширина инпута
 
 ```php
@@ -140,6 +140,10 @@ AdminColumnFilter::date()->setPlaceholder('Date')->setFormat('d.m.Y')
 <a name="filter-range"></a>
 ## Range
 Фильтрация данных по диазону.
+
+
+### setInline(true) (dev или v7.20 +)
+Выравнивание инпутов Range в одну строку
 
 
 ### setFrom
