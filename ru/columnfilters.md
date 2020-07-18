@@ -124,11 +124,18 @@ AdminColumnFilter::date()->setPlaceholder('Date')->setFormat('d.m.Y')
   static::setSearchFormat(string $searchFormat): return self
 ```
 
-### setWidth (пока не доступно в v6+)
-Ширина инпута
+### setWidth (доступно в v6+, вернулось в v7.20+)
+Минимальная ширина блока
+Доступно во всех фильтрах, в рейдж блоке и во внутренних частях рейндж блока
 
 ```php
-  static::setWidth(int $width): return self
+  static::setWidth(string $width): return self
+
+  AdminColumnFilter::text()
+    ->setPlaceholder('Full Name')
+    ->setColumnName('title')
+    ->setWidth('20rem') //min-width: 20rem / em / px / %
+    ->setOperator('contains'),
 ```
 
 
