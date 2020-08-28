@@ -139,6 +139,9 @@ $display = AdminDisplay::datatablesAsync()
 #### `scroll_to_top` (default: `true`)
 Включение/отключение кнопки перехода вверх на странице
 
+#### `scroll_to_bottom` (default: `true`)
+Включение/отключение кнопки перехода вниз страницы
+
 #### `aliases`
 Алиасы, которые инициализируются пакетом
 
