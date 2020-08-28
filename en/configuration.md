@@ -104,6 +104,9 @@ Default settings for Wysiwyg editors
 #### `datatables` (default: `[]`)
 Default datatables settings
 
+#### `datatables_highlight` (default: `false`)
+Highlight DataTables column on mouseover
+
 <a name="autoupdate"></a>
 #### `dt_autoupdate` (default: `false`)
 Enable/disable auto-update datatables

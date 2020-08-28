@@ -104,6 +104,9 @@ URL, для редактирования env файла настроек
 #### `datatables` (default: `[]`)
 Настройки datatables по умолчанию
 
+#### `datatables_highlight` (default: `false`)
+Подсветка столбцов DataTables при наведении мыши
+
 <a name="autoupdate"></a>
 #### `dt_autoupdate` (default: `false`)
 Включение/отключение автообновления datatables
