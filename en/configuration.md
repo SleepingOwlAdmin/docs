@@ -105,7 +105,19 @@ Default settings for Wysiwyg editors
 Default datatables settings
 
 #### `datatables_highlight` (default: `false`)
-Highlight DataTables column on mouseover
+Highlight DataTables column on mouseover (global on / off)
+To include on a specific datatable need add a class `.lightcolumn`
+
+```php
+//config
+'datatables_highlight' => true,
+
+//Section
+//.table-primary, .table-secondary, .table-info, .table-success, .table-warning, .table-danger
+//.table-light, .table-gray, .table-white, .table-black, .table-red, .table-dark
+$display = AdminDisplay::datatablesAsync()
+    ->setHtmlAttribute('class', 'table-primary table-striped table-hover lightcolumn');
+```
 
 <a name="autoupdate"></a>
 #### `dt_autoupdate` (default: `false`)

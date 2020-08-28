@@ -105,7 +105,20 @@ URL, для редактирования env файла настроек
 Настройки datatables по умолчанию
 
 #### `datatables_highlight` (default: `false`)
-Подсветка столбцов DataTables при наведении мыши
+Подсветка столбцов DataTables при наведении мыши (глобальное включение / выключение).
+Для включения на определенной datatable - добавить класс `.lightcolumn`
+
+```php
+//config
+'datatables_highlight' => true,
+
+//Section
+//.table-primary, .table-secondary, .table-info, .table-success, .table-warning, .table-danger
+//.table-light, .table-gray, .table-white, .table-black, .table-red, .table-dark
+$display = AdminDisplay::datatablesAsync()
+    ->setHtmlAttribute('class', 'table-primary table-striped table-hover lightcolumn');
+```
+
 
 <a name="autoupdate"></a>
 #### `dt_autoupdate` (default: `false`)
