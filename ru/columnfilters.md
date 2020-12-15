@@ -1,10 +1,10 @@
 # Фильтры столбцов
 
  - [API](#api)
- - [Text](#filter-text)
- - [Date](#filter-date)
- - [Select](#filter-select)
- - [Range](#filter-range)
+ - [Text](#text)
+ - [Date](#date)
+ - [Select](#select)
+ - [Range](#range)
 
 Фильтры столбцов используются для фильтрации списка.
 
@@ -19,30 +19,55 @@ $display->setColumnFilters([
   null, // Не ищем по первому столбцу
 
   // Поиск текста
-  AdminColumnFilter::text()->setPlaceholder('Full Name'),
+  AdminColumnFilter::text()
+    ->setPlaceholder('Full Name'),
 
   // Поиск по диапазону
   AdminColumnFilter::range()->setFrom(
-      AdminColumnFilter::text()->setPlaceholder('From')
+      AdminColumnFilter::text()
+        ->setPlaceholder('From')
   )->setTo(
-      AdminColumnFilter::text()->setPlaceholder('To')
+      AdminColumnFilter::text()
+        ->setPlaceholder('To')
   ),
 
   // Поиск по диапазону дат
   AdminColumnFilter::range()->setFrom(
-      AdminColumnFilter::date()->setPlaceholder('From Date')->setFormat('d.m.Y')
+      AdminColumnFilter::date()
+        ->setPlaceholder('From Date')
+        ->setFormat('d.m.Y')
   )->setTo(
-      AdminColumnFilter::date()->setPlaceholder('To Date')->setFormat('d.m.Y')
+      AdminColumnFilter::date()
+        ->setPlaceholder('To Date')
+        ->setFormat('d.m.Y')
   ),
 
   // Поиск по выпадающему списку значений
-  AdminColumnFilter::select(new Country, 'Title')->setDisplay('title')->setPlaceholder('Select Country')->setColumnName('country_id')
+  AdminColumnFilter::select(new Country, 'Title')
+    ->setDisplay('title')
+    ->setPlaceholder('Select Country')
+    ->setColumnName('country_id')
 ]);
 ```
 
 **При указании столбцов необходимо, чтобы кол-во столбцов поиска соответствовало кол-ву столбцов в таблице (если поиск по определенному столбцу не нужен, то необходимо передать `null`) и была соблюдена последовательность**
 
-<a name="api"></a>
+
+Так же фильтры можно вынести из таблицы:
+
+```php
+$display = AdminDisplay::datatables();
+
+$filters = [
+  //нужные фильтры
+];
+
+$display->setColumnFilters($filters);
+//любая доступная позиция
+$display->getColumnFilters()->setPlacement('card.heading');
+```
+
+
 ## API
 
 В классах фильтров столбцов используется трейт:
@@ -51,7 +76,7 @@ $display->setColumnFilters([
 
 ## Методы доступные во всех фильтрах
 
-<a name="set-operator"></a>
+
 ### setOperator
 Указание оператора, который будет использован при фильтрации. По умолчанию `equal`
 
@@ -79,7 +104,6 @@ $display->setColumnFilters([
   - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_IN = not_in` - не одно из (значения указываются через `,`)
 
 
-<a name="filter-text"></a>
 ## Text
 Фильтрация данных по строке
 
@@ -95,7 +119,6 @@ AdminColumnFilter::text()->setPlaceholder('Full Name')->setOperator(\SleepingOwl
 ```
 
 
-<a name="filter-date"></a>
 ## Date
 Фильтрация данных по дате
 
@@ -139,12 +162,38 @@ AdminColumnFilter::date()->setPlaceholder('Date')->setFormat('d.m.Y')
 ```
 
 
-<a name="filter-select"></a>
 ## Select
-Фильтрация данных по данным из выпадающего списка
+Фильтрация данных по данным из выпадающего списка.
+В опции можно указать массив или передать модель:
+
+```php
+  //массивом
+  AdminColumnFilter::select()
+    ->setOptions([
+      'sender' => 'Отправитель',
+      'recipient' => 'Получатель',
+    ])
+    ->setWidth('15rem')
+    ->setColumnName('payer_type')
+    ->setPlaceholder('Все'),
+
+  //моделью
+  AdminColumnFilter::select()
+    ->setModelForOptions(Sender::class)
+    ->setDisplay(function($filter){
+      return $filter->id . ' - ' . $filter->description;
+    })
+    ->setWidth('15rem')
+    ->setFetchColumns('description') //id и так выбирается
+    ->setColumnName('sender_id')
+    ->setLoadOptionsQueryPreparer(function($element, $query) {
+      //любая своя логика либо скоуп
+      return $query->active();
+    })
+    ->setPlaceholder('Все отправители'),
+```
 
 
-<a name="filter-range"></a>
 ## Range
 Фильтрация данных по диазону.
 
