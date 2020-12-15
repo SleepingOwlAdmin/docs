@@ -28,7 +28,7 @@ If you want to add a language pack for the administrative panel or for documenta
 * [x] - installation (Install)
 * [ ] - fast_start (Fast start)
 * [x] - configuration (Configuration)
-* [ ] - global (System Description)
+* [x] - global (System Description)
 * [ ] - update (Update guide)
 * [ ] - authentication (Authentication)
 * [ ] - routes_configuration (Routes Configuration)
