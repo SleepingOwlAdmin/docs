@@ -145,7 +145,7 @@ $field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
 
 $field->setUploadFileName(Closure $uploadPath); // Setting file name
 // Example
-$field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
+$field->setUploadFileName(function(\Illuminate\Http\UploadedFile $file) {
     // $file - file object
     return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
 });
@@ -177,7 +177,7 @@ $field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
 
 $field->setUploadFileName(Closure $uploadPath); // Setting file name
 // Example
-$field->setUploadPath(function(\Illuminate\Http\UploadedFile $file) {
+$field->setUploadFileName(function(\Illuminate\Http\UploadedFile $file) {
     // $file - file object
     return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
 });
