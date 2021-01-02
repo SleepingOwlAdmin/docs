@@ -119,7 +119,6 @@ $display = AdminDisplay::datatablesAsync()
     ->setHtmlAttribute('class', 'table-primary table-striped table-hover lightcolumn');
 ```
 
-
 <a name="autoupdate"></a>
 #### `dt_autoupdate` (default: `false`)
 Включение/отключение автообновления datatables
@@ -141,6 +140,13 @@ $display = AdminDisplay::datatablesAsync()
 
 #### `scroll_to_bottom` (default: `true`)
 Включение/отключение кнопки перехода вниз страницы
+
+#### `imageLazyLoad`
+Включение/отключение ленивой загрузки изображений в таблицах и дататаблицах
+
+#### `imageLazyLoadFile`
+Изображение по умолчанию для отображения не загруженных страниц. Можно указать пустое изображение через `data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==` либо указать путь относительно паблик папки
+
 
 #### `aliases`
 Алиасы, которые инициализируются пакетом

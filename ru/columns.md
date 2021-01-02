@@ -403,6 +403,25 @@ AdminColumn::email('email', 'Email'),
 AdminColumn::image('avatar', 'Avatar'),
 ```
 
+#### setLazyLoad
+Принудительное указание использования ленивой загрузки изображения в таблицах
+
+Если не указано - берется значение из конфига
+
+
+#### setAssetPrefix
+Указание префикса для отображения изображения из стороннего ресурса
+
+```php
+// $avatar = '/img/avatar.jpg';
+AdminColumn::image('avatar', 'Avatar')
+    ->setAssetPrefix('https://foo.bar/assets'),
+
+//выдаст изображение https://foo.bar/assets/img/avatar.jpg
+//без setAssetPrefix будет asset('/img/avatar.jpg')
+```
+
+
 #### setImageWidth
 Указание ширины изображения
 

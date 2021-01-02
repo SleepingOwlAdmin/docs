@@ -141,6 +141,13 @@ Enable/disable scroll to top page button
 #### `scroll_to_bottom` (default: `true`)
 Enable/disable scroll to bottom page button
 
+#### `imageLazyLoad`
+Enable/disable lazy loading images in tables and datatables
+
+#### `imageLazyLoadFile`
+The default image to display unloaded pages. You can specify an empty image through `data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==` or use path relative to the public folder
+
+
 #### `aliases`
 Package aliases
 
