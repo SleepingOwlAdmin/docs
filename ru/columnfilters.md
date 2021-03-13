@@ -86,29 +86,31 @@ $display->getColumnFilters()->setPlacement('card.heading');
 
 #### Список доступных операторов сравнения:
 
-  - `SleepingOwl\Admin\Contracts\FilterInterface::EQUAL = equal` - равно
-  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_EQUAL = not_equal` - не равно
-  - `SleepingOwl\Admin\Contracts\FilterInterface::LESS = less` - меньше
-  - `SleepingOwl\Admin\Contracts\FilterInterface::LESS_OR_EQUAL = less_or_equal` - меньше или равно
-  - `SleepingOwl\Admin\Contracts\FilterInterface::GREATER = greater` - больше
-  - `SleepingOwl\Admin\Contracts\FilterInterface::GREATER_OR_EQUAL = greater_or_equal` - больше или равно
-  - `SleepingOwl\Admin\Contracts\FilterInterface::BEGINS_WITH = begins_with` - начинается с
-  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_BEGINS_WITH = not_begins_with`- не начинается с
-  - `SleepingOwl\Admin\Contracts\FilterInterface::CONTAINS = contains` - содержит
-  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_CONTAINS = not_contains` - не содержит
-  - `SleepingOwl\Admin\Contracts\FilterInterface::ENDS_WITH = ends_with` - заканчивается на
-  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_ENDS_WITH = not_ends_with` - не заканчивается на
-  - `SleepingOwl\Admin\Contracts\FilterInterface::BETWEEN = between` - между (значения указываются через `,`)
-  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_BETWEEN = not_between` - не между (значения указываются через `,`)
-  - `SleepingOwl\Admin\Contracts\FilterInterface::IN = in` - одно из (значения указываются через `,`)
-  - `SleepingOwl\Admin\Contracts\FilterInterface::NOT_IN = not_in` - не одно из (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::EQUAL = equal` - равно
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::NOT_EQUAL = not_equal` - не равно
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::LESS = less` - меньше
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::LESS_OR_EQUAL = less_or_equal` - меньше или равно
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::GREATER = greater` - больше
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::GREATER_OR_EQUAL = greater_or_equal` - больше или равно
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::BEGINS_WITH = begins_with` - начинается с
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::NOT_BEGINS_WITH = not_begins_with`- не начинается с
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::CONTAINS = contains` - содержит
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::NOT_CONTAINS = not_contains` - не содержит
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::ENDS_WITH = ends_with` - заканчивается на
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::NOT_ENDS_WITH = not_ends_with` - не заканчивается на
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::BETWEEN = between` - между (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::NOT_BETWEEN = not_between` - не между (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::IN = in` - одно из (значения указываются через `,`)
+  - `SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::NOT_IN = not_in` - не одно из (значения указываются через `,`)
 
 
 ## Text
 Фильтрация данных по строке
 
 ```php
-AdminColumnFilter::text()->setPlaceholder('Full Name')->setOperator(\SleepingOwl\Admin\Contracts\FilterInterface::CONTAINS)
+AdminColumnFilter::text()
+  ->setPlaceholder('Full Name')
+  ->setOperator(\SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::CONTAINS)
 ```
 
 ### setPlaceholder
@@ -148,7 +150,7 @@ AdminColumnFilter::date()->setPlaceholder('Date')->setFormat('d.m.Y')
 ```
 
 ### setWidth (доступно в v6+, вернулось в v7.20+)
-Минимальная ширина блока
+__Минимальная__ ширина блока
 Доступно во всех фильтрах, в рейдж блоке и во внутренних частях рейндж блока
 
 ```php
