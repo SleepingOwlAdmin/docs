@@ -193,6 +193,18 @@ __Минимальная__ ширина блока
       return $query->active();
     })
     ->setPlaceholder('Все отправители'),
+
+  //другое
+  AdminColumnFilter::select()
+    ->setOptions([
+      'http://' => 'Внешние изображения',
+      'https://' => 'Внешние изображения 2',
+      'http' => 'Внешние все',
+    ])
+    ->setWidth('20rem')
+    ->setOperator(\SleepingOwl\Admin\Contracts\Display\Extension\FilterInterface::BEGINS_WITH)
+    ->setColumnName('image')
+    ->setPlaceholder('Все'),
 ```
 
 
