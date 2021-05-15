@@ -1,8 +1,8 @@
 - [CHANGELOG](changelog.md)
 
 - Введение
-    - [Установка](installation)
-    - [Быстрый старт](fast_start)
+    - [Установка](installation.md)
+    - [Быстрый старт](fast_start.md)
     - [Конфигурация](configuration)
     - [Описание работы системы](global)
     - [Руководство по обновлению](update)
