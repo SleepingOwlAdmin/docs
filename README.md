@@ -3,8 +3,8 @@
 * [Русска версия](https://sleepingowladmin.ru/#/ru/)
 * [English version](https://sleepingowladmin.ru/#/en/)
 
-* [Русска версия NEW](/ru/README.md)
-* [Русска версия NEW](/en/README.md)
+* [Русска версия NEW](/ru/)
+* [Русска версия NEW](/en/)
 
 
 ## Package translate status
