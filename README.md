@@ -3,6 +3,9 @@
 * [Русска версия](https://sleepingowladmin.ru/#/ru/)
 * [English version](https://sleepingowladmin.ru/#/en/)
 
+* [Русска версия NEW](/ru/README.md)
+* [Русска версия NEW](/en/README.md)
+
 
 ## Package translate status
 [Transifex](https://www.transifex.com/sleepingowl/sleepingowl-admin-panel/main/)
