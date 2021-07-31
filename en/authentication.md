@@ -88,3 +88,14 @@ And add this middleware `admin` to `config\sleeoping_owl.php`
 'middleware' => ['web', 'admin'],
 ...
 ```
+
+For this middlware, in migration `users`, need to add field `is_admin` for authentication. It should be `boolean false` but only for admin in the database put `true`
+
+```php
+Schema::create('users', function (Blueprint $table) {
+    ...
+    $table->boolean('is_admin')->default(false);
+    ...
+});
+
+```

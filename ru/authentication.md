@@ -96,4 +96,15 @@ class AdminAuthenticate
 ...
 ```
 
+Для этого `middleware`, в миграции `users`, необходимо добавить поле для авторизации, по дефолту должно быть `false`, но только для админа в базе поставить `true`
+
+```php
+Schema::create('users', function (Blueprint $table) {
+    ...
+    $table->boolean('is_admin')->default(false);
+    ...
+});
+
+```
+
 Подробнее о работе авторизации можно почитать в официальной [документации](https://laravel.com/docs/authentication).
