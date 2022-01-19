@@ -301,7 +301,7 @@ AdminSection::registerModel(Company::class, function (ModelConfiguration $model)
 Также чисто теоретически можно подписаться на событие следующим образом
 
 ```php
-Even::listen('sleeping_owl.section.updating:'.Company::class, function(ModelConfiguration $model, Company $company) {
+Event::listen('sleeping_owl.section.updating:'.Company::class, function(ModelConfiguration $model, Company $company) {
 
 });
 ```
