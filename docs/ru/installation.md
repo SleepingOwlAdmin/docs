@@ -86,5 +86,5 @@ $ php artisan sleepingowl:install
 
 
 ## Следующий шаг
-- [Конфигурация](configuration)
-- [Руководство по обновлению](update)
+- [Конфигурация](ru/configuration)
+- [Руководство по обновлению](ru/update)

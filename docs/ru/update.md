@@ -32,7 +32,6 @@ $ php artisan view:clear
 {
     "scripts": {
         "post-update-cmd": [
-            ...
             "php artisan sleepingowl:update"
         ]
     },

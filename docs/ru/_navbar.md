@@ -1,11 +1,11 @@
 - Демо
-  - [v5.6.12](https://demo.sleepingowladmin.ru)
-  - [bs4](http://bs4.sleepingowladmin.ru)
+  - [Demo](https://demo.sleepingowladmin.ru)
+  - [Demo bs4](http://bs4.sleepingowladmin.ru)
 - GitHub
   - [Админка](https://github.com/laravelrus/sleepingowladmin/)
-  - [Демо](https://github.com/SleepingOwlAdmin/demo)
-  - [Демо bs4](https://github.com/SleepingOwlAdmin/demo/tree/bs4)
-  - [Документация](https://github.com/SleepingOwlAdmin/docs/tree/new)
+  - [Demo GitHub](https://github.com/SleepingOwlAdmin/demo)
+  - [Demo bs4](https://github.com/SleepingOwlAdmin/demo/tree/bs4)
+  - [Docs](https://sleepingowladmin.github.io/docs)
 - Translations
-  - [:ru: Русский](/docs/ru/)
-  - [:uk: English](/docs/en/)
+  - [:ru: Русский](https://sleepingowladmin.github.io/docs/ru)
+  - [:uk: English](https://sleepingowladmin.github.io/docs/en)

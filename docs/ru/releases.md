@@ -50,5 +50,3 @@ GitHub: https://github.com/sleeping-owl/admin
 Документация на английском: http://sleeping-owl.github.io/en/Introduction.html
 
 
-----------------------------------------------------
-актуально 14.11.2016

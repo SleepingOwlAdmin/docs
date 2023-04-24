@@ -447,11 +447,11 @@ class Select extends ... implements \SleepingOwl\Admin\Contracts\Initializable
 
 
 ### В каких элементах используется
- - [Display](displays)
- - [DisplayColumn](columns)
- - [ColumnFilter](columnfilters)
- - [Form](form)
- - [FormElement](form-element)
+ - [Display](ru/displays)
+ - [DisplayColumn](ru/columns)
+ - [ColumnFilter](ru/columnfilters)
+ - [Form](ru/form)
+ - [FormElement](ru/form-element)
 
 
 ### API

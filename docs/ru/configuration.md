@@ -153,5 +153,5 @@ $display = AdminDisplay::datatablesAsync()
 
 
 ## Следующий шаг
-- [Описание работы системы](global)
-- [Авторизация](authentication)
+- [Описание работы системы](ru/global)
+- [Авторизация](ru/authentication)
