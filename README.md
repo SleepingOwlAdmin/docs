@@ -3,8 +3,8 @@
 * [Русска версия](https://sleepingowladmin.ru/#/ru/)
 * [English version](https://sleepingowladmin.ru/#/en/)
 
-* [Русска версия NEW](/ru/#/)
-* [Русска версия NEW](/en/#/)
+* [Русска версия NEW](/docs/ru/#/)
+* [Русска версия NEW](/docs/en/#/)
 
 
 ## Package translate status
@@ -24,7 +24,7 @@
 - uk - 0% [Help/edit translate](https://www.transifex.com/sleepingowl/sleepingowl-admin-panel/translate/#uk/main)
 - zh_CN - 100% [Help/edit translate](https://www.transifex.com/sleepingowl/sleepingowl-admin-panel/translate/#zh_CN/main)
 
-If you want to add a language pack for the administrative panel or for documentation, write in the [Support Team](https://t.me/prtcls) or [Daan](https://t.me/neodaan)
+If you want to add a language pack for the administrative panel or for documentation, write in the [Support Team](https://t.me/sleeping_owl) or [Daan](https://t.me/neodaan)
 
 
 ## Documentation status
@@ -63,18 +63,6 @@ If you want to add a language pack for the administrative panel or for documenta
 ## Documentation translate [status](https://www.transifex.com/sleepingowl/sleepingowl-admin-panel/)
 - en - 100%
 - ru - 100% (General)
-- fr - 0%
-- de - 0%
-- hi - 0%
-- it - 0%
-- ja - 0%
-- ko - 0%
-- pt_BR - 0%
-- sk - 0%
-- es - 0%
-- tr - 0%
-- uk - 55.56%
-- zh_CN - 55.56%
 
 
 ## Need ADD

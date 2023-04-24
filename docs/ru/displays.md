@@ -308,12 +308,12 @@ $columns->setView(...);
     SleepingOwl\Admin\Display\DisplayTable::setColumns(array|...SleepingOwl\Admin\Contracts\ColumnInterface): return self
 
 ```php
-$table->setColumns(AdminColumn::text(...), AdminColumn::datetime(..));
+$table->setColumns(AdminColumn::text(...), displays.mdAdminColumn::datetime(.));
 
 
 $table->setColumns([
     AdminColumn::text(),
-    AdminColumn::datetime(..)
+    displays.mdAdminColumn::datetime(.)
 ]);
 ```
 

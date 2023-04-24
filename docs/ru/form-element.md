@@ -305,7 +305,7 @@ AdminFormElement::images('some_images', "Some Label")->setSaveCallback(function 
 
 ```php
 $field->setUploadFileName(function(\Illuminate\Http\UploadedFile $file) {
-    return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
+    return $file->getClientOriginalName().'doctrine-meta'.$file->getClientOriginalExtension();
 });
 ```
 

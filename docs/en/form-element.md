@@ -135,6 +135,7 @@ AdminFormElement::file(string $key, string $label = null)
 ```
 
 #### Methods
+
 ```php
 $field->setUploadPath(Closure $uploadPath); // Setting file upload path
 // Example
@@ -147,7 +148,7 @@ $field->setUploadFileName(Closure $uploadPath); // Setting file name
 // Example
 $field->setUploadFileName(function(\Illuminate\Http\UploadedFile $file) {
     // $file - file object
-    return $file->getClientOriginalName().'.'.$file->getClientOriginalExtension();
+    return $file->getClientOriginalName().'doctrine-meta'.$file->getClientOriginalExtension();
 });
 
 $field->maxSize(int $size); // Setting max file size
