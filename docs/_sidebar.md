@@ -1,5 +1,31 @@
-- [CHANGELOG EN](en/changelog.md)
-- [CHANGELOG RU](ru/changelog.md)
+- [CHANGELOG](ru/changelog.md)
 
-* [RU](/docs/ru/#/)
-* [EN](/docs/en/#/)
+- Введение
+    - [Установка](ru/installation.md)
+    - [Быстрый старт](ru/fast_start.md)
+    - [Конфигурация](ru/configuration)
+    - [Описание работы системы](ru/global)
+    - [Руководство по обновлению](ru/update)
+<!-- - [Версии пакета](releases) -->
+- C чего начать
+    - [Авторизация](ru/authentication)
+    - [Конфигурация роутов](ru/routes_configuration)
+    - [Конфигурация меню](ru/menu_configuration)
+    - [Конфигурация модели](ru/model_configuration)
+    - [Конфигурация моделей через сервис провайдер](ru/model_configuration_section)
+    - [Локализация](ru/localization)
+- Основные элементы
+    - [Типы отображения данных](ru/displays)
+    - [Фильтры данных](ru/filters)
+    - [Столбцы](ru/columns)
+    - [Столбцы Editable](ru/columns_editable)
+    - [Фильтры столбцов](ru/columnfilters)
+    - [Формы](ru/form)
+    - [Элементы формы](ru/form-element)
+- Прочее
+    - [Javascript API](ru/javascript)
+    - [Управление ресурсами (Assets)](ru/assets)
+    - [Загрузка изображений](ru/image_upload)
+    - [HTML атрибуты](ru/html_attributes)
+    - [Виджеты](ru/widgets)
+    - [Создание элементов](ru/extend)
