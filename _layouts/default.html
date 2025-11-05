@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <style>
+      .wrapper {
+        display: flex;
+      }
+      .sidebar {
+        width: 260px;
+        padding-right: 20px;
+        border-right: 1px solid #eee;
+      }
+      .main-content {
+        flex: 1;
+        padding-left: 20px;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .sidebar ul ul {
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside class="sidebar">
+        <a href="/">Home</a>
+        {% if page.url contains '/ru/' %}
+          <h3>Русская версия</h3>
+          <ul>
+            {% for item in site.nav_ru %}
+              <li>
+                {% if item.url %}
+                  <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                {% else %}
+                  <strong>{{ item.title }}</strong>
+                {% endif %}
+                {% if item.children %}
+                  <ul>
+                    {% for child in item.children %}
+                      <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <h3>English Version</h3>
+          <ul>
+            {% for item in site.nav_en %}
+              <li>
+                {% if item.url %}
+                  <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                {% else %}
+                  <strong>{{ item.title }}</strong>
+                {% endif %}
+                {% if item.children %}
+                  <ul>
+                    {% for child in item.children %}
+                      <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </aside>
+      <section class="main-content">
+        {{ content }}
+      </section>
+    </div>
+  </body>
+</html>

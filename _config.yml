@@ -1,0 +1,124 @@
+
+title: SleepingOwl Admin Documentation
+description: Documentation for SleepingOwl Admin Panel
+theme: jekyll-theme-cayman
+
+nav_ru:
+  - title: CHANGELOG
+    url: /ru/changelog.html
+  - title: Введение
+    children:
+      - title: Установка
+        url: /ru/installation.html
+      - title: Быстрый старт
+        url: /ru/fast_start.html
+      - title: Конфигурация
+        url: /ru/configuration.html
+      - title: Описание работы системы
+        url: /ru/global.html
+      - title: Руководство по обновлению
+        url: /ru/update.html
+  - title: C чего начать
+    children:
+      - title: Авторизация
+        url: /ru/authentication.html
+      - title: Конфигурация роутов
+        url: /ru/routes_configuration.html
+      - title: Конфигурация меню
+        url: /ru/menu_configuration.html
+      - title: Конфигурация модели
+        url: /ru/model_configuration.html
+      - title: Конфигурация моделей через сервис провайдер
+        url: /ru/model_configuration_section.html
+      - title: Локализация
+        url: /ru/localization.html
+  - title: Основные элементы
+    children:
+      - title: Типы отображения данных
+        url: /ru/displays.html
+      - title: Фильтры данных
+        url: /ru/filters.html
+      - title: Столбцы
+        url: /ru/columns.html
+      - title: Столбцы Editable
+        url: /ru/columns_editable.html
+      - title: Фильтры столбцов
+        url: /ru/columnfilters.html
+      - title: Формы
+        url: /ru/form.html
+      - title: Элементы формы
+        url: /ru/form-element.html
+  - title: Прочее
+    children:
+      - title: Javascript API
+        url: /ru/javascript.html
+      - title: Управление ресурсами (Assets)
+        url: /ru/assets.html
+      - title: Загрузка изображений
+        url: /ru/image_upload.html
+      - title: HTML атрибуты
+        url: /ru/html_attributes.html
+      - title: Виджеты
+        url: /ru/widgets.html
+      - title: Создание элементов
+        url: /ru/extend.html
+
+nav_en:
+  - title: CHANGELOG
+    url: /en/changelog.html
+  - title: Information
+    children:
+      - title: Install
+        url: /en/installation.html
+      - title: Fast start
+        url: /en/fast_start.html
+      - title: Configuration
+        url: /en/configuration.html
+      - title: System Description
+        url: /en/global.html
+      - title: Update guide
+        url: /en/update.html
+  - title: Where to start
+    children:
+      - title: Authentication
+        url: /en/authentication.html
+      - title: Routes Configuration
+        url: /en/routes_configuration.html
+      - title: Menu Configuration
+        url: /en/menu_configuration.html
+      - title: Model Configuration
+        url: /en/model_configuration.html
+      - title: Configuration via Service Provider
+        url: /en/model_configuration_section.html
+      - title: Localization
+        url: /en/localization.html
+  - title: Main elements
+    children:
+      - title: Data Display Types
+        url: /en/displays.html
+      - title: Filters
+        url: /en/filters.html
+      - title: Columns
+        url: /en/columns.html
+      - title: Columns Editable
+        url: /en/columns_editable.html
+      - title: Columns filter
+        url: /en/columnfilters.html
+      - title: Forms
+        url: /en/form.html
+      - title: Forms Element
+        url: /en/form-element.html
+  - title: Other
+    children:
+      - title: Javascript API
+        url: /en/javascript.html
+      - title: Resource management (Assets)
+        url: /en/assets.html
+      - title: Image Upload
+        url: /en/image_upload.html
+      - title: HTML Attributes
+        url: /en/html_attributes.html
+      - title: Widgets
+        url: /en/widgets.html
+      - title: Create new elements
+        url: /en/extend.html
